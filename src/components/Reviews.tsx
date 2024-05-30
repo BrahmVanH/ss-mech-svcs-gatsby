@@ -1,9 +1,8 @@
-import '../assets/style/Reviews.css';
+import React from 'react';
+import '../styles/Reviews.css';
 
-export default function Reviews() {
-	return (
-		<div className='reviews'>
-			{/* <div className='sk-ww-thumbtack-reviews' data-embed-id='25419011'></div> */}
-		</div>
-	);
-}
+const Reviews: React.FC = () => {
+	return <div className='reviews'>{/* <div className='sk-ww-thumbtack-reviews' data-embed-id='25419011'></div> */}</div>;
+};
+
+export default Reviews;

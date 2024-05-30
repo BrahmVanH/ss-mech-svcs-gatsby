@@ -1,6 +1,7 @@
-import '../assets/style/Services.css';
+import React from 'react';
+import '../styles/Services.css';
 
-export default function Services() {
+const Services: React.FC = () => {
 	return (
 		<div className='services'>
 			<h2>Our Services</h2>
@@ -32,4 +33,6 @@ export default function Services() {
 			</div>
 		</div>
 	);
-}
+};
+
+export default Services;
