@@ -1,0 +1,13 @@
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-brand {
+  padding: 1rem;
+}
+
+.contact-info {
+  padding: 1rem;
+}

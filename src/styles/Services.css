@@ -1,0 +1,28 @@
+.services {
+	padding: 3rem 0;
+	width: 80%;
+	margin: 0 auto;
+}
+.content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 3rem;
+}
+.service-card {
+	width: 30%;
+	height: 30vh;
+	margin: 1rem;
+	padding: 3rem;
+	background-image: url('../images/rotated-square.svg');
+	background-repeat: no-repeat;
+	background-size: 80%;
+	background-position: center;
+	overflow: hidden;
+}
+
+.service-info {
+	width: 70%;
+	text-align: center;
+	margin: auto;
+}
