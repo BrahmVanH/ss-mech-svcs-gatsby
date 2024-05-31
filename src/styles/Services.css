@@ -6,12 +6,13 @@
 .content {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
 	margin-top: 3rem;
 }
+
 .service-card {
-	width: 30%;
-	height: 30vh;
+	/* width: 40%; */
+	/* height: 40vh; */
 	margin: 1rem;
 	padding: 3rem;
 	background-image: url('../images/rotated-square.svg');

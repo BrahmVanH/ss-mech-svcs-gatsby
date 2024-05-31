@@ -11,24 +11,23 @@ import 'swiper/css/navigation';
 import '../styles/Hero.css';
 
 //  Import images for slideshow
-import ac_compressor_jpeg from '../images/ac-compressor.jpeg';
+import ac_compressor_jpeg from '../images/ac_compressor.jpeg';
 import data_cable_wiring_jpeg from '../images/data-cable-wiring.jpeg';
 import dryer_repair_jpeg from '../images/dryer-repair.jpeg';
 import furnace_repair_jpeg from '../images/furnace-repair.jpeg';
 import React from 'react';
 
 const Hero: React.FC = () => {
-	const images = [ac_compressor_jpeg, data_cable_wiring_jpeg, dryer_repair_jpeg, furnace_repair_jpeg];
+	const images = [
+		{ alt: 'soldering an ac compressor', img: ac_compressor_jpeg },
+		{ alt: 'wiring ethernet cable terminal', img: data_cable_wiring_jpeg },
+		{ alt: 'person repairing dryer', img: dryer_repair_jpeg },
+		{ alt: 'repairing a furnace', img: furnace_repair_jpeg },
+	];
 
-	const slideImageStyle = (image: string) => {
-		return {
-			width: '100vw',
-			height: '100vh',
-			backgroundImage: `url(${image})`,
-			backgroundPosition: 'bottom',
-			backgroundSize: 'cover',
-			backgroundRepeat: 'no-repeat',
-		};
+	const slideImageStyle = {
+		width: '100vw !important',
+		// height: '100vh',
 	};
 
 	return (
@@ -41,8 +40,8 @@ const Hero: React.FC = () => {
 		<div className='hero-wrapper'>
 			<div className='hero'>
 				<div className='hero-text'>
-					<h2>South Shore Mechanical Services</h2>
-					<p>Providing mechanical solutions for your business</p>
+					<h1>South Shore Mechanical Services</h1>
+					<p>Providing commercial and residential handyman services to the Upper Peninsula of Michigan</p>
 				</div>
 			</div>
 			<Swiper
@@ -62,8 +61,7 @@ const Hero: React.FC = () => {
 				className='mySwiper'>
 				{images.map((image, index) => (
 					<SwiperSlide key={index}>
-						{/* <div style={slideImageStyle(image)} /> */}
-						<Img style={slideImageStyle(image)}  />
+						<img className='slide-image' src={image.img} alt={image.alt} />
 					</SwiperSlide>
 				))}
 			</Swiper>

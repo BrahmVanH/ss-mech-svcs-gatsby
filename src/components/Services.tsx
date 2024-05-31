@@ -29,6 +29,24 @@ const Services: React.FC = () => {
 						<h3>Electrical</h3>
 						<p>Our electrical services include wiring installation, repair, and maintenance. We also provide data cabling services.</p>
 					</div>
+					<div className='service-card'>
+						<div className='service-info'>
+							<h3>Appliance Repair</h3>
+							<p>We provide appliance repair services for all major brands. Our services include refrigerator repair, oven repair, and washer/dryer repair.</p>
+						</div>
+					</div>
+					<div className='service-card'>
+						<div className='service-info'>
+							<h3>TV Mounting</h3>
+							<p>Our TV mounting services include wall mounting, ceiling mounting, and stand assembly. We also provide cable management services.</p>
+						</div>
+					</div>
+					<div className='service-card'>
+						<div className='service-info'>
+							<h3>Ethernet & Data</h3>
+							<p>Our ethernet and data services include network installation, repair, and maintenance. We also provide data recovery services.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
