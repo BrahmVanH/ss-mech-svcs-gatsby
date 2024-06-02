@@ -1,8 +1,12 @@
-button {
+.get-quote-btn {
 	background-color: #6f7077;
 	color: white;
+	padding: 1rem;
+	border-radius: 10px;
 
-	&:hover {
-		scale: 1.1;
-	}
+}
+
+.get-quote-btn:hover {
+	scale: 2.1;
+	border: 1px solid black;
 }

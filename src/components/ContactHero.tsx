@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/Contact.css';
 
+import brand_transparent from '../images/odin_graceful_transparent.svg';
+
 const contactInfo = {
 	addressStreet: '908 Champion St.,',
 	addressCity: 'Marquette, MI 49855',
@@ -26,7 +28,7 @@ const ContactHero: React.FC = () => {
 			</a>
 			<div className='vertical-line'/>
 			<div className='contact-brand-container'>
-				<img src='/images/odin_graceful-transparent' alt='brand - dog stencil' />
+				<img src={brand_transparent} alt='brand - dog stencil' />
 				<div className='contact-brand-text'>
 					<h2>South Shore</h2>
 					<h3>Mechanical Services</h3>

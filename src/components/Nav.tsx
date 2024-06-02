@@ -6,6 +6,8 @@ import Hero from './Hero';
 import '../styles/Nav.css';
 import GetQuoteBtn from './GetQuoteBtn';
 
+import brand_image_transparent from '../images/odin_graceful_transparent.svg';
+
 const Nav: React.FC = () => {
 	const [isHome, setIsHome] = useState<boolean>(false);
 
@@ -28,10 +30,10 @@ const Nav: React.FC = () => {
 		<>
 			<nav ref={navRef}>
 				<div className='nav-brand-container'>
-					<img alt='brand badging - "stencil dog"' src='/images/odin-graceful-transparent.svg' />
+					<img alt='brand badging - "stencil dog"' src={brand_image_transparent} />
 					<div className='brand-text'>
-						<h3>South Shore</h3>
-						<p>Mechanical Services</p>
+						<h1>South Shore</h1>
+						<h1>Mechanical Services</h1>
 					</div>
 				</div>
 				<div className='nav-links-container'>

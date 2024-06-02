@@ -3,8 +3,13 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	color: #537076;
+	color: white;
 	z-index: 1000;
+	padding: 0.5rem;
+
+	button {
+		margin-right: 1rem;
+	}
 }
 
 .not-home-nav {
@@ -14,7 +19,7 @@ nav {
 }
 
 .home-nav {
-	background-color: rgba(54, 54, 54, 0.859);
+	background-color: #537076;
 }
 
 .nav-brand-container {
@@ -22,22 +27,31 @@ nav {
 	justify-content: center;
 	align-items: center;
 	margin-left: 2rem;
-	h3 {
-		margin: 1rem;
+
+	img {
+		max-height: 90px;
+		margin-right: 1rem;
 	}
 
+	
 	.brand-text {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: left;
+		align-items: flex-start;
 		text-align: left;
+		text-wrap: nowrap;
+		
+		h2 {
+			margin: 0rem;
+		}
+
 	}
 }
 
 .nav-links-container {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	width: 60%;
 	margin-right: 2rem;
@@ -51,4 +65,6 @@ nav {
 		}
 	}
 }
+
+
 

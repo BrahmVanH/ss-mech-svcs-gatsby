@@ -5,8 +5,8 @@ import '../styles/GetQuoteBtn.css';
 
 const GetQuoteBtn: React.FC = () => {
   return (
-    <Link to="/get-quote-form">
-      <h3>Get a Free Quote</h3>
+    <Link to="/get-quote-form" className="get-quote-btn">
+      <h2>Get a Free Quote</h2>
     </Link>
   )
 }

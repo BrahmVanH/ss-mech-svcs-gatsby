@@ -11,15 +11,41 @@
 }
 
 .services-card {
-	/* width: 40%; */
-	/* height: 40vh; */
-	margin: 1rem 0rem auto;
+	width: 80%;
+	margin: 1rem auto;
+	display: flex;
+
+	img {
+		width: 30%;
+	}
+}
+
+.services-card-text {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	h3 {
+		margin: 1rem auto;
+	}
+	p {
+		margin: 1rem auto;
+	}
+	.learn-more-container {
+		height: 30%;
+		width: min-content;
+		align-self: center;
+		.learn-more-circle {
+			padding: 0.5rem;
+			display: none;
+			background-color: #f2e1e1;
+			color: black;
+			border-radius: 100%;
+		}
+	}
 }
 
 .learn-more-circle {
-	display: none;
-	background-color: #f2e1e1;
-	color: black;
 }
 
 .services-card:hover {
@@ -37,15 +63,4 @@
 	width: 70%;
 	text-align: center;
 	margin: auto;
-}
-
-.services-card-text {
-	text-align: center;
-
-	h3 {
-		margin: 1rem auto;
-	}
-	p {
-		margin: 1rem auto;
-	}
 }

@@ -11,6 +11,11 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
+
+	img {
+		max-height: 90px;
+		margin-right: 1rem;
+	}
 }
 
 .contact-brand-text {
