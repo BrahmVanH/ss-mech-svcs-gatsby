@@ -10,20 +10,42 @@
 	margin-top: 3rem;
 }
 
-.service-card {
+.services-card {
 	/* width: 40%; */
 	/* height: 40vh; */
-	margin: 1rem;
-	padding: 3rem;
-	background-image: url('../images/rotated-square.svg');
-	background-repeat: no-repeat;
-	background-size: 80%;
-	background-position: center;
-	overflow: hidden;
+	margin: 1rem 0rem auto;
+}
+
+.learn-more-circle {
+	display: none;
+	background-color: #f2e1e1;
+	color: black;
+}
+
+.services-card:hover {
+	/* border: 1px solid gray; */
+	box-shadow: 0.25rem;
+	border-radius: 25px;
+	border-left: 3px solid #537076;
+
+	.learn-more-circle {
+		display: block !important;
+	}
 }
 
 .service-info {
 	width: 70%;
 	text-align: center;
 	margin: auto;
+}
+
+.services-card-text {
+	text-align: center;
+
+	h3 {
+		margin: 1rem auto;
+	}
+	p {
+		margin: 1rem auto;
+	}
 }

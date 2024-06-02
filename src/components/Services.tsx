@@ -2,51 +2,44 @@ import React from 'react';
 import '../styles/Services.css';
 
 const Services: React.FC = () => {
+	const [showLearnMore, setShowLearnMore] = React.useState<boolean>(false);
+
+	const learnMoreCircleRef = React.useRef<HTMLDivElement>(null);
+
+	const handleSetShowLearnMore = () => {
+		setShowLearnMore(!showLearnMore);
+	};
+
+	React.useEffect(() => {
+		if (showLearnMore) {
+			learnMoreCircleRef.current?.setAttribute('hidden', 'false');
+		} else {
+			learnMoreCircleRef.current?.setAttribute('hidden', 'true');
+		}
+	}, [showLearnMore]);
+
 	return (
-		<div className='services'>
-			<h2>Our Services</h2>
-			<div className='content'>
-				<div className='service-card'>
-					<div className='service-info'>
-						<h3>Heating</h3>
-						<p>We provide heating services for both residential and commercial properties. Our services include furnace repair, installation, and maintenance.</p>
-					</div>
+		<div className='services-container'>
+			{/* Switch to link with dynamic route to service page */}
+			<div onMouseEnter={handleSetShowLearnMore} onMouseLeave={handleSetShowLearnMore} className='services-card'>
+				<img alt='Plumbing for tankless hot water heater being serviced' src='/images/tankless-hotwater-landscape.jpg' />
+				<div className='services-card-text'>
+					<h3>Commercial Maintenance & Repair</h3>
+					<p>From basic repairs to long-term building maintenance, we will help make sure your commercial space...</p>
 				</div>
-				<div className='service-card'>
-					<div className='service-info'>
-						<h3>Cooling</h3>
-						<p>Our cooling services include air conditioning repair, installation, and maintenance. We also provide refrigeration services for commercial properties.</p>
-					</div>
+				<div hidden ref={learnMoreCircleRef} className='learn-more-circle'>
+					<p>Learn More</p>
 				</div>
-				<div className='service-card'>
-					<div className='service-info'>
-						<h3>Plumbing</h3>
-						<p>Our plumbing services include pipe repair, installation, and maintenance. We also provide drain cleaning services.</p>
-					</div>
+			</div>
+			{/* Switch to link with dynamic route to service page */}
+			<div onMouseEnter={handleSetShowLearnMore} onMouseLeave={handleSetShowLearnMore} className='services-card'>
+				<div className='services-card-text'>
+					<h3>Residential *Handywork*</h3>
+					<p>Leaky faucets to furnace repair, we offer the full range of home repair and improvement for both single- and multi-family homes</p>
 				</div>
-				<div className='service-card'>
-					<div className='service-info'>
-						<h3>Electrical</h3>
-						<p>Our electrical services include wiring installation, repair, and maintenance. We also provide data cabling services.</p>
-					</div>
-					<div className='service-card'>
-						<div className='service-info'>
-							<h3>Appliance Repair</h3>
-							<p>We provide appliance repair services for all major brands. Our services include refrigerator repair, oven repair, and washer/dryer repair.</p>
-						</div>
-					</div>
-					<div className='service-card'>
-						<div className='service-info'>
-							<h3>TV Mounting</h3>
-							<p>Our TV mounting services include wall mounting, ceiling mounting, and stand assembly. We also provide cable management services.</p>
-						</div>
-					</div>
-					<div className='service-card'>
-						<div className='service-info'>
-							<h3>Ethernet & Data</h3>
-							<p>Our ethernet and data services include network installation, repair, and maintenance. We also provide data recovery services.</p>
-						</div>
-					</div>
+				<img alt='close up of person working on clothing dryer' src='/images/dryer-repair-landscape.jpg' />
+				<div hidden ref={learnMoreCircleRef} className='learn-more-circle'>
+					<p>Learn More</p>
 				</div>
 			</div>
 		</div>

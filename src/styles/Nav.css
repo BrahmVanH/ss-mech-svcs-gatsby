@@ -3,48 +3,52 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	color: white;
-  z-index: 1000;
-  
+	color: #537076;
+	z-index: 1000;
 }
 
 .not-home-nav {
-  background-image: url('../images/furnace-repair.jpeg');
-  background-position-y: top;
-  background-size: cover;
-
+	background-image: url('../images/furnace-repair.jpeg');
+	background-position-y: top;
+	background-size: cover;
 }
 
 .home-nav {
-  background-color: rgba(54, 54, 54, 0.859);
+	background-color: rgba(54, 54, 54, 0.859);
 }
 
-.brand-container {
+.nav-brand-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  margin-left: 2rem;
+	margin-left: 2rem;
+	h3 {
+		margin: 1rem;
+	}
+
+	.brand-text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: left;
+		text-align: left;
+	}
 }
 
-.brand-container h3 {
-	margin: 1rem;
-}
-
-.nav-links {
+.nav-links-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 60%;
-  margin-right: 2rem;
+	margin-right: 2rem;
+	a {
+		color: white;
+		text-decoration: none;
+		padding: 1rem;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
-.nav-links a {
-	color: white;
-	text-decoration: none;
-	padding: 1rem;
-}
-
-.nav-links a:hover {
-	text-decoration: underline;
-}
-/* add on hover attribute to links */

@@ -1,0 +1,8 @@
+button {
+	background-color: #6f7077;
+	color: white;
+
+	&:hover {
+		scale: 1.1;
+	}
+}
