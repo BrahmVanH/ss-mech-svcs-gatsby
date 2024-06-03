@@ -1,23 +1,26 @@
 import React from 'react';
 import '../styles/Reviews.css';
-import scrape from '../utils/thumbtack_scraper';
+import { useQuery } from '@apollo/client';
+import { QUERY_THUMBTACK_REVIEWS } from '../lib/API/graphql';
 
 const Reviews: React.FC = () => {
 	const [thumbtackReviews, setThumbtackReviews] = React.useState<string | null>(null);
 
-	const getThumbtackReviews = React.useCallback(async () => {
-		const thumbtackReviews = await scrape();
-		if (!thumbtackReviews) {
-			console.log('Error fetching reviews');
-			// console.log(thumbtackReviews);
-		}
-		console.log('Thumbtack reviews:', thumbtackReviews);
-		// setThumbtackReviews(thumbtackReviews);
-	}, []);
+	const { data, error, loading } = useQuery(QUERY_THUMBTACK_REVIEWS);
 
 	React.useEffect(() => {
-		getThumbtackReviews();
-	}, []);
+		if (error) {
+			console.log('error: ', error);
+		}
+	}, [error]);
+
+	React.useEffect(() => {
+		if (data) {
+			console.log('data: ', data);
+		}
+	}, [data]);
+
+
 
 	React.useEffect(() => {
 		if (thumbtackReviews) {
