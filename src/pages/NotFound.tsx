@@ -8,7 +8,7 @@ import data_cable_install from '../images/data-cable-wiring.jpeg';
 const NotFoundPage: React.FC = () => {
 	return (
 		<main className='not-found'>
-			<div>
+			<div className='not-found-card'>
 				<img src={data_cable_install} alt='Data cable wiring' />
 				<div className='not-found-card-text'>
 					<h1>Sorry...</h1>

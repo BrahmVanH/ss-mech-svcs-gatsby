@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
 
-  div {
+  .not-found-card {
     display: flex;
     flex-direction: row;
     align-items: center;
