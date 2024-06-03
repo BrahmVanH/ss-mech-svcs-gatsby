@@ -6,10 +6,10 @@
   align-items: center;
 
   .not-found-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
 
     
     img {
