@@ -1,0 +1,41 @@
+.not-found {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .not-found-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    
+    img {
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .not-found-card-text {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      width: 50% ;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      /* font-size: 1rem; */
+      margin-bottom: 1rem;
+      width: 50%;
+      text-overflow: wrap;
+    }
+  }
+}
+
