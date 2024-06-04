@@ -4,6 +4,7 @@ import '../styles/Contact.css';
 
 import brand_transparent from '../images/odin_graceful_transparent.svg';
 import { PhoneIcon, ShopIcon, EnvelopeIcon, PinIcon, Icon } from 'evergreen-ui';
+import { Link } from 'gatsby';
 const contactInfo = {
 	addressStreet: '908 Champion St.,',
 	addressCity: 'Marquette, MI 49855',
@@ -21,20 +22,22 @@ const ContactHero: React.FC = () => {
 		<div className='contact-container'>
 			<div className='contact-info'>
 				<h2>Contact Us</h2>
-				<div className='contact-item'>
-					<Icon style={{ marginTop: '1rem' }} icon={PhoneIcon} size={20} />
-					<p>{contactInfo.phone}</p>
-				</div>
-				<div className='contact-item'>
-					<Icon style={{ marginTop: '1rem' }} icon={EnvelopeIcon} size={20} />
-					<p>{contactInfo.email}</p>
-				</div>
-				<div className='contact-item'>
-					<Icon style={{ marginTop: '1rem' }} icon={ShopIcon} size={20} />
-					<div className='contact-info-address-container'>
-						<p>{contactInfo.addressStreet} </p>
-						<p>{contactInfo.addressCity}</p>
-					</div>
+				<div className='contact-links'>
+					<Link target='_blank' rel='noreferrer' to={`tel:${contactInfo.phone}`} className='contact-item'>
+						<Icon style={{ marginTop: '1rem' }} icon={PhoneIcon} size={20} />
+						<p>{contactInfo.phone}</p>
+					</Link>
+					<Link target='_blank' rel='noreferrer' to={`mailto:${contactInfo.email}`} className='contact-item'>
+						<Icon style={{ marginTop: '1rem' }} icon={EnvelopeIcon} size={20} />
+						<p>{contactInfo.email}</p>
+					</Link>
+					<Link target='_blank' rel='noreferrer' to={'https://maps.app.goo.gl/vsUYpBh3CToxdn3D7'} className='contact-item'>
+						<Icon style={{ marginTop: '1rem' }} icon={ShopIcon} size={20} />
+						<div className='contact-info-address-container'>
+							<p>{contactInfo.addressStreet} </p>
+							<p>{contactInfo.addressCity}</p>
+						</div>
+					</Link>
 				</div>
 			</div>
 

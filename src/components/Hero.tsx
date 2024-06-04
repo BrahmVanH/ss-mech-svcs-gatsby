@@ -17,8 +17,11 @@ import data_cable_wiring_jpeg from '../images/data-cable-wiring.jpeg';
 import dryer_repair_jpeg from '../images/dryer-repair.jpeg';
 import furnace_repair_jpeg from '../images/furnace-repair.jpeg';
 import map_up_mqt_county from '../images/map_upper_peninsula_mqt_county_teal.png';
+import multimeter_test_mobile from '../images/multi-meter-testing-iphone-res.jpg';
+import { ArrowDownIcon, CircleArrowDownIcon } from 'evergreen-ui';
 
 const Hero: React.FC = () => {
+	const [renderMobileView, setRenderMobileView] = React.useState<boolean>(false);
 	const images = [
 		{ alt: 'soldering an ac compressor', img: ac_compressor_jpeg },
 		{ alt: 'wiring ethernet cable terminal', img: data_cable_wiring_jpeg },
@@ -26,23 +29,31 @@ const Hero: React.FC = () => {
 		{ alt: 'repairing a furnace', img: furnace_repair_jpeg },
 	];
 
+	const mobileHeroImage = {
+		alt: 'wires in an electrical panel',
+		img: multimeter_test_mobile,
+	};
+
 	const slideImageStyle = {
 		width: '100vw !important',
 		// height: '100vh',
 	};
 
 	return (
-		// <div className='hero'>
-		// 	<div className='hero-text'>
-		// 		<h1>South Shore Mechanical Services</h1>
-		// 		<p>Providing mechanical solutions for your business</p>
-		// 	</div>
-		// </div>
 		<div className='hero-wrapper'>
 			<div className='hero'>
+				<img className='hero-img-mobile' src={mobileHeroImage.img} alt={mobileHeroImage.alt} />
+				<div className='hero-text-mobile'>
+					<h1>South Shore Mechanical Services</h1>
+					<p>Commercial & Residential</p>
+					<div className='arrow-icon-container'>
+
+					<ArrowDownIcon color={'#fff'} size={48} />
+					</div>
+				</div>
 				<div className='hero-text'>
 					<img src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />
-					<p>Providing commercial and residential handyman services to the Upper Peninsula of Michigan</p>
+					<p>Providing commercial and residential mechanical services to the Upper Peninsula of Michigan</p>
 				</div>
 			</div>
 			<Swiper
@@ -59,7 +70,7 @@ const Hero: React.FC = () => {
 				}}
 				navigation={true}
 				modules={[Autoplay, Pagination, Navigation]}
-				className='mySwiper'>
+				className='mySwiper hero-swiper'>
 				{images.map((image, index) => (
 					<SwiperSlide key={index}>
 						<img className='slide-image' src={image.img} alt={image.alt} />
