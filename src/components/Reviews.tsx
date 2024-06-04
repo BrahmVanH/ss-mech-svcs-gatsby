@@ -35,9 +35,7 @@ const Reviews: React.FC = () => {
 
 	return (
 		<div className='thumbtack-reviews-wrapper'>
-			{loading ? (
-				<p>Loading...</p>
-			) : (
+			{!loading && thumbtackReviews.length > 0 ? (
 				<div className='thumbtack-reviews'>
 					<div className='thumbtack-reviews-header'>
 						<ThumbtackIcon />
@@ -59,7 +57,8 @@ const Reviews: React.FC = () => {
 						</div>
 					))}
 
-					<Link className='read-more-link'
+					<Link
+						className='read-more-link'
 						to='https://www.thumbtack.com/mi/marquette/handyman/south-shore-mechanical-services/service/508465315204210696?category_pk=109125193401647362&from_static_sp=true&zip_code=49855'
 						target='_blank'
 						rel='noreferrer'>
@@ -67,6 +66,8 @@ const Reviews: React.FC = () => {
 						<ArrowRightIcon style={{ margin: '0rem 0.5rem' }} size={14} />
 					</Link>
 				</div>
+			) : (
+				<></>
 			)}
 		</div>
 	);
