@@ -1,83 +1,100 @@
+.thumbtack-reviews-wrapper {
+	width: 80%;
+	font-family: Mark, Avenir, Helvetica, Arial, sans-serif !important;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem 2rem;
+}
+
 .thumbtack-reviews {
-  width: 100%;
-  font-family: Mark, Avenir, Helvetica, Arial, sans-serif !important;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 2rem;
+  width: 100%;
+
 }
 
 .thumbtack-reviews-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 1rem;
 
-  h2 {
-    margin-left: 1rem;
-  }
-
+	h2 {
+		margin-left: 1rem;
+	}
 }
 
 .thumbtack-review-card {
-  width: 100%;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 1rem 0rem;
-  border-bottom: 1px solid #d3d4d5;
-  margin-bottom: 1rem;
+	width: 100%;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding: 1rem 0rem;
+	border-bottom: 1px solid #d3d4d5;
+	margin-bottom: 1rem;
 }
 
 .thumbtack-review-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
 }
 
 .customer-info {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 
-  img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 0rem;
-  
-  }
-
-} 
+	img {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		margin-right: 0rem;
+	}
+}
 
 .customer-name-and-rating {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 1rem;
-  font-weight: bolder;
-
-
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-left: 1rem;
+	font-weight: bolder;
 }
 
 .review-date {
-  font-size: 0.8rem;
-  color: #7a7a7a;
-  padding-bottom: 1rem;
+	font-size: 0.8rem;
+	color: #7a7a7a;
+	padding-bottom: 1rem;
 }
 
 .sk-ww-thumbtack-reviews {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust column width as needed */
-  gap: 20px; /* Add spacing between cards */
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust column width as needed */
+	gap: 20px; /* Add spacing between cards */
 }
 
-.read-more {
-  width: 100%;
-  text-align: right;
-  text-decoration: underline;
-  font-size: 14px;
+.read-more-link {
+	background-color: #6f7077;
+	color: white;
+	border-radius: 10px;
+	padding: 10px;
+	align-self: flex-end;
+	margin-right: 1rem;
+	display: flex;
+	justify-content: flex-end;
+	text-align: right;
+	font-size: 12px;
+	line-height: 14px;
+
+}
+
+@media screen and (min-width: 768px) {
+
+	.read-more:hover {
+		scale: .95;
+	}
 }

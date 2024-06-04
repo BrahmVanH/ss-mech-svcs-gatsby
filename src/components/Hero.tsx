@@ -41,7 +41,6 @@ const Hero: React.FC = () => {
 		<div className='hero-wrapper'>
 			<div className='hero'>
 				<div className='hero-text'>
-					<h1>South Shore Mechanical Services</h1>
 					<img src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />
 					<p>Providing commercial and residential handyman services to the Upper Peninsula of Michigan</p>
 				</div>

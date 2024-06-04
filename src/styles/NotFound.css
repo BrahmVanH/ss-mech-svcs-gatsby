@@ -39,3 +39,21 @@
   }
 }
 
+.go-back-link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  p {
+    line-height: 14px;
+    margin-left: 0.5rem;
+  }
+
+  svg {
+    margin-bottom: 1rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

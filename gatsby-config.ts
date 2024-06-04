@@ -29,7 +29,7 @@ const config: GatsbyConfig = {
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
-				icon: 'src/images/icon.png',
+				icon: 'src/images/odin_graceful_transparent.jpg',
 			},
 		},
 		'gatsby-plugin-sharp',

@@ -1,4 +1,4 @@
-.services {
+.services-container {
 	padding: 3rem 0;
 	width: 90%;
 	margin: 0 auto;
@@ -15,6 +15,8 @@
 	margin: 1rem auto;
 	display: flex;
 	cursor: pointer;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.258);
+	border-radius: 20px;
 
 	img {
 		width: 45%;
@@ -22,7 +24,6 @@
 
 	p {
 		width: 75%;
-		
 	}
 }
 
@@ -31,11 +32,13 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	h3 {
+	h2 {
+		font-size: 1.5rem;
 		margin: 1rem auto;
 	}
 	p {
 		margin: 1rem auto;
+		font-size: 15px;
 	}
 	.learn-more-container {
 		height: 1px;
@@ -52,7 +55,6 @@
 	border-radius: 0 20px 20px 0;
 }
 
-
 .service-info {
 	width: 70%;
 	text-align: center;
@@ -62,8 +64,7 @@
 	.services-card:hover {
 		/* border: 3px solid transparent; */
 		scale: 1.05;
-		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.258);
-		border-radius: 20px;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.258);
 		transition: 0.5s;
 	}
 }

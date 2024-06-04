@@ -5,13 +5,20 @@
 	align-items: center;
 	text-align: left;
 	width: 100%;
+	background-color: #0000002c;
+}
+
+.thumbtack-badge {
+	margin: 0rem;
 }
 
 .contact-brand-container {
 	display: flex;
-	justify-content: flex-end;
-	align-items: space-between;
+	justify-content: center;
+	align-items: center;
 	margin-right: 1rem;
+	/* width: min-content; */
+
 	img {
 		max-height: 125px;
 		margin-right: 0.5rem;
@@ -22,7 +29,7 @@
 	padding: 1rem;
 	width: min-content;
 
-	h1 {
+	h2 {
 		line-height: 2rem;
 		font-size: 2rem;
 		width: min-content;
@@ -36,23 +43,47 @@
 
 .contact-info {
 	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	line-height: 24px;
 	h2 {
+		font-size: 2rem;
 		margin-bottom: 1rem;
 	}
 
-	p {
-		margin-top: 1rem;
+	.contact-item {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		p {
+			margin: 1rem 0rem 0rem 1rem;
+		}
+
+		svg {
+			color: #537076;
+		}
 	}
 }
 
 .contact-info-address-container {
-	margin-top: 1rem;
+	margin: 1rem 0rem 0rem 1rem;
+
+	p {
+		margin: 0rem !important;
+	}
 }
 
 .vertical-line {
-	width: 3px;
+	padding: 7.5% 0rem;
+
+	width: 1px;
 	height: 90%;
-	background-color: #00000027;
-	margin: 2rem auto;
-	
+	background-color: #000000;
+	margin: 2rem 2rem;
+	align-self: center;
+	justify-self: center;
 }

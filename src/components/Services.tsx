@@ -15,16 +15,16 @@ const Services: React.FC = () => {
 			<div className='services-card'>
 				<img className='img-left-border-radius-20' alt='Plumbing for tankless hot water heater being serviced' src={tanklessHotWater} />
 				<div className='services-card-text'>
-					<h3>Commercial Maintenance & Repair</h3>
+					<h2>Commercial Maintenance & Repair</h2>
 
-					<p>From basic repairs to long-term building maintenance, we will help make sure your commercial space...</p>
+					<p>From basic repairs to long-term building maintenance, we will help make managing your commercial space as easy as ever.</p>
 				</div>
 			</div>
 			{/* Switch to link with dynamic route to service page */}
 			<div className='services-card '>
 				<div className='services-card-text'>
-					<h3>Residential *Handywork*</h3>
-					<p>Leaky faucets to furnace repair, we offer the full range of home repair and improvement for both single- and multi-family homes</p>
+					<h2>Home Repairs and Services</h2>
+					<p>We offer a wide range of services to help home owners and property managers alike keep their guests and their families comfortable and safe.</p>
 				</div>
 				<img className='img-right-border-radius-20' alt='close up of person working on clothing dryer' src={dryerService} />
 			</div>

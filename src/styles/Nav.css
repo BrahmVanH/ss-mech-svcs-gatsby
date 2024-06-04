@@ -20,7 +20,7 @@ nav {
 }
 
 .home-nav {
-	background-color: #537076;
+	background-color: #537076ce;
 }
 
 .nav-brand-container {
@@ -50,7 +50,8 @@ nav {
 
 .nav-links-container {
 	display: flex;
-	justify-content: center;
+	/* justify-content: center; */
+	justify-content: flex-end;
 	align-items: center;
 	width: 60%;
 	margin-right: 2rem;
@@ -62,10 +63,12 @@ nav {
 		padding: 1rem;
 
 		&:hover {
-			border-bottom: 2px solid white;
+			width: min-content;
+			border-bottom: 2px solid rgba(255, 255, 255, 0.248);
 		}
 	}
-	.nav-link-underline-active {
-		border-bottom: 2px solid white;
-	}
+}
+
+.active-nav-link a {
+	border-bottom: 2px solid white !important;
 }

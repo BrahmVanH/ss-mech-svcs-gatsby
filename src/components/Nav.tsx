@@ -2,9 +2,9 @@ import { Link } from 'gatsby';
 
 import React from 'react';
 import Hero from './Hero';
+import GetQuoteBtn from './GetQuoteBtn';
 
 import '../styles/Nav.css';
-import GetQuoteBtn from './GetQuoteBtn';
 
 import brand_image_transparent from '../images/odin_graceful_transparent.svg';
 
@@ -23,31 +23,40 @@ const Nav: React.FC = () => {
 		if (window.location.pathname === '/' || window.location.pathname === ``) {
 			setIsHome(true);
 			navRef.current?.classList.add('home-nav');
-			navRef.current?.classList.remove('about-nav');
-			// homeRouteRef.current?.classList.add('nav-link-underline-active');
-			homeRouteRef.current?.childNodes[0].
-		} else if (window.location.pathname === `${devUri}/about`) {
+			navRef.current?.classList.remove('not-home-nav');
+			homeRouteRef.current?.classList.add('active-nav-link');
+			aboutRouteRef.current?.classList.remove('active-nav-link');
+			contactRouteRef.current?.classList.remove('active-nav-link');
+		} else if (window.location.pathname === `/about`) {
 			setIsHome(false);
-			// homeRouteRef.current?.classList.remove('nav-link-underline-active');
-			// aboutRouteRef.current?.classList.add('nav-link-underline-active');
-			// contactRouteRef.current?.classList.remove('nav-link-underline-active');
-			aboutRouteRef.current?.childNodes[0].classList.add('nav-link-underline-active');
-			contactRouteRef.current?.childNodes[0].classList.remove('nav-link-underline-active');
-
-		} else if (window.location.pathname === `${devUri}/contact`) {
+			navRef.current?.classList.add('not-home-nav');
+			navRef.current?.classList.remove('home-nav');
+			aboutRouteRef.current?.classList.add('active-nav-link');
+			homeRouteRef.current?.classList.remove('active-nav-link');
+			contactRouteRef.current?.classList.remove('active-nav-link');
+		} else if (window.location.pathname === `/contact`) {
 			setIsHome(false);
-			homeRouteRef.current?.classList.remove('nav-link-underline-active');
-			aboutRouteRef.current?.classList.remove('nav-link-underline-active');
-			contactRouteRef.current?.classList.add('nav-link-underline-active');
+			navRef.current?.classList.add('not-home-nav');
+			navRef.current?.classList.remove('home-nav');
+			contactRouteRef.current?.classList.add('active-nav-link');
+			homeRouteRef.current?.classList.remove('active-nav-link');
+			aboutRouteRef.current?.classList.remove('active-nav-link');
 		}
+	
 	}, []);
 
 	// React.useEffect(() => {
 	// 	if (isHome) {
 	// 		navRef.current?.classList.add('home-nav');
-	// 		navRef.current?.classList.remove('about-nav');
+	// 		navRef.current?.classList.remove('not-home-nav');
+	// 	} else {
+	// 		navRef.current?.classList.add('not-home-nav');
+	// 		navRef.current?.classList.remove('home-nav');
+		
 	// 	}
 	// }, [isHome]);
+
+
 
 	return (
 		<>
@@ -64,10 +73,10 @@ const Nav: React.FC = () => {
 						<Link to='/'>Home</Link>
 					</div>
 					<div ref={aboutRouteRef}>
-						<Link to='/about'>About</Link>
+						<Link to='/NotFound'>About</Link>
 					</div>
 					<div ref={contactRouteRef}>
-						<Link to='/contact'>Contact</Link>
+						<Link to='/NotFound'>Contact</Link>
 					</div>
 				</div>
 				<GetQuoteBtn />
