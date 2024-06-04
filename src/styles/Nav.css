@@ -13,6 +13,12 @@ nav {
 	}
 }
 
+@media screen and (max-width: 576px) {
+	nav {
+		display: none;
+	}
+}
+
 .not-home-nav {
 	background-image: url('../images/furnace-repair.jpeg');
 	background-position-y: top;

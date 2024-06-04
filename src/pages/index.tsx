@@ -12,6 +12,7 @@ const Home: React.FC = () => {
 		<Layout>
 			<div className='home'>
 				<Services />
+
 				<Reviews />
 				<ContactHero />
 			</div>
