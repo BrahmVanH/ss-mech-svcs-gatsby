@@ -3,10 +3,13 @@
 	color: white;
 	padding: 1rem;
 	border-radius: 10px;
-
+	border: 1px solid black;
 }
 
-.get-quote-btn:hover {
-	scale: 2.1;
-	border: 1px solid black;
+@media screen and (min-width: 768px) {
+
+	.get-quote-btn:hover {
+		scale: 1.05;
+		border: 0.5px solid black;
+	}
 }

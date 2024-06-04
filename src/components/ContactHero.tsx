@@ -1,4 +1,5 @@
 import React from 'react';
+
 import '../styles/Contact.css';
 
 import brand_transparent from '../images/odin_graceful_transparent.svg';
@@ -30,8 +31,8 @@ const ContactHero: React.FC = () => {
 			<div className='contact-brand-container'>
 				<img src={brand_transparent} alt='brand - dog stencil' />
 				<div className='contact-brand-text'>
-					<h2>South Shore</h2>
-					<h3>Mechanical Services</h3>
+					<h1>South Shore</h1>
+					<h1>Mechanical Services</h1>
 					<p>This should be a few sentences about my mission and purpose and statement and stuff</p>
 				</div>
 			</div>

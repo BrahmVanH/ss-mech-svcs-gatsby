@@ -1,6 +1,6 @@
 .services {
 	padding: 3rem 0;
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 }
 .content {
@@ -11,12 +11,18 @@
 }
 
 .services-card {
-	width: 80%;
+	width: 95%;
 	margin: 1rem auto;
 	display: flex;
+	cursor: pointer;
 
 	img {
-		width: 30%;
+		width: 45%;
+	}
+
+	p {
+		width: 75%;
+		
 	}
 }
 
@@ -32,35 +38,32 @@
 		margin: 1rem auto;
 	}
 	.learn-more-container {
-		height: 30%;
+		height: 1px;
 		width: min-content;
 		align-self: center;
-		.learn-more-circle {
-			padding: 0.5rem;
-			display: none;
-			background-color: #f2e1e1;
-			color: black;
-			border-radius: 100%;
-		}
 	}
 }
 
-.learn-more-circle {
+.img-left-border-radius-20 {
+	border-radius: 20px 0 0 20px;
 }
 
-.services-card:hover {
-	/* border: 1px solid gray; */
-	box-shadow: 0.25rem;
-	border-radius: 25px;
-	border-left: 3px solid #537076;
-
-	.learn-more-circle {
-		display: block !important;
-	}
+.img-right-border-radius-20 {
+	border-radius: 0 20px 20px 0;
 }
+
 
 .service-info {
 	width: 70%;
 	text-align: center;
 	margin: auto;
+}
+@media screen and (min-width: 600px) {
+	.services-card:hover {
+		/* border: 3px solid transparent; */
+		scale: 1.05;
+		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.258);
+		border-radius: 20px;
+		transition: 0.5s;
+	}
 }

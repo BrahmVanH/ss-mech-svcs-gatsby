@@ -1,3 +1,4 @@
+import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -15,7 +16,7 @@ import ac_compressor_jpeg from '../images/ac_compressor.jpeg';
 import data_cable_wiring_jpeg from '../images/data-cable-wiring.jpeg';
 import dryer_repair_jpeg from '../images/dryer-repair.jpeg';
 import furnace_repair_jpeg from '../images/furnace-repair.jpeg';
-import React from 'react';
+import map_up_mqt_county from '../images/map_upper_peninsula_mqt_county_teal.png';
 
 const Hero: React.FC = () => {
 	const images = [
@@ -41,6 +42,7 @@ const Hero: React.FC = () => {
 			<div className='hero'>
 				<div className='hero-text'>
 					<h1>South Shore Mechanical Services</h1>
+					<img src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />
 					<p>Providing commercial and residential handyman services to the Upper Peninsula of Michigan</p>
 				</div>
 			</div>

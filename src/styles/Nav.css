@@ -6,6 +6,7 @@ nav {
 	color: white;
 	z-index: 1000;
 	padding: 0.5rem;
+	position: absolute;
 
 	button {
 		margin-right: 1rem;
@@ -33,7 +34,6 @@ nav {
 		margin-right: 1rem;
 	}
 
-	
 	.brand-text {
 		display: flex;
 		flex-direction: column;
@@ -41,11 +41,10 @@ nav {
 		align-items: flex-start;
 		text-align: left;
 		text-wrap: nowrap;
-		
+
 		h2 {
 			margin: 0rem;
 		}
-
 	}
 }
 
@@ -56,15 +55,17 @@ nav {
 	width: 60%;
 	margin-right: 2rem;
 	a {
+		margin-bottom: 1rem;
+		transition: 1s ease-in-out;
 		color: white;
 		text-decoration: none;
 		padding: 1rem;
 
 		&:hover {
-			text-decoration: underline;
+			border-bottom: 2px solid white;
 		}
 	}
+	.nav-link-underline-active {
+		border-bottom: 2px solid white;
+	}
 }
-
-
-

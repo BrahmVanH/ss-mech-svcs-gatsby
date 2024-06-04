@@ -19,8 +19,17 @@
 }
 
 .hero-text {
-	line-height: 0%;
+	/* line-height: 0%; */
 	padding: 1rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	img {
+		width: 30%;
+	}
 
 	h1 {
 		color: white;
@@ -31,7 +40,8 @@
 	p {
 		color: white;
 		margin-bottom: 2rem;
-		font-size: 1.25rem;
+		font-size: 1.40rem;
+		max-width: 50%;
 	}
 }
 

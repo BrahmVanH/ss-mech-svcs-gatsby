@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactHero from '../components/ContactHero';
-// import Reviews from '../components/Reviews';
+import Reviews from '../components/Reviews';
 import Services from '../components/Services';
 
 import Layout from '../components/layout';
@@ -12,7 +12,7 @@ const Home: React.FC = () => {
 		<Layout>
 			<div className='home'>
 				<Services />
-				{/* <Reviews /> */}
+				<Reviews />
 				<ContactHero />
 			</div>
 		</Layout>

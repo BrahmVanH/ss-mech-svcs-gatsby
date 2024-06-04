@@ -13,6 +13,13 @@ const config: GatsbyConfig = {
 		'gatsby-plugin-postcss',
 		'gatsby-plugin-image',
 		'gatsby-plugin-sitemap',
+		'gatsby-plugin-apollo',
+		// {
+		// 	resolve: 'gatsby-plugin-apollo',
+		// 	options: {
+		// 		uri: 'http://localhost:4000/graphql',
+		// 	},
+		// },
 		{
 			resolve: 'gatsby-plugin-google-gtag',
 			options: {
