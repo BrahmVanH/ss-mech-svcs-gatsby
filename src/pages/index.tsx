@@ -8,11 +8,17 @@ import NotFoundPage from './NotFound';
 import '../styles/Home.css';
 
 const Home: React.FC = () => {
-	return (
-		<Layout>
-			<div className='home'>
-				<Services />
+	
+	const homeRef = React.useRef<HTMLDivElement>(null);
+	const handleScrollServicesIntoView = () => {
+		homeRef.current?.scrollIntoView({ behavior: 'smooth' });
+	}
 
+	return (
+		<Layout handleScrollServicesIntoView={handleScrollServicesIntoView}>
+			<div ref={homeRef} className='home'>
+				
+				<Services  />
 				<Reviews />
 				<ContactHero />
 			</div>
