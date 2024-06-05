@@ -2,7 +2,8 @@ import React from 'react';
 
 import '../styles/Contact.css';
 
-import brand_transparent from '../images/svg/odin_graceful_transparent.svg';
+import brand_image_transparent from '../images/svg/odin_graceful_transparent.svg';
+
 import { PhoneIcon, ShopIcon, EnvelopeIcon, PinIcon, Icon } from 'evergreen-ui';
 import { Link } from 'gatsby';
 const contactInfo = {
@@ -43,7 +44,7 @@ const ContactHero: React.FC = () => {
 
 			<div className='vertical-line' />
 			<div className='contact-brand-container'>
-				<img src={brand_transparent} alt='brand - dog stencil' />
+				<img alt='brand - dog stencil'  src={brand_image_transparent} />
 				<div className='contact-brand-text'>
 					<h2>South Shore</h2>
 					<h2>Mechanical Services</h2>
