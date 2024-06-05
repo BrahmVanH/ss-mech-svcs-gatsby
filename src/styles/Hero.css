@@ -37,9 +37,12 @@
 		position: absolute;
 		top: 0;
 		left: 0;
+		-top: 1px solid white;
 		h1 {
 			color: white;
 			font-size: 5rem;
+			padding: 0rem;
+			line-height: 72px;
 		}
 
 		p {
@@ -47,6 +50,7 @@
 			color: white;
 			font-size: 4rem;
 			text-wrap: wrap;
+			line-height: 72px;
 		}
 
 		svg {
@@ -61,6 +65,27 @@
 	/* Non-mobile hero slideshow */
 	.hero-swiper {
 		display: none !important;
+	}
+
+	.mobile-hero-brand-top {
+		display: flex;
+		color: white;
+		img {
+			width: 20%;
+			margin-left: 1rem;
+		}
+
+		h1 {
+			align-self: flex-end;
+			width: min-content;
+		}
+	}
+
+	.horizontal-line {
+		margin-top: 2rem;
+		background-color: white;
+		width: 70%;
+		height: 1px;
 	}
 }
 
@@ -114,13 +139,13 @@
 	}
 }
 
-.arrow-icon-container {
+/* .arrow-icon-btn {
 	margin-top: 2rem;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-content: center;
-}
+} */
 
 .slide-image {
 	width: 100vw !important;

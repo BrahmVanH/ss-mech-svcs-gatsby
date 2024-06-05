@@ -34,3 +34,21 @@ a {
 	color: inherit;
 }
 
+.arrow-icon-btn {
+	position: sticky;
+	bottom: 1rem;
+	left: 50%;
+	margin-top: 2rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	z-index: 1000;
+
+	/* svg {
+		position: absolute;
+		bottom: 0;
+
+	} */
+}
+

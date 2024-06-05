@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../styles/Contact.css';
 
-import brand_transparent from '../images/odin_graceful_transparent.svg';
+import brand_transparent from '../images/svg/odin_graceful_transparent.svg';
 import { PhoneIcon, ShopIcon, EnvelopeIcon, PinIcon, Icon } from 'evergreen-ui';
 import { Link } from 'gatsby';
 const contactInfo = {

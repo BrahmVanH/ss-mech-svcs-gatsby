@@ -42,6 +42,10 @@
 			margin-bottom: 2rem !important;
 		}
 	}
+	.services-container {
+		padding: 0rem 0rem;
+	
+	}
 }
 
 .services-card-text {

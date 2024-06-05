@@ -6,7 +6,7 @@ import GetQuoteBtn from './GetQuoteBtn';
 
 import '../styles/Nav.css';
 
-import brand_image_transparent from '../images/odin_graceful_transparent.svg';
+import brand_image_transparent from '../images/svg/odin_graceful_transparent.svg';
 
 const Nav: React.FC = () => {
 	const [isHome, setIsHome] = React.useState<boolean>(false);
@@ -42,7 +42,6 @@ const Nav: React.FC = () => {
 			homeRouteRef.current?.classList.remove('active-nav-link');
 			aboutRouteRef.current?.classList.remove('active-nav-link');
 		}
-	
 	}, []);
 
 	// React.useEffect(() => {
@@ -52,11 +51,9 @@ const Nav: React.FC = () => {
 	// 	} else {
 	// 		navRef.current?.classList.add('not-home-nav');
 	// 		navRef.current?.classList.remove('home-nav');
-		
+
 	// 	}
 	// }, [isHome]);
-
-
 
 	return (
 		<>

@@ -1,8 +1,10 @@
 import React from 'react';
 // Import Swiper React components
+import { Link } from 'gatsby';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Img from 'gatsby-image';
+import { ArrowDownIcon, CircleArrowDownIcon } from 'evergreen-ui';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -18,7 +20,7 @@ import dryer_repair_jpeg from '../images/dryer-repair.jpeg';
 import furnace_repair_jpeg from '../images/furnace-repair.jpeg';
 import map_up_mqt_county from '../images/map_upper_peninsula_mqt_county_teal.png';
 import multimeter_test_mobile from '../images/multi-meter-testing-iphone-res.jpg';
-import { ArrowDownIcon, CircleArrowDownIcon } from 'evergreen-ui';
+import odin_graceful_white_fill from '../images/svg/odin_graceful_bg-transparent_white-fill.svg';
 
 const Hero: React.FC = () => {
 	const [renderMobileView, setRenderMobileView] = React.useState<boolean>(false);
@@ -44,12 +46,16 @@ const Hero: React.FC = () => {
 			<div className='hero'>
 				<img className='hero-img-mobile' src={mobileHeroImage.img} alt={mobileHeroImage.alt} />
 				<div className='hero-text-mobile'>
-					<h1>South Shore Mechanical Services</h1>
-					<p>Commercial & Residential</p>
-					<div className='arrow-icon-container'>
-
-					<ArrowDownIcon color={'#fff'} size={48} />
+					<div className='mobile-hero-brand-top'>
+						<h1>South Shore </h1>
+						<img src={odin_graceful_white_fill} />
 					</div>
+					<h1>Mechanical Services</h1>
+					<div className='horizontal-line' />
+					<p>Commercial & Residential Maintenance </p>
+					{/* <button onClick={() => handleScrollServicesIntoView} className='arrow-icon-btn'>
+						<ArrowDownIcon color={'#fff'} size={48} />
+					</button> */}
 				</div>
 				<div className='hero-text'>
 					<img src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />

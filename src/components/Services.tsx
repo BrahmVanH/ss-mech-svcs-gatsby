@@ -10,7 +10,7 @@ const Services: React.FC = () => {
 
 
 	return (
-		<div className='services-container'>
+		<div id='servicesComponent' className='services-container'>
 			{/* Switch to link with dynamic route to service page */}
 			<div className='services-card'>
 				<img className='img-left-border-radius-20' alt='Plumbing for tankless hot water heater being serviced' src={tanklessHotWater} />
