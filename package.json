@@ -20,6 +20,7 @@
 		"@apollo/client": "^3.10.4",
 		"@fortawesome/fontawesome-free": "^6.5.2",
 		"autoprefixer": "^10.4.19",
+		"dotenv": "^16.4.5",
 		"evergreen-ui": "^7.1.9",
 		"gatsby": "^5.13.5",
 		"gatsby-image": "^3.11.0",

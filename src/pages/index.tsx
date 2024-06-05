@@ -6,19 +6,23 @@ import Services from '../components/Services';
 import Layout from '../components/layout';
 import NotFoundPage from './NotFound';
 import '../styles/Home.css';
+import dotenv from 'dotenv';
+
 
 const Home: React.FC = () => {
-	
 	const homeRef = React.useRef<HTMLDivElement>(null);
 	const handleScrollServicesIntoView = () => {
 		homeRef.current?.scrollIntoView({ behavior: 'smooth' });
-	}
+	};
+
+	React.useEffect(() => {
+		console.log('api url: ', process.env.GATSBY_API_URL ?? 'nope');
+	}, []);
 
 	return (
 		<Layout handleScrollServicesIntoView={handleScrollServicesIntoView}>
 			<div ref={homeRef} className='home'>
-				
-				<Services  />
+				<Services />
 				<Reviews />
 				<ContactHero />
 			</div>

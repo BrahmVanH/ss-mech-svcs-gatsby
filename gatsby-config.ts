@@ -1,4 +1,7 @@
 import type { GatsbyConfig } from 'gatsby';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const config: GatsbyConfig = {
 	siteMetadata: {
@@ -20,6 +23,7 @@ const config: GatsbyConfig = {
 		// 		uri: 'http://localhost:4000/graphql',
 		// 	},
 		// },
+		
 		{
 			resolve: 'gatsby-plugin-google-gtag',
 			options: {
