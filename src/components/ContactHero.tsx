@@ -44,7 +44,7 @@ const ContactHero: React.FC = () => {
 
 			<div className='vertical-line' />
 			<div className='contact-brand-container'>
-				<img alt='brand - dog stencil'  src={brand_image_transparent} />
+				<img alt='brand - dog stencil' src={brand_image_transparent} />
 				<div className='contact-brand-text'>
 					<h2>South Shore</h2>
 					<h2>Mechanical Services</h2>
