@@ -10,8 +10,8 @@ import { ArrowDownIcon, CircleArrowDownIcon } from 'evergreen-ui';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
 import '../styles/Hero.css';
+
 
 //  Import images for slideshow
 import ac_compressor_jpeg from '../images/ac_compressor.jpeg';
@@ -63,18 +63,17 @@ const Hero: React.FC = () => {
 				</div>
 			</div>
 			<Swiper
-				height={500}
-				width={1000}
-				spaceBetween={300}
+				// height={500}
+				width={1500}
+				spaceBetween={0}
 				centeredSlides={true}
 				autoplay={{
-					delay: 10000,
+					delay: 8000,
 					disableOnInteraction: false,
 				}}
 				pagination={{
 					clickable: true,
 				}}
-				navigation={true}
 				modules={[Autoplay, Pagination, Navigation]}
 				className='mySwiper hero-swiper'>
 				{images.map((image, index) => (
