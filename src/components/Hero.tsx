@@ -12,7 +12,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../styles/Hero.css';
 
-
 //  Import images for slideshow
 import ac_compressor_jpeg from '../images/ac_compressor.jpeg';
 import data_cable_wiring_jpeg from '../images/data-cable-wiring.jpeg';
