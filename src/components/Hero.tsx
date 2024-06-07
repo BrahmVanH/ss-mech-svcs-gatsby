@@ -44,17 +44,19 @@ const Hero: React.FC = () => {
 		<div className='hero-wrapper'>
 			<div className='hero'>
 				<img className='hero-img-mobile' src={mobileHeroImage.img} alt={mobileHeroImage.alt} />
-				<div className='hero-text-mobile'>
-					<div className='mobile-hero-brand-top'>
-						<h1>South Shore </h1>
-						<img src={odin_graceful_white_fill} />
+				<div className='hero-text-mobile-container'>
+					<div className='hero-text-mobile'>
+						<div className='mobile-hero-brand-top'>
+							<h1>South Shore </h1>
+							<img src={odin_graceful_white_fill} />
+						</div>
+						<h1>Mechanical Services</h1>
+						<div className='horizontal-line' />
+						<p>Commercial & Residential Maintenance </p>
 					</div>
-					<h1>Mechanical Services</h1>
-					<div className='horizontal-line' />
-					<p>Commercial & Residential Maintenance </p>
-					{/* <button onClick={() => handleScrollServicesIntoView} className='arrow-icon-btn'>
-						<ArrowDownIcon color={'#fff'} size={48} />
-					</button> */}
+						<button onClick={() => handleScrollServicesIntoView} className='arrow-icon-btn'>
+							<ArrowDownIcon />
+						</button>
 				</div>
 				<div className='hero-text'>
 					<img src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />
@@ -70,7 +72,6 @@ const Hero: React.FC = () => {
 					delay: 8000,
 					disableOnInteraction: false,
 				}}
-			
 				modules={[Autoplay, Pagination, Navigation]}
 				className='mySwiper hero-swiper'>
 				{images.map((image, index) => (

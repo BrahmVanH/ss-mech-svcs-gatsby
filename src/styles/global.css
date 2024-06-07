@@ -21,6 +21,17 @@
 	text-align: center;
 }
 
+@media screen and (max-width: 576px) {
+	#root {
+		max-width: 576px !important;
+	}
+}
+@media screen and (max-width: 450px) {
+	#root {
+		max-width: 450px !important;
+	}
+}
+
 body {
 	margin: 0;
 	display: flex;
@@ -29,25 +40,15 @@ body {
 	min-height: 100vh;
 }
 
+svg {
+	max-width: 4rem !important;
+	max-height: fit-content !important;
+	z-index: 2000;
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
 }
 
-.arrow-icon-btn {
-	position: sticky;
-	bottom: 1rem;
-	left: 50%;
-	margin-top: 2rem;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	z-index: 1000;
 
-	svg {
-		fill: white;
-		width: 3rem;
-		height: 3rem;
-	}
-}
