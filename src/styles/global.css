@@ -45,10 +45,9 @@ a {
 	align-content: center;
 	z-index: 1000;
 
-	/* svg {
-		position: absolute;
-		bottom: 0;
+	svg {
+		fill: white;
 
-	} */
+	}
 }
 
