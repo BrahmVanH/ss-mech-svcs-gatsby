@@ -15,9 +15,9 @@ const Home: React.FC = () => {
 		homeRef.current?.scrollIntoView({ behavior: 'smooth' });
 	};
 
-	React.useEffect(() => {
-		console.log('api url: ', process.env.GATSBY_LAMBDA_FUNCTION_URL ?? 'nope');
-	}, []);
+	// React.useEffect(() => {
+	// 	console.log('api url: ', process.env.GATSBY_LAMBDA_FUNCTION_URL ?? 'nope');
+	// }, []);
 
 	return (
 		<Layout handleScrollServicesIntoView={handleScrollServicesIntoView}>

@@ -27,11 +27,11 @@ const Reviews: React.FC = () => {
 		}
 	}, [data]);
 
-	React.useEffect(() => {
-		if (thumbtackReviews) {
-			console.log('thumbtack reviews: ', thumbtackReviews);
-		}
-	}, [thumbtackReviews]);
+	// React.useEffect(() => {
+	// 	if (thumbtackReviews) {
+	// 		console.log('thumbtack reviews: ', thumbtackReviews);
+	// 	}
+	// }, [thumbtackReviews]);
 
 	return (
 		<div className='thumbtack-reviews-wrapper'>

@@ -40,6 +40,13 @@ const config: GatsbyConfig = {
 			},
 			__key: 'images',
 		},
+		// Example of how to use gatsby-plugin-offline with precache config
+		// {
+		// 	resolve: `gatsby-plugin-offline`,
+		// 	options: {
+		// 		precachePages: [`/about-us/`, `/projects/*`],
+		// 	},
+		// },
 	],
 };
 

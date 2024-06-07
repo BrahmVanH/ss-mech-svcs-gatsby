@@ -19,7 +19,6 @@ const Nav: React.FC = () => {
 	const contactRouteRef = React.useRef<HTMLDivElement>(null);
 
 	React.useEffect(() => {
-		console.log('window.location.pathname:', window.location.pathname);
 		if (window.location.pathname === '/' || window.location.pathname === ``) {
 			setIsHome(true);
 			navRef.current?.classList.add('home-nav');
