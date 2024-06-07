@@ -18,7 +18,7 @@ const Layout: React.FC<{ children: React.ReactNode; handleScrollServicesIntoView
 			</Helmet>
 			<Nav />
 			<button onClick={handleScrollServicesIntoView} className='arrow-icon-btn'>
-				<ArrowDownIcon size={48} />
+				<ArrowDownIcon />
 			</button>
 			{children}
 		</div>
