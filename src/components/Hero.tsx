@@ -70,9 +70,7 @@ const Hero: React.FC = () => {
 					delay: 8000,
 					disableOnInteraction: false,
 				}}
-				pagination={{
-					clickable: true,
-				}}
+			
 				modules={[Autoplay, Pagination, Navigation]}
 				className='mySwiper hero-swiper'>
 				{images.map((image, index) => (
