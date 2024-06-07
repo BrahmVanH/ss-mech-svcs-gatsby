@@ -16,7 +16,7 @@ const Home: React.FC = () => {
 	};
 
 	React.useEffect(() => {
-		console.log('api url: ', process.env.GATSBY_API_URL ?? 'nope');
+		console.log('api url: ', process.env.GATSBY_LAMBDA_FUNCTION_URL ?? 'nope');
 	}, []);
 
 	return (
