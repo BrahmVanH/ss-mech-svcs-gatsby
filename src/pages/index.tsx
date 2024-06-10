@@ -8,11 +8,18 @@ import NotFoundPage from './NotFound';
 import '../styles/Home.css';
 import dotenv from 'dotenv';
 
-
 const Home: React.FC = () => {
 	const homeRef = React.useRef<HTMLDivElement>(null);
 	const handleScrollServicesIntoView = () => {
-		homeRef.current?.scrollIntoView({ behavior: 'smooth' });
+		if (!homeRef?.current) {
+			return;
+		}
+		const home = homeRef?.current?.getBoundingClientRect().top + window.scrollY;
+
+		window.scroll({
+			top: home,
+			behavior: 'smooth',
+		});
 	};
 
 	// React.useEffect(() => {

@@ -30,20 +30,12 @@ const Hero: React.FC = () => {
 		{ alt: 'repairing a furnace', img: furnace_repair_jpeg },
 	];
 
-	const mobileHeroImage = {
-		alt: 'wires in an electrical panel',
-		img: multimeter_test_mobile,
-	};
-
-	const slideImageStyle = {
-		width: '100vw !important',
-		// height: '100vh',
-	};
+	
 
 	return (
 		<div className='hero-wrapper'>
 			<div className='hero'>
-				<img className='hero-img-mobile' src={mobileHeroImage.img} alt={mobileHeroImage.alt} />
+				<img className='hero-img-mobile' src={multimeter_test_mobile} alt='wires in an electrical panel' />
 				<div className='hero-text-mobile-container'>
 					<div className='hero-text-mobile'>
 						<div className='mobile-hero-brand-top'>
