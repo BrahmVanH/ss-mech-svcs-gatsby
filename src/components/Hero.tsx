@@ -54,9 +54,9 @@ const Hero: React.FC = () => {
 						<div className='horizontal-line' />
 						<p>Commercial & Residential Maintenance </p>
 					</div>
-						<button onClick={() => handleScrollServicesIntoView} className='arrow-icon-btn'>
-							<ArrowDownIcon />
-						</button>
+					{/* <button onClick={() => handleScrollServicesIntoView} className='arrow-icon-btn'>
+						<ArrowDownIcon />
+					</button> */}
 				</div>
 				<div className='hero-text'>
 					<img src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />
@@ -72,6 +72,7 @@ const Hero: React.FC = () => {
 					delay: 8000,
 					disableOnInteraction: false,
 				}}
+				loop={true}
 				modules={[Autoplay, Pagination, Navigation]}
 				className='mySwiper hero-swiper'>
 				{images.map((image, index) => (
