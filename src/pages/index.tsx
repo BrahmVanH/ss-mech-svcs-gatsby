@@ -8,6 +8,8 @@ import NotFoundPage from './NotFound';
 import '../styles/Home.css';
 import dotenv from 'dotenv';
 
+import 'normalize.css';
+
 const Home: React.FC = () => {
 	const homeRef = React.useRef<HTMLDivElement>(null);
 	const handleScrollServicesIntoView = () => {
