@@ -4,7 +4,7 @@ import '../styles/Contact.css';
 
 import brand_image_transparent from '../images/svg/odin_graceful_transparent.svg';
 
-import { PhoneIcon, ShopIcon, EnvelopeIcon, PinIcon, Icon } from 'evergreen-ui';
+import { PhoneIcon, EnvelopeIcon, MapIcon, Icon } from 'evergreen-ui';
 import { Link } from 'gatsby';
 const contactInfo = {
 	addressStreet: '908 Champion St.,',
@@ -56,7 +56,7 @@ const ContactHero: React.FC = () => {
 						<p>{contactInfo.email}</p>
 					</Link>
 					<Link target='_blank' rel='noreferrer' to={'https://maps.app.goo.gl/vsUYpBh3CToxdn3D7'} className='contact-item'>
-						<Icon style={{ marginTop: '1rem' }} icon={ShopIcon} size={20} />
+						<Icon style={{ marginTop: '1rem' }} icon={MapIcon} size={20} />
 						<div className='contact-info-address-container'>
 							<p>{contactInfo.addressStreet} </p>
 							<p>{contactInfo.addressCity}</p>

@@ -1,14 +1,14 @@
 import React from 'react';
-import ContactHero from '../components/ContactHero';
+import Layout from '../components/layout';
 import Reviews from '../components/Reviews';
 import Services from '../components/Services';
+import Footer from '../components/Footer';
 
-import Layout from '../components/layout';
 import NotFoundPage from './NotFound';
-import '../styles/Home.css';
-import dotenv from 'dotenv';
 
 import 'normalize.css';
+import '../styles/Home.css';
+
 
 const Home: React.FC = () => {
 	const homeRef = React.useRef<HTMLDivElement>(null);
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
 			<div ref={homeRef} className='home'>
 				<Services />
 				<Reviews />
-				<ContactHero />
+				<Footer />
 			</div>
 		</Layout>
 	);

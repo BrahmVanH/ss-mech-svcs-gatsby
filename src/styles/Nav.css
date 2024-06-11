@@ -11,6 +11,11 @@ nav {
 	button {
 		margin-right: 1rem;
 	}
+	h1 {
+		margin: 0;
+		padding: 0rem;
+		line-height: 32px;
+	}
 }
 
 @media screen and (max-width: 576px) {

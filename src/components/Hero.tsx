@@ -18,7 +18,7 @@ import data_cable_wiring_jpeg from '../images/data-cable-wiring.jpeg';
 import dryer_repair_jpeg from '../images/dryer-repair.jpeg';
 import furnace_repair_jpeg from '../images/furnace-repair.jpeg';
 import map_up_mqt_county from '../images/map_upper_peninsula_mqt_county_teal.png';
-import multimeter_test_mobile from '../images/multi-meter-testing-iphone-res.jpg';
+
 import odin_graceful_white_fill from '../images/svg/odin_graceful_bg-transparent_white-fill.svg';
 
 const Hero: React.FC = () => {
@@ -30,26 +30,20 @@ const Hero: React.FC = () => {
 		{ alt: 'repairing a furnace', img: furnace_repair_jpeg },
 	];
 
-	
-
 	return (
 		<div className='hero-wrapper'>
 			<div className='hero'>
-				<img className='hero-img-mobile' src={multimeter_test_mobile} alt='wires in an electrical panel' />
-				<div className='hero-text-mobile-container'>
-					<div className='hero-text-mobile'>
-						<div className='mobile-hero-brand-top'>
-							<h1>South Shore </h1>
-							<img src={odin_graceful_white_fill} />
-						</div>
-						<h1>Mechanical Services</h1>
-						<div className='horizontal-line' />
-						<p>Commercial & Residential Maintenance </p>
+				{/* <img className='hero-img-mobile' src={multimeter_test_mobile} alt='wires in an electrical panel' /> */}
+				<div className='hero-text-mobile'>
+					<div className='mobile-hero-brand-top'>
+						<h1>South Shore </h1>
+						<img src={odin_graceful_white_fill} />
 					</div>
-					{/* <button onClick={() => handleScrollServicesIntoView} className='arrow-icon-btn'>
-						<ArrowDownIcon />
-					</button> */}
+					<h1>Mechanical Services</h1>
+					<div className='horizontal-line' />
+					<p>Commercial & Residential Maintenance </p>
 				</div>
+
 				<div className='hero-text'>
 					<img src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />
 					<p>Providing commercial and residential mechanical services to the Upper Peninsula of Michigan</p>
