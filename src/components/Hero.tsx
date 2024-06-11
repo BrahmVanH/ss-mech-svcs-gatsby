@@ -41,12 +41,13 @@ const Hero: React.FC = () => {
 					</div>
 					<h1>Mechanical Services</h1>
 					<div className='horizontal-line' />
-					<p>Commercial & Residential Maintenance </p>
+					<p>Commercial & Residential </p>
+					<p className='hero-text-mobile-plumbing-electrical-appliance'>Plumbing | Electrical | Appliance</p>
 				</div>
 
 				<div className='hero-text'>
 					<img src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />
-					<p>Providing commercial and residential mechanical services to the Upper Peninsula of Michigan</p>
+					<p>Providing Commercial and Residential Handyman services to Marquette, Michigan</p>
 				</div>
 			</div>
 			<Swiper
