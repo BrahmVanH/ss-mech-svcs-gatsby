@@ -33,9 +33,9 @@ footer {
 		}
 
 		.footer-strip-links {
+			display: flex;
 			padding: 1rem;
 			width: min-content;
-			display: flex;
 			flex-direction: row;
 
 			a {

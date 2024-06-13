@@ -17,6 +17,7 @@ const config: GatsbyConfig = {
 		'gatsby-plugin-image',
 		'gatsby-plugin-sitemap',
 		'gatsby-plugin-apollo',
+		`gatsby-plugin-react-helmet`,
 
 		{
 			resolve: 'gatsby-plugin-google-gtag',

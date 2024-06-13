@@ -57,13 +57,13 @@ const Nav: React.FC = () => {
 	return (
 		<>
 			<nav ref={navRef}>
-				<div className='nav-brand-container'>
+				<Link to='/' className='nav-brand-container'>
 					<img alt='brand badging - "stencil dog"' src={brand_image_transparent} />
 					<div className='brand-text'>
 						<h1>South Shore</h1>
 						<h1>Mechanical Services</h1>
 					</div>
-				</div>
+				</Link>
 				<div className='nav-links-container'>
 					<div ref={homeRouteRef}>
 						<Link to='/'>Home</Link>

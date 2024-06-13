@@ -3,12 +3,12 @@ import Layout from '../components/layout';
 import Reviews from '../components/Reviews';
 import Services from '../components/Services';
 import Footer from '../components/Footer';
+import { Helmet } from 'react-helmet';
 
 import NotFoundPage from './NotFound';
 
 import 'normalize.css';
 import '../styles/Home.css';
-
 
 const Home: React.FC = () => {
 	const homeRef = React.useRef<HTMLDivElement>(null);
@@ -30,6 +30,11 @@ const Home: React.FC = () => {
 
 	return (
 		<Layout handleScrollServicesIntoView={handleScrollServicesIntoView}>
+			<Helmet>
+				<meta charSet='utf-8' />
+				<title>South Shore Mechanical Services - Home Page</title>
+				<link rel='canonical' href='https://southshoremechanical.services/' />
+			</Helmet>
 			<div ref={homeRef} className='home'>
 				<Services />
 				<Reviews />
