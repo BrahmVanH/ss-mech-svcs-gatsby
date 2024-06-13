@@ -69,10 +69,10 @@ const Nav: React.FC = () => {
 						<Link to='/'>Home</Link>
 					</div>
 					<div ref={aboutRouteRef}>
-						<Link to='/NotFound'>About</Link>
+						<Link to='/404'>About</Link>
 					</div>
 					<div ref={contactRouteRef}>
-						<Link to='/NotFound'>Contact</Link>
+						<Link to='/404'>Contact</Link>
 					</div>
 				</div>
 				<GetQuoteBtn />

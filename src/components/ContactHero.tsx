@@ -55,13 +55,13 @@ const ContactHero: React.FC = () => {
 						<Icon style={{ marginTop: '1rem' }} icon={EnvelopeIcon} size={20} />
 						<p>{contactInfo.email}</p>
 					</Link>
-					<Link target='_blank' rel='noreferrer' to={'https://maps.app.goo.gl/vsUYpBh3CToxdn3D7'} className='contact-item'>
+					<a target='_blank' rel='noreferrer' href={'https://maps.app.goo.gl/vsUYpBh3CToxdn3D7'} className='contact-item'>
 						<Icon style={{ marginTop: '1rem' }} icon={MapIcon} size={20} />
 						<div className='contact-info-address-container'>
 							<p>{contactInfo.addressStreet} </p>
 							<p>{contactInfo.addressCity}</p>
 						</div>
-					</Link>
+					</a>
 				</div>
 			</div>
 
