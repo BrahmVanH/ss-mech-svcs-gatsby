@@ -53,8 +53,9 @@ nav {
 		text-align: left;
 		text-wrap: nowrap;
 
-		h3 {
+		span {
 			margin: 0rem;
+			font-size: 28px;
 		}
 	}
 }

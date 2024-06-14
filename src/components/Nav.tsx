@@ -60,8 +60,10 @@ const Nav: React.FC = () => {
 				<Link to='/' className='nav-brand-container'>
 					<img alt='brand badging - "stencil dog"' src={brand_image_transparent} />
 					<div className='brand-text'>
-						<h3>South Shore</h3>
-						<h3>Mechanical Services</h3>
+						<h1 className='brand-text'>
+							<span>South Shore</span>
+							<span>Mechanical Services</span>
+						</h1>
 					</div>
 				</Link>
 				<div className='nav-links-container'>
