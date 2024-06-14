@@ -25,14 +25,12 @@ const Home: React.FC = () => {
 		});
 	};
 
-
 	React.useEffect(() => {
 		const url = typeof window !== 'undefined' ? window.location.href : '';
 		if (url) {
 			setCurrentUrl(url);
 		}
 	}, []);
-
 
 	return (
 		<Layout handleScrollServicesIntoView={handleScrollServicesIntoView}>

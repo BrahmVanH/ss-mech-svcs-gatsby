@@ -4,14 +4,12 @@ import { useSiteMetadata } from '../lib/use-site-metadata';
 import { Helmet } from 'react-helmet';
 interface SEOProps {
 	currentUrl: string;
+	slug?: string;
 }
 
-const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, children }: React.PropsWithChildren<SEOProps>) => {
+const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, slug, children }: React.PropsWithChildren<SEOProps>) => {
 	const metaData = useSiteMetadata();
 
-	React.useEffect(() => {
-		console.log('SEO');
-	}, []);
 
 	return (
 		<Helmet>
@@ -24,6 +22,15 @@ const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, children
 			<meta name='og:image' content={metaData.image} />
 			<meta name='og:title' content={metaData.title} />
 			<meta name='og:description' content={metaData.description} />
+			<script type='application/ld+json'>
+				{JSON.stringify({
+					'@context': 'https://southshoremechanical.services/',
+					'@type': 'Website',
+					datePublished: '2024-06-13T10:27:55-04:00',
+					dateModified: '2024-06-13T10:27:55-04:00',
+					image: [`https://${metaData.siteUrl}/favicon-32x32.png`],
+				})}
+			</script>
 		</Helmet>
 	);
 };
