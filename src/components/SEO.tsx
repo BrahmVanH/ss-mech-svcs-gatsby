@@ -1,52 +1,30 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useSiteMetadata } from '../lib/use-site-metadata';
 
+import { Helmet } from 'react-helmet';
 interface SEOProps {
-	// url: string;
-	// title: string;
-	// description: string;
-	// image?: string;
-	slug: string;
+	currentUrl: string;
 }
 
-const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ slug, children }: React.PropsWithChildren<SEOProps>) => {
-	const site = useStaticQuery(graphql`
-		query {
-			site {
-				siteMetadata {
-					title
-					description
-					image
-					siteUrl
-				}
-			}
-		}
-	`);
-
-
-	React.useEffect(() => {
-		console.log('site: ', site);
-	}, [site]);
+const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, children }: React.PropsWithChildren<SEOProps>) => {
+	const metaData = useSiteMetadata();
 
 	React.useEffect(() => {
 		console.log('SEO');
 	}, []);
 
-	const metaImage = site.siteMetadata.image;
-
 	return (
-		<>
-			<title>{site.siteMetaData.title}</title>
-			<link rel='canonical' href={site.siteMetaData.siteUrl} />
-			<meta name='description' content={site.siteMetaData.description} />
-			<meta name='og:url' content={site.siteMetaData.siteUrl} />
+		<Helmet>
+			<meta charSet='utf-8' />
+			<title>{metaData.title} - Home Page</title>
+			<link rel='canonical' href={currentUrl} />
+			<meta name='description' content={metaData.description} />
+			<meta name='og:url' content={metaData.siteUrl} />
 			<meta name='og:type' content='website' />
-			<meta name='og:image' content={metaImage} />
-			<meta name='og:title' content={site.siteMetaData.title} />
-			<meta name='og:description' content={site.siteMetaData.description} />
-
-			{children}
-		</>
+			<meta name='og:image' content={metaData.image} />
+			<meta name='og:title' content={metaData.title} />
+			<meta name='og:description' content={metaData.description} />
+		</Helmet>
 	);
 };
 
