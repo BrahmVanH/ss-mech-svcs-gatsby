@@ -58,6 +58,12 @@ const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, slug, ch
 						'commercial building routine maintenance, commercial building repair and maintenance near me, commercial building maintenance services, commercial building repair and maintenance, repair, maintenance, applicant repair, drywall, electrical, plumbing repair, plumbing service, handyman, residential handyman, commercial handyman, appliance service, handyman near me, handyman services near me, handyman services, handyman marquette, handyman craigslist, commercial maintenance marquette, commercial building maintenance, commercial building maintenance marquette',
 				})}
 			</script>
+			<link rel='preconnect' href='https://fonts.googleapis.com' />
+			<link rel='preconnect' href='https://fonts.gstatic.com' />
+			<link href='https://fonts.googleapis.com/css2?family=Abel&display=swap' rel='stylesheet' />
+			<link rel='preconnect' href='https://fonts.googleapis.com' />
+			<link rel='preconnect' href='https://fonts.gstatic.com' />
+			<link href='https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Zen+Kaku+Gothic+New&display=swap' rel='stylesheet' />
 		</Helmet>
 	);
 };

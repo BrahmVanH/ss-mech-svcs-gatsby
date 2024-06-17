@@ -21,6 +21,7 @@
 	text-align: center;
 }
 
+
 @media screen and (max-width: 576px) {
 	#root {
 		max-width: 576px !important;
@@ -51,22 +52,33 @@ a {
 	color: inherit;
 }
 
-
 .arrow-icon-btn {
 	margin-top: 2rem;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-content: center;
-	/* grid-column: 1 / 2;
-	grid-row: 3 / 4; */
 	position: absolute;
 	bottom: 2rem;
-	/* left: 50vw; */
 
 	svg {
 		fill: white;
 		width: 3rem;
 		height: 3rem;
 	}
+}
+
+/* WebKit (Safari) */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+	/* Add any specific WebKit styles here */
+}
+
+/* Firefox */
+@-moz-document url-prefix() {
+	/* Add any specific Firefox styles here */
+}
+
+/* Opera */
+@media not all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+	/* Add any specific Opera styles here */
 }

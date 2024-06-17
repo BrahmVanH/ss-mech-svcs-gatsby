@@ -15,7 +15,12 @@ const config: GatsbyConfig = {
 	// Learn more at: https://gatsby.dev/graphql-typegen
 	graphqlTypegen: true,
 	plugins: [
-		'gatsby-plugin-postcss',
+		{
+			resolve: `gatsby-plugin-postcss`,
+			options: {
+				postCssPlugins: [require(`postcss-preset-env`)({ stage: 0 })],
+			},
+		},
 		'gatsby-plugin-image',
 		'gatsby-plugin-sitemap',
 		'gatsby-plugin-apollo',
