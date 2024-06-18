@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
 	siteMetadata: {
 		title: `South Shore Mechanical Services`,
 		siteUrl: `https://www.southshoremechanical.services`,
-		description: 'South Shore Mechanical Services is a Commercial Maintenance and Residential Handyman that services Marquette County, Michigan. This ',
+		description: 'South Shore Mechanical Services is a Commercial Maintenance and Residential Handyman that services Marquette County, Michigan.',
 		image: '/images/odin_graceful_transparent.jpg',
 	},
 	// More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.

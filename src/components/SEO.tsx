@@ -23,7 +23,7 @@ const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, slug, ch
 			<meta name='og:description' content={metaData.description} />
 			<script type='application/ld+json'>
 				{JSON.stringify({
-					'@context': 'https://southshoremechanical.services/',
+					'@context': 'https://schema.org',
 					'@type': 'Website',
 					datePublished: '2024-06-13T10:27:55-04:00',
 					dateModified: '2024-06-13T10:27:55-04:00',
@@ -32,7 +32,7 @@ const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, slug, ch
 			</script>
 			<script type='application/ld+json'>
 				{JSON.stringify({
-					'@context': `${metaData.siteUrl}`,
+					'@context': 'https://schema.org',
 					'@type': 'HomeAndConstructionBusiness',
 					name: 'South Shore Mechanical Services',
 					currenciesAccepted: ['USD', 'BTC'],
