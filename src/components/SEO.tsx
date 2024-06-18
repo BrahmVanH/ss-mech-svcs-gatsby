@@ -34,26 +34,21 @@ const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, slug, ch
 				{JSON.stringify({
 					'@context': 'https://schema.org',
 					'@type': 'HomeAndConstructionBusiness',
+					url: `${metaData.siteUrl}`,
 					name: 'South Shore Mechanical Services',
 					currenciesAccepted: ['USD', 'BTC'],
 					openingHours: 'Mo,Tu,We,Th,Fr,Sa 08:00-18:00',
-					description: `${metaData.description}`,
 					paymentAccepted: ['Cash', 'Credit Card', 'Cryptocurrency', 'Local Exchange Tradings System'],
 					address: {
 						'@type': 'PostalAddress',
-						addressLocality: 'Marquette',
+						streetAddress: '908 Champion Street',
+						addressLocality: 'Michigan',
 						addressRegion: 'MI',
 						postalCode: '49855',
-						streetAddress: '908 Champion St.',
+						addressCountry: 'US',
 					},
 					email: 'mailto:info@southshoremechanical.services',
 					telephone: '(906) 236-2760',
-					url: `${metaData.siteUrl}`,
-					geo: {
-						'@type': 'GeoCoordinates',
-						latitude: '46.537120',
-						longitude: '-87.396410',
-					},
 					keywords:
 						'commercial building routine maintenance, commercial building repair and maintenance near me, commercial building maintenance services, commercial building repair and maintenance, repair, maintenance, applicant repair, drywall, electrical, plumbing repair, plumbing service, handyman, residential handyman, commercial handyman, appliance service, handyman near me, handyman services near me, handyman services, handyman marquette, handyman craigslist, commercial maintenance marquette, commercial building maintenance, commercial building maintenance marquette',
 				})}

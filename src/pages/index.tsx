@@ -8,6 +8,8 @@ import 'normalize.css';
 import '../styles/Home.css';
 import SEO from '../components/SEO';
 
+
+// To Do: Added breadcrumb structured data 
 const Home: React.FC = () => {
 	const [currentUrl, setCurrentUrl] = React.useState<string>('');
 
