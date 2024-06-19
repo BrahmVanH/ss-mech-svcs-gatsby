@@ -21,7 +21,7 @@ const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, slug, ch
 			<meta name='og:image' content={metaData.image} />
 			<meta name='og:title' content={metaData.title} />
 			<meta name='og:description' content={metaData.description} />
-			<script type='application/ld+json'>
+			{/* <script type='application/ld+json'>
 				{JSON.stringify({
 					'@context': 'https://schema.org',
 					'@type': 'Website',
@@ -29,7 +29,8 @@ const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, slug, ch
 					dateModified: '2024-06-13T10:27:55-04:00',
 					image: [`https://${metaData.siteUrl}/favicon-32x32.png`],
 				})}
-			</script>
+			</script> */}
+			{/* LocalBusiness Structured Data for Google SEO */}
 			<script type='application/ld+json'>
 				{JSON.stringify({
 					'@context': 'https://schema.org',
@@ -51,6 +52,22 @@ const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, slug, ch
 					telephone: '(906) 236-2760',
 					keywords:
 						'commercial building routine maintenance, commercial building repair and maintenance near me, commercial building maintenance services, commercial building repair and maintenance, repair, maintenance, applicant repair, drywall, electrical, plumbing repair, plumbing service, handyman, residential handyman, commercial handyman, appliance service, handyman near me, handyman services near me, handyman services, handyman marquette, handyman craigslist, commercial maintenance marquette, commercial building maintenance, commercial building maintenance marquette',
+				})}
+			</script>
+			{/* Breadcrumb List structured data for Google SEO */}
+			{/* To Do: Add rest of pages to structured data */}
+			<script type='application/ld+json'>
+				{JSON.stringify({
+					'@context': 'https://schema.org',
+					'@type': 'BreadcrumbList',
+					itemListElement: [
+						{
+							'@type': 'ListItem',
+							position: 1,
+							name: 'Home',
+							item: 'https://southshoremechal.services',
+						},
+					],
 				})}
 			</script>
 			<link rel='preconnect' href='https://fonts.googleapis.com' />
