@@ -6,7 +6,7 @@ import brand_image_transparent from '../images/svg/odin_graceful_transparent.svg
 
 import { PhoneIcon, EnvelopeIcon, MapIcon, Icon } from 'evergreen-ui';
 import { Link } from 'gatsby';
-const contactInfo = {
+export const contactInfo = {
 	addressStreet: '908 Champion St.,',
 	addressCity: 'Marquette, MI 49855',
 	phone: '906-236-2760',

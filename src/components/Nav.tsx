@@ -7,6 +7,7 @@ import GetQuoteBtn from './GetQuoteBtn';
 import '../styles/Nav.css';
 
 import brand_image_transparent from '../images/svg/odin_graceful_transparent.svg';
+import brand_image_white from '../images/svg/odin_graceful_bg-transparent_white-fill.svg';
 
 const Nav: React.FC = () => {
 	const [isHome, setIsHome] = React.useState<boolean>(false);
@@ -43,22 +44,21 @@ const Nav: React.FC = () => {
 		}
 	}, []);
 
-	// React.useEffect(() => {
-	// 	if (isHome) {
-	// 		navRef.current?.classList.add('home-nav');
-	// 		navRef.current?.classList.remove('not-home-nav');
-	// 	} else {
-	// 		navRef.current?.classList.add('not-home-nav');
-	// 		navRef.current?.classList.remove('home-nav');
-
-	// 	}
-	// }, [isHome]);
+	React.useEffect(() => {
+		if (isHome) {
+			navRef.current?.classList.add('home-nav');
+			navRef.current?.classList.remove('not-home-nav');
+		} else {
+			navRef.current?.classList.add('not-home-nav');
+			navRef.current?.classList.remove('home-nav');
+		}
+	}, [isHome]);
 
 	return (
 		<>
 			<nav ref={navRef}>
 				<Link to='/' className='nav-brand-container'>
-					<img alt='brand badging - "stencil dog"' src={brand_image_transparent} />
+					{isHome ? <img alt='brand badging - "stencil dog"' src={brand_image_transparent} /> : <img alt='brand badging - "stencil dog"' src={brand_image_white} />}
 					<div className='brand-text'>
 						<h1 className='brand-text'>
 							<span>South Shore</span>
@@ -70,16 +70,13 @@ const Nav: React.FC = () => {
 					<div ref={homeRouteRef}>
 						<Link to='/'>Home</Link>
 					</div>
-					<div ref={aboutRouteRef}>
-						<Link to='/404'>About</Link>
-					</div>
 					<div ref={contactRouteRef}>
-						<Link to='/404'>Contact</Link>
+						<Link to='/Contact'>Contact</Link>
 					</div>
 				</div>
 				<GetQuoteBtn />
 			</nav>
-			<Hero />
+			{isHome ? <Hero /> : <></>}
 		</>
 	);
 };
