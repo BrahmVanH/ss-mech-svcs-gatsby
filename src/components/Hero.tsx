@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 // Import Swiper React components
 import { Link } from 'gatsby';
 import { Swiper, SwiperSlide } from 'swiper/react';

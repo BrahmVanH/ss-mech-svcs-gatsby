@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { useSiteMetadata } from '../lib/use-site-metadata';
 
 import { Helmet } from 'react-helmet';

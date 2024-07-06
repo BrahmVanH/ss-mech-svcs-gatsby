@@ -67,6 +67,12 @@ a {
 	}
 }
 
+@media screen and (max-width: 576px) {
+	.arrow-icon-btn {
+		display: none;
+	}
+}
+
 /* WebKit (Safari) */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
 	/* Add any specific WebKit styles here */

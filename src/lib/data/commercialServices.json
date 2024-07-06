@@ -1,0 +1,30 @@
+[
+	{
+		"name": "Appliance Repair & Maintenance",
+		"description": "We handle appliance installations and repairs, keeping your business running smoothly. Whether it’s a new dishwasher or fixing a malfunctioning oven, count on us."
+	},
+	{
+		"name": "HVAC Repair & Maintenance",
+		"description": "We optimize your heating, ventilation, and air conditioning systems. Regular maintenance ensures comfort and energy efficiency in your commercial property."
+	},
+	{
+		"name": "Duct Cleaning",
+		"description": "Clean air ducts are essential for a healthy workspace. We remove dust, allergens, and debris, improving indoor air quality."
+	},
+	{
+		"name": "Plumbing Repair & Maintenance",
+		"description": "Our skilled team ensures efficient plumbing solutions for your commercial space. From leaky faucets to pipe replacements, we’ve got you covered."
+	},
+	{
+		"name": "Data Cable Repair & Installation",
+		"description": "Our experts handle data cable repairs and installations, ensuring seamless connectivity for your office network. Stay connected without interruptions."
+	},
+	{
+		"name": "Refrigeration Service & Maintenance",
+		"description": "Trust us to maintain your commercial refrigeration units. Proper maintenance extends their lifespan and prevents costly breakdowns."
+	},
+	{
+		"name": "Custom Lighting & Electrical Repair",
+		"description": "We cover custom lighting for your workspace or your customer's space. We also handle electrical repairs, ensuring safety and functionality."
+	}
+]

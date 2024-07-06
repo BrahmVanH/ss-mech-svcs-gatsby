@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Link, HeadFC } from 'gatsby';
+import { HeadFC, Link } from 'gatsby';
 
-import '../styles/NotFound.css';
+import '../../styles/NotFound.css';
 
-import data_cable_install from '../images/data-cable-wiring.jpeg';
+import data_cable_install from '../../images/data-cable-wiring.jpeg';
 import { ArrowLeftIcon } from 'evergreen-ui';
 
 const NotFoundPage: React.FC = () => {

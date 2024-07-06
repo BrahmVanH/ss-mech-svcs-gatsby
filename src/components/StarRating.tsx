@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { StarEmptyIcon, StarIcon } from 'evergreen-ui';
 
 import '../styles/StarRating.css';
@@ -68,6 +68,5 @@ const StarRating: React.FC<StarRatingProps> = (props: Readonly<StarRatingProps>)
 		</>
 	);
 };
-
 
 export default StarRating;

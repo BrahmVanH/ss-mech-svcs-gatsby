@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Layout from '../components/layout';
 import Reviews from '../components/Reviews';
 import Services from '../components/Services';
@@ -8,8 +8,7 @@ import 'normalize.css';
 import '../styles/Home.css';
 import SEO from '../components/SEO';
 
-
-// To Do: Added breadcrumb structured data 
+// To Do: Added breadcrumb structured data
 const Home: React.FC = () => {
 	const [currentUrl, setCurrentUrl] = React.useState<string>('');
 
@@ -40,7 +39,6 @@ const Home: React.FC = () => {
 			<div ref={homeRef} className='home'>
 				<Services />
 				<Reviews />
-				<Footer />
 			</div>
 		</Layout>
 	);

@@ -1,14 +1,19 @@
-import React from 'react';
-import '../styles/Reviews.css';
+import * as React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_THUMBTACK_REVIEWS } from '../lib/API/graphql';
-import { ThumbtackReview } from '../lib/__generated__/graphql';
+import { Link } from 'gatsby';
+
+import { QUERY_THUMBTACK_REVIEWS } from '../lib/graphql';
+
 import ThumbtackIcon from './ThumbtackIcon';
 import StarRating from './StarRating';
+
 import { ArrowRightIcon } from 'evergreen-ui';
 
+import { ThumbtackReview } from '../lib/__generated__/graphql';
+
 import thumbtack_reviewer_avatar from '../images/thumbtack_reviewer-avatar.jpg';
-import { Link } from 'gatsby';
+
+import '../styles/Reviews.css';
 
 const Reviews: React.FC = () => {
 	const [thumbtackReviews, setThumbtackReviews] = React.useState<ThumbtackReview[]>([]);

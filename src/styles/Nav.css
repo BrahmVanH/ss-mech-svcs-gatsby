@@ -29,6 +29,7 @@ nav {
 	/* background-position-y: center; */
 	background-position-y: top;
 	background-size: cover;
+	position: relative !important;
 }
 
 .home-nav {
@@ -68,9 +69,10 @@ nav {
 	align-items: center;
 	width: 60%;
 	margin-right: 2rem;
+	font-size: 18px;
 	a {
 		margin-bottom: 1rem;
-		transition: 1s ease-in-out;
+		/* transition: 1s ease-in; */
 		color: white;
 		text-decoration: none;
 		padding: 1rem;
@@ -79,6 +81,46 @@ nav {
 			width: min-content;
 			border-bottom: 2px solid rgba(255, 255, 255, 0.248);
 		}
+	}
+}
+
+.services-dropdown {
+	z-index: 1000;
+
+	&:hover {
+		& .services-dropdown-content {
+			display: flex;
+		}
+	}
+
+	.nav-dropdown-down-icon {
+		margin-left: 0.5rem;
+	}
+
+	p {
+		transition: 1s ease-in;
+		color: white;
+		text-decoration: none;
+		padding: 0rem 1rem;
+	}
+}
+.services-dropdown-content {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-image: linear-gradient(#302e33, #2e2b30, rgba(0, 0, 0, 0.811), rgba(0, 0, 0, 0.811));
+	/* background-color:  rgba(0, 0, 0, 0.619); */
+	display: none;
+	position: absolute;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	transition: 1s ease-in-out;
+	cursor: pointer;
+	z-index: 1000;
+	border-radius: 0px 0px 10px 10px;
+
+	div {
+		padding: 1rem;
 	}
 }
 

@@ -14,6 +14,13 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
+  email_String_NotNull_maxLength_255_format_email: { input: any; output: any; }
+  familyName_String_NotNull_minLength_1_maxLength_20: { input: any; output: any; }
+  givenName_String_NotNull_minLength_1_maxLength_20: { input: any; output: any; }
+  location_String_NotNull_minLength_1_maxLength_10: { input: any; output: any; }
+  message_String_NotNull_minLength_10_maxLength_255_pattern_AZaz09_: { input: any; output: any; }
+  service_String_NotNull_minLength_1_maxLength_40: { input: any; output: any; }
+  tel_String_NotNull_minLength_1_maxLength_12: { input: any; output: any; }
 };
 
 export type DeleteS3ObjectInput = {
@@ -26,17 +33,40 @@ export type DeleteS3ObjectResponse = {
   status: Scalars['Int']['output'];
 };
 
-export type Query = {
-  __typename?: 'Query';
-  getPresignedS3Url: Scalars['String']['output'];
-  queryThumbtackReviews?: Maybe<Array<ThumbtackReview>>;
+export type Mutation = {
+  __typename?: 'Mutation';
+  sendScheduleServiceMessage: Scalars['String']['output'];
 };
 
 
-export type QueryGetPresignedS3UrlArgs = {
-  altTag: Scalars['String']['input'];
-  commandType: Scalars['String']['input'];
-  imgKey: Scalars['String']['input'];
+export type MutationSendScheduleServiceMessageArgs = {
+  input: ScheduleServiceMessageInput;
+};
+
+export type Query = {
+  __typename?: 'Query';
+  queryThumbtackReviews?: Maybe<Array<ThumbtackReview>>;
+};
+
+export type ScheduleServiceMessage = {
+  __typename?: 'ScheduleServiceMessage';
+  email: Scalars['String']['output'];
+  familyName: Scalars['String']['output'];
+  givenName: Scalars['String']['output'];
+  location: Scalars['String']['output'];
+  message: Scalars['String']['output'];
+  service: Scalars['String']['output'];
+  tel: Scalars['String']['output'];
+};
+
+export type ScheduleServiceMessageInput = {
+  email: Scalars['email_String_NotNull_maxLength_255_format_email']['input'];
+  familyName: Scalars['familyName_String_NotNull_minLength_1_maxLength_20']['input'];
+  givenName: Scalars['givenName_String_NotNull_minLength_1_maxLength_20']['input'];
+  location: Scalars['location_String_NotNull_minLength_1_maxLength_10']['input'];
+  message: Scalars['message_String_NotNull_minLength_10_maxLength_255_pattern_AZaz09_']['input'];
+  service: Scalars['service_String_NotNull_minLength_1_maxLength_40']['input'];
+  tel: Scalars['tel_String_NotNull_minLength_1_maxLength_12']['input'];
 };
 
 export type ThumbtackReview = {
@@ -66,10 +96,18 @@ export type ImageObject = {
   thumbnailAlt: Scalars['String']['output'];
 };
 
+export type MutationSendScheduleServiceMessageMutationVariables = Exact<{
+  input: ScheduleServiceMessageInput;
+}>;
+
+
+export type MutationSendScheduleServiceMessageMutation = { __typename?: 'Mutation', sendScheduleServiceMessage: string };
+
 export type QueryThumbtackReviewsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type QueryThumbtackReviewsQuery = { __typename?: 'Query', queryThumbtackReviews?: Array<{ __typename?: 'ThumbtackReview', datePublished: string, description: string, author: { __typename?: 'ThumbtackReviewAuthor', name: string }, reviewRating: { __typename?: 'ThumbtackReviewRating', ratingValue: number } }> | null };
 
 
+export const MutationSendScheduleServiceMessageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"MutationSendScheduleServiceMessage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ScheduleServiceMessageInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"sendScheduleServiceMessage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}]}]}}]} as unknown as DocumentNode<MutationSendScheduleServiceMessageMutation, MutationSendScheduleServiceMessageMutationVariables>;
 export const QueryThumbtackReviewsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"QueryThumbtackReviews"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"queryThumbtackReviews"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"datePublished"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"author"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"reviewRating"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"ratingValue"}}]}}]}}]}}]} as unknown as DocumentNode<QueryThumbtackReviewsQuery, QueryThumbtackReviewsQueryVariables>;
