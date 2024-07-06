@@ -5,6 +5,7 @@ import { useForm, FieldValues } from 'react-hook-form';
 import { SEND_SCHEDULE_SERVICE_MESSAGE } from '../lib/graphql';
 
 import '../styles/ScheduleServiceForm.css';
+import { Mutation, MutationSendScheduleServiceMessageArgs, ScheduleServiceMessageInput } from '../lib/__generated__/graphql';
 
 const ScheduleServiceForm: React.FC = () => {
 	// This will hit the API and tell it to send me an email with the details mentioned
@@ -18,11 +19,40 @@ const ScheduleServiceForm: React.FC = () => {
 
 	const [messageData, setMessageData] = React.useState<FieldValues | null>(null);
 
-	const { register, handleSubmit } = useForm();
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
 
 	const [sendScheduleServiceMessage] = useMutation(SEND_SCHEDULE_SERVICE_MESSAGE);
 
-	const onSubmit = (data: FieldValues) => {};
+	const onSubmit = async (data: FieldValues) => {
+		console.log(data);
+		const { firstName, lastName, phone, email, location, service, message } = data;
+		if (!firstName || !lastName || !phone || !email || !location || !service || !message) {
+			console.error('Please fill out all fields.');
+			return;
+		}
+		try {
+			const response = await sendScheduleServiceMessage({
+				variables: {
+					input: {
+						givenName: firstName,
+						familyName: lastName,
+						tel: phone,
+						email,
+						location,
+						service,
+						message,
+					} as ScheduleServiceMessageInput,
+				},
+			});
+			console.log(response);
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	return (
 		<form className='schedule-service-form' onSubmit={handleSubmit(onSubmit)}>
@@ -36,6 +66,7 @@ const ScheduleServiceForm: React.FC = () => {
 					maxLength: { value: 20, message: 'Sorry, please shorten your first name to fewer than 20 characters.' },
 				})}
 			/>
+			{errors.firstName && <p>{errors?.firstName?.message?.toString()}</p>}
 			<input
 				autoComplete='family-name'
 				type='text'
@@ -45,12 +76,14 @@ const ScheduleServiceForm: React.FC = () => {
 					maxLength: { value: 20, message: 'Sorry, please shorten your last name to fewer than 20 characters.' },
 				})}
 			/>
+			{errors.lastName && <p>{errors?.lastName?.message?.toString()}</p>}
 			<input
 				autoComplete='tel'
 				type='tel'
 				placeholder='Phone Number'
 				{...register('phone', { required: { value: true, message: 'Please enter a phone number' }, maxLength: { value: 12, message: 'Please enter valid phone number.' } })}
 			/>
+			{errors.phone && <p>{errors?.phone?.message?.toString()}</p>}
 			<input
 				autoComplete='email'
 				type='email'
@@ -61,10 +94,12 @@ const ScheduleServiceForm: React.FC = () => {
 					pattern: { value: /^[a-zA-Z0-9_.±]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, message: 'Please enter a valid email address.' },
 				})}
 			/>
+			{errors.email && <p>{errors?.email?.message?.toString()}</p>}
 			<select {...register('location', { required: { value: true, message: 'Please *select* a valid location.' }, maxLength: { value: 10, message: 'Please *select* a valid location.' } })}>
 				<option value='Marquette'>Marquette</option>
 				<option value='Negaunee'>Negaunee</option>
 			</select>
+			{errors.location && <p>{errors?.location?.message?.toString()}</p>}
 			<select {...register('service', { required: { value: true, message: 'Please *select* a valid service.' }, maxLength: { value: 40, message: 'Please *select* a valid service.' } })}>
 				<option value='commercial-hvac'>Commercial Heating & Cooling</option>
 				<option value='residential-hvac'>Residential Heating & Cooling</option>
@@ -82,6 +117,7 @@ const ScheduleServiceForm: React.FC = () => {
 				<option value='residential-drywall'>Residential Drywall</option>
 				<option value='Other'>Other</option>
 			</select>
+			{errors.service && <p>{errors?.service?.message?.toString()}</p>}
 			<textarea
 				placeholder='Message'
 				{...register('message', {
@@ -90,6 +126,7 @@ const ScheduleServiceForm: React.FC = () => {
 					pattern: { value: /^([A-Za-z0-9 _.,!'/$]+)$/, message: 'Please enter a valid message (alphanumeric characters, spaces, and punctuation allowed).' },
 				})}
 			/>
+			{errors.message && <p>{errors?.message?.message?.toString()}</p>}
 			<button type='submit'>Submit</button>
 		</form>
 	);

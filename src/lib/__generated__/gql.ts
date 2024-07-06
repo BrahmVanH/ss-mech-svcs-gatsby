@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n\tmutation MutationSendScheduleServiceMessage($input: ScheduleServiceMessageInput!) {\n\t\tsendScheduleServiceMessage(input: $input)\n\t}\n": types.MutationSendScheduleServiceMessageDocument,
+    "\n\tmutation sendScheduleServiceMessage($input: ScheduleServiceMessageInput!) {\n\t\tsendScheduleServiceMessage(input: $input)\n\t}\n": types.SendScheduleServiceMessageDocument,
     "\n\tquery QueryThumbtackReviews {\n\t\tqueryThumbtackReviews {\n\t\t\tdatePublished\n\t\t\tdescription\n\t\t\tauthor {\n\t\t\t\tname\n\t\t\t}\n\t\t\treviewRating {\n\t\t\t\tratingValue\n\t\t\t}\n\t\t}\n\t}\n": types.QueryThumbtackReviewsDocument,
 };
 
@@ -34,7 +34,7 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n\tmutation MutationSendScheduleServiceMessage($input: ScheduleServiceMessageInput!) {\n\t\tsendScheduleServiceMessage(input: $input)\n\t}\n"): (typeof documents)["\n\tmutation MutationSendScheduleServiceMessage($input: ScheduleServiceMessageInput!) {\n\t\tsendScheduleServiceMessage(input: $input)\n\t}\n"];
+export function gql(source: "\n\tmutation sendScheduleServiceMessage($input: ScheduleServiceMessageInput!) {\n\t\tsendScheduleServiceMessage(input: $input)\n\t}\n"): (typeof documents)["\n\tmutation sendScheduleServiceMessage($input: ScheduleServiceMessageInput!) {\n\t\tsendScheduleServiceMessage(input: $input)\n\t}\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
