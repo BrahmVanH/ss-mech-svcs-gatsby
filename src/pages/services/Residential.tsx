@@ -7,6 +7,7 @@ import Layout from '../../components/layout';
 import '../../styles/Services.css';
 
 import residentialServices from '../../lib/data/residentialServices.json';
+import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 
 const Residential: React.FC = () => {
 	return (
@@ -20,6 +21,7 @@ const Residential: React.FC = () => {
 						<ServicesCard key={service.name} title={service.name} description={service.description} />
 					))}
 				</div>
+				<ScheduleServiceForm />
 			</div>
 		</Layout>
 	);

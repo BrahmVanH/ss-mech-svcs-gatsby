@@ -33,7 +33,7 @@
 	h1 {
 		color: white;
 		margin-bottom: 2rem;
-		font-size: 4rem;
+		/* font-size: 4rem; */
 	}
 
 	p {
@@ -91,7 +91,7 @@
 
 		h1 {
 			color: white;
-			font-size: 5rem;
+			/* font-size: 5rem; */
 			padding: 0rem;
 			line-height: 72px;
 			margin: 0rem;

@@ -35,7 +35,6 @@ const Contact: React.FC = () => {
 						</div>
 					</div>
 					{/* Leave a message form to side */}
-					<ScheduleServiceForm />
 				</div>
 			</div>
 		</Layout>

@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { useMutation } from '@apollo/client';
-import { useForm, FieldValues } from 'react-hook-form';
+import { useForm, FieldValues, Controller } from 'react-hook-form';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input/input';
 
 import { SEND_SCHEDULE_SERVICE_MESSAGE } from '../lib/graphql';
+import { ScheduleServiceMessageInput } from '../lib/__generated__/graphql';
 
 import '../styles/ScheduleServiceForm.css';
-import { Mutation, MutationSendScheduleServiceMessageArgs, ScheduleServiceMessageInput } from '../lib/__generated__/graphql';
+import { formatPhoneNumberString } from '../lib/helpers';
 
 const ScheduleServiceForm: React.FC = () => {
 	// This will hit the API and tell it to send me an email with the details mentioned
@@ -23,6 +25,7 @@ const ScheduleServiceForm: React.FC = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
+		control,
 	} = useForm();
 
 	const [sendScheduleServiceMessage] = useMutation(SEND_SCHEDULE_SERVICE_MESSAGE);
@@ -40,7 +43,7 @@ const ScheduleServiceForm: React.FC = () => {
 					input: {
 						givenName: firstName,
 						familyName: lastName,
-						tel: phone,
+						tel: formatPhoneNumberString(phone),
 						email,
 						location,
 						service,
@@ -77,13 +80,25 @@ const ScheduleServiceForm: React.FC = () => {
 				})}
 			/>
 			{errors.lastName && <p>{errors?.lastName?.message?.toString()}</p>}
-			<input
+			{/* <input
 				autoComplete='tel'
 				type='tel'
 				placeholder='Phone Number'
-				{...register('phone', { required: { value: true, message: 'Please enter a phone number' }, maxLength: { value: 12, message: 'Please enter valid phone number.' } })}
+				{...register('phone', {
+					required: { value: true, message: 'Please enter a phone number' },
+					maxLength: { value: 12, message: 'Please enter valid phone number.' },
+					pattern: { value: /^(\\+[0-9]{1,3})?[-. ]?\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/, message: 'Please enter a valid phone number only containing numbers, +, or -' },
+				})}
 			/>
 			{errors.phone && <p>{errors?.phone?.message?.toString()}</p>}
+			 */}
+			<Controller
+				name='tel'
+				control={control}
+				rules={{ required: { value: true, message: 'Please enter a phone number.' }, validate: (value) => isValidPhoneNumber(value) || 'Please enter a valid phone number.' }}
+				render={({ field: { onChange, value } }) => <PhoneInput placeholder='Phone number' value={value} onChange={onChange} defaultCountry='US' />}
+			/>
+			{errors.tel && <p>{errors?.tel?.message?.toString()}</p>}
 			<input
 				autoComplete='email'
 				type='email'
