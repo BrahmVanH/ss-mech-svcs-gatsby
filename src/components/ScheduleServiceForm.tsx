@@ -7,7 +7,8 @@ import { SEND_SCHEDULE_SERVICE_MESSAGE } from '../lib/graphql';
 import { ScheduleServiceMessageInput } from '../lib/__generated__/graphql';
 
 import '../styles/ScheduleServiceForm.css';
-import { formatPhoneNumberString } from '../lib/helpers';
+import { formatPhoneNumberString, removeWhiteSpace } from '../lib/helpers';
+import { AddRowBottomIcon } from 'evergreen-ui/types';
 
 const ScheduleServiceForm: React.FC = () => {
 	// This will hit the API and tell it to send me an email with the details mentioned
@@ -41,10 +42,10 @@ const ScheduleServiceForm: React.FC = () => {
 			const response = await sendScheduleServiceMessage({
 				variables: {
 					input: {
-						givenName: firstName,
-						familyName: lastName,
+						givenName: removeWhiteSpace(firstName),
+						familyName: removeWhiteSpace(lastName),
 						tel: formatPhoneNumberString(phone),
-						email,
+						email: removeWhiteSpace(email),
 						location,
 						service,
 						message,
@@ -67,6 +68,7 @@ const ScheduleServiceForm: React.FC = () => {
 				{...register('firstName', {
 					required: { value: true, message: 'Please enter your first name.' },
 					maxLength: { value: 20, message: 'Sorry, please shorten your first name to fewer than 20 characters.' },
+					pattern: { value: /^[A-Za-z]+$/, message: 'Please enter a valid name containing only letters. Sorry, Droids.' },
 				})}
 			/>
 			{errors.firstName && <p>{errors?.firstName?.message?.toString()}</p>}
@@ -77,6 +79,7 @@ const ScheduleServiceForm: React.FC = () => {
 				{...register('lastName', {
 					required: { value: true, message: 'Please enter your last name.' },
 					maxLength: { value: 20, message: 'Sorry, please shorten your last name to fewer than 20 characters.' },
+					pattern: { value: /^[A-Za-z]+$/, message: 'Please enter a valid name containing only letters. Sorry, Droids.' },
 				})}
 			/>
 			{errors.lastName && <p>{errors?.lastName?.message?.toString()}</p>}
