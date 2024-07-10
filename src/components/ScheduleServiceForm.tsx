@@ -22,6 +22,8 @@ const ScheduleServiceForm: React.FC = () => {
 
 	const [messageData, setMessageData] = React.useState<FieldValues | null>(null);
 
+	const formRef = React.useRef<HTMLFormElement>(null);
+
 	const {
 		register,
 		handleSubmit,
@@ -52,14 +54,15 @@ const ScheduleServiceForm: React.FC = () => {
 					} as ScheduleServiceMessageInput,
 				},
 			});
-			console.log(response);
+
+			console.log('response', response);
 		} catch (error) {
 			console.error(error);
 		}
 	};
 
 	return (
-		<form className='schedule-service-form' onSubmit={handleSubmit(onSubmit)}>
+		<form ref={formRef} className='schedule-service-form' onSubmit={handleSubmit(onSubmit)}>
 			<h3>Request Service</h3>
 			<input
 				autoComplete='given-name'
@@ -113,12 +116,22 @@ const ScheduleServiceForm: React.FC = () => {
 				})}
 			/>
 			{errors.email && <p>{errors?.email?.message?.toString()}</p>}
-			<select {...register('location', { required: { value: true, message: 'Please *select* a valid location.' }, maxLength: { value: 10, message: 'Please *select* a valid location.' } })}>
+			<select
+				{...register('location', {
+					required: { value: true, message: 'Please *select* a valid location.' },
+					maxLength: { value: 10, message: 'Please *select* a valid location.' },
+					pattern: { value: /^[A-Za-z]+$/, message: 'Please enter a valid location containing only letters.' },
+				})}>
 				<option value='Marquette'>Marquette</option>
 				<option value='Negaunee'>Negaunee</option>
 			</select>
 			{errors.location && <p>{errors?.location?.message?.toString()}</p>}
-			<select {...register('service', { required: { value: true, message: 'Please *select* a valid service.' }, maxLength: { value: 40, message: 'Please *select* a valid service.' } })}>
+			<select
+				{...register('service', {
+					required: { value: true, message: 'Please *select* a valid service.' },
+					maxLength: { value: 40, message: 'Please *select* a valid service.' },
+					pattern: { value: /^[A-Za-z]-+$/, message: 'Please enter a valid location containing only letters and hyphens.' },
+				})}>
 				<option value='commercial-hvac'>Commercial Heating & Cooling</option>
 				<option value='residential-hvac'>Residential Heating & Cooling</option>
 				<option value='commercial-duct-cleaning'>Commercial Duct Cleaning</option>
