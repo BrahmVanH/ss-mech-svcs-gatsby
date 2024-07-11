@@ -6,9 +6,10 @@ import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input/input';
 import { SEND_SCHEDULE_SERVICE_MESSAGE } from '../lib/graphql';
 import { ScheduleServiceMessageInput } from '../lib/__generated__/graphql';
 
-import '../styles/ScheduleServiceForm.css';
 import { formatPhoneNumberString, removeWhiteSpace } from '../lib/helpers';
 import { AddRowBottomIcon } from 'evergreen-ui/types';
+
+import '../styles/ScheduleServiceForm.css';
 
 const ScheduleServiceForm: React.FC = () => {
 	// This will hit the API and tell it to send me an email with the details mentioned
@@ -35,8 +36,8 @@ const ScheduleServiceForm: React.FC = () => {
 
 	const onSubmit = async (data: FieldValues) => {
 		console.log(data);
-		const { firstName, lastName, phone, email, location, service, message } = data;
-		if (!firstName || !lastName || !phone || !email || !location || !service || !message) {
+		const { firstName, lastName, tel, email, location, service, message } = data;
+		if (!firstName || !lastName || !tel || !email || !location || !service || !message) {
 			console.error('Please fill out all fields.');
 			return;
 		}
@@ -46,8 +47,8 @@ const ScheduleServiceForm: React.FC = () => {
 					input: {
 						givenName: removeWhiteSpace(firstName),
 						familyName: removeWhiteSpace(lastName),
-						tel: formatPhoneNumberString(phone),
-						email: removeWhiteSpace(email),
+						tel: formatPhoneNumberString(tel),
+						email: removeWhiteSpace(email).toLowerCase(),
 						location,
 						service,
 						message,
@@ -82,7 +83,7 @@ const ScheduleServiceForm: React.FC = () => {
 				{...register('lastName', {
 					required: { value: true, message: 'Please enter your last name.' },
 					maxLength: { value: 20, message: 'Sorry, please shorten your last name to fewer than 20 characters.' },
-					pattern: { value: /^[A-Za-z]+$/, message: 'Please enter a valid name containing only letters. Sorry, Droids.' },
+					pattern: { value: /^[^\s]+(\s+[^\s]+)*$/, message: 'Please enter a valid name containing only letters. Sorry, Droids.' },
 				})}
 			/>
 			{errors.lastName && <p>{errors?.lastName?.message?.toString()}</p>}
@@ -130,7 +131,7 @@ const ScheduleServiceForm: React.FC = () => {
 				{...register('service', {
 					required: { value: true, message: 'Please *select* a valid service.' },
 					maxLength: { value: 40, message: 'Please *select* a valid service.' },
-					pattern: { value: /^[A-Za-z]-+$/, message: 'Please enter a valid location containing only letters and hyphens.' },
+					pattern: { value: /^[a-zA-Z-]+$/, message: 'Please enter a valid service containing only letters and hyphens.' },
 				})}>
 				<option value='commercial-hvac'>Commercial Heating & Cooling</option>
 				<option value='residential-hvac'>Residential Heating & Cooling</option>
@@ -151,6 +152,7 @@ const ScheduleServiceForm: React.FC = () => {
 			{errors.service && <p>{errors?.service?.message?.toString()}</p>}
 			<textarea
 				placeholder='Message'
+				rows={5}
 				{...register('message', {
 					required: { value: true, message: 'Please enter a message.' },
 					maxLength: { value: 255, message: 'Please enter a message with fewer than 255 characters.' },

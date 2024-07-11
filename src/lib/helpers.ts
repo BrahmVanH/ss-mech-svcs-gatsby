@@ -23,14 +23,14 @@ function removePlus(string: string) {
 }
 
 export function formatPhoneNumberString(string: string) {
-  if (typeof string !== 'string' || string === '') {
-    throw new Error('Argument must be a string');
-  }
+	if (typeof string !== 'string' || string === '') {
+		throw new Error('Argument must be a string');
+	}
 
-  return removePlus(removeHyphens(removeParentheses(string)));
+	return removePlus(removeHyphens(removeParentheses(string)));
 }
 
-export function removeWhiteSpace (string: string) {
+export function removeWhiteSpace(string: string) {
 	if (typeof string !== 'string' || string === '') {
 		throw new Error('Argument must be a string');
 	}
