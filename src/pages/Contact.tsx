@@ -12,8 +12,8 @@ const Contact: React.FC = () => {
 	return (
 		<Layout>
 			<div className='contact-page h-screen w-full flex flex-col items-center'>
-				<div className='contact-info w-full px-4 flex flex-row content-evenly items-center'>
-					<div className='contact-links-and-icons-container flex flex-col content-center items-center '>
+				<div className='contact-info w-full px-4 flex flex-row justify-evenly items-center'>
+					<div className='contact-links-and-icons-container flex flex-col justify-center items-center '>
 						<h1 className='mt-8'>Contact Us</h1>
 						<div className='contact-links'>
 							<Link target='_blank' rel='noreferrer' to={`tel:${contactInfo.phone}`} className='contact-item pl-4'>

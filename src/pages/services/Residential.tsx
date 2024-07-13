@@ -12,7 +12,7 @@ import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 const Residential: React.FC = () => {
 	return (
 		<Layout>
-			<div className='services-page w-full h-full flex flex-col content-center items-center'>
+			<div className='services-page w-full h-full flex flex-col justify-center items-center'>
 				<h1>Residential Services</h1>
 
 				{/* add section 'common signs that xxx needs service */}

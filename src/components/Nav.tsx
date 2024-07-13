@@ -6,7 +6,7 @@ import GetQuoteBtn from './GetQuoteBtn';
 
 import { ChevronDownIcon, Icon } from 'evergreen-ui';
 
-import '../styles/Nav.css';
+// import '../styles/Nav.css';
 
 import brand_image_transparent from '../images/svg/odin_graceful_transparent.svg';
 import brand_image_white from '../images/svg/odin_graceful_bg-transparent_white-fill.svg';
@@ -17,6 +17,7 @@ const Nav: React.FC = () => {
 	const navRef = React.useRef<HTMLDivElement>(null);
 	const homeRouteRef = React.useRef<HTMLDivElement>(null);
 	const aboutRouteRef = React.useRef<HTMLDivElement>(null);
+	const servicesDropdown = React.useRef<HTMLDivElement>(null);
 	const commercialRoutesRef = React.useRef<HTMLDivElement>(null);
 	const residentialRoutesRef = React.useRef<HTMLDivElement>(null);
 	const contactRouteRef = React.useRef<HTMLDivElement>(null);
@@ -25,28 +26,19 @@ const Nav: React.FC = () => {
 		if (window.location.pathname === '/' || window.location.pathname === ``) {
 			setIsHome(true);
 			navRef.current?.classList.add('home-nav');
+
 			navRef.current?.classList.remove('not-home-nav');
 			homeRouteRef.current?.classList.add('active-nav-link');
 			aboutRouteRef.current?.classList.remove('active-nav-link');
 			contactRouteRef.current?.classList.remove('active-nav-link');
-			residentialRoutesRef.current?.classList.remove('active-nav-link');
-			commercialRoutesRef.current?.classList.remove('active-nav-link');
-		} else if (window.location.pathname === `/services/Commercial/`) {
+			servicesDropdown.current?.classList.remove('active-nav-link');
+		} else if (window.location.pathname === `/services/Commercial/` || window.location.pathname === `/services/Residential/`) {
 			setIsHome(false);
 			navRef.current?.classList.add('not-home-nav');
 			navRef.current?.classList.remove('home-nav');
 			homeRouteRef.current?.classList.remove('active-nav-link');
 			contactRouteRef.current?.classList.remove('active-nav-link');
-			residentialRoutesRef.current?.classList.remove('active-nav-link');
-			commercialRoutesRef.current?.classList.add('active-nav-link');
-		} else if (window.location.pathname === `/services/Residential/`) {
-			setIsHome(false);
-			navRef.current?.classList.add('not-home-nav');
-			navRef.current?.classList.remove('home-nav');
-			homeRouteRef.current?.classList.remove('active-nav-link');
-			contactRouteRef.current?.classList.remove('active-nav-link');
-			commercialRoutesRef.current?.classList.remove('active-nav-link');
-			residentialRoutesRef.current?.classList.add('active-nav-link');
+			servicesDropdown.current?.classList.add('active-nav-link');
 		} else if (window.location.pathname === `/Contact/`) {
 			setIsHome(false);
 			navRef.current?.classList.add('not-home-nav');
@@ -54,8 +46,7 @@ const Nav: React.FC = () => {
 			contactRouteRef.current?.classList.add('active-nav-link');
 			homeRouteRef.current?.classList.remove('active-nav-link');
 			aboutRouteRef.current?.classList.remove('active-nav-link');
-			residentialRoutesRef.current?.classList.remove('active-nav-link');
-			commercialRoutesRef.current?.classList.remove('active-nav-link');
+			servicesDropdown.current?.classList.remove('active-nav-link');
 		}
 	}, []);
 
@@ -71,38 +62,45 @@ const Nav: React.FC = () => {
 
 	return (
 		<>
-			<nav ref={navRef}>
-				<Link to='/' className='nav-brand-container'>
-					{isHome ? <img alt='brand badging - "stencil dog"' src={brand_image_transparent} /> : <img alt='brand badging - "stencil dog"' src={brand_image_white} />}
-					<div className='brand-text'>
-						<h1 className='brand-text'>
-							<span>South Shore</span>
-							<span>Mechanical Services</span>
+			<nav ref={navRef} className='hidden sm:flex justify-between items-center w-full text-white z-[1000] p-2 absolute'>
+				<Link to='/' className='nav-brand-container flex justify-center items-center ml-8'>
+					{isHome ? <img className='max-h-[90px] mr-4' alt='brand badging - "stencil dog"' src={brand_image_transparent} /> : <img alt='brand badging - "stencil dog"' src={brand_image_white} />}
+					<div className='brand-text flex flex-col justify-center items-start text-left text-nowrap'>
+						<h1 className='brand-text m-0 p-0 leading-8'>
+							<span className='m-0 text-[28px]'>South Shore</span>
+							<span className='m-0 text-[28px]'>Mechanical Services</span>
 						</h1>
 					</div>
 				</Link>
-				<div className='nav-links-container'>
+				<div className='nav-links-container flex justify-end items-center w-[60%] mr-8 text-[18px]'>
 					<div ref={homeRouteRef}>
-						<Link to='/'>Home</Link>
+						<Link className='mb-4 text-white no-underline p-4  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/'>
+							Home
+						</Link>
 					</div>
-					<div className='services-dropdown'>
-						<p>
-							Services
-							<span className='nav-dropdown-down-icon'>
-								<Icon icon={ChevronDownIcon} size={12} />
-							</span>
+
+					<div ref={servicesDropdown} className='services-dropdown z-[1000] group'>
+						<p className='transition-all ease-in-out duration-1000 text-white no-underline py-0 px-4 '>
+							<span>Services</span>
+							<Icon className='nav-dropdown-down-icon ml-2' icon={ChevronDownIcon} size={12} />
 						</p>
-						<div className='services-dropdown-content'>
-							<div ref={commercialRoutesRef}>
-								<Link to='/services/Commercial'>Commercial</Link>
+						<div className='services-dropdown-content hidden absolute min-w-[160px] shadow-md flex-col justify-center items-center bg-gradient-to-b-[#302e33, #2e2b30, rgba(0, 0, 0, 0.811), rgba(0, 0, 0, 0.811)] transition-all ease-in-out duration-1000 cursor-pointer z-[1000] rounded-b-[10px] group-hover:flex'>
+							<div className='p-4' ref={commercialRoutesRef}>
+								<Link className='mb-4 text-white no-underline p-4  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/services/Commercial'>
+									Commercial
+								</Link>
 							</div>
 							<div ref={residentialRoutesRef}>
-								<Link to='/services/Residential'>Residential</Link>
+								<Link className='mb-4 text-white no-underline p-4  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/services/Residential'>
+									Residential
+								</Link>
 							</div>
 						</div>
 					</div>
 					<div ref={contactRouteRef}>
-						<Link to='/Contact'>Contact</Link>
+						<Link className='mb-4 text-white no-underline p-4  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/Contact'>
+							Contact
+						</Link>
 					</div>
 				</div>
 				<GetQuoteBtn />

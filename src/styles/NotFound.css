@@ -1,4 +1,4 @@
-.not-found {
+/* .not-found {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -25,13 +25,11 @@
     }
     
     h1 {
-      /* font-size: 2rem; */
       width: 50% ;
       margin-bottom: 1rem;
     }
     
     p {
-      /* font-size: 1rem; */
       margin-bottom: 1rem;
       width: 50%;
       text-overflow: wrap;
@@ -57,3 +55,4 @@
     cursor: pointer;
   }
 }
+ */

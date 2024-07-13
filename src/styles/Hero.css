@@ -1,10 +1,10 @@
 .hero-wrapper {
-	height: 100vh;
-	width: 100vw;
+	/* height: 100vh;
+	width: 100vw; */
 }
 
 .hero {
-	background-color: rgba(81, 80, 80, 0.485);
+	/* background-color: #5150507c;
 	z-index: 900;
 	width: 100%;
 	height: 100%;
@@ -14,67 +14,53 @@
 	flex-direction: column;
 	text-align: center;
 	position: absolute;
-	top: 0;
+	top: 0; */
 }
 
 .hero-text {
 	/* line-height: 0%; */
-	padding: 1rem;
+	/* padding: 1rem;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
+	flex-direction: column; */
 
 	img {
-		width: 40%;
+		/* width: 40%; */
 	}
 
-	h1 {
-		color: white;
-		margin-bottom: 2rem;
-		/* font-size: 4rem; */
-	}
 
 	p {
-		color: white;
+		/* color: white;
 		margin-bottom: 2rem;
 		font-size: 2rem;
-		max-width: 75%;
+		max-width: 75%; */
 	}
 }
 
 .slide-image {
-	width: 100vw !important;
+	/* width: 100vw !important;
 	max-height: 100vh !important;
-	overflow: hidden;
+	overflow: hidden; */
 }
 
 /* Mobile styles ( <576px)  */
 
 @media screen and (max-width: 576px) {
 	.hero {
-		background-color: transparent !important;
+		/* background-color: transparent !important;
 		display: block !important;
 		height: 100vh !important;
 		width: 100vw !important;
-		overflow: hidden;
+		overflow: hidden; */
 	}
 
-	/* Hero background image mobile */
-
-	.hero-img-mobile {
-		width: 100% !important;
-		padding: 0rem;
-		grid-column: 1 / 2;
-		grid-row: 1 / 4;
-		z-index: 10 !important;
-	}
 
 	/* This holds all of the mobile hero content  */
 
 	.hero-text-mobile {
-		background-image: url('../images/multi-meter-testing-iphone-res.jpg');
+		/* background-image: url('../images/multi-meter-testing-iphone-res.jpg');
 		display: flex;
 		grid-column: 1 / 2;
 		grid-row: 2 / 3;
@@ -87,74 +73,69 @@
 		height: 100%;
 		position: absolute;
 		top: 0;
-		left: 0;
+		left: 0; */
 
 		h1 {
-			color: white;
-			/* font-size: 5rem; */
+			/* color: white;
 			padding: 0rem;
 			line-height: 72px;
-			margin: 0rem;
+			margin: 0rem; */
 		}
 
 		p {
-			margin: 1rem 0rem;
+			/* margin: 1rem 0rem;
 			color: white;
 			font-size: 4rem;
 			text-wrap: wrap;
-			line-height: 72px;
+			line-height: 72px; */
 		}
 
 		.hero-text-mobile-plumbing-electrical-appliance {
-			font-size: 28px;
+			/* font-size: 28px;
 			line-height: 28px;
-			font-weight: bold !important;
+			font-weight: bold !important; */
 		}
 	}
 	/* Non-mobile hero text in media query */
 	.hero-text {
-		display: none !important;
+		/* display: none !important; */
 	}
 	/* Non-mobile hero slideshow in media query */
 	.hero-swiper {
-		display: none !important;
+		/* display: none !important; */
 	}
 
 	.mobile-hero-brand-top {
-		display: flex;
-		color: white;
+		/* display: flex;
+		color: white; */
 		img {
-			width: 20%;
+			/* width: 20%;
 			max-width: 100px;
 			max-height: 200px;
-			margin-left: 1rem;
+			margin-left: 1rem; */
 		}
 
 		h1 {
-			align-self: flex-end;
+			/* align-self: flex-end;
 			width: min-content;
-			margin: 0rem;
+			margin: 0rem; */
 		}
 	}
 
 	.horizontal-line {
-		margin-top: 2rem;
+		/* margin-top: 2rem;
 		background-color: white;
 		width: 70%;
-		height: 1px;
+		height: 1px; */
 	}
 }
 
 @media screen and (min-width: 576px) {
-	.hero-img-mobile {
-		display: none !important;
-	}
+	
 	.hero-text-mobile {
-		display: none !important;
+		/* display: none !important; */
 	}
-	.mobile-hero-brand-top {
-		display: none !important;
-	}
+	
 }
 
 /* .arrow-icon-btn {

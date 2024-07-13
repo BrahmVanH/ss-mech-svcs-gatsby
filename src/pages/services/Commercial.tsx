@@ -12,7 +12,7 @@ import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 const Commercial: React.FC = () => {
 	return (
 		<Layout>
-			<div className='services-page w-full h-full flex flex-col content-center items-center'>
+			<div className='services-page w-full h-full flex flex-col justify-center items-center'>
 				<h1>Commercial Services</h1>
 				<Link
 					to='/programs'
@@ -22,7 +22,7 @@ const Commercial: React.FC = () => {
 					<p>Let us take care of the boring stuff. We'll work with you to build a maintenance plan custom fit to your business's needs with flexible billing schedules. </p>
 				</Link>
 				{/* add section 'common signs that xxx needs service */}
-				<div className='services-page-content w-full flex content-center items-start'>
+				<div className='services-page-content w-full flex justify-center items-start'>
 					<div className='services-page-card-container w-[55%] grid-cols-[repeat(auto-fit,_minmax(40%,_1fr))] auto-rows-[300px] gap-8 m-4 py-4 px-8'>
 						{commercialServices.map((service) => (
 							<ServicesCard key={service.name} title={service.name} description={service.description} />

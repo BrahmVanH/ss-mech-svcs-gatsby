@@ -10,7 +10,7 @@ import { ArrowDownIcon, CircleArrowDownIcon } from 'evergreen-ui';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import '../styles/Hero.css';
+// import '../styles/Hero.css';
 
 //  Import images for slideshow
 import ac_compressor_jpeg from '../images/ac_compressor.jpeg';
@@ -31,23 +31,22 @@ const Hero: React.FC = () => {
 	];
 
 	return (
-		<div className='hero-wrapper'>
-			<div className='hero'>
-				{/* <img className='hero-img-mobile' src={multimeter_test_mobile} alt='wires in an electrical panel' /> */}
-				<div className='hero-text-mobile'>
-					<div className='mobile-hero-brand-top'>
-						<h1>South Shore </h1>
-						<img src={odin_graceful_white_fill} />
+		<div className='hero-wrapper h-screen w-screen  '>
+			<div className='hero bg-transparent block overflow-hidden z-[900] w-screen  h-screen   justify-center items-center flex-col text-center absolute top-0 sm:overflow-visible sm:bg-home-hero-fill sm:w-full sm:flex sm:h-full'>
+				<div className='hero-text-mobile hidden bg-home-hero-img-mobile  col-start-1 col-end-2 row-start-2 row-end-3 flex-col content-start justify-center text-start z-[1000] w-full h-full absolute top-0 left-0 sm:flex'>
+					<div className='mobile-hero-brand-top flex text-white '>
+						<h1 className='text-white self-end w-min m-0 sm:m-auto p-0 leading-[72px]'>South Shore </h1>
+						<img className='w-[20%] max-w-[100px] max-h-[200px] ml-4 ' src={odin_graceful_white_fill} alt='brand - dog stencil' />
 					</div>
 					<h1>Mechanical Services</h1>
-					<div className='horizontal-line' />
+					<div className='horizontal-line mt-8 bg-white w-[70%] h-px' />
 					<p>Commercial & Residential </p>
-					<p className='hero-text-mobile-plumbing-electrical-appliance'>Plumbing | Electrical | Appliance</p>
+					<p className='hero-text-mobile-plumbing-electrical-appliance text-[28px] leading-[28px] font-bold'>Plumbing | Electrical | Appliance</p>
 				</div>
 
-				<div className='hero-text'>
-					<img src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />
-					<p>Providing Commercial and Residential Handyman services to Marquette, Michigan</p>
+				<div className='hero-text hidden p-4 w-full sm:flex justify-center items-center flex-col'>
+					<img className='w-[40%]' src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />
+					<p className='text-white mb-8 text-4xl max-w-[75%]'>Providing Commercial and Residential Handyman services to Marquette, Michigan</p>
 				</div>
 			</div>
 			<Swiper
@@ -61,10 +60,10 @@ const Hero: React.FC = () => {
 				}}
 				loop={true}
 				modules={[Autoplay, Pagination, Navigation]}
-				className='mySwiper hero-swiper'>
+				className='mySwiper hero-swiper hidden'>
 				{images.map((image, index) => (
 					<SwiperSlide key={index}>
-						<img className='slide-image' src={image.img} alt={image.alt} />
+						<img className='slide-image w-screen max-h-screen overflow-hidden' src={image.img} alt={image.alt} />
 					</SwiperSlide>
 				))}
 			</Swiper>

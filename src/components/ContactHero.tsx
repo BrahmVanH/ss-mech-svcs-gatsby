@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-
 import brand_image_transparent from '../images/svg/odin_graceful_transparent.svg';
 
 import { PhoneIcon, EnvelopeIcon, MapIcon, Icon } from 'evergreen-ui';
@@ -42,19 +41,19 @@ export const contactInfo = {
 
 const ContactHero: React.FC = () => {
 	return (
-		<div className='contact-container .hidden sm:flex flex-row content-evenly items-center text-left w-full bg-black bg-opacity-15'>
-			<div className='contact-info p-4 flex flex-col content-center items-start leading-6'>
+		<div className='contact-container .hidden sm:flex flex-row justify-evenly items-center text-left w-full bg-black bg-opacity-15'>
+			<div className='contact-info p-4 flex flex-col justify-center items-start leading-6'>
 				<h2 className='mb-4'>Contact Us</h2>
-				<div className='contact-links flex flex-col content-center items-start'>
-					<Link target='_blank' rel='noreferrer' to={`tel:${contactInfo.phone}`} className='contact-item flex flex-row content-center items-center'>
+				<div className='contact-links flex flex-col justify-center items-start'>
+					<Link target='_blank' rel='noreferrer' to={`tel:${contactInfo.phone}`} className='contact-item flex flex-row justify-center items-center'>
 						<Icon className='mt-4 fill-primary' icon={PhoneIcon} size={20} />
 						<p className='mt-4 ml-4'>{contactInfo.phone}</p>
 					</Link>
-					<Link target='_blank' rel='noreferrer' to={`mailto:${contactInfo.email}`} className='contact-item flex flex-row content-center items-center'>
+					<Link target='_blank' rel='noreferrer' to={`mailto:${contactInfo.email}`} className='contact-item flex flex-row justify-center items-center'>
 						<Icon className='mt-4 fill-primary' icon={EnvelopeIcon} size={20} />
 						<p className='mt-4 ml-4'>{contactInfo.email}</p>
 					</Link>
-					<a target='_blank' rel='noreferrer' href={'https://maps.app.goo.gl/vsUYpBh3CToxdn3D7'} className='contact-item flex flex-row content-center items-center'>
+					<a target='_blank' rel='noreferrer' href={'https://maps.app.goo.gl/vsUYpBh3CToxdn3D7'} className='contact-item flex flex-row justify-center items-center'>
 						<Icon className='mt-4 fill-primary' icon={MapIcon} size={20} />
 						<div className='contact-info-address-container mt-4 ml-4'>
 							<p className='m-0'>{contactInfo.addressStreet} </p>
@@ -65,7 +64,7 @@ const ContactHero: React.FC = () => {
 			</div>
 
 			<div className='vertical-line py-[7%] w-px h-[90%] bg-black m-8 self-center justify-self-center' />
-			<div className='contact-brand-container flex content-center items-center mr-4'>
+			<div className='contact-brand-container flex justify-center items-center mr-4'>
 				<img className='max-h-32 mr-2' alt='brand - dog stencil' src={brand_image_transparent} />
 				<div className='contact-brand-text p-4 w-min'>
 					<h2 className='leading-8 w-min text-nowrap'>South Shore</h2>

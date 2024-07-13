@@ -36,7 +36,7 @@ const Home: React.FC = () => {
 	return (
 		<Layout handleScrollServicesIntoView={handleScrollServicesIntoView}>
 			<SEO currentUrl={currentUrl} />
-			<div ref={homeRef} className='flex flex-col items-center content-center bg-transparent'>
+			<div ref={homeRef} className='flex flex-col items-center justify-center bg-transparent'>
 				<Services />
 				<Reviews />
 			</div>

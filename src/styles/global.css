@@ -94,6 +94,7 @@ a {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	/* dont change this one */
 	align-content: center;
 	position: absolute;
 	bottom: 2rem;
@@ -103,6 +104,29 @@ a {
 		width: 3rem;
 		height: 3rem;
 	}
+}
+
+.not-home-nav {
+	background-image: url('../images/tankless-hotwater-landscape.jpg');
+	background-position-y: top;
+	background-size: cover;
+	position: relative !important;
+}
+
+.home-nav {
+	background-color: #537076ce;
+}
+
+nav {
+	.active-nav-link a {
+		border-bottom: 2px solid white !important;
+	}
+}
+
+.sk-ww-thumbtack-reviews {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust column width as needed */
+	gap: 20px; /* Add spacing between cards */
 }
 
 @media screen and (max-width: 576px) {

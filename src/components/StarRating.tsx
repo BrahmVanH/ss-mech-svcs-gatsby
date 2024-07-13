@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StarEmptyIcon, StarIcon } from 'evergreen-ui';
 
-import '../styles/StarRating.css';
+// import '../styles/StarRating.css';
 
 // Styled component for local use
 
@@ -12,12 +12,13 @@ type StarRatingProps = {
 const StarRating: React.FC<StarRatingProps> = (props: Readonly<StarRatingProps>) => {
 	// This component renders a number of filled x unfilled starts
 	// based on the value of the overallRating var passed in
+	// It uses tailwind css to style the stars
 	const rating = props.overallRating;
 
 	return (
 		<>
 			{rating === 1 ? (
-				<div className='star-rating-container'>
+				<div className='star-rating-container w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 fill-thumbtack-review-star-fill'>
 					<StarIcon />
 					<StarEmptyIcon />
 					<StarEmptyIcon />

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useMutation } from '@apollo/client';
 import { useForm, FieldValues, Controller } from 'react-hook-form';
-import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input/input';
+import PhoneInput from 'react-phone-number-input/react-hook-form-input';
+import { isValidPhoneNumber } from 'react-phone-number-input/input';
 
 import { SEND_SCHEDULE_SERVICE_MESSAGE } from '../lib/graphql';
 import { ScheduleServiceMessageInput } from '../lib/__generated__/graphql';
@@ -9,7 +10,7 @@ import { ScheduleServiceMessageInput } from '../lib/__generated__/graphql';
 import { formatPhoneNumberString, removeWhiteSpace } from '../lib/helpers';
 import { AddRowBottomIcon } from 'evergreen-ui/types';
 
-import '../styles/ScheduleServiceForm.css';
+// import '../styles/ScheduleServiceForm.css';
 
 const ScheduleServiceForm: React.FC = () => {
 	// This will hit the API and tell it to send me an email with the details mentioned
@@ -63,9 +64,13 @@ const ScheduleServiceForm: React.FC = () => {
 	};
 
 	return (
-		<form ref={formRef} className='schedule-service-form bg-primary bg-opacity-85 text-white' onSubmit={handleSubmit(onSubmit)}>
+		<form
+			ref={formRef}
+			className='schedule-service-form bg-primary bg-opacity-85 text-white flex flex-col justify-center items-center w-[30%] rounded-2xl my-8 mx-0 border border-black p-4 sticky top-4 '
+			onSubmit={handleSubmit(onSubmit)}>
 			<h3>Request Service</h3>
 			<input
+				className='w-full my-2 mx-0 p-2 text-start border border-black'
 				autoComplete='given-name'
 				type='text'
 				placeholder='First Name'
@@ -77,6 +82,7 @@ const ScheduleServiceForm: React.FC = () => {
 			/>
 			{errors.firstName && <p>{errors?.firstName?.message?.toString()}</p>}
 			<input
+				className='w-full my-2 mx-0 p-2 text-start border border-black'
 				autoComplete='family-name'
 				type='text'
 				placeholder='Last Name'
@@ -99,14 +105,17 @@ const ScheduleServiceForm: React.FC = () => {
 			/>
 			{errors.phone && <p>{errors?.phone?.message?.toString()}</p>}
 			 */}
-			<Controller
+			<PhoneInput
+				numberInputProps={{ autoComplete: 'tel', placeholder: 'Phone number', className: 'flex' }}
 				name='tel'
 				control={control}
-				rules={{ required: { value: true, message: 'Please enter a phone number.' }, validate: (value) => isValidPhoneNumber(value) || 'Please enter a valid phone number.' }}
-				render={({ field: { onChange, value } }) => <PhoneInput placeholder='Phone number' value={value} onChange={onChange} defaultCountry='US' />}
+				rules={{ required: { value: true, message: 'Please enter a phone number.' }, validate: isValidPhoneNumber || 'Please enter a valid phone number.' }}
+				placeholder='Phone number'
+				defaultCountry='US'
 			/>
 			{errors.tel && <p>{errors?.tel?.message?.toString()}</p>}
 			<input
+				className='w-full my-2 mx-0 p-2 text-start border border-black'
 				autoComplete='email'
 				type='email'
 				placeholder='Email'
@@ -118,7 +127,7 @@ const ScheduleServiceForm: React.FC = () => {
 			/>
 			{errors.email && <p>{errors?.email?.message?.toString()}</p>}
 			<select
-				className='text-gray-400'
+				className='text-gray-400 w-full my-2 mx-0 p-2 text-start border border-black'
 				{...register('location', {
 					required: { value: true, message: 'Please *select* a valid location.' },
 					maxLength: { value: 10, message: 'Please *select* a valid location.' },
@@ -129,7 +138,7 @@ const ScheduleServiceForm: React.FC = () => {
 			</select>
 			{errors.location && <p>{errors?.location?.message?.toString()}</p>}
 			<select
-				className='text-gray-400'
+				className='text-gray-400 w-full my-2 mx-0 p-2 text-start border border-black'
 				{...register('service', {
 					required: { value: true, message: 'Please *select* a valid service.' },
 					maxLength: { value: 40, message: 'Please *select* a valid service.' },
@@ -153,6 +162,7 @@ const ScheduleServiceForm: React.FC = () => {
 			</select>
 			{errors.service && <p>{errors?.service?.message?.toString()}</p>}
 			<textarea
+				className='w-full my-2 mx-0 p-2 border border-black'
 				placeholder='Message'
 				rows={5}
 				{...register('message', {
@@ -162,7 +172,9 @@ const ScheduleServiceForm: React.FC = () => {
 				})}
 			/>
 			{errors.message && <p>{errors?.message?.message?.toString()}</p>}
-			<button type='submit'>Submit</button>
+			<button className='w-full my-2 mx-0 p-2' type='submit'>
+				Submit
+			</button>
 		</form>
 	);
 };
