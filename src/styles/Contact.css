@@ -1,43 +1,45 @@
 .contact-page {
-	height: 100vh;
+	/* height: 100vh;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: center; */
 
 	h1 {
-		margin-top: 2rem;
+		/* margin-top: 2rem; */
 	}
 
 	.contact-info {
-		width: 100%;
+		/* width: 100%;
 		padding: 0rem 1rem;
 
 		display: flex;
 		flex-direction: row;
 		justify-content: space-evenly;
-		align-items: center;
+		align-items: center; */
 
 		.contact-links-and-icons-container {
-			display: flex;
+			/* display: flex;
 			flex-direction: column;
 			justify-content: center;
-			align-items: center;
+			align-items: center; */
 
 			.contact-icons {
-				display: flex;
+				/* Don't think this class is used */
+				/* display: flex;
 				flex-direction: row;
 				justify-content: center;
 				align-items: center;
 				width: 100%;
-				margin: 1rem 0rem;
+				margin: 1rem 0rem; */
 
 				.contact-item {
-					padding-left: 1rem;
+					/* padding-left: 1rem; */
 				}
 			}
 		}
-
+		/* I Think this/these classes are unused */
+		/* 
 		.contact-form-container {
 			display: flex;
 			flex-direction: column;
@@ -75,46 +77,47 @@
 					padding: 0.5rem;
 				}
 			}
-		}
+		} */
 	}
 }
 
-.contact-info > * {
+/* .contact-info > * {
 	margin: 1rem;
-}
+} */
 
 .contact-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
-	align-items: center;
-	text-align: left;
-	width: 100%;
-	background-color: #0000002c;
+	/* added as tailwind classes */
+	/* display: flex; */
+	/* flex-direction: row; */
+	/* justify-content: space-evenly; */
+	/* align-items: center; */
+	/* text-align: left; */
+	/* width: 100%; */
+	/* background-color: hsla(0, 0%, 0%, 0.173); */
 
 	.contact-info {
-		padding: 1rem;
+		/* Has been added as tailwind classes */
+		/* padding: 1rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
-		line-height: 24px;
+		line-height: 24px; */
 		h2 {
-			font-size: 2rem;
-			margin-bottom: 1rem;
+			/* margin-bottom: 1rem; */
 		}
 	}
 
 	.contact-brand-container {
-		display: flex;
+		/* display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-right: 1rem;
+		margin-right: 1rem; */
 		/* width: min-content; */
 
 		img {
-			max-height: 125px;
-			margin-right: 0.5rem;
+			/* max-height: 125px;
+			margin-right: 0.5rem; */
 		}
 	}
 }
@@ -124,59 +127,72 @@
 }
 
 .contact-brand-text {
-	padding: 1rem;
-	width: min-content;
+	/* tailwind classes */
+	/* padding: 1rem;
+	width: min-content; */
 
 	h2 {
-		line-height: 2rem;
-		font-size: 2rem;
+		/* tailwind classes */
+		/* line-height: 2rem;
 		width: min-content;
-		text-wrap: nowrap;
+		text-wrap: nowrap; */
 	}
 
-	p {
+	/* Unused */
+	/* p {
+		
 		max-width: 65%;
-	}
+	} */
 }
 
 .contact-links {
-	display: flex;
+	/* tailwind classes'd */
+	/* display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: flex-start;
+	align-items: flex-start; */
 }
 .contact-item {
-	display: flex;
+	/* tailwind classes'd */
+	/* display: flex;
 	flex-direction: row;
 	justify-content: center;
-	align-items: center;
+	align-items: center; */
 
 	p {
-		margin: 1rem 0rem 0rem 1rem;
+		/* tailwind classes'd */
+		/* margin: 1rem 0rem 0rem 1rem; */
 	}
 
 	svg {
-		color: #537076;
+		/* tailwind classes'd */
+
+		/* color: #537076; */
 	}
 }
 
 .contact-info-address-container {
-	margin: 1rem 0rem 0rem 1rem;
+	/* tailwind classes'd both contactHero and contact */
+
+	/* margin: 1rem 0rem 0rem 1rem; */
 
 	p {
-		margin: 0rem !important;
+		/* tailwind classes'd both contactHero and contact */
+
+		/* margin: 0rem !important; */
 	}
 }
 
 .vertical-line {
-	padding: 7.5% 0rem;
+	/* tailwind classes'd */
 
+	/* padding: 7.5% 0rem;
 	width: 1px;
 	height: 90%;
 	background-color: #000000;
 	margin: 2rem 2rem;
 	align-self: center;
-	justify-self: center;
+	justify-self: center; */
 }
 
 @media screen and (max-width: 576px) {
@@ -184,52 +200,3 @@
 		display: none;
 	}
 }
-
-/* 
-@media screen and (max-width: 576px) {
-	.contact-container {
-		flex-direction: column-reverse;
-		padding: 1rem;
-	}
-
-	.contact-brand-container {
-		display: none;
-	}
-
-	.vertical-line {
-		display: none;
-	}
-
-	.contact-item {
-		margin-right: 0.5rem;
-		p {
-			display: none;
-		}
-
-	}
-
-	.contact-info {
-		align-items: center;
-
-		h2 {
-			display: none;
-		}
-	}
-	.contact-links {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-
-		a {
-			margin: 0rem 1rem;
-		}
-	}
-
-	
-	.contact-info-address-container {
-		display: none;
-	}
-
-} */

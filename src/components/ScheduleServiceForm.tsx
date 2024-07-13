@@ -63,7 +63,7 @@ const ScheduleServiceForm: React.FC = () => {
 	};
 
 	return (
-		<form ref={formRef} className='schedule-service-form' onSubmit={handleSubmit(onSubmit)}>
+		<form ref={formRef} className='schedule-service-form bg-primary bg-opacity-85 text-white' onSubmit={handleSubmit(onSubmit)}>
 			<h3>Request Service</h3>
 			<input
 				autoComplete='given-name'
@@ -118,6 +118,7 @@ const ScheduleServiceForm: React.FC = () => {
 			/>
 			{errors.email && <p>{errors?.email?.message?.toString()}</p>}
 			<select
+				className='text-gray-400'
 				{...register('location', {
 					required: { value: true, message: 'Please *select* a valid location.' },
 					maxLength: { value: 10, message: 'Please *select* a valid location.' },
@@ -128,6 +129,7 @@ const ScheduleServiceForm: React.FC = () => {
 			</select>
 			{errors.location && <p>{errors?.location?.message?.toString()}</p>}
 			<select
+				className='text-gray-400'
 				{...register('service', {
 					required: { value: true, message: 'Please *select* a valid service.' },
 					maxLength: { value: 40, message: 'Please *select* a valid service.' },
