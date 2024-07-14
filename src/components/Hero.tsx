@@ -10,7 +10,7 @@ import { ArrowDownIcon, CircleArrowDownIcon } from 'evergreen-ui';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-// import '../styles/Hero.css';
+import '../styles/Hero.css';
 
 //  Import images for slideshow
 import ac_compressor_jpeg from '../images/ac_compressor.jpeg';
@@ -32,15 +32,15 @@ const Hero: React.FC = () => {
 
 	return (
 		<div className='hero-wrapper h-screen w-screen  '>
-			<div className='hero bg-transparent block overflow-hidden z-[900] w-screen  h-screen   justify-center items-center flex-col text-center absolute top-0 sm:overflow-visible sm:bg-home-hero-fill sm:w-full sm:flex sm:h-full'>
-				<div className='hero-text-mobile hidden bg-home-hero-img-mobile  col-start-1 col-end-2 row-start-2 row-end-3 flex-col content-start justify-center text-start z-[1000] w-full h-full absolute top-0 left-0 sm:flex'>
-					<div className='mobile-hero-brand-top flex text-white '>
-						<h1 className='text-white self-end w-min m-0 sm:m-auto p-0 leading-[72px]'>South Shore </h1>
+			<div className='hero bg-transparent block overflow-hidden z-[900] w-screen  h-screen justify-center items-center flex-col text-center absolute top-0 sm:overflow-visible sm:bg-home-hero-fill sm:w-full sm:flex sm:h-full'>
+				<div className='hero-text-mobile flex bg-home-hero-img-mobile text-white col-start-1 col-end-2 row-start-2 row-end-3 flex-col content-start justify-center text-start z-[1000] w-full h-full absolute top-0 left-0 sm:hidden'>
+					<div className='mobile-hero-brand-top flex '>
+						<h1 className=' self-end w-min m-0 sm:m-auto p-0 text-[80px] leading-[72px]'>South Shore </h1>
 						<img className='w-[20%] max-w-[100px] max-h-[200px] ml-4 ' src={odin_graceful_white_fill} alt='brand - dog stencil' />
 					</div>
-					<h1>Mechanical Services</h1>
+					<h1 className=' self-start  w-min m-0  p-0 text-[80px] leading-[72px]'>Mechanical Services</h1>
 					<div className='horizontal-line mt-8 bg-white w-[70%] h-px' />
-					<p>Commercial & Residential </p>
+					<p className='my-4 mx-0 text-5xl text-wrap leading-[72px]'>Commercial & Residential </p>
 					<p className='hero-text-mobile-plumbing-electrical-appliance text-[28px] leading-[28px] font-bold'>Plumbing | Electrical | Appliance</p>
 				</div>
 
@@ -51,6 +51,7 @@ const Hero: React.FC = () => {
 			</div>
 			<Swiper
 				// height={500}
+				className='hidden hero-swiper sm:block'
 				width={1500}
 				spaceBetween={0}
 				centeredSlides={true}
@@ -59,8 +60,7 @@ const Hero: React.FC = () => {
 					disableOnInteraction: false,
 				}}
 				loop={true}
-				modules={[Autoplay, Pagination, Navigation]}
-				className='mySwiper hero-swiper hidden'>
+				modules={[Autoplay, Pagination, Navigation]}>
 				{images.map((image, index) => (
 					<SwiperSlide key={index}>
 						<img className='slide-image w-screen max-h-screen overflow-hidden' src={image.img} alt={image.alt} />

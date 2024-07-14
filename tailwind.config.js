@@ -16,7 +16,7 @@ module.exports = {
 				card: 'var(--card-border-radius)',
 			},
 			backgroundImage: {
-				'temp-services-card': "url('../images/data-cable-wiring.jpeg')",
+				'temp-services-card': "url('/src/images/data-cable-wiring.jpeg')",
 				'home-hero-img-mobile': "url('../images/multi-meter-testing-iphone-res.jpg')",
 			},
 			fontFamily: {

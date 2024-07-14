@@ -63,8 +63,8 @@ const ContactHero: React.FC = () => {
 				</div>
 			</div>
 
-			<div className='vertical-line py-[7%] w-px h-[90%] bg-black m-8 self-center justify-self-center' />
-			<div className='contact-brand-container flex justify-center items-center mr-4'>
+			<div className='vertical-line hidden sm:block py-[7%] w-px h-[90%] bg-black m-8 self-center justify-self-center' />
+			<div className='contact-brand-container hidden sm:flex justify-center items-center mr-4'>
 				<img className='max-h-32 mr-2' alt='brand - dog stencil' src={brand_image_transparent} />
 				<div className='contact-brand-text p-4 w-min'>
 					<h2 className='leading-8 w-min text-nowrap'>South Shore</h2>

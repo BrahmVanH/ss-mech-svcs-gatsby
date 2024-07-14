@@ -106,7 +106,7 @@ const ScheduleServiceForm: React.FC = () => {
 			{errors.phone && <p>{errors?.phone?.message?.toString()}</p>}
 			 */}
 			<PhoneInput
-				numberInputProps={{ autoComplete: 'tel', placeholder: 'Phone number', className: 'flex' }}
+				class='w-full my-2 mx-0 p-2 text-start border border-black'
 				name='tel'
 				control={control}
 				rules={{ required: { value: true, message: 'Please enter a phone number.' }, validate: isValidPhoneNumber || 'Please enter a valid phone number.' }}

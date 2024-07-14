@@ -64,7 +64,11 @@ const Nav: React.FC = () => {
 		<>
 			<nav ref={navRef} className='hidden sm:flex justify-between items-center w-full text-white z-[1000] p-2 absolute'>
 				<Link to='/' className='nav-brand-container flex justify-center items-center ml-8'>
-					{isHome ? <img className='max-h-[90px] mr-4' alt='brand badging - "stencil dog"' src={brand_image_transparent} /> : <img alt='brand badging - "stencil dog"' src={brand_image_white} />}
+					{isHome ? (
+						<img className='max-h-[90px] mr-4' alt='brand badging - "stencil dog"' src={brand_image_transparent} />
+					) : (
+						<img className='max-h-[90px] mr-4' alt='brand badging - "stencil dog"' src={brand_image_white} />
+					)}
 					<div className='brand-text flex flex-col justify-center items-start text-left text-nowrap'>
 						<h1 className='brand-text m-0 p-0 leading-8'>
 							<span className='m-0 text-[28px]'>South Shore</span>

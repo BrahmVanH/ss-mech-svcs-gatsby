@@ -1,5 +1,6 @@
 import type { GatsbyConfig } from 'gatsby';
 import dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config();
 
@@ -47,7 +48,7 @@ const config: GatsbyConfig = {
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				name: 'images',
-				path: './src/images/',
+				path: path.join(__dirname, `src`, `images`),
 			},
 			__key: 'images',
 		},

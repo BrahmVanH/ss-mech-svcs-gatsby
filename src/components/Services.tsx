@@ -25,7 +25,7 @@ const Services: React.FC = () => {
 			{/* Switch to link with dynamic route to service page */}
 			<Link
 				to={'/services/Residential'}
-				className='services-card w-full sm:w-[95%] my-4 mx-auto flex flex-col-reverse sm:flex-col sm:flex-row cursor-pointer shadow-sm shadow-[#00000042] rounded-2xl sm:hover:scale-105 sm:hover:shadow sm:hover:duration-500'>
+				className='services-card w-full sm:w-[95%] my-4 mx-auto flex flex-col-reverse sm:flex-row cursor-pointer shadow-sm shadow-[#00000042] rounded-2xl sm:hover:scale-105 sm:hover:shadow sm:hover:duration-500'>
 				<div className='services-card-text text-center flex flex-col justify-center'>
 					<h3 className='my-4 mx-auto'>Home Repairs and Services</h3>
 					<p className='w-3/4 mb-8 sm:my-4 mx-auto font-base'>

@@ -47,7 +47,7 @@
 
 /* Mobile styles ( <576px)  */
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 640px) {
 	.hero {
 		/* background-color: transparent !important;
 		display: block !important;
@@ -102,7 +102,7 @@
 	}
 	/* Non-mobile hero slideshow in media query */
 	.hero-swiper {
-		/* display: none !important; */
+		display: none !important;
 	}
 
 	.mobile-hero-brand-top {

@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
+import { graphql } from 'gatsby';
+
 
 import ServicesCard from '../../components/ServicesCard';
 import Layout from '../../components/layout';
@@ -9,7 +11,17 @@ import Layout from '../../components/layout';
 import commercialServices from '../../lib/data/commercialServices.json';
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 
-const Commercial: React.FC = () => {
+interface CommercialPageProps {
+	data: {
+		file: {
+			childImageSharp: {
+				fluid: any;
+			};
+		};
+	};
+}
+
+const Commercial: React.FC<CommercialPageProps> = ({ data }) => {
 	return (
 		<Layout>
 			<div className='services-page w-full h-full flex flex-col justify-center items-center'>
@@ -23,9 +35,9 @@ const Commercial: React.FC = () => {
 				</Link>
 				{/* add section 'common signs that xxx needs service */}
 				<div className='services-page-content w-full flex justify-center items-start'>
-					<div className='services-page-card-container w-[55%] grid-cols-[repeat(auto-fit,_minmax(40%,_1fr))] auto-rows-[300px] gap-8 m-4 py-4 px-8'>
+					<div className='services-page-card-container w-[55%] grid grid-cols-[repeat(auto-fit,_minmax(40%,_1fr))] auto-rows-[300px] gap-8 m-4 py-4 px-8'>
 						{commercialServices.map((service) => (
-							<ServicesCard key={service.name} title={service.name} description={service.description} />
+							<ServicesCard key={service.name} title={service.name} description={service.description} data={data}/>
 						))}
 					</div>
 					<ScheduleServiceForm />
@@ -36,3 +48,15 @@ const Commercial: React.FC = () => {
 };
 
 export default Commercial;
+
+export const query = graphql`
+	query {
+		file(relativePath: { eq: "data-cable-wiring.jpeg" }) {
+			childImageSharp {
+				fluid {
+					...GatsbyImageSharpFluid
+				}
+			}
+		}
+	}
+`;
