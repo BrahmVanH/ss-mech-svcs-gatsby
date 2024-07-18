@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 
 import data_cable_install from '../images/data-cable-wiring.jpeg';
 import { ArrowLeftIcon, Icon } from 'evergreen-ui';
-// create interface for NotFoundPageProps that contains graphql fetched image
+
 interface NotFoundPageProps {
 	data: {
 		file: {
@@ -26,7 +26,8 @@ const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
 						<Icon className='mb-4' icon={ArrowLeftIcon} />
 						<p className='leading-[14px] ml-2'>Go Back</p>
 					</Link>
-					<img className='w-screen sm:w-[600px] max-w-[600px]' src={data_cable_install} alt='Data cable wiring' />
+					{/* <img className='w-full max-w-[400px]' src={data_cable_install} alt='Data cable wiring' /> */}
+					<Img className={'w-screen sm:w-[600px] max-w-[600px]'} fluid={data.file.childImageSharp.fluid} alt='Data cable wiring' />
 				</div>
 				<div className='not-found-card-text text-center flex flex-col items-center'>
 					<h1 className='w-2/4 mb-4'>Sorry...</h1>

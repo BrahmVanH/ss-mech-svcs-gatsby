@@ -18,6 +18,7 @@
 	--button-border-size: 1.5px;
 
 	--card-border-radius: 20px;
+	--tw-gradient-stops: #302e33, #2e2b30, rgba(0, 0, 0, 0.811), rgba(0, 0, 0, 0.811);
 }
 
 #root {
@@ -118,8 +119,14 @@ a {
 }
 
 nav {
-	.active-nav-link a {
-		border-bottom: 2px solid white !important;
+	.active-nav-link {
+		/* border-bottom: 2px solid white !important; */
+		/* transform: translateY(-10px) !important; */
+	}
+
+	.active-nav-item {
+		/* border-bottom: 2px solid white !important; */
+		/* transform: translateY(-10px) !important; */
 	}
 }
 

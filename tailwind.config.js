@@ -11,12 +11,17 @@ module.exports = {
 				comp2: '#E6F4F1',
 				'home-hero-fill': '#5150507c',
 				'thumbtack-review-star-fill': '#2db783',
+				'services-dropdown-home-bg': '#537076ce',
+				'services-dropdown-grad-stop-1': '#302e33',
+				'services-dropdown-grad-stop-2': '#2e2b30',
+				'services-dropdown-grad-stop-3': 'rgba(0, 0, 0, 0.811)',
+				'services-dropdown-grad-stop-4': 'rgba(0, 0, 0, 0.811)',
 			},
 			borderRadius: {
 				card: 'var(--card-border-radius)',
 			},
 			backgroundImage: {
-				'temp-services-card': "url('/src/images/data-cable-wiring.jpeg')",
+				'temp-services-card': "url('../images/data-cable-wiring.jpeg')",
 				'home-hero-img-mobile': "url('../images/multi-meter-testing-iphone-res.jpg')",
 			},
 			fontFamily: {

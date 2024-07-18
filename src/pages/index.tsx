@@ -5,7 +5,6 @@ import Services from '../components/Services';
 import Footer from '../components/Footer';
 
 import 'normalize.css';
-import '../styles/Home.css';
 import SEO from '../components/SEO';
 
 // To Do: Added breadcrumb structured data
