@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
 
 				<div className='hero-text hidden p-4 w-full sm:flex justify-center items-center flex-col'>
 					<img className='w-[40%]' src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />
-					<p className='text-white mb-8 text-4xl max-w-[75%]'>Providing Commercial and Residential Handyman services to Marquette, Michigan</p>
+					<p className='text-white mb-8 text-4xl max-w-[75%]'>Providing Commercial and Residential Mechanical services to Marquette, Michigan</p>
 				</div>
 			</div>
 			<Swiper

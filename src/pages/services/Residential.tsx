@@ -15,13 +15,15 @@ const Residential: React.FC = () => {
 			<div className='services-page w-full h-full flex flex-col justify-center items-center'>
 				<h1>Residential Services</h1>
 
-				{/* add section 'common signs that xxx needs service */}
-				<div className='services-page-card-container w-[55%] grid-cols-[repeat(auto-fit,_minmax(40%,_1fr))] auto-rows-[300px] gap-8 m-4 py-4 px-8'>
-					{residentialServices.map((service) => (
-						<ServicesCard key={service.name} title={service.name} description={service.description} />
-					))}
+				<div className='services-page-content w-full flex justify-center items-start'>
+					{/* add section 'common signs that xxx needs service */}
+					<div className='services-page-card-container w-[55%] grid grid-cols-[repeat(auto-fit,_minmax(40%,_1fr))] auto-rows-[300px] gap-8 m-4 py-4 px-8'>
+						{residentialServices.map((service) => (
+							<ServicesCard key={service.name} title={service.name} description={service.description} img={service.img} />
+						))}
+					</div>
+					<ScheduleServiceForm />
 				</div>
-				<ScheduleServiceForm />
 			</div>
 		</Layout>
 	);

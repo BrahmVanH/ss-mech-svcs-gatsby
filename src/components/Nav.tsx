@@ -52,7 +52,6 @@ const Nav: React.FC = () => {
 			navRef.current?.classList.remove('home-nav');
 			setServicesDropdownBg(servicesDropdownBgNotHome);
 
-
 			// contactRouteRef.current?.classList.add('active-nav-link');
 			// homeRouteRef.current?.classList.remove('active-nav-link');
 			// aboutRouteRef.current?.classList.remove('active-nav-link');

@@ -16,10 +16,12 @@ const Footer: React.FC = () => {
 
 	return (
 		<footer className='w-full flex flex-col justify-center items-center'>
-			<ContactHero />
-			<div className='footer-strip bg-[#0000002c] flex justify-between items-center sm:block  w-full'>
-				<p className='copy-right w-full p-2 text-[10px] text-center sm:text-left'>© 2024, South Shore Technical Services, LLC</p>
-				<div className='footer-strip-links flex p-4 w-min flex-row sm:hidden'>
+			{window.location.pathname === '/Contact/' ? <></> : <ContactHero />}
+			<div className='footer-strip bg-white flex justify-between items-center sm:block  w-full'>
+				<a target='_blank' rel='noreferrer' href='https://brahmvanhouzen.studio/'>
+					<p className='copy-right w-full p-2 text-[10px] text-center sm:text-left'>© 2024, South Shore Technical Services, LLC</p>
+				</a>
+				<div className='footer-strip-links flex p-4 w-min flex-row  sm:hidden'>
 					<Link target='_blank' rel='noreferrer' to={`tel:${contactInfo.phone}`} className='contact-item mx-4 my-0 fill-black no-underline text-base'>
 						<Icon className='mt-4' icon={PhoneIcon} size={16} />
 					</Link>
