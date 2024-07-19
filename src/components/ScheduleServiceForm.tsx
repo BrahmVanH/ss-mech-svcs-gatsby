@@ -22,6 +22,8 @@ const ScheduleServiceForm: React.FC = () => {
 	// Service needed (options)
 	// Date and time needed by
 
+	const inputClasses = 'w-[85%] my-2 mx-0 p-2 text-start border border-black';
+
 	const [messageData, setMessageData] = React.useState<FieldValues | null>(null);
 
 	const formRef = React.useRef<HTMLFormElement>(null);
@@ -70,7 +72,7 @@ const ScheduleServiceForm: React.FC = () => {
 			onSubmit={handleSubmit(onSubmit)}>
 			<h3>Request Service</h3>
 			<input
-				className='w-full my-2 mx-0 p-2 text-start border border-black'
+				className={inputClasses}
 				autoComplete='given-name'
 				type='text'
 				placeholder='First Name'
@@ -82,7 +84,7 @@ const ScheduleServiceForm: React.FC = () => {
 			/>
 			{errors.firstName && <p>{errors?.firstName?.message?.toString()}</p>}
 			<input
-				className='w-full my-2 mx-0 p-2 text-start border border-black'
+				className={inputClasses}
 				autoComplete='family-name'
 				type='text'
 				placeholder='Last Name'
@@ -106,7 +108,7 @@ const ScheduleServiceForm: React.FC = () => {
 			{errors.phone && <p>{errors?.phone?.message?.toString()}</p>}
 			 */}
 			<PhoneInput
-				class='w-full my-2 mx-0 p-2 text-start border border-black'
+				class={inputClasses}
 				name='tel'
 				control={control}
 				rules={{ required: { value: true, message: 'Please enter a phone number.' }, validate: isValidPhoneNumber || 'Please enter a valid phone number.' }}
@@ -115,7 +117,7 @@ const ScheduleServiceForm: React.FC = () => {
 			/>
 			{errors.tel && <p>{errors?.tel?.message?.toString()}</p>}
 			<input
-				className='w-full my-2 mx-0 p-2 text-start border border-black'
+				className={inputClasses}
 				autoComplete='email'
 				type='email'
 				placeholder='Email'
@@ -127,7 +129,7 @@ const ScheduleServiceForm: React.FC = () => {
 			/>
 			{errors.email && <p>{errors?.email?.message?.toString()}</p>}
 			<select
-				className='text-gray-400 w-full my-2 mx-0 p-2 text-start border border-black'
+				className={`text-gray-400 ${inputClasses}`}
 				{...register('location', {
 					required: { value: true, message: 'Please *select* a valid location.' },
 					maxLength: { value: 10, message: 'Please *select* a valid location.' },
@@ -138,7 +140,7 @@ const ScheduleServiceForm: React.FC = () => {
 			</select>
 			{errors.location && <p>{errors?.location?.message?.toString()}</p>}
 			<select
-				className='text-gray-400 w-full my-2 mx-0 p-2 text-start border border-black'
+				className={`text-gray-400 ${inputClasses}`}
 				{...register('service', {
 					required: { value: true, message: 'Please *select* a valid service.' },
 					maxLength: { value: 40, message: 'Please *select* a valid service.' },
@@ -162,7 +164,7 @@ const ScheduleServiceForm: React.FC = () => {
 			</select>
 			{errors.service && <p>{errors?.service?.message?.toString()}</p>}
 			<textarea
-				className='w-full my-2 mx-0 p-2 border border-black'
+				className={inputClasses}
 				placeholder='Message'
 				rows={5}
 				{...register('message', {
