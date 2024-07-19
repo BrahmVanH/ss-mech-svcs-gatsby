@@ -22,7 +22,7 @@ const ScheduleServiceForm: React.FC = () => {
 	// Service needed (options)
 	// Date and time needed by
 
-	const inputClasses = 'w-[85%] my-2 mx-0 p-2 text-start border border-black';
+	const inputClasses = 'w-[85%] my-2 mx-0 p-2 text-start border border-black rounded-sm';
 
 	const [messageData, setMessageData] = React.useState<FieldValues | null>(null);
 
@@ -68,9 +68,9 @@ const ScheduleServiceForm: React.FC = () => {
 	return (
 		<form
 			ref={formRef}
-			className='schedule-service-form bg-primary bg-opacity-85 text-white flex flex-col justify-center items-center w-[30%] rounded-2xl my-8 mx-0 border border-black p-4 sticky top-4 '
+			className='schedule-service-form bg-primary bg-opacity-85 text-white flex flex-col justify-center items-center w-[30%] rounded-2xl my-8 mx-0 py-4 border border-black p-4 sticky top-4 '
 			onSubmit={handleSubmit(onSubmit)}>
-			<h3>Request Service</h3>
+			<h3 className='mb-4 mt-2'>Request Service</h3>
 			<input
 				className={inputClasses}
 				autoComplete='given-name'
@@ -174,7 +174,7 @@ const ScheduleServiceForm: React.FC = () => {
 				})}
 			/>
 			{errors.message && <p>{errors?.message?.message?.toString()}</p>}
-			<button className='w-full my-2 mx-0 p-2' type='submit'>
+			<button className='w-min my-4 mx-0 px-4 py-2 border border-white rounded-sm' type='submit'>
 				Submit
 			</button>
 		</form>
