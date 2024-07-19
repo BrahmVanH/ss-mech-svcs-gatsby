@@ -23,10 +23,37 @@ const config: GatsbyConfig = {
 			},
 		},
 		'gatsby-plugin-image',
-		'gatsby-plugin-sitemap',
 		'gatsby-plugin-apollo',
 		`gatsby-plugin-react-helmet`,
-
+		{
+			resolve: 'gatsby-plugin-sitemap',
+			options: {
+				output: '/sitemap.xml',
+				createLinkInHead: true,
+				query: `
+					{
+						site { 
+							siteMetadata {
+									siteUrl 
+							}
+						}
+						allSitePage {
+							nodes {
+								path
+								pageContext
+							}
+						}
+					}		
+					`,
+				serialize: ({ path, pageContext }: { path: string; pageContext: any }) => {
+					console.log('pageContext', pageContext);
+					return {
+						url: path,
+						lastmod: pageContext?.lastmod,
+					};
+				},
+			},
+		},
 		{
 			resolve: 'gatsby-plugin-google-gtag',
 			options: {
@@ -42,6 +69,7 @@ const config: GatsbyConfig = {
 				icon: 'src/images/odin_graceful_transparent.jpg',
 			},
 		},
+		'gatsby-plugin-git-lastmod',
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',
 		{
@@ -63,7 +91,3 @@ const config: GatsbyConfig = {
 };
 
 export default config;
-
-
-
-

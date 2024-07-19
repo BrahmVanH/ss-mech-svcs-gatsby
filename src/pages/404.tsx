@@ -11,7 +11,7 @@ interface NotFoundPageProps {
 	data: {
 		file: {
 			childImageSharp: {
-				fluid: any;
+				gatsbyImageData: any;
 			};
 		};
 	};
@@ -27,7 +27,7 @@ const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
 						<p className='leading-[14px] ml-2'>Go Back</p>
 					</Link>
 					{/* <img className='w-full max-w-[400px]' src={data_cable_install} alt='Data cable wiring' /> */}
-					<Img className={'w-screen sm:w-[600px] max-w-[600px]'} fluid={data.file.childImageSharp.fluid} alt='Data cable wiring' />
+					<Img className={'w-screen sm:w-[600px] max-w-[600px]'} fluid={data.file.childImageSharp.gatsbyImageData} alt='Data cable wiring' />
 				</div>
 				<div className='not-found-card-text text-center flex flex-col items-center'>
 					<h1 className='w-2/4 mb-4'>Sorry...</h1>
@@ -46,9 +46,7 @@ export const query = graphql`
 	query {
 		file(relativePath: { eq: "data-cable-wiring.jpeg" }) {
 			childImageSharp {
-				fluid {
-					...GatsbyImageSharpFluid
-				}
+				gatsbyImageData(layout: CONSTRAINED)
 			}
 		}
 	}

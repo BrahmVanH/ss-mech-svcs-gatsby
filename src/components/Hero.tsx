@@ -1,10 +1,7 @@
 import * as React from 'react';
 // Import Swiper React components
-import { Link } from 'gatsby';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import Img from 'gatsby-image';
-import { ArrowDownIcon, CircleArrowDownIcon } from 'evergreen-ui';
 
 // Import Swiper styles
 import 'swiper/css';
