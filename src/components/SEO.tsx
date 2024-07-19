@@ -57,18 +57,80 @@ const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, slug, ch
 			{/* Breadcrumb List structured data for Google SEO */}
 			{/* To Do: Add rest of pages to structured data */}
 			<script type='application/ld+json'>
-				{JSON.stringify({
-					'@context': 'https://schema.org',
-					'@type': 'BreadcrumbList',
-					itemListElement: [
-						{
-							'@type': 'ListItem',
-							position: 1,
-							name: 'Home',
-							item: 'https://southshoremechal.services',
-						},
-					],
-				})}
+				{JSON.stringify([
+					{
+						'@context': 'https://schema.org',
+						'@type': 'BreadcrumbList',
+						itemListElement: [
+							{
+								'@type': 'ListItem',
+								position: 1,
+								name: 'Home',
+								item: 'https://southshoremechanical.services',
+							},
+							{
+								'@type': 'ListItem',
+								position: 2,
+								name: 'Commercial Services',
+								item: 'https://southshoremechanical.services/services/Commercial',
+							},
+						],
+					},
+					{
+						'@context': 'https://schema.org',
+						'@type': 'BreadcrumbList',
+						itemListElement: [
+							{
+								'@type': 'ListItem',
+								position: 1,
+								name: 'Home',
+								item: 'https://southshoremechanical.services',
+							},
+							{
+								'@type': 'ListItem',
+								position: 2,
+								name: 'Residential Services',
+								item: 'https://southshoremechanical.services/services/Residential',
+							},
+						],
+					},
+					{
+						'@context': 'https://schema.org',
+						'@type': 'BreadcrumbList',
+						itemListElement: [
+							{
+								'@type': 'ListItem',
+								position: 1,
+								name: 'Home',
+								item: 'https://southshoremechanical.services',
+							},
+							{
+								'@type': 'ListItem',
+								position: 2,
+								name: 'Contact',
+								item: 'https://southshoremechanical.services/contact',
+							},
+						],
+					},
+					{
+						'@context': 'https://schema.org',
+						'@type': 'BreadcrumbList',
+						itemListElement: [
+							{
+								'@type': 'ListItem',
+								position: 1,
+								name: 'Home',
+								item: 'https://southshoremechanical.services',
+							},
+							{
+								'@type': 'ListItem',
+								position: 2,
+								name: 'About',
+								item: 'https://southshoremechanical.services/about',
+							},
+						],
+					},
+				])}
 			</script>
 			<link rel='preconnect' href='https://fonts.googleapis.com' />
 			<link rel='preconnect' href='https://fonts.gstatic.com' />
