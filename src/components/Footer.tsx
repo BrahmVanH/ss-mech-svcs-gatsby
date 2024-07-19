@@ -14,9 +14,19 @@ const Footer: React.FC = () => {
 		email: 'info@southshoremechanical.services',
 	};
 
+	const [isOnContactPage, setIsOnContactPage] = React.useState<boolean>(false);
+
+	React.useEffect(() => {
+		if (window.location.pathname === `/Contact/`) {
+			setIsOnContactPage(true);
+		} else {
+			setIsOnContactPage(false);
+		}
+	}, []);
+
 	return (
 		<footer className='w-full flex flex-col justify-center items-center'>
-			{window.location.pathname === '/Contact/' ? <></> : <ContactHero />}
+			{isOnContactPage ? <></> : <ContactHero />}
 			<div className='footer-strip bg-white flex justify-between items-center sm:block  w-full'>
 				<a target='_blank' rel='noreferrer' href='https://brahmvanhouzen.studio/'>
 					<p className='copy-right w-full p-2 text-[10px] text-center sm:text-left'>© 2024, South Shore Technical Services, LLC</p>
