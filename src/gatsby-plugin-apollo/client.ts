@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-fetch';
 import { ApolloClient, HttpLink, InMemoryCache, from } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 
@@ -17,7 +16,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 	}
 });
 
-const httpLink = new HttpLink({ uri: process.env.GATSBY_LAMBDA_FUNCTION_URL, credentials: 'include', headers: { origin: process.env.GATSBY_ORIGIN } });
+const httpLink = new HttpLink({ uri: process.env.GATSBY_LAMBDA_FUNCTION_URL ?? '', credentials: 'include', headers: { origin: process.env.GATSBY_ORIGIN ?? '' } });
 
 const link = from([errorLink, httpLink]);
 
