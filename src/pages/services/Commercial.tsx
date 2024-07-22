@@ -12,11 +12,11 @@ const Commercial: React.FC = () => {
 	return (
 		<Layout>
 			<div className='w-full h-full flex flex-col justify-center items-center'>
-				<h1 className='text-[48px] text-800'>Commercial Services</h1>
+				<h1 className='text-center sm:text-left text-[48px] text-800'>Commercial Services</h1>
 
 				{/* add section 'common signs that xxx needs service */}
-				<div className='w-screen flex justify-center items-start'>
-					<div className='w-[55%] grid grid-cols-[repeat(auto-fit,_minmax(40%,_1fr))] auto-rows-[300px] gap-8 m-4 py-4 px-8'>
+				<div className='w-screen flex flex-col  sm:flex-row justify-center items-start'>
+					<div className='w-full sm:w-[55%] flex flex-col aspect-square sm:grid grid-cols-[repeat(auto-fit,_minmax(40%,_1fr))] auto-rows-[300px] gap-8 m-0 sm:m-4 py-4 px-8'>
 						{commercialServices.map((service) => (
 							<ServicesCard key={service.name} title={service.name} description={service.description} img={service.img} />
 						))}

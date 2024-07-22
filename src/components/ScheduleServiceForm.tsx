@@ -68,7 +68,7 @@ const ScheduleServiceForm: React.FC = () => {
 	return (
 		<form
 			ref={formRef}
-			className='schedule-service-form bg-primary bg-opacity-85 text-white flex flex-col justify-center items-center w-[30%] rounded-2xl my-8 mx-0 py-4 border border-black p-4 sticky top-4 '
+			className='schedule-service-form bg-primary bg-opacity-85 text-white flex flex-col justify-center items-center w-[90%] sm:w-[30%] rounded-2xl my-8 mx-auto sm:mx-0 py-4 border border-black p-4 sticky top-4 '
 			onSubmit={handleSubmit(onSubmit)}>
 			<h3 className='mb-4 mt-2'>Request Service</h3>
 			<input

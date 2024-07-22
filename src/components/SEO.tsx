@@ -48,14 +48,7 @@ const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, slug, ch
 						postalCode: '49855',
 						addressCountry: 'US',
 					},
-					review: {
-						'@type': 'Review',
-						reviewRating: {
-							'@type': 'Rating',
-							ratingValue: '5',
-							bestRating: '5',
-						},
-					},
+
 					email: 'mailto:info@southshoremechanical.services',
 					telephone: '(906) 236-2760',
 					keywords:

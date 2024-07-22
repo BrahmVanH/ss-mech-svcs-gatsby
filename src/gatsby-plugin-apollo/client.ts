@@ -18,7 +18,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 });
 
 // const httpLink = new HttpLink({ uri: process.env.NODE_ENV === 'production' ? process.env.GATSBY_LAMBDA_FUNCTION_URL : 'http://localhost:4000/graphql' });
-const httpLink = new HttpLink({ uri: process.env.GATSBY_LAMBDA_FUNCTION_URL });
+const httpLink = new HttpLink({ uri: process.env.GATSBY_LAMBDA_FUNCTION_URL, credentials: 'include' });
 
 const link = from([errorLink, httpLink]);
 
