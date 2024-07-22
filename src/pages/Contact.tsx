@@ -11,8 +11,8 @@ import ScheduleServiceForm from '../components/ScheduleServiceForm';
 const Contact: React.FC = () => {
 	return (
 		<Layout>
-			<div className='contact-page py-4 h-screen w-screen flex flex-row justify-center items-start'>
-				<div className='contact-info w-[45%] px-4 flex flex-row justify-evenly items-start'>
+			<div className='contact-page py-4 h-screen w-screen flex flex-col sm:flex-row justify-center items-center sm:items-start'>
+				<div className='contact-info w-full  sm:w-[45%] px-4 flex flex-row justify-evenly items-start'>
 					<div className='contact-links-and-icons-container flex flex-col justify-center items-center '>
 						<h1 className='mt-8'>Contact Us</h1>
 						<div className='contact-links'>
