@@ -99,7 +99,7 @@ const Nav: React.FC = () => {
 						</p>
 						<div
 							id='servicesDropdownContent'
-							className={`services-dropdown-content hidden absolute w-full sm:w-min min-w-min  flex-col justify-center items-center ${servicesDropdownBg} transition-all ease-in-out duration-1000 cursor-pointer z-[1000] rounded-b-[10px] py-4 left-0 group-hover:flex`}>
+							className={`services-dropdown-content hidden absolute w-full sm:w-min min-w-min  flex-col justify-center items-center ${servicesDropdownBg} transition-all ease-in-out duration-1000 cursor-pointer z-[1000] rounded-b-[10px] py-4 left-0 sm:left-auto group-hover:flex`}>
 							<div className='px-2 py-2' ref={commercialRoutesRef}>
 								<Link className='mb-4 text-white no-underline px-4 py-2  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/services/Commercial'>
 									Commercial
