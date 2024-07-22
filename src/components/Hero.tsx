@@ -7,7 +7,6 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import '../styles/Hero.css';
 
 //  Import images for slideshow
 import ac_compressor_jpeg from '../images/ac_compressor.jpeg';
@@ -28,8 +27,8 @@ const Hero: React.FC = () => {
 	];
 
 	return (
-		<div className='hero-wrapper h-screen w-screen  '>
-			<div className='hero bg-transparent block overflow-hidden z-[900] w-screen  h-screen justify-center items-center flex-col text-center absolute top-0 sm:overflow-visible sm:bg-home-hero-fill sm:w-full sm:flex sm:h-full'>
+		<div className='h-screen w-screen  '>
+			<div className=' bg-transparent block overflow-hidden z-[900] w-screen  h-screen justify-center items-center flex-col text-center absolute top-0 sm:overflow-visible sm:bg-home-hero-fill sm:w-full sm:flex sm:h-full'>
 				<div className='hero-text-mobile flex bg-home-hero-img-mobile text-white col-start-1 col-end-2 row-start-2 row-end-3 flex-col content-start justify-center text-start z-[1000] w-full h-full absolute top-0 left-0 sm:hidden'>
 					<div className='mobile-hero-brand-top flex '>
 						<h1 className=' self-end w-min m-0 sm:m-auto p-0 text-[80px] leading-[72px]'>South Shore </h1>
