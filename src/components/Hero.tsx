@@ -1,14 +1,11 @@
 import * as React from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-//  Import images for slideshow
 import ac_compressor_jpeg from '../images/ac_compressor.jpeg';
 import data_cable_wiring_jpeg from '../images/data-cable-wiring.jpeg';
 import dryer_repair_jpeg from '../images/dryer-repair.jpeg';
@@ -18,7 +15,6 @@ import map_up_mqt_county from '../images/map_upper_peninsula_mqt_county_teal.png
 import odin_graceful_white_fill from '../images/svg/odin_graceful_bg-transparent_white-fill.svg';
 
 const Hero: React.FC = () => {
-	const [renderMobileView, setRenderMobileView] = React.useState<boolean>(false);
 	const images = [
 		{ alt: 'soldering an ac compressor', img: ac_compressor_jpeg },
 		{ alt: 'wiring ethernet cable terminal', img: data_cable_wiring_jpeg },

@@ -1,7 +1,6 @@
 import { Link } from 'gatsby';
 import * as React from 'react';
 
-
 const GetQuoteBtn: React.FC = () => {
 	return (
 		<Link

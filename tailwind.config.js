@@ -27,7 +27,7 @@ module.exports = {
 				'dryer-repair': "url('../images/dryer-repair.jpeg')",
 				'furnace-repair': "url('../images/furnace-repair.jpeg')",
 				'tankless-hotwater-landscape': "url('../images/tankless-hotwater-landscape.jpg')",
-				'wrench-on-tailspout': "url('../images/wrench-on-tailspout-cropped.jpeg')",
+				'wrench-on-tailspout': "url('../images/wrench-on-tailspout-cropped.jpg')",
 				'light-fixture-install': "url('../images/light-fixture-install.jpeg')",
 				'air-filter-replacement': "url('../images/air-filter-replacement.jpg')",
 				'smart-thermostat-install': "url('../images/smart-thermostat-install.jpeg')",
