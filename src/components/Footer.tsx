@@ -1,6 +1,5 @@
 import * as React from 'react';
 import ContactHero from './ContactHero';
-import { Link } from 'gatsby';
 
 import { PhoneIcon, EnvelopeIcon, MapIcon, Icon } from 'evergreen-ui';
 
@@ -32,15 +31,15 @@ const Footer: React.FC = () => {
 					<p className='copy-right w-full p-2 text-[10px] text-center sm:text-left'>© 2024, South Shore Technical Services, LLC</p>
 				</a>
 				<div className='flex p-4 w-min flex-row  sm:hidden'>
-					<Link target='_blank' rel='noreferrer' to={`tel:${contactInfo.phone}`} className='mx-4 my-0 fill-black no-underline text-base'>
+					<a target='_blank' rel='noreferrer' href={`tel:${contactInfo.phone}`} className='mx-4 my-0 fill-black no-underline text-base'>
 						<Icon className='mt-4' icon={PhoneIcon} size={16} />
-					</Link>
-					<Link target='_blank' rel='noreferrer' to={`mailto:${contactInfo.email}`} className=' mx-4 my-0 fill-black no-underline text-base'>
+					</a>
+					<a target='_blank' rel='noreferrer' href={`mailto:${contactInfo.email}`} className=' mx-4 my-0 fill-black no-underline text-base'>
 						<Icon className='mt-4' icon={EnvelopeIcon} size={16} />
-					</Link>
-					<Link target='_blank' rel='noreferrer' to={'https://maps.app.goo.gl/vsUYpBh3CToxdn3D7'} className=' mx-4 my-0 fill-black no-underline text-base'>
+					</a>
+					<a target='_blank' rel='noreferrer' href={'https://maps.app.goo.gl/vsUYpBh3CToxdn3D7'} className=' mx-4 my-0 fill-black no-underline text-base'>
 						<Icon className='mt-4' icon={MapIcon} size={16} />
-					</Link>
+					</a>
 				</div>
 			</div>
 		</footer>

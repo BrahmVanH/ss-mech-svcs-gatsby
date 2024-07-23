@@ -3,7 +3,6 @@ import * as React from 'react';
 import brand_image_transparent from '../images/svg/odin_graceful_transparent.svg';
 
 import { PhoneIcon, EnvelopeIcon, MapIcon, Icon } from 'evergreen-ui';
-import { Link } from 'gatsby';
 export const contactInfo = {
 	addressStreet: '908 Champion St.,',
 	addressCity: 'Marquette, MI 49855',
@@ -45,14 +44,14 @@ const ContactHero: React.FC = () => {
 			<div className='contact-info p-4 flex flex-col justify-center items-start leading-6'>
 				<h2 className='mb-4'>Contact Us</h2>
 				<div className='contact-links flex flex-col justify-center items-start'>
-					<Link target='_blank' rel='noreferrer' to={`tel:${contactInfo.phone}`} className='contact-item flex flex-row justify-center items-center'>
+					<a target='_blank' rel='noreferrer' href={`tel:${contactInfo.phone}`} className='contact-item flex flex-row justify-center items-center'>
 						<Icon className='mt-4 fill-primary' icon={PhoneIcon} size={20} />
 						<p className='mt-4 ml-4'>{contactInfo.phone}</p>
-					</Link>
-					<Link target='_blank' rel='noreferrer' to={`mailto:${contactInfo.email}`} className='contact-item flex flex-row justify-center items-center'>
+					</a>
+					<a target='_blank' rel='noreferrer' href={`mailto:${contactInfo.email}`} className='contact-item flex flex-row justify-center items-center'>
 						<Icon className='mt-4 fill-primary' icon={EnvelopeIcon} size={20} />
 						<p className='mt-4 ml-4'>{contactInfo.email}</p>
-					</Link>
+					</a>
 					<a target='_blank' rel='noreferrer' href={'https://maps.app.goo.gl/vsUYpBh3CToxdn3D7'} className='contact-item flex flex-row justify-center items-center'>
 						<Icon className='mt-4 fill-primary' icon={MapIcon} size={20} />
 						<div className='contact-info-address-container mt-4 ml-4'>

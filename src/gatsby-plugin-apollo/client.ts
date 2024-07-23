@@ -20,6 +20,7 @@ const httpLink = new HttpLink({ uri: process.env.GATSBY_LAMBDA_FUNCTION_URL ?? '
 
 const link = from([errorLink, httpLink]);
 
+
 const client = new ApolloClient({
 	cache: new InMemoryCache(),
 	link,

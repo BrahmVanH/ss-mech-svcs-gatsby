@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useQuery } from '@apollo/client';
-import { Link } from 'gatsby';
 
 import { QUERY_THUMBTACK_REVIEWS } from '../lib/graphql';
 
@@ -62,14 +61,14 @@ const Reviews: React.FC = () => {
 						</div>
 					))}
 
-					<Link
+					<a
 						className='read-more-link bg-[#6f7077] text-white rounded-[10px] p-[10px] self-end mr-4 flex justify-end text-right font-[12px] leading-[14px] hover:scale-95'
-						to='https://www.thumbtack.com/mi/marquette/handyman/south-shore-mechanical-services/service/508465315204210696?category_pk=109125193401647362&from_static_sp=true&zip_code=49855'
+						href='https://www.thumbtack.com/mi/marquette/handyman/south-shore-mechanical-services/service/508465315204210696?category_pk=109125193401647362&from_static_sp=true&zip_code=49855'
 						target='_blank'
 						rel='noreferrer'>
 						<p>More Reviews</p>
 						<ArrowRightIcon style={{ margin: '0rem 0.5rem' }} size={14} />
-					</Link>
+					</a>
 				</div>
 			) : (
 				<></>

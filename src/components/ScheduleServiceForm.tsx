@@ -22,7 +22,7 @@ const ScheduleServiceForm: React.FC = () => {
 	// Service needed (options)
 	// Date and time needed by
 
-	const inputClasses = 'w-[85%] my-2 mx-0 p-2 text-start border border-black rounded-sm';
+	const inputClasses = 'w-[85%] my-2 mx-0 p-2 text-start border border-black rounded-sm text-black';
 
 	const [messageData, setMessageData] = React.useState<FieldValues | null>(null);
 
@@ -68,7 +68,7 @@ const ScheduleServiceForm: React.FC = () => {
 	return (
 		<form
 			ref={formRef}
-			className='schedule-service-form bg-primary bg-opacity-85 text-white flex flex-col justify-center items-center w-[90%] sm:w-[30%] rounded-2xl my-8 mx-auto sm:mx-0 py-4 border border-black p-4 sticky top-4 '
+			className='schedule-service-form bg-primary bg-opacity-85 text-black flex flex-col justify-center items-center w-[90%] sm:w-[30%] rounded-2xl my-8 mx-auto sm:mx-0 py-4 border border-black p-4 sticky top-4 '
 			onSubmit={handleSubmit(onSubmit)}>
 			<h3 className='mb-4 mt-2'>Request Service</h3>
 			<input
@@ -129,7 +129,7 @@ const ScheduleServiceForm: React.FC = () => {
 			/>
 			{errors.email && <p>{errors?.email?.message?.toString()}</p>}
 			<select
-				className={`text-gray-400 ${inputClasses}`}
+				className={`text-black ${inputClasses}`}
 				{...register('location', {
 					required: { value: true, message: 'Please *select* a valid location.' },
 					maxLength: { value: 10, message: 'Please *select* a valid location.' },
@@ -140,7 +140,7 @@ const ScheduleServiceForm: React.FC = () => {
 			</select>
 			{errors.location && <p>{errors?.location?.message?.toString()}</p>}
 			<select
-				className={`text-gray-400 ${inputClasses}`}
+				className={`text-black ${inputClasses}`}
 				{...register('service', {
 					required: { value: true, message: 'Please *select* a valid service.' },
 					maxLength: { value: 40, message: 'Please *select* a valid service.' },
