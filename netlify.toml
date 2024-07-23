@@ -1,0 +1,2 @@
+[build]
+  command = "node generate-redirects.js && gatsby build"

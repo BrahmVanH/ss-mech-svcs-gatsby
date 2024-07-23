@@ -16,10 +16,9 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 	}
 });
 
-const httpLink = new HttpLink({ uri: process.env.GATSBY_LAMBDA_FUNCTION_URL ?? '', credentials: 'include', headers: { origin: process.env.GATSBY_ORIGIN ?? '' } });
+const httpLink = new HttpLink({ uri: process.env.GATSBY_API_URL ?? '', credentials: 'include', headers: { origin: process.env.GATSBY_ORIGIN ?? '' } });
 
 const link = from([errorLink, httpLink]);
-
 
 const client = new ApolloClient({
 	cache: new InMemoryCache(),
