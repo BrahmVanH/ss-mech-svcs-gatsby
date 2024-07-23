@@ -6,6 +6,7 @@ import Img from 'gatsby-image';
 
 import data_cable_install from '../images/data-cable-wiring.jpeg';
 import { ArrowLeftIcon, Icon } from 'evergreen-ui';
+import SEO from '../../components/SEO';
 
 interface NotFoundPageProps {
 	data: {
@@ -18,7 +19,6 @@ interface NotFoundPageProps {
 }
 
 const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
-
 	return (
 		<main className='not-found w-screen h-screen flex justify-center items-center'>
 			<div className='not-found-card flex flex-row items-center justify-center'>
@@ -41,7 +41,7 @@ const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
 
 export default NotFoundPage;
 
-export const Head: HeadFC = () => <title>Not found</title>;
+export const Head: HeadFC = () => <SEO page='Not Found' />;
 
 export const query = graphql`
 	query {

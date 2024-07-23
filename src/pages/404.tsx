@@ -4,8 +4,8 @@ import Img from 'gatsby-image';
 
 // import '../styles/NotFound.css';
 
-import data_cable_install from '../images/data-cable-wiring.jpeg';
 import { ArrowLeftIcon, Icon } from 'evergreen-ui';
+import SEO from '../components/SEO';
 
 interface NotFoundPageProps {
 	data: {
@@ -40,7 +40,7 @@ const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
 
 export default NotFoundPage;
 
-export const Head: HeadFC = () => <title>Not found</title>;
+export const Head: HeadFC = () => <SEO page='Not Found' />;
 
 export const query = graphql`
 	query {

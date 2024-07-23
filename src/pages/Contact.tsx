@@ -5,6 +5,8 @@ import { contactInfo } from '../components/ContactHero';
 
 import { PhoneIcon, EnvelopeIcon, MapIcon, Icon } from 'evergreen-ui';
 import ScheduleServiceForm from '../components/ScheduleServiceForm';
+import SEO from '../components/SEO';
+import { HeadFC } from 'gatsby';
 
 const Contact: React.FC = () => {
 	return (
@@ -41,3 +43,5 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+
+export const Head: HeadFC = () => <SEO page='Contact' />;

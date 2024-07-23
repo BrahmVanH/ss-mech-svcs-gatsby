@@ -3,18 +3,40 @@ import { useSiteMetadata } from '../lib/use-site-metadata';
 
 import { Helmet } from 'react-helmet';
 interface SEOProps {
-	currentUrl: string;
-	slug?: string;
+	page?: string;
+	description?: string;
 }
 
-const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ currentUrl, slug, children }: React.PropsWithChildren<SEOProps>) => {
+// export const SEO = ({ title, description, pathname, children }) => {
+// const { title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername } = useSiteMetadata()
+
+// const seo = {
+//   title: title || defaultTitle,
+//   description: description || defaultDescription,
+//   image: `${siteUrl}${image}`,
+//   url: `${siteUrl}${pathname || ``}`,
+//   twitterUsername,
+// }
+
+const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ page, children }: React.PropsWithChildren<SEOProps>) => {
+	const [currentUrl, setCurrentUrl] = React.useState<string>('');
+
 	const metaData = useSiteMetadata();
+
+	const title = page ? `${metaData.title} - ${page}` : metaData.title;
+
+	React.useEffect(() => {
+		const url = typeof window !== 'undefined' ? window.location.href : '';
+		if (url) {
+			setCurrentUrl(url);
+		}
+	}, []);
 
 	return (
 		<Helmet>
 			<meta charSet='utf-8' />
-			<title>{metaData.title} - Home Page</title>
-			<link rel='canonical' href={currentUrl} />
+			<title>{title}</title>
+			{currentUrl ? <link rel='canonical' href={currentUrl} /> : <></>}
 			<meta name='description' content={metaData.description} />
 			<meta name='og:url' content={metaData.siteUrl} />
 			<meta name='og:type' content='website' />

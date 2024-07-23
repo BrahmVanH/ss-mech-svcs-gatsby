@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
+import { HeadFC, Link } from 'gatsby';
 import { graphql } from 'gatsby';
 
 import ServicesCard from '../../components/ServicesCard';
@@ -7,6 +7,7 @@ import Layout from '../../components/layout';
 
 import commercialServices from '../../lib/data/commercialServices.json';
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
+import SEO from '../../components/SEO';
 
 const Commercial: React.FC = () => {
 	return (
@@ -40,3 +41,6 @@ const Commercial: React.FC = () => {
 };
 
 export default Commercial;
+
+
+export const Head: HeadFC = () => <SEO page='Commercial Services' />;

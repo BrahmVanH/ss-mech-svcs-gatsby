@@ -5,6 +5,8 @@ import Layout from '../../components/layout';
 
 import residentialServices from '../../lib/data/residentialServices.json';
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
+import SEO from '../../components/SEO';
+import { HeadFC } from 'gatsby';
 
 const Residential: React.FC = () => {
 	return (
@@ -27,3 +29,5 @@ const Residential: React.FC = () => {
 };
 
 export default Residential;
+
+export const Head: HeadFC = () => <SEO page='Residential Services' />;
