@@ -40,7 +40,7 @@ const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
 
 export default NotFoundPage;
 
-export const Head: HeadFC = () => <SEO page='Not Found' />;
+export const Head: HeadFC = () => <title>'Not Found'</title>;
 
 export const query = graphql`
 	query {

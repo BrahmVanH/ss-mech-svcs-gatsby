@@ -45,4 +45,4 @@ const Home: React.FC = () => {
 
 export default Home;
 
-export const Head: HeadFC = () => <SEO page='Home' />;
+export const Head: HeadFC = () => <title>South Shore Mechanical Services</title>

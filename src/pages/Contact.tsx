@@ -44,4 +44,4 @@ const Contact: React.FC = () => {
 
 export default Contact;
 
-export const Head: HeadFC = () => <SEO page='Contact' />;
+export const Head: HeadFC = () => <title>Contact</title>;

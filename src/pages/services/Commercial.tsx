@@ -42,4 +42,4 @@ const Commercial: React.FC = () => {
 
 export default Commercial;
 
-export const Head: HeadFC = () => <SEO page='Commercial Services' />;
+export const Head: HeadFC = () => <title>'Commercial Services'</title>;

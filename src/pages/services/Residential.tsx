@@ -30,4 +30,4 @@ const Residential: React.FC = () => {
 
 export default Residential;
 
-export const Head: HeadFC = () => <SEO page='Residential Services' />;
+export const Head: HeadFC = () => <title>'Residential Services'</title>;
