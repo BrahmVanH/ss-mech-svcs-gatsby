@@ -1,2 +1,12 @@
-[build]
-  command = "tsc generate-redirects.ts && node generate-redirects.js && gatsby build"
+
+[[redirects]]
+from = "/graphql"
+to = "https://ss-mech-svcs-consumer-api-v2-e0526697f80e.herokuapp.com/graphql"
+status = 200
+force = true
+headers = { X-From = "Netlify" }
+
+[[headers]]
+for = "/*"
+[headers.values]
+Access-Control-Allow-Origin = "southshoremechanical.services"
