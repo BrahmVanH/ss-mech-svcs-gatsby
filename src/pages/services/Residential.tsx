@@ -11,7 +11,7 @@ import { HeadFC } from 'gatsby';
 const Residential: React.FC = () => {
 	return (
 		<Layout>
-			<div className='w-full h-full flex flex-col sm:flex-row justify-center items-start'>
+			<div className='w-full h-full flex flex-col justify-center items-center'>
 				<h1 className='text-center sm:test-left text-[48px] text-800'>Residential Services</h1>
 
 				<div className='w-screen flex flex-col sm:flex-row  justify-center items-start'>

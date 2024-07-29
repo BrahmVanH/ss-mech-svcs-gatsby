@@ -70,7 +70,7 @@ const ScheduleServiceForm: React.FC = () => {
 			ref={formRef}
 			className='schedule-service-form bg-primary bg-opacity-85 text-black flex flex-col justify-center items-center w-[90%] sm:w-[30%] rounded-2xl my-8 mx-auto sm:mx-0 py-4 border border-black p-4 sticky top-4 '
 			onSubmit={handleSubmit(onSubmit)}>
-			<h3 className='mb-4 mt-2'>Request Service</h3>
+			<h2 className='mb-4 mt-2 text-white'>Request Service</h2>
 			<input
 				className={inputClasses}
 				autoComplete='given-name'
@@ -174,7 +174,7 @@ const ScheduleServiceForm: React.FC = () => {
 				})}
 			/>
 			{errors.message && <p>{errors?.message?.message?.toString()}</p>}
-			<button className='w-min my-4 mx-0 px-4 py-2 border border-white rounded-sm' type='submit'>
+			<button className='w-min my-4 mx-0 px-4 py-2 text-white border border-white rounded-sm text-[1.25rem]' type='submit'>
 				Submit
 			</button>
 		</form>

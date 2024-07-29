@@ -38,6 +38,6 @@ module.exports = {
 			},
 		},
 		important: true,
-		plugins: [],
+		plugins: ['gatsby-plugin-postcss'],
 	},
 };

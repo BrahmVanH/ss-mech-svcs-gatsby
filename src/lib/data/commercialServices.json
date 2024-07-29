@@ -1,7 +1,7 @@
 [
 	{
 		"name": "Appliance Repair & Maintenance",
-		"description": "We handle appliance installations and repairs, keeping your business running smoothly. Whether it’s a new dishwasher or fixing a malfunctioning oven, count on us.",
+		"description": "We handle appliance installations and repairs, keeping your business running smoothly.",
 		"img": "tankless-hotwater-landscape"
 	},
 	{
@@ -16,12 +16,12 @@
 	},
 	{
 		"name": "Plumbing Repair & Maintenance",
-		"description": "Our skilled team ensures efficient plumbing solutions for your commercial space. From leaky faucets to pipe replacements, we’ve got you covered.",
+		"description": "Our skilled team ensures efficient plumbing solutions for your commercial space.",
 		"img": "wrench-on-tailspout"
 	},
 	{
 		"name": "Data Cable Repair & Installation",
-		"description": "Our experts handle data cable repairs and installations, ensuring seamless connectivity for your office network. Stay connected without interruptions.",
+		"description": "Our experts handle data cable repairs and installations, ensuring seamless connectivity for your office network.",
 		"img": "data-cable-wiring"
 	},
 	{
@@ -31,7 +31,7 @@
 	},
 	{
 		"name": "Custom Lighting & Electrical Repair",
-		"description": "We cover custom lighting for your workspace or your customer's space. We also handle electrical repairs, ensuring safety and functionality.",
+		"description": "We cover custom lighting solutions for your workspace or your customer's space. We also handle electrical repairs, ensuring safety and functionality.",
 		"img": "light-fixture-install"
 	}
 ]

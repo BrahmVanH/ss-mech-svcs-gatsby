@@ -1,11 +1,13 @@
 # South Shore Mechanical Services Website
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
 
-Deployed Application: [link](https://southshoremechanical.services)
-GitHub Repo: [link](https://github.com/BrahmVanH/ss-mech-svcs-gatsby)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/24ef7404-61fd-4fd1-b8df-2df9148796a2/deploy-status)](https://app.netlify.com/sites/south-shore-mech-svcs/deploys)
+
+Deployed Application: [southshoremechanical.services](https://southshoremechanical.services) \
+GitHub Repo: [BrahmVanH/ss-mech-svcs-gatsby](https://github.com/BrahmVanH/ss-mech-svcs-gatsby)
 
 ![Screenshot](/src/images/south_shore_mech_consumer_site.png)
 
@@ -23,11 +25,11 @@ This Gatsby app serves as the main source of information for customers and poten
 
 ## Installation
 
-If you are interested in cloning and running this application on your local machine, please ensure you have the latest LTS Version of Node installed. Once the repo has been cloned, from the command line, navigate to the root of the project directory and enter `R npm install` . Once the dependencies have successfully been installed, you may `$ npm build` the application. For further usage instructions, see [link](#Usage).
+If you are interested in cloning and running this application on your local machine, please ensure you have the latest LTS Version of Node installed. Once the repo has been cloned, from the command line, navigate to the root of the project directory and enter `$ npm install` . Once the dependencies have successfully been installed, you may `$ npm build` the application. For further usage instructions, see [link](#Usage).
 
 ## Usage
 
-After following the installation instructions [link](#Installation), enter `$ npm start` in the command line from the root of the project. The app will start on Port 8000.
+After following the  [Installation](#Installation) instructions, enter `$ npm start` in the command line from the root of the project. The app will start on Port 8000.
 
 ## Credits
 
@@ -35,7 +37,7 @@ Brahm Van Houzen
 
 ## License
 
-(https://opensource.org/licenses/MIT)
+https://opensource.org/licenses/MIT
 
 ## Features
 
