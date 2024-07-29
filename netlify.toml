@@ -1,2 +1,2 @@
 [build]
-  command = "node generate-redirects.js && gatsby build"
+  command = "tsc generate-redirects.ts && node generate-redirects.js && gatsby build"
