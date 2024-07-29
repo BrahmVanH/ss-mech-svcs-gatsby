@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useMutation } from '@apollo/client';
-import { useForm, FieldValues, Controller } from 'react-hook-form';
+import { useForm, FieldValues } from 'react-hook-form';
 import PhoneInput from 'react-phone-number-input/react-hook-form-input';
 import { isValidPhoneNumber } from 'react-phone-number-input/input';
 
@@ -8,29 +8,18 @@ import { SEND_SCHEDULE_SERVICE_MESSAGE } from '../lib/graphql';
 import { ScheduleServiceMessageInput } from '../lib/__generated__/graphql';
 
 import { formatPhoneNumberString, removeWhiteSpace } from '../lib/helpers';
-import { AddRowBottomIcon } from 'evergreen-ui/types';
-
-// import '../styles/ScheduleServiceForm.css';
 
 const ScheduleServiceForm: React.FC = () => {
-	// This will hit the API and tell it to send me an email with the details mentioned
-	// First Name
-	// Last Name
-	// phone number
-	// email
-	// location (Marquette, Negaunee)
-	// Service needed (options)
-	// Date and time needed by
-
 	const inputClasses = 'w-[85%] my-2 mx-0 p-2 text-start border border-black rounded-sm text-black';
 
-	const [messageData, setMessageData] = React.useState<FieldValues | null>(null);
+	// const [messageData, setMessageData] = React.useState<FieldValues | null>(null);
 
 	const formRef = React.useRef<HTMLFormElement>(null);
 
 	const {
 		register,
 		handleSubmit,
+		setError,
 		formState: { errors },
 		control,
 	} = useForm();
@@ -59,9 +48,17 @@ const ScheduleServiceForm: React.FC = () => {
 				},
 			});
 
-			console.log('response', response);
+			const responseStatusCodeString = response.data?.sendScheduleServiceMessage?.split(' ')[0] ?? '400';
+
+			if (parseInt(responseStatusCodeString) < 300) {
+				console.log('Message sent successfully!');
+				formRef.current?.reset();
+			} else {
+				setError('root', { type: responseStatusCodeString, message: 'There was an error sending your message. Please try again in a few minutes or just give us a call.' });
+			}
 		} catch (error) {
 			console.error(error);
+			setError('root', { type: '400', message: 'There was an error sending your message. Please try again in a few minutes or just give us a call.' });
 		}
 	};
 
@@ -174,6 +171,8 @@ const ScheduleServiceForm: React.FC = () => {
 				})}
 			/>
 			{errors.message && <p>{errors?.message?.message?.toString()}</p>}
+
+			{errors?.root?.serverError?.type && <p>There was an error sending your message. Please try again in a few minutes or just give us a call.</p>}
 			<button className='w-min my-4 mx-0 px-4 py-2 text-white border border-white rounded-sm text-[1.25rem]' type='submit'>
 				Submit
 			</button>
