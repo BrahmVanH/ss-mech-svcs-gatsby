@@ -1,13 +1,10 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 
-// import '../styles/Services.css';
-
 import tanklessHotWater from '../images/tankless-hotwater-landscape.jpg';
 import dryerService from '../images/dryer-repair-landscape.jpg';
 
 const Services: React.FC = () => {
-	const [showLearnMore, setShowLearnMore] = React.useState<boolean>(false);
 
 	return (
 		<div id='servicesComponent' className='services-container p-0 sm:py-12 w-[90%] my-0 mx-auto'>

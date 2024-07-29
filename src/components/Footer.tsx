@@ -1,9 +1,8 @@
 import * as React from 'react';
 import ContactHero from './ContactHero';
+import { useLocation } from '@reach/router';
 
 import { PhoneIcon, EnvelopeIcon, MapIcon, Icon } from 'evergreen-ui';
-
-// import '../styles/Footer.css';
 
 const Footer: React.FC = () => {
 	const contactInfo = {
@@ -15,13 +14,14 @@ const Footer: React.FC = () => {
 
 	const [isOnContactPage, setIsOnContactPage] = React.useState<boolean>(false);
 
+	const location = useLocation();
 	React.useEffect(() => {
-		if (window.location.pathname === `/Contact/`) {
+		if (location.pathname === `/Contact/`) {
 			setIsOnContactPage(true);
 		} else {
 			setIsOnContactPage(false);
 		}
-	}, []);
+	}, [location]);
 
 	return (
 		<footer className='w-full flex flex-col justify-center items-center'>

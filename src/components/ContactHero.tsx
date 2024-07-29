@@ -15,29 +15,6 @@ export const contactInfo = {
 // 	<script src='https://www.thumbtack.com/profile/widgets/scripts/?service_pk=508465315204210696&widget_id=profile'></script>
 // </a>;
 
-// SEO Info https://www.digitalocean.com/community/tutorials/how-to-boost-seo-using-gatsby-s-seo-component-and-gatsby-react-helmet
-
-// Example of how to use Helmet to add structured data to your site
-// for SEO https://v3.gatsbyjs.com/docs/how-to/adding-common-features/seo/
-
-// <Helmet>
-// 	<script type='application/ld+json'>
-// 		{`
-//         {
-//           "@context": "https://schema.org",
-//           "@type": "Organization",
-//           "url": "https://www.spookytech.com",
-//           "name": "Spooky technologies",
-//           "contactPoint": {
-//             "@type": "ContactPoint",
-//             "telephone": "+5-601-785-8543",
-//             "contactType": "Customer Support"
-//           }
-//         }
-//       `}
-// 	</script>
-// </Helmet>;
-
 const ContactHero: React.FC = () => {
 	return (
 		<div className='contact-container .hidden sm:flex flex-row justify-evenly items-center text-left w-full bg-black bg-opacity-15'>

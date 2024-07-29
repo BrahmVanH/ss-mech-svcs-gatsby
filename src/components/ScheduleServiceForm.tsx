@@ -12,8 +12,6 @@ import { formatPhoneNumberString, removeWhiteSpace } from '../lib/helpers';
 const ScheduleServiceForm: React.FC = () => {
 	const inputClasses = 'w-[85%] my-2 mx-0 p-2 text-start border border-black rounded-sm text-black';
 
-	// const [messageData, setMessageData] = React.useState<FieldValues | null>(null);
-
 	const formRef = React.useRef<HTMLFormElement>(null);
 
 	const {
@@ -27,7 +25,6 @@ const ScheduleServiceForm: React.FC = () => {
 	const [sendScheduleServiceMessage] = useMutation(SEND_SCHEDULE_SERVICE_MESSAGE);
 
 	const onSubmit = async (data: FieldValues) => {
-		console.log(data);
 		const { firstName, lastName, tel, email, location, service, message } = data;
 		if (!firstName || !lastName || !tel || !email || !location || !service || !message) {
 			console.error('Please fill out all fields.');
@@ -51,7 +48,6 @@ const ScheduleServiceForm: React.FC = () => {
 			const responseStatusCodeString = response.data?.sendScheduleServiceMessage?.split(' ')[0] ?? '400';
 
 			if (parseInt(responseStatusCodeString) < 300) {
-				console.log('Message sent successfully!');
 				formRef.current?.reset();
 			} else {
 				setError('root', { type: responseStatusCodeString, message: 'There was an error sending your message. Please try again in a few minutes or just give us a call.' });

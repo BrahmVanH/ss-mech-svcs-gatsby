@@ -12,8 +12,6 @@ import { ThumbtackReview } from '../lib/__generated__/graphql';
 
 import thumbtack_reviewer_avatar from '../images/thumbtack_reviewer-avatar.jpg';
 
-// import '../styles/Reviews.css';
-
 const Reviews: React.FC = () => {
 	const [thumbtackReviews, setThumbtackReviews] = React.useState<ThumbtackReview[]>([]);
 
@@ -30,12 +28,6 @@ const Reviews: React.FC = () => {
 			setThumbtackReviews(data?.queryThumbtackReviews);
 		}
 	}, [data]);
-
-	// React.useEffect(() => {
-	// 	if (thumbtackReviews) {
-	// 		console.log('thumbtack reviews: ', thumbtackReviews);
-	// 	}
-	// }, [thumbtackReviews]);
 
 	return (
 		<div className='thumbtack-reviews-wrapper w-[80%] font-thumbtack-reviews flex flex-col items-center p-8'>

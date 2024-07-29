@@ -1,13 +1,5 @@
 import * as React from 'react';
 
-interface ImageData {
-	file: {
-		childImageSharp: {
-			fluid: any;
-		};
-	};
-}
-
 const ServicesCard: React.FC<{ title: string; description: string; img: string }> = ({ title, description, img }) => {
 	return (
 		<div

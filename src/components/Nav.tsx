@@ -1,4 +1,5 @@
 import { Link } from 'gatsby';
+import { useLocation } from '@reach/router';
 
 import * as React from 'react';
 import Hero from './Hero';
@@ -6,16 +7,14 @@ import GetQuoteBtn from './GetQuoteBtn';
 
 import { ChevronDownIcon, Icon } from 'evergreen-ui';
 
-// import '../styles/Nav.css';
-
 import brand_image_transparent from '../images/svg/odin_graceful_transparent.svg';
 import brand_image_white from '../images/svg/odin_graceful_bg-transparent_white-fill.svg';
-import { set } from 'react-hook-form';
 
 const servicesDropdownBgNotHome = 'bg-gradient-to-b from-services-dropdown-grad-stop-1 to-services-dropdown-grad-stop-2 to-services-dropdown-grad-stop-3 to-services-dropdown-grad-stop-4';
 const servicesDropdownBgHome = 'bg-services-dropdown-home-bg';
 
 const Nav: React.FC = () => {
+	const location = useLocation();
 	const [isHome, setIsHome] = React.useState<boolean>(false);
 	const [servicesDropdownBg, setServicesDropdownBg] = React.useState<string>(servicesDropdownBgHome);
 
@@ -28,7 +27,7 @@ const Nav: React.FC = () => {
 	const contactRouteRef = React.useRef<HTMLDivElement>(null);
 
 	React.useEffect(() => {
-		if (window.location.pathname === '/' || window.location.pathname === ``) {
+		if (location.pathname === '/' || location.pathname === ``) {
 			setIsHome(true);
 			navRef.current?.classList.add('home-nav');
 			setServicesDropdownBg(servicesDropdownBgHome);
@@ -37,7 +36,7 @@ const Nav: React.FC = () => {
 			// aboutRouteRef.current?.classList.remove('active-nav-link');
 			// contactRouteRef.current?.classList.remove('active-nav-link');
 			// servicesDropdown.current?.classList.remove('active-nav-item');
-		} else if (window.location.pathname === `/services/Commercial/` || window.location.pathname === `/services/Residential/`) {
+		} else if (location.pathname === `/services/Commercial/` || location.pathname === `/services/Residential/`) {
 			setIsHome(false);
 			navRef.current?.classList.add('not-home-nav');
 			navRef.current?.classList.remove('home-nav');
@@ -46,7 +45,7 @@ const Nav: React.FC = () => {
 			// homeRouteRef.current?.classList.remove('active-nav-link');
 			// contactRouteRef.current?.classList.remove('active-nav-link');
 			// servicesDropdown.current?.classList.add('active-nav-item');
-		} else if (window.location.pathname === `/Contact/`) {
+		} else if (location.pathname === `/Contact/`) {
 			setIsHome(false);
 			navRef.current?.classList.add('not-home-nav');
 			navRef.current?.classList.remove('home-nav');

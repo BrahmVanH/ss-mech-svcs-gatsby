@@ -1,12 +1,11 @@
 import * as React from 'react';
+import { HeadFC } from 'gatsby';
 
 import Layout from '../components/layout';
 import { contactInfo } from '../components/ContactHero';
+import ScheduleServiceForm from '../components/ScheduleServiceForm';
 
 import { PhoneIcon, EnvelopeIcon, MapIcon, Icon } from 'evergreen-ui';
-import ScheduleServiceForm from '../components/ScheduleServiceForm';
-import SEO from '../components/SEO';
-import { HeadFC } from 'gatsby';
 
 const Contact: React.FC = () => {
 	return (

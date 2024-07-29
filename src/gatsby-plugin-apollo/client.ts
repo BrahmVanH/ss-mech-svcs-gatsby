@@ -17,7 +17,6 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 });
 
 const httpLink = new HttpLink({ uri: process.env.GATSBY_API_URL ?? '', credentials: 'include', headers: { origin: process.env.GATSBY_ORIGIN ?? '' } });
-// const httpLink = new HttpLink({ uri: process.env.GATSBY_API_URL ?? '' });
 
 const link = from([errorLink, httpLink]);
 

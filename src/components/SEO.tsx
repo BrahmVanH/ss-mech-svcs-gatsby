@@ -2,26 +2,9 @@ import * as React from 'react';
 import { useSiteMetadata } from '../lib/use-site-metadata';
 
 import { Helmet } from 'react-helmet';
-interface SEOProps {
-	page?: string;
-	description?: string;
-	endpoint: string;
-}
 
-// export const SEO = ({ title, description, pathname, children }) => {
-// const { title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername } = useSiteMetadata()
-
-// const seo = {
-//   title: title || defaultTitle,
-//   description: description || defaultDescription,
-//   image: `${siteUrl}${image}`,
-//   url: `${siteUrl}${pathname || ``}`,
-//   twitterUsername,
-// }
-
-const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ page, children, endpoint }: React.PropsWithChildren<SEOProps>) => {
+const SEO: React.FC<React.PropsWithChildren<{ endpoint: string }>> = ({ endpoint }) => {
 	const [canonical, setCanonical] = React.useState<string>('');
-	const [title, setTitle] = React.useState<string>('');
 
 	const metaData = useSiteMetadata();
 
@@ -29,9 +12,7 @@ const SEO: React.FC<React.PropsWithChildren<SEOProps>> = ({ page, children, endp
 		if (metaData.siteUrl && endpoint) {
 			setCanonical(metaData.siteUrl + endpoint);
 		}
-
 	}, [metaData.siteUrl, endpoint]);
-
 
 	return (
 		<Helmet>
