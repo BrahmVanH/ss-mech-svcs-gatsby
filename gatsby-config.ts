@@ -1,6 +1,7 @@
 import type { GatsbyConfig } from 'gatsby';
 import dotenv from 'dotenv';
 import path from 'path';
+import { url } from 'inspector';
 
 dotenv.config();
 
@@ -24,7 +25,7 @@ const config: GatsbyConfig = {
 		},
 		'gatsby-plugin-image',
 		'gatsby-plugin-apollo',
-
+		
 		{
 			resolve: 'gatsby-plugin-sitemap',
 			options: {

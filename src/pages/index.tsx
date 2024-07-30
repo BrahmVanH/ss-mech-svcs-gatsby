@@ -3,6 +3,7 @@ import { HeadFC } from 'gatsby';
 import Layout from '../components/layout';
 import Reviews from '../components/Reviews';
 import Services from '../components/Services';
+import SEO from '../components/SEO';
 
 import 'normalize.css';
 
@@ -14,7 +15,7 @@ const Home: React.FC = () => {
 		<Layout>
 			<div ref={homeRef} className='flex flex-col items-center justify-center bg-transparent'>
 				<Services />
-				<Reviews />
+				{/* <Reviews /> */}
 			</div>
 		</Layout>
 	);
@@ -22,4 +23,6 @@ const Home: React.FC = () => {
 
 export default Home;
 
-export const Head: HeadFC = () => <title>South Shore Mechanical Services</title>;
+
+export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='South Shore Mechanical Services' />;
+

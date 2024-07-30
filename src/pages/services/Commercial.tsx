@@ -42,4 +42,5 @@ const Commercial: React.FC = () => {
 
 export default Commercial;
 
-export const Head: HeadFC = () => <title>'Commercial Services'</title>;
+export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Commercial Services' />;
+

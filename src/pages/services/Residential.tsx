@@ -3,6 +3,7 @@ import * as React from 'react';
 import ServicesCard from '../../components/ServicesCard';
 import Layout from '../../components/layout';
 
+
 import residentialServices from '../../lib/data/residentialServices.json';
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 import SEO from '../../components/SEO';
@@ -30,4 +31,5 @@ const Residential: React.FC = () => {
 
 export default Residential;
 
-export const Head: HeadFC = () => <title>'Residential Services'</title>;
+export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Residential Services' />;
+

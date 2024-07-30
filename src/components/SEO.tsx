@@ -3,7 +3,7 @@ import { useSiteMetadata } from '../lib/use-site-metadata';
 
 import { Helmet } from 'react-helmet';
 
-const SEO: React.FC<React.PropsWithChildren<{ endpoint: string }>> = ({ endpoint }) => {
+const SEO: React.FC<React.PropsWithChildren<{ endpoint: string; title: string }>> = ({ endpoint, title }) => {
 	const [canonical, setCanonical] = React.useState<string>('');
 
 	const metaData = useSiteMetadata();
@@ -17,7 +17,7 @@ const SEO: React.FC<React.PropsWithChildren<{ endpoint: string }>> = ({ endpoint
 	return (
 		<Helmet>
 			<meta charSet='utf-8' />
-
+			<title>{title}</title>
 			<link rel='canonical' href={canonical} />
 			<meta name='description' content={metaData.description} />
 			<meta name='og:url' content={metaData.siteUrl} />
@@ -77,7 +77,7 @@ const SEO: React.FC<React.PropsWithChildren<{ endpoint: string }>> = ({ endpoint
 								'@type': 'ListItem',
 								position: 2,
 								name: 'Commercial Services',
-								item: 'https://southshoremechanical.services/services/Commercial',
+								item: 'https://southshoremechanical.services/services/Commercial/',
 							},
 						],
 					},
@@ -95,7 +95,7 @@ const SEO: React.FC<React.PropsWithChildren<{ endpoint: string }>> = ({ endpoint
 								'@type': 'ListItem',
 								position: 2,
 								name: 'Residential Services',
-								item: 'https://southshoremechanical.services/services/Residential',
+								item: 'https://southshoremechanical.services/services/Residential/',
 							},
 						],
 					},
@@ -113,25 +113,7 @@ const SEO: React.FC<React.PropsWithChildren<{ endpoint: string }>> = ({ endpoint
 								'@type': 'ListItem',
 								position: 2,
 								name: 'Contact',
-								item: 'https://southshoremechanical.services/contact',
-							},
-						],
-					},
-					{
-						'@context': 'https://schema.org',
-						'@type': 'BreadcrumbList',
-						itemListElement: [
-							{
-								'@type': 'ListItem',
-								position: 1,
-								name: 'Home',
-								item: 'https://southshoremechanical.services',
-							},
-							{
-								'@type': 'ListItem',
-								position: 2,
-								name: 'About',
-								item: 'https://southshoremechanical.services/about',
+								item: 'https://southshoremechanical.services/Contact/',
 							},
 						],
 					},

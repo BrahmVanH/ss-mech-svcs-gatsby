@@ -4,6 +4,7 @@ import { HeadFC } from 'gatsby';
 import Layout from '../components/layout';
 import { contactInfo } from '../components/ContactHero';
 import ScheduleServiceForm from '../components/ScheduleServiceForm';
+import SEO from '../components/SEO';
 
 import { PhoneIcon, EnvelopeIcon, MapIcon, Icon } from 'evergreen-ui';
 
@@ -43,4 +44,5 @@ const Contact: React.FC = () => {
 
 export default Contact;
 
-export const Head: HeadFC = () => <title>Contact</title>;
+export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Contact' />;
+

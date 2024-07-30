@@ -2,8 +2,6 @@ import * as React from 'react';
 import { Link, HeadFC, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-// import '../styles/NotFound.css';
-
 import data_cable_install from '../../images/data-cable-wiring.jpeg';
 import { ArrowLeftIcon, Icon } from 'evergreen-ui';
 import SEO from '../../components/SEO';
@@ -42,7 +40,8 @@ const NotFoundPage: React.FC = () => {
 
 export default NotFoundPage;
 
-export const Head: HeadFC = () => <title>'Not Found'</title>;
+export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Not Found' />;
+
 
 // export const query = graphql`
 // 	query {

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { HeadFC } from 'gatsby';
 import Nav from './Nav';
 import Footer from './Footer';
-import SEO from './SEO';
 
 const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
 	return (
@@ -16,5 +15,3 @@ const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
 };
 
 export default Layout;
-
-export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} />;
