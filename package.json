@@ -2,10 +2,10 @@
 	"name": "south-shore-mechanical-services",
 	"version": "1.1.0",
 	"private": true,
-	"description": "south-shore-mechanical-services",
+	"description": "South Shore Mechanical Services website. Built with Gatsby, Tailwind CSS, and GraphQL.",
 	"author": "Brahm Van Houzen",
 	"keywords": [
-		"gatsby"
+		"gatsby", "tailwindcss", "graphql", "typescript", "react", "apollo", "evergreen-ui", "swiper",	"react-hook-form", "react-phone-number-input", "normalize.css", "postcss", "postcss-preset-env", "autoprefixer", "dotenv", "isomorphic-fetch", "react-helmet", "gatsby-plugin-apollo", "gatsby-plugin-git-lastmod", "gatsby-plugin-google-gtag", "gatsby-plugin-image", "gatsby-plugin-manifest", "gatsby-plugin-postcss", "gatsby-plugin-react-helmet", "gatsby-plugin-sharp", "gatsby-plugin-sitemap", "gatsby-source-filesystem", "gatsby-transformer-sharp", "graphql-codegen", "typescript", "ts-jest", "jest", "graphql", "apollo-client", "fortawesome", "fontawesome"
 	],
 	"scripts": {
 		"develop": "gatsby develop",

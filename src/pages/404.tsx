@@ -1,23 +1,23 @@
 import * as React from 'react';
 import { Link, HeadFC, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import data_cable_install from '../images/data-cable-wiring.jpeg';
 
-// import '../styles/NotFound.css';
 
 import { ArrowLeftIcon, Icon } from 'evergreen-ui';
-import SEO from '../components/SEO';
 
-interface NotFoundPageProps {
-	data: {
-		file: {
-			childImageSharp: {
-				gatsbyImageData: any;
-			};
-		};
-	};
-}
+// interface NotFoundPageProps {
+// 	data: {
+// 		file: {
+// 			childImageSharp: {
+// 				gatsbyImageData: any;
+// 			};
+// 		};
+// 	};
+// }
 
-const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
+// const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
+const NotFoundPage: React.FC = () => {
 	return (
 		<main className='not-found w-screen h-screen flex justify-center items-center'>
 			<div className='not-found-card flex flex-row items-center justify-center'>
@@ -26,8 +26,8 @@ const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
 						<Icon className='mb-4' icon={ArrowLeftIcon} />
 						<p className='leading-[14px] ml-2'>Go Back</p>
 					</Link>
-					{/* <img className='w-full max-w-[400px]' src={data_cable_install} alt='Data cable wiring' /> */}
-					<Img className={'w-screen sm:w-[600px] max-w-[600px]'} fluid={data.file.childImageSharp.gatsbyImageData} alt='Data cable wiring' />
+					<img className='w-full max-w-[400px]' src={data_cable_install} alt='Data cable wiring' />
+					{/* <Img className={'w-screen sm:w-[600px] max-w-[600px]'} fluid={data.file.childImageSharp.gatsbyImageData} alt='Data cable wiring' /> */}
 				</div>
 				<div className='not-found-card-text text-center flex flex-col items-center'>
 					<h1 className='w-2/4 mb-4'>Sorry...</h1>
@@ -42,12 +42,12 @@ export default NotFoundPage;
 
 export const Head: HeadFC = () => <title>'Not Found'</title>;
 
-export const query = graphql`
-	query {
-		file(relativePath: { eq: "data-cable-wiring.jpeg" }) {
-			childImageSharp {
-				gatsbyImageData(layout: CONSTRAINED)
-			}
-		}
-	}
-`;
+// export const query = graphql`
+// 	query {
+// 		file(relativePath: { eq: "data-cable-wiring.jpeg" }) {
+// 			childImageSharp {
+// 				gatsbyImageData(layout: CONSTRAINED)
+// 			}
+// 		}
+// 	}
+// `;

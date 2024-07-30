@@ -24,7 +24,7 @@ const config: GatsbyConfig = {
 		},
 		'gatsby-plugin-image',
 		'gatsby-plugin-apollo',
-		`gatsby-plugin-react-helmet`,
+
 		{
 			resolve: 'gatsby-plugin-sitemap',
 			options: {

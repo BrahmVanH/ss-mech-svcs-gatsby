@@ -84,7 +84,7 @@ const Nav: React.FC = () => {
 						</h1>
 					</div>
 				</Link>
-				<div className='nav-links-container flex justify-evenly sm:justify-end items-center w-full sm:w-[60%] m-0 sm:mr-8 text-[24px] sm:text-[18px] text-center sm"text-left'>
+				<div className=' flex justify-evenly sm:justify-end items-center w-full sm:w-[60%] m-0 sm:mr-8 text-[24px] sm:text-[18px] text-center sm"text-left'>
 					<div ref={homeRouteRef}>
 						<Link className='mb-4 text-white no-underline p-4  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/'>
 							Home
@@ -94,11 +94,11 @@ const Nav: React.FC = () => {
 					<div ref={servicesDropdown} className='z-[1000] group'>
 						<p className='transition-all ease-in-out duration-1000 text-white no-underline text-[24px] sm:text-[18px] py-0 px-4 '>
 							<span>Services</span>
-							<Icon className='nav-dropdown-down-icon ml-2' icon={ChevronDownIcon} size={12} />
+							<Icon className=' ml-2 max-h-[12px]' icon={ChevronDownIcon} size={12} />
 						</p>
 						<div
 							id='servicesDropdownContent'
-							className={`services-dropdown-content hidden absolute w-full sm:w-min min-w-min  flex-col justify-center items-center ${servicesDropdownBg} transition-all ease-in-out duration-1000 cursor-pointer z-[1000] rounded-b-[10px] py-4 left-0 sm:left-auto group-hover:flex`}>
+							className={` hidden absolute w-full sm:w-min min-w-min  flex-col justify-center items-center ${servicesDropdownBg} transition-all ease-in-out duration-1000 cursor-pointer z-[1000] rounded-b-[10px] py-4 left-0 sm:left-auto group-hover:flex`}>
 							<div className='px-2 py-2' ref={commercialRoutesRef}>
 								<Link className='mb-4 text-white no-underline px-4 py-2  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/services/Commercial'>
 									Commercial
