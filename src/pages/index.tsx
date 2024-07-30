@@ -15,7 +15,7 @@ const Home: React.FC = () => {
 		<Layout>
 			<div ref={homeRef} className='flex flex-col items-center justify-center bg-transparent'>
 				<Services />
-				{/* <Reviews /> */}
+				<Reviews />
 			</div>
 		</Layout>
 	);

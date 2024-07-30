@@ -12,9 +12,7 @@ const config: GatsbyConfig = {
 		description: 'South Shore Mechanical Services is a Commercial Maintenance and Residential Handyman that services Marquette County, Michigan.',
 		image: '/images/odin_graceful_transparent.jpg',
 	},
-	// More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-	// If you use VSCode you can also use the GraphQL plugin
-	// Learn more at: https://gatsby.dev/graphql-typegen
+
 	graphqlTypegen: true,
 	plugins: [
 		{
@@ -25,7 +23,7 @@ const config: GatsbyConfig = {
 		},
 		'gatsby-plugin-image',
 		'gatsby-plugin-apollo',
-		
+
 		{
 			resolve: 'gatsby-plugin-sitemap',
 			options: {
@@ -81,13 +79,6 @@ const config: GatsbyConfig = {
 			},
 			__key: 'images',
 		},
-		// Example of how to use gatsby-plugin-offline with precache config
-		// {
-		// 	resolve: `gatsby-plugin-offline`,
-		// 	options: {
-		// 		precachePages: [`/about-us/`, `/projects/*`],
-		// 	},
-		// },
 	],
 };
 
