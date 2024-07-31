@@ -8,10 +8,15 @@ import { SEND_SCHEDULE_SERVICE_MESSAGE } from '../lib/graphql';
 import { ScheduleServiceMessageInput } from '../lib/__generated__/graphql';
 
 import { formatPhoneNumberString, removeWhiteSpace } from '../lib/helpers';
+import { Slide, toast, ToastContainer } from 'react-toastify';
 
 const ScheduleServiceForm: React.FC = () => {
 	const inputClasses = 'w-[85%] my-2 mx-0 p-2 text-start border border-black rounded-sm text-black';
+	const [phoneInput, setPhoneInput] = React.useState<string | undefined>('');
 
+	const [toastBody, setToastBody] = React.useState<string | null>(null);
+	const [toastError, setToastError] = React.useState<boolean>(false);
+	const [toastFired, setToastFired] = React.useState<boolean>(false);
 	const formRef = React.useRef<HTMLFormElement>(null);
 
 	const {
@@ -48,15 +53,40 @@ const ScheduleServiceForm: React.FC = () => {
 			const responseStatusCodeString = response.data?.sendScheduleServiceMessage?.split(' ')[0] ?? '400';
 
 			if (parseInt(responseStatusCodeString) < 300) {
+				setToastBody('Your message has been sent. We will be in touch shortly.');
+				setToastError(false);
+				setToastFired(true);
+				setPhoneInput('');
 				formRef.current?.reset();
-			} else {
-				setError('root', { type: responseStatusCodeString, message: 'There was an error sending your message. Please try again in a few minutes or just give us a call.' });
 			}
+			setError('root', { type: responseStatusCodeString, message: 'There was an error sending your message. Please try again in a few minutes or just give us a call.' });
+			setToastBody('There was an error sending your message. Please try again in a few minutes or just give us a call.');
+			setToastError(true);
 		} catch (error) {
 			console.error(error);
 			setError('root', { type: '400', message: 'There was an error sending your message. Please try again in a few minutes or just give us a call.' });
+			setToastBody('There was an error sending your message. Please try again in a few minutes or just give us a call.');
+			setToastError(true);
 		}
 	};
+
+	React.useEffect(() => {
+		if (toastBody && toastFired && !toastError) {
+			toast.success(toastBody, {
+				onClose: () => {
+					setToastFired(false);
+					setToastBody(null);
+				},
+			});
+		} else if (toastBody && toastFired && toastError) {
+			toast.error(toastBody, {
+				onClose: () => {
+					setToastFired(false);
+					setToastBody(null);
+				},
+			});
+		}
+	}, [toastBody, toastFired]);
 
 	return (
 		<form
@@ -106,6 +136,8 @@ const ScheduleServiceForm: React.FC = () => {
 				control={control}
 				rules={{ required: { value: true, message: 'Please enter a phone number.' }, validate: isValidPhoneNumber || 'Please enter a valid phone number.' }}
 				placeholder='Phone number'
+				value={phoneInput}
+				onChange={setPhoneInput}
 				defaultCountry='US'
 			/>
 			{errors.tel && <p>{errors?.tel?.message?.toString()}</p>}
@@ -168,10 +200,11 @@ const ScheduleServiceForm: React.FC = () => {
 			/>
 			{errors.message && <p>{errors?.message?.message?.toString()}</p>}
 
-			{errors?.root?.serverError?.type && <p>There was an error sending your message. Please try again in a few minutes or just give us a call.</p>}
+			{parseInt(errors?.root?.serverError?.type as string) > 200 && <p>There was an error sending your message. Please try again in a few minutes or just give us a call.</p>}
 			<button className='w-min my-4 mx-0 px-4 py-2 text-white border border-white rounded-sm text-[1.25rem]' type='submit'>
 				Submit
 			</button>
+			{toastFired && <ToastContainer position='bottom-right' autoClose={8000} transition={Slide} theme='light' />}
 		</form>
 	);
 };
