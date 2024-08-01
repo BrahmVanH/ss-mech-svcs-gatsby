@@ -10,6 +10,8 @@ import { ScheduleServiceMessageInput } from '../lib/__generated__/graphql';
 import { formatPhoneNumberString, removeWhiteSpace } from '../lib/helpers';
 import { Slide, toast, ToastContainer } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 const ScheduleServiceForm: React.FC = () => {
 	const inputClasses = 'w-[85%] my-2 mx-0 p-2 text-start border border-black rounded-sm text-black';
 	const [phoneInput, setPhoneInput] = React.useState<string | undefined>('');
