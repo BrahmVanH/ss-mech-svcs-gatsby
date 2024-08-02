@@ -3,7 +3,7 @@ import { Link, HeadFC, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import data_cable_install from '../../images/data-cable-wiring.jpeg';
-import { ArrowLeftIcon, Icon } from 'evergreen-ui';
+import { ArrowLeftIcon } from 'evergreen-ui';
 import SEO from '../../components/SEO';
 
 interface NotFoundPageProps {
@@ -17,13 +17,11 @@ interface NotFoundPageProps {
 }
 
 const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
-// const NotFoundPage: React.FC = () => {
 	return (
 		<main className='not-found w-screen h-screen flex justify-center items-center'>
 			<div className='not-found-card flex flex-row items-center justify-center'>
 				<div>
 					<Link to={'/'} className='go-back-link flex justify-start items-center hover:cursor-pointer'>
-						{/* <Icon className='mb-4' icon={ArrowLeftIcon} /> */}
 						<ArrowLeftIcon className='mb-4' />
 						<p className='leading-[14px] ml-2'>Go Back</p>
 					</Link>
@@ -41,16 +39,13 @@ const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
 
 export default NotFoundPage;
 
-// export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Not Found' />;
-
+export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Not Found' />;
 
 export const query = graphql`
 	query {
 		file(relativePath: { eq: "data-cable-wiring.jpeg" }) {
 			childImageSharp {
-				fluid {
-					...GatsbyImageSharpFluid
-				}
+				gatsbyImageData(layout: CONSTRAINED)
 			}
 		}
 	}

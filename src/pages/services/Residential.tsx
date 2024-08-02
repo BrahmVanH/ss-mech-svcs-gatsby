@@ -30,5 +30,5 @@ const Residential: React.FC = () => {
 
 export default Residential;
 
-// export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Residential Services' />;
+export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Residential Services' />;
 

@@ -94,7 +94,6 @@ const Nav: React.FC = () => {
 					<div ref={servicesDropdown} className='z-[1000] group'>
 						<p className='flex row flex-nowrap transition-all ease-in-out duration-1000 text-white no-underline text-[24px] sm:text-[18px] py-0 px-4 '>
 							<span>Services</span>
-							{/* <Icon className=' ml-2 max-h-[12px]' icon={ChevronDownIcon} size={12} /> */}
 							<ChevronDownIcon className=' ml-2 mb-2 sm:mb-1 max-h-[12px] self-end justify-self-center' size={12} />
 						</p>
 
