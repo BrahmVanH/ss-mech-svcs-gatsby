@@ -3,7 +3,7 @@ import { useLocation } from '@reach/router';
 
 import * as React from 'react';
 import Hero from './Hero';
-import GetQuoteBtn from './GetQuoteBtn';
+// import GetQuoteBtn from './GetQuoteBtn';
 
 import { ChevronDownIcon, Icon } from 'evergreen-ui';
 
@@ -92,10 +92,12 @@ const Nav: React.FC = () => {
 					</div>
 
 					<div ref={servicesDropdown} className='z-[1000] group'>
-						<p className='transition-all ease-in-out duration-1000 text-white no-underline text-[24px] sm:text-[18px] py-0 px-4 '>
+						<p className='flex row flex-nowrap transition-all ease-in-out duration-1000 text-white no-underline text-[24px] sm:text-[18px] py-0 px-4 '>
 							<span>Services</span>
-							<Icon className=' ml-2 max-h-[12px]' icon={ChevronDownIcon} size={12} />
+							{/* <Icon className=' ml-2 max-h-[12px]' icon={ChevronDownIcon} size={12} /> */}
+							<ChevronDownIcon className=' ml-2 mb-2 sm:mb-1 max-h-[12px] self-end justify-self-center' size={12} />
 						</p>
+
 						<div
 							id='servicesDropdownContent'
 							className={` hidden absolute w-full sm:w-min min-w-min  flex-col justify-center items-center ${servicesDropdownBg} transition-all ease-in-out duration-1000 cursor-pointer z-[1000] rounded-b-[10px] py-4 left-0 sm:left-auto group-hover:flex`}>
@@ -117,7 +119,6 @@ const Nav: React.FC = () => {
 						</Link>
 					</div>
 				</div>
-				<GetQuoteBtn />
 			</nav>
 			{isHome ? <Hero /> : <></>}
 		</>

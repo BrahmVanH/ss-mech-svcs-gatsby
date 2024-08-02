@@ -15,15 +15,18 @@ const config: GatsbyConfig = {
 
 	graphqlTypegen: true,
 	plugins: [
+		'gatsby-plugin-bundle-stats',
+		'gatsby-plugin-image',
+		'gatsby-plugin-apollo',
+		'gatsby-plugin-git-lastmod',
+		'gatsby-plugin-sharp',
+		'gatsby-transformer-sharp',
 		{
 			resolve: `gatsby-plugin-postcss`,
 			options: {
 				postCssPlugins: [require(`postcss-preset-env`)({ stage: 0 })],
 			},
 		},
-		'gatsby-plugin-image',
-		'gatsby-plugin-apollo',
-
 		{
 			resolve: 'gatsby-plugin-sitemap',
 			options: {
@@ -68,9 +71,6 @@ const config: GatsbyConfig = {
 				icon: 'src/images/odin_graceful_transparent.jpg',
 			},
 		},
-		'gatsby-plugin-git-lastmod',
-		'gatsby-plugin-sharp',
-		'gatsby-transformer-sharp',
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {

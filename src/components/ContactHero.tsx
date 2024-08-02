@@ -22,15 +22,18 @@ const ContactHero: React.FC = () => {
 				<h2 className='mb-4'>Contact Us</h2>
 				<div className='contact-links flex flex-col justify-center items-start'>
 					<a target='_blank' rel='noreferrer' href={`tel:${contactInfo.phone}`} className='contact-item flex flex-row justify-center items-center'>
-						<Icon className='mt-4 fill-primary' icon={PhoneIcon} size={20} />
+						{/* <Icon className='mt-4 fill-primary' icon={PhoneIcon} size={20} /> */}
+						<PhoneIcon className='mt-4 fill-primary' size={20} />
 						<p className='mt-4 ml-4'>{contactInfo.phone}</p>
 					</a>
 					<a target='_blank' rel='noreferrer' href={`mailto:${contactInfo.email}`} className='contact-item flex flex-row justify-center items-center'>
-						<Icon className='mt-4 fill-primary' icon={EnvelopeIcon} size={20} />
+						{/* <Icon className='mt-4 fill-primary' icon={EnvelopeIcon} size={20} /> */}
+						<EnvelopeIcon className='mt-4 fill-primary' size={20} />
 						<p className='mt-4 ml-4'>{contactInfo.email}</p>
 					</a>
 					<a target='_blank' rel='noreferrer' href={'https://maps.app.goo.gl/vsUYpBh3CToxdn3D7'} className='contact-item flex flex-row justify-center items-center'>
-						<Icon className='mt-4 fill-primary' icon={MapIcon} size={20} />
+						{/* <Icon className='mt-4 fill-primary' icon={MapIcon} size={20} /> */}
+						<MapIcon className='mt-4 fill-primary' size={20} />
 						<div className='contact-info-address-container mt-4 ml-4'>
 							<p className='m-0'>{contactInfo.addressStreet} </p>
 							<p className='m-0'>{contactInfo.addressCity}</p>

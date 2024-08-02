@@ -7,7 +7,7 @@ declare module '*.png' {
 	export default '' as string;
 }
 
-// fix typescript error of not being able to import svgs has react components
+// fix typescript error of not being able to import svgs as react components
 declare module '*.svg' {
 	import React = require('react');
 	export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;

@@ -8,7 +8,6 @@ const Services: React.FC = () => {
 
 	return (
 		<div id='servicesComponent' className='services-container p-0 sm:py-12 w-[90%] my-0 mx-auto'>
-			{/* Switch to link with dynamic route to service page */}
 			<Link
 				to={'/services/Commercial'}
 				className='services-card w-full sm:w-[95%] my-4 mx-auto flex flex-col sm:flex-row cursor-pointer shadow-sm shadow-[#00000042] rounded-2xl sm:hover:scale-105 sm:hover:shadow sm:hover:duration-500'>
@@ -19,7 +18,6 @@ const Services: React.FC = () => {
 					<p className='w-3/4 mb-8 sm:my-4 mx-auto font-base '>From basic repairs to long-term building maintenance, we will help make managing your commercial space as easy as ever.</p>
 				</div>
 			</Link>
-			{/* Switch to link with dynamic route to service page */}
 			<Link
 				to={'/services/Residential'}
 				className='services-card w-full sm:w-[95%] my-4 mx-auto flex flex-col-reverse sm:flex-row cursor-pointer shadow-sm shadow-[#00000042] rounded-2xl sm:hover:scale-105 sm:hover:shadow sm:hover:duration-500'>

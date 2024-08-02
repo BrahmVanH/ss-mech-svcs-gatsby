@@ -17,15 +17,18 @@ const Contact: React.FC = () => {
 						<h1 className='mt-8'>Contact Us</h1>
 						<div className='contact-links'>
 							<a target='_blank' rel='noreferrer' href={`tel:${contactInfo.phone}`} className='contact-item pl-4 flex flex-row'>
-								<Icon className='mt-4 fill-primary' icon={PhoneIcon} size={20} />
+								{/* <Icon className='mt-4 fill-primary' icon={PhoneIcon} size={20} /> */}
+								<PhoneIcon className='mt-4 fill-primary' size={20} />
 								<p className='mt-4 ml-4'>{contactInfo.phone}</p>
 							</a>
 							<a target='_blank' rel='noreferrer' href={`mailto:${contactInfo.email}`} className='contact-item pl-4 flex flex-row'>
-								<Icon className='mt-4 fill-primary' icon={EnvelopeIcon} size={20} />
+								{/* <Icon className='mt-4 fill-primary' icon={EnvelopeIcon} size={20} /> */}
+								<EnvelopeIcon className='mt-4 fill-primary' size={20} />
 								<p className='mt-4 ml-4'>{contactInfo.email}</p>
 							</a>
 							<a target='_blank' rel='noreferrer' href={'https://maps.app.goo.gl/vsUYpBh3CToxdn3D7'} className='contact-item pl-4 flex flex-row'>
-								<Icon className='mt-4 fill-primary' icon={MapIcon} size={20} />
+								{/* <Icon className='mt-4 fill-primary' icon={MapIcon} size={20} /> */}
+								<MapIcon className='mt-4 fill-primary' size={20} />
 								<div className='contact-info-address-container mt-4 ml-4'>
 									<h4>South Shore Mechanical Services</h4>
 									<p className='m-0'>{contactInfo.addressStreet} </p>
@@ -34,7 +37,6 @@ const Contact: React.FC = () => {
 							</a>
 						</div>
 					</div>
-					{/* Leave a message form to side */}
 				</div>
 				<ScheduleServiceForm />
 			</div>
@@ -44,5 +46,4 @@ const Contact: React.FC = () => {
 
 export default Contact;
 
-export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Contact' />;
-
+// export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Contact' />;

@@ -32,13 +32,16 @@ const Footer: React.FC = () => {
 				</a>
 				<div className='flex p-4 w-min flex-row  sm:hidden'>
 					<a target='_blank' rel='noreferrer' href={`tel:${contactInfo.phone}`} className='mx-4 my-0 fill-black no-underline text-base'>
-						<Icon className='mt-4' icon={PhoneIcon} size={16} />
+						{/* <Icon className='mt-4' icon={PhoneIcon} size={16} /> */}
+						<PhoneIcon className='mt-4' size={16} />
 					</a>
 					<a target='_blank' rel='noreferrer' href={`mailto:${contactInfo.email}`} className=' mx-4 my-0 fill-black no-underline text-base'>
-						<Icon className='mt-4' icon={EnvelopeIcon} size={16} />
+						{/* <Icon className='mt-4' icon={EnvelopeIcon} size={16} /> */}
+						<EnvelopeIcon className='mt-4' size={16} />
 					</a>
 					<a target='_blank' rel='noreferrer' href={'https://maps.app.goo.gl/vsUYpBh3CToxdn3D7'} className=' mx-4 my-0 fill-black no-underline text-base'>
-						<Icon className='mt-4' icon={MapIcon} size={16} />
+						{/* <Icon className='mt-4' icon={MapIcon} size={16} /> */}
+						<MapIcon className='mt-4' size={16} />
 					</a>
 				</div>
 			</div>
