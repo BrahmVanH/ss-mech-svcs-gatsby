@@ -17,7 +17,7 @@
 	{
 		"name": "Plumbing Repair & Maintenance",
 		"description": "Our skilled team ensures efficient plumbing solutions for your commercial space.",
-		"img": "wrench-on-tailspout"
+		"img": "wrench-on-tailspout-cropped"
 	},
 	{
 		"name": "Data Cable Repair & Installation",
@@ -27,7 +27,7 @@
 	{
 		"name": "Refrigeration Service & Maintenance",
 		"description": "Trust us to maintain your commercial refrigeration units. Proper maintenance extends their lifespan and prevents costly breakdowns.",
-		"img": "ac-compressor-repair"
+		"img": "ac_compressor"
 	},
 	{
 		"name": "Custom Lighting & Electrical Repair",

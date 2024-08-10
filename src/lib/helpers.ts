@@ -1,3 +1,5 @@
+import { ServicesObject } from "../types";
+
 function removeParentheses(string: string) {
 	if (typeof string !== 'string' || string === '') {
 		throw new Error('Argument must be a string');
@@ -36,4 +38,9 @@ export function removeWhiteSpace(string: string) {
 	}
 
 	return string.replace(/\s/g, '');
+}
+
+
+export function getServicesImgKey(servicesJson: ServicesObject[]) {
+	return servicesJson.map((service: ServicesObject) => service.img);
 }

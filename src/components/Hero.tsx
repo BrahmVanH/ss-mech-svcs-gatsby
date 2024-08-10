@@ -16,10 +16,10 @@ import odin_graceful_white_fill from '../images/svg/odin_graceful_bg-transparent
 
 const Hero: React.FC = () => {
 	const images = [
-		{ alt: 'soldering an ac compressor', img: ac_compressor_jpeg },
-		{ alt: 'wiring ethernet cable terminal', img: data_cable_wiring_jpeg },
+		{ alt: 'gloved hand soldering an ac compressor', img: ac_compressor_jpeg },
+		{ alt: 'gloved hands wiring ethernet cable terminal in wall', img: data_cable_wiring_jpeg },
 		{ alt: 'person repairing dryer', img: dryer_repair_jpeg },
-		{ alt: 'repairing a furnace', img: furnace_repair_jpeg },
+		{ alt: 'person repairing a furnace', img: furnace_repair_jpeg },
 	];
 
 	return (

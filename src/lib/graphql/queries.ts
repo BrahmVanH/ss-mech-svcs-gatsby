@@ -1,6 +1,7 @@
-import { gql } from '../__generated__/gql';
+import { gql as generatedGql } from '../__generated__/gql';
+import { gql } from '@apollo/client';
 
-export const QUERY_THUMBTACK_REVIEWS = gql(/* GraphQL */ `
+export const QUERY_THUMBTACK_REVIEWS = generatedGql(/* GraphQL */ `
 	query QueryThumbtackReviews {
 		queryThumbtackReviews {
 			datePublished
@@ -14,3 +15,4 @@ export const QUERY_THUMBTACK_REVIEWS = gql(/* GraphQL */ `
 		}
 	}
 `);
+
