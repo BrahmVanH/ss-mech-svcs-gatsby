@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { HeadFC, Link, PageProps, graphql } from 'gatsby';
-import { useQuery } from '@apollo/client';
 
 import ServicesCard from '../../components/ServicesCard';
 import Layout from '../../components/layout';
 
-import commercialServices from '../../lib/data/commercialServices.json';
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 import SEO from '../../components/SEO';
+
+import commercialPageData from '../../lib/data/commercialPage.json';
 
 import { ServicesCardData } from '../../types';
 
@@ -24,8 +24,6 @@ interface CommercialProps extends PageProps {
 	};
 }
 
-
-
 const Commercial: React.FC<CommercialProps> = ({ data }) => {
 	const [serviceCardData, setServiceCardData] = React.useState<ServicesCardData[]>([]);
 	React.useEffect(() => {
@@ -33,11 +31,7 @@ const Commercial: React.FC<CommercialProps> = ({ data }) => {
 			return;
 		}
 
-		console.log('data', data);
-
-		console.log('data.file....', data?.images.edges);
-
-		const serviceCardData: ServicesCardData[] = commercialServices.map((service) => {
+		const serviceCardData: ServicesCardData[] = commercialPageData.servicesCardsData.map((service) => {
 			const img = data.images.edges.find((node: any) => node.node.Key === service.img);
 			return { ...service, img: img?.node.url };
 		});
@@ -48,7 +42,6 @@ const Commercial: React.FC<CommercialProps> = ({ data }) => {
 		if (serviceCardData.length === 0) {
 			return;
 		}
-		console.log('serviceCardData', serviceCardData);
 	}, [serviceCardData]);
 
 	return (

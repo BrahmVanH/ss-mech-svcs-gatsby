@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Link, HeadFC, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-import data_cable_install from '../../images/data-cable-wiring.jpeg';
 import { ArrowLeftIcon } from 'evergreen-ui';
 import SEO from '../../components/SEO';
 
@@ -18,17 +17,17 @@ interface NotFoundPageProps {
 
 const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
 	return (
-		<main className='not-found w-screen h-screen flex justify-center items-center'>
-			<div className='not-found-card flex flex-row items-center justify-center'>
+		<main className='w-screen h-screen flex justify-center items-center'>
+			<div className='flex flex-row items-center justify-center'>
 				<div>
-					<Link to={'/'} className='go-back-link flex justify-start items-center hover:cursor-pointer'>
+					<Link to={'/'} className='flex justify-start items-center hover:cursor-pointer'>
 						<ArrowLeftIcon className='mb-4' />
 						<p className='leading-[14px] ml-2'>Go Back</p>
 					</Link>
 					{/* <img className='w-full max-w-[400px]' src={data_cable_install} alt='Data cable wiring' /> */}
 					<Img className={'w-screen sm:w-[600px] max-w-[600px]'} fluid={data.file.childImageSharp.fluid} alt='Data cable wiring' />
 				</div>
-				<div className='not-found-card-text text-center flex flex-col items-center'>
+				<div className='text-center flex flex-col items-center'>
 					<h1 className='w-2/4 mb-4'>Sorry...</h1>
 					<p className='mb-4 w-2/4 overflow-[wrap]'>Were working on some updates to the website right now, please do come back soon!</p>
 				</div>

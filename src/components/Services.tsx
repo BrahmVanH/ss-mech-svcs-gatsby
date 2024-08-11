@@ -1,17 +1,26 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 
-import tanklessHotWater from '../images/tankless-hotwater-landscape.jpg';
-import dryerService from '../images/dryer-repair-landscape.jpg';
+interface ServicesProps {
+	imgKeys: {
+		commercial: {
+			alt: string;
+			img: string;
+		};
+		residential: {
+			alt: string;
+			img: string;
+		};
+	};
+}
 
-const Services: React.FC = () => {
-
+const Services: React.FC<ServicesProps> = ({ imgKeys }) => {
 	return (
 		<div id='servicesComponent' className='services-container p-0 sm:py-12 w-[90%] my-0 mx-auto'>
 			<Link
 				to={'/services/Commercial'}
 				className='services-card w-full sm:w-[95%] my-4 mx-auto flex flex-col sm:flex-row cursor-pointer shadow-sm shadow-[#00000042] rounded-2xl sm:hover:scale-105 sm:hover:shadow sm:hover:duration-500'>
-				<img className='img-left-border-radius-20 w-full sm:w-[45%] sm:rounded-l-2xl rounded-r-2xl ' alt='Plumbing for tankless hot water heater being serviced' src={tanklessHotWater} />
+				<img className='img-left-border-radius-20 w-full sm:w-[45%] sm:rounded-l-2xl rounded-r-2xl ' alt={imgKeys.commercial.alt} src={imgKeys.commercial.img} />
 				<div className='services-card-text text-center flex flex-col justify-center'>
 					<h3 className='my-4 mx-auto '>Commercial Maintenance & Repair</h3>
 
@@ -27,7 +36,7 @@ const Services: React.FC = () => {
 						We offer a wide range of services to help home owners and property managers alike keep their guests and their families comfortable and safe.
 					</p>
 				</div>
-				<img className='img-right-border-radius-20 w-full sm:w-[45%] rounded-t-2xl sm:rounded-r-2xl' alt='close up of person working on clothing dryer' src={dryerService} />
+				<img className='img-right-border-radius-20 w-full sm:w-[45%] rounded-t-2xl sm:rounded-r-2xl' alt={imgKeys.residential.alt} src={imgKeys.residential.img} />
 			</Link>
 		</div>
 	);

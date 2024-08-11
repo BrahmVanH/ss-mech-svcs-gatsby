@@ -4,12 +4,11 @@ import { HeadFC, Link, PageProps, graphql } from 'gatsby';
 import ServicesCard from '../../components/ServicesCard';
 import Layout from '../../components/layout';
 
-import residentialServices from '../../lib/data/residentialServices.json';
+import residentialPageData from '../../lib/data/residentialPage.json';
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 import SEO from '../../components/SEO';
 
 import { ServicesCardData } from '../../types';
-
 
 interface ResidentialProps extends PageProps {
 	data: {
@@ -24,11 +23,7 @@ interface ResidentialProps extends PageProps {
 	};
 }
 
-
-
-const Residential: React.FC<ResidentialProps> = ({data}) => {
-	
-
+const Residential: React.FC<ResidentialProps> = ({ data }) => {
 	const [serviceCardData, setServiceCardData] = React.useState<ServicesCardData[]>([]);
 
 	React.useEffect(() => {
@@ -36,11 +31,7 @@ const Residential: React.FC<ResidentialProps> = ({data}) => {
 			return;
 		}
 
-		console.log('data', data);
-
-		console.log('data.file....', data?.images.edges);
-
-		const serviceCardData: ServicesCardData[] = residentialServices.map((service) => {
+		const serviceCardData: ServicesCardData[] = residentialPageData.servicesCardData.map((service) => {
 			const img = data.images.edges.find((node: any) => node.node.Key === service.img);
 			return { ...service, img: img?.node.url };
 		});
@@ -69,9 +60,7 @@ export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} 
 
 export const query = graphql`
 	query AllImagesQuery {
-		images: allS3Object(
-			filter: { Key: { in: ["wrench-on-tailspout-cropped", "light-fixture-install", "dryer-repair", "drywall-repair", "data-cable-wiring", "air-filter-replacement", "air-filter-replacement"] } }
-		) {
+		images: allS3Object(filter: { Key: { in: ["wrench-on-tailspout-cropped", "light-fixture-install", "dryer-repair", "drywall-repair", "data-cable-wiring", "air-filter-replacement"] } }) {
 			edges {
 				node {
 					Key

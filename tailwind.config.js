@@ -21,17 +21,7 @@ module.exports = {
 				card: 'var(--card-border-radius)',
 			},
 			backgroundImage: {
-				'data-cable-wiring': "url('../images/data-cable-wiring.jpeg')",
-				'home-hero-img-mobile': "url('../images/multi-meter-testing-iphone-res.jpg')",
-				'ac-compressor-repair': "url('../images/ac_compressor.jpeg')",
-				'dryer-repair': "url('../images/dryer-repair.jpeg')",
-				'furnace-repair': "url('../images/furnace-repair.jpeg')",
 				'tankless-hotwater-landscape': "url('../images/tankless-hotwater-landscape.jpg')",
-				'wrench-on-tailspout': "url('../images/wrench-on-tailspout-cropped.jpg')",
-				'light-fixture-install': "url('../images/light-fixture-install.jpeg')",
-				'air-filter-replacement': "url('../images/air-filter-replacement.jpg')",
-				'smart-thermostat-install': "url('../images/smart-thermostat-install.jpeg')",
-				'drywall-repair': "url('../images/drywall-repair.jpg')",
 			},
 			fontFamily: {
 				'thumbtack-reviews': 'Mark, Avenir, Helvetica, Arial, sans - serif',

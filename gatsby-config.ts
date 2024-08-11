@@ -30,8 +30,8 @@ const config: GatsbyConfig = {
 		{
 			resolve: 'gatsby-plugin-sitemap',
 			options: {
-				output: '/sitemap.xml',
 				createLinkInHead: true,
+				endpoint: '/sitemap.xml',
 				query: `
 					{
 						site { 
@@ -48,7 +48,6 @@ const config: GatsbyConfig = {
 					}		
 					`,
 				serialize: ({ path, pageContext }: { path: string; pageContext: any }) => {
-					console.log('pageContext', pageContext);
 					return {
 						url: path,
 						lastmod: pageContext?.lastmod,
@@ -90,6 +89,12 @@ const config: GatsbyConfig = {
 					region: process.env.AWS_REGION,
 				},
 				buckets: [process.env.AWS_BUCKET_NAME],
+			},
+		},
+		{
+			resolve: `gatsby-plugin-offline`,
+			options: {
+				precachePages: [`/Contact/`, `/`, `/services/Commercial/`, `/services/Residential/`],
 			},
 		},
 	],

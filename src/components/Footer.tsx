@@ -4,14 +4,9 @@ import { useLocation } from '@reach/router';
 
 import { PhoneIcon, EnvelopeIcon, MapIcon, Icon } from 'evergreen-ui';
 
-const Footer: React.FC = () => {
-	const contactInfo = {
-		addressStreet: '908 Champion St.,',
-		addressCity: 'Marquette, MI 49855',
-		phone: '906-236-2760',
-		email: 'info@southshoremechanical.services',
-	};
+import { contactInfo } from '../lib/data/ContactHero.json';
 
+const Footer: React.FC = () => {
 	const [isOnContactPage, setIsOnContactPage] = React.useState<boolean>(false);
 
 	const location = useLocation();

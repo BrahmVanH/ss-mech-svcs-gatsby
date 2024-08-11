@@ -19,6 +19,7 @@ const SEO: React.FC<React.PropsWithChildren<{ endpoint: string; title: string }>
 			<meta charSet='utf-8' />
 			<title>{title}</title>
 			<link rel='canonical' href={canonical} />
+			<meta name='robots' content='index, follow' />
 			<meta name='description' content={metaData.description} />
 			<meta name='og:url' content={metaData.siteUrl} />
 			<meta name='og:type' content='website' />
