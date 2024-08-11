@@ -83,12 +83,12 @@ const config: GatsbyConfig = {
 			options: {
 				aws: {
 					credentials: {
-						accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-						secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+						accessKeyId: process.env.PROD_AWS_ACCESS_KEY,
+						secretAccessKey: process.env.PROD_AWS_SECRET_ACCESS_KEY,
 					},
-					region: process.env.AWS_REGION,
+					region: process.env.PROD_AWS_REGION,
 				},
-				buckets: [process.env.AWS_BUCKET_NAME],
+				buckets: [process.env.PROD_AWS_BUCKET_NAME],
 			},
 		},
 		{

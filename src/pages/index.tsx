@@ -39,8 +39,6 @@ const Home: React.FC<HomePageProps> = ({ data }) => {
 	const [serviceCardImgs, setServiceCardImgs] = React.useState<ImgKeys | null>(null);
 
 	React.useEffect(() => {
-		
-
 		if (!data) {
 			return;
 		}
