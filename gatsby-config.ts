@@ -94,7 +94,7 @@ const config: GatsbyConfig = {
 		{
 			resolve: `gatsby-plugin-offline`,
 			options: {
-				precachePages: [`/Contact/`, `/`, `/services/Commercial/`, `/services/Residential/`],
+				precachePages: [`/Contact/`, `/`, `/services/*`],
 			},
 		},
 	],
