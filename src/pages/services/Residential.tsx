@@ -4,7 +4,7 @@ import { HeadFC, Link, PageProps, graphql } from 'gatsby';
 import ServicesCard from '../../components/ServicesCard';
 import Layout from '../../components/layout';
 
-import residentialPageData from '../../lib/data/residentialPage.json';
+import residentialPageData from '../../lib/data/ResidentialPage.json';
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 import SEO from '../../components/SEO';
 

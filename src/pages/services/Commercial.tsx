@@ -7,7 +7,7 @@ import Layout from '../../components/layout';
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 import SEO from '../../components/SEO';
 
-import commercialPageData from '../../lib/data/commercialPage.json';
+import commercialPageData from '../../lib/data/CommercialPage.json';
 
 import { ServicesCardData } from '../../types';
 
