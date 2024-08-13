@@ -105,7 +105,6 @@ const config: GatsbyConfig = {
 				buckets: [process.env.PROD_AWS_BUCKET_NAME],
 			},
 		},
-		`gatsby-plugin-remove-serviceworker`,
 	],
 };
 
