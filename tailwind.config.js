@@ -21,7 +21,7 @@ module.exports = {
 				card: 'var(--card-border-radius)',
 			},
 			backgroundImage: {
-				'tankless-hotwater-landscape': "url('../images/tankless-hotwater-landscape.jpg')",
+				'tankless-hotwater-landscape': "url('../images/tankless-hotwater-landscape.jpeg')",
 			},
 			fontFamily: {
 				'thumbtack-reviews': 'Mark, Avenir, Helvetica, Arial, sans - serif',

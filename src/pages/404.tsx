@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link, HeadFC, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage as Img } from 'gatsby-plugin-image';
 
 import { ArrowLeftIcon } from 'evergreen-ui';
 import SEO from '../components/SEO';
@@ -16,6 +16,12 @@ interface NotFoundPageProps {
 }
 
 const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
+	const [img, setImg] = React.useState<any>(null);
+	React.useEffect(() => {
+		if (data) {
+			setImg(data.file.childImageSharp.gatsbyImageData.images.fallback.src);
+		}
+	}, [data]);
 	return (
 		<main className='w-screen h-screen flex justify-center items-center'>
 			<div className='flex flex-row items-center justify-center'>
@@ -25,7 +31,7 @@ const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
 						<p className='leading-[14px] ml-2'>Go Back</p>
 					</Link>
 					{/* <img className='w-full max-w-[400px]' src={data_cable_install} alt='Data cable wiring' /> */}
-					<Img className={'w-screen sm:w-[600px] max-w-[600px]'} fluid={data.file.childImageSharp.gatsbyImageData} alt='Data cable wiring' />
+					{img ? <Img className={'w-screen sm:w-[600px] max-w-[600px]'} image={img} alt='Data cable wiring' /> : <></>}
 				</div>
 				<div className='not-found-card-text text-center flex flex-col items-center'>
 					<h1 className='w-2/4 mb-4'>Sorry...</h1>

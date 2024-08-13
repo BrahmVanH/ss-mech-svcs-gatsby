@@ -10,7 +10,7 @@ const config: GatsbyConfig = {
 		title: `South Shore Mechanical Services`,
 		siteUrl: `https://southshoremechanical.services`,
 		description: 'South Shore Mechanical Services is a Commercial Maintenance and Residential Handyman that services Marquette County, Michigan.',
-		image: '/images/odin_graceful_transparent.jpg',
+		image: '/images/odin_graceful_transparent.jpeg',
 	},
 
 	graphqlTypegen: true,
@@ -21,6 +21,7 @@ const config: GatsbyConfig = {
 		'gatsby-plugin-git-lastmod',
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',
+		`gatsby-plugin-preload-fonts`,
 		{
 			resolve: `gatsby-plugin-postcss`,
 			options: {
@@ -31,7 +32,7 @@ const config: GatsbyConfig = {
 			resolve: 'gatsby-plugin-sitemap',
 			options: {
 				createLinkInHead: true,
-				endpoint: '/sitemap.xml',
+				output: '/sitemap.xml',
 				query: `
 					{
 						site { 
@@ -67,7 +68,7 @@ const config: GatsbyConfig = {
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
-				icon: 'src/images/odin_graceful_transparent.jpg',
+				icon: 'src/images/odin_graceful_transparent.jpeg',
 			},
 		},
 		{
@@ -81,6 +82,19 @@ const config: GatsbyConfig = {
 		{
 			resolve: 'gatsby-source-s3',
 			options: {
+				protocol: 'https',
+				download: true,
+				images: {
+					download: true,
+					quality: 100,
+					webp: true,
+				},
+				host: 's3.amazonaws.com',
+				port: 443,
+				localFile: {
+					path: './src/images',
+				},
+
 				aws: {
 					credentials: {
 						accessKeyId: process.env.PROD_AWS_ACCESS_KEY,
@@ -91,12 +105,7 @@ const config: GatsbyConfig = {
 				buckets: [process.env.PROD_AWS_BUCKET_NAME],
 			},
 		},
-		{
-			resolve: `gatsby-plugin-offline`,
-			options: {
-				precachePages: [`/Contact/`, `/`, `/services/*`],
-			},
-		},
+		`gatsby-plugin-remove-serviceworker`,
 	],
 };
 

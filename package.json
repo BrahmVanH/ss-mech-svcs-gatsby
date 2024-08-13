@@ -49,7 +49,8 @@
 		"serve": "gatsby serve",
 		"clean": "gatsby clean",
 		"typecheck": "tsc --noEmit",
-		"codegen": "graphql-codegen"
+		"codegen": "graphql-codegen",
+		"preload-fonts": "gatsby-preload-fonts"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.10.4",
@@ -58,16 +59,16 @@
 		"dotenv": "^16.4.5",
 		"evergreen-ui": "^7.1.9",
 		"gatsby": "^5.13.5",
-		"gatsby-image": "^3.11.0",
 		"gatsby-plugin-apollo": "^4.0.3",
 		"gatsby-plugin-bundle-stats": "^4.13.4",
 		"gatsby-plugin-git-lastmod": "^0.2.1",
 		"gatsby-plugin-google-gtag": "^5.13.1",
 		"gatsby-plugin-image": "^3.13.1",
 		"gatsby-plugin-manifest": "^5.13.1",
-		"gatsby-plugin-offline": "^6.13.2",
 		"gatsby-plugin-postcss": "^6.13.1",
+		"gatsby-plugin-preload-fonts": "^4.13.1",
 		"gatsby-plugin-react-helmet": "^6.13.1",
+		"gatsby-plugin-remove-serviceworker": "^1.0.0",
 		"gatsby-plugin-sharp": "^5.13.1",
 		"gatsby-plugin-sitemap": "^6.13.1",
 		"gatsby-source-filesystem": "^5.13.1",

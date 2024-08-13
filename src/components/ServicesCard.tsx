@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 const ServicesCard: React.FC<{ name: string; description: string; img: string }> = ({ name, description, img }) => {
-
 	return (
 		<>
 			{img ? (

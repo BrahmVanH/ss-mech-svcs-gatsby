@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { HeadFC, Link, PageProps, graphql } from 'gatsby';
+import { HeadFC, PageProps, graphql } from 'gatsby';
 
 import ServicesCard from '../../components/ServicesCard';
 import Layout from '../../components/layout';
 
-import residentialPageData from '../../lib/data/ResidentialPage.json';
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 import SEO from '../../components/SEO';
+
+import residentialPageData from '../../lib/data/ResidentialPage.json';
 
 import { ServicesCardData } from '../../types';
 
@@ -32,7 +33,7 @@ const Residential: React.FC<ResidentialProps> = ({ data }) => {
 		}
 
 		const serviceCardData: ServicesCardData[] = residentialPageData.servicesCardData.map((service) => {
-			const img = data.images.edges.find((node: any) => node.node.Key === service.img);
+			const img = data?.images?.edges?.find((node: any) => node.node.Key === service.img);
 			return { ...service, img: img?.node.url };
 		});
 		setServiceCardData(serviceCardData);
@@ -45,7 +46,7 @@ const Residential: React.FC<ResidentialProps> = ({ data }) => {
 
 				<div className='w-screen flex flex-col sm:flex-row  justify-center items-start'>
 					<div className='w-full sm:w-[55%] flex flex-col aspect-square  sm:grid grid-cols-[repeat(auto-fit,_minmax(40%,_1fr))] auto-rows-[300px] gap-8 m-0 sm:m-4 py-4 px-8'>
-						{serviceCardData && serviceCardData.map((service) => <ServicesCard key={service.name} name={service.name} description={service.description} img={service.img} />)}
+						{serviceCardData ? serviceCardData.map((service) => <ServicesCard key={service.name} name={service.name} description={service.description} img={service.img} />) : <></>}
 					</div>
 					<ScheduleServiceForm />
 				</div>
@@ -68,7 +69,7 @@ export const query = graphql`
 					url
 					localFile {
 						childImageSharp {
-							fluid(maxWidth: 1024) {
+							fluid(maxWidth: 500) {
 								...GatsbyImageSharpFluid
 							}
 						}

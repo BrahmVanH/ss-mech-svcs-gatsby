@@ -26,32 +26,27 @@ interface CommercialProps extends PageProps {
 
 const Commercial: React.FC<CommercialProps> = ({ data }) => {
 	const [serviceCardData, setServiceCardData] = React.useState<ServicesCardData[]>([]);
+
+	
 	React.useEffect(() => {
 		if (!data) {
 			return;
 		}
 
 		const serviceCardData: ServicesCardData[] = commercialPageData.servicesCardsData.map((service) => {
-			const img = data.images.edges.find((node: any) => node.node.Key === service.img);
+			const img = data?.images?.edges?.find((node: any) => node.node.Key === service.img);
 			return { ...service, img: img?.node.url };
 		});
 		setServiceCardData(serviceCardData);
 	}, [data]);
 
-	React.useEffect(() => {
-		if (serviceCardData.length === 0) {
-			return;
-		}
-	}, [serviceCardData]);
-
 	return (
 		<Layout>
 			<div className='w-full h-full flex flex-col justify-center items-center'>
 				<h1 className='text-center sm:text-left text-[48px] text-800'>Commercial Services</h1>
-
 				<div className='w-screen flex flex-col  sm:flex-row justify-center items-start'>
 					<div className='w-full sm:w-[55%] flex flex-col aspect-square sm:grid grid-cols-[repeat(auto-fit,_minmax(40%,_1fr))] auto-rows-[300px] gap-8 m-0 sm:m-4 py-4 px-8'>
-						{serviceCardData && serviceCardData.map((service) => <ServicesCard key={service.name} name={service.name} description={service.description} img={service.img} />)}
+						{serviceCardData ? serviceCardData.map((service) => <ServicesCard key={service.name} name={service.name} description={service.description} img={service.img} />) : <></>}
 					</div>
 					<ScheduleServiceForm />
 				</div>
@@ -86,7 +81,7 @@ export const query = graphql`
 					url
 					localFile {
 						childImageSharp {
-							fluid(maxWidth: 1024) {
+							fluid(maxWidth: 500) {
 								...GatsbyImageSharpFluid
 							}
 						}

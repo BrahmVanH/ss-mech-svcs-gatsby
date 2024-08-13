@@ -10,7 +10,7 @@ import { ArrowRightIcon } from 'evergreen-ui';
 
 import { ThumbtackReview } from '../lib/__generated__/graphql';
 
-import thumbtack_reviewer_avatar from '../images/thumbtack_reviewer-avatar.jpg';
+import thumbtack_reviewer_avatar from '../images/thumbtack_reviewer-avatar.jpeg';
 
 const Reviews: React.FC = () => {
 	const [thumbtackReviews, setThumbtackReviews] = React.useState<ThumbtackReview[]>([]);
