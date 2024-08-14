@@ -2,10 +2,8 @@ import { Link } from 'gatsby';
 import { useLocation } from '@reach/router';
 
 import * as React from 'react';
-import Hero from './Hero';
-// import GetQuoteBtn from './GetQuoteBtn';
 
-import { ChevronDownIcon, Icon } from 'evergreen-ui';
+import { ChevronDownIcon } from 'evergreen-ui';
 
 import brand_image_transparent from '../images/svg/odin_graceful_transparent.svg';
 import brand_image_white from '../images/svg/odin_graceful_bg-transparent_white-fill.svg';
@@ -119,7 +117,6 @@ const Nav: React.FC = () => {
 					</div>
 				</div>
 			</nav>
-			{/* {isHome ? <Hero /> : <></>} */}
 		</>
 	);
 };
