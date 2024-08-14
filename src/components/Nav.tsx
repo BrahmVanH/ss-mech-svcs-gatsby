@@ -119,7 +119,7 @@ const Nav: React.FC = () => {
 					</div>
 				</div>
 			</nav>
-			{isHome ? <Hero /> : <></>}
+			{/* {isHome ? <Hero /> : <></>} */}
 		</>
 	);
 };

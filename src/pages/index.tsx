@@ -8,6 +8,7 @@ import SEO from '../components/SEO';
 import homePageData from '../lib/data/HomePage.json';
 
 import 'normalize.css';
+import Hero from '../components/Hero';
 
 interface HomePageProps extends PageProps {
 	data: {
@@ -59,6 +60,7 @@ const Home: React.FC<HomePageProps> = ({ data }) => {
 
 	return (
 		<Layout>
+			<Hero />
 			<div ref={homeRef} className='flex flex-col items-center justify-center bg-transparent'>
 				{serviceCardImgs ? <Services imgKeys={serviceCardImgs} /> : <></>}
 				<Reviews />

@@ -1,26 +1,18 @@
 import * as React from 'react';
 import { graphql, PageProps, useStaticQuery } from 'gatsby';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
+import ImageGallery from './ImageGallery';
 
 import map_up_mqt_county from '../images/map_upper_peninsula_mqt_county_teal.png';
 import odin_graceful_white_fill from '../images/svg/odin_graceful_bg-transparent_white-fill.svg';
 
 import heroData from '../lib/data/Hero.json';
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-interface Image {
-	alt: string;
-	key: string;
-	url?: string;
-}
+import { IImage } from '../types';
 
 const Hero: React.FC = () => {
-	const [slideshowImgs, setSlideshowImgs] = React.useState<Image[] | null>(null);
-	const [mobileBackgroundImg, setMobileBackgroundImg] = React.useState<Image | null>(null);
+	const [slideshowImgs, setSlideshowImgs] = React.useState<IImage[] | null>(null);
+	const [mobileBackgroundImg, setMobileBackgroundImg] = React.useState<IImage | null>(null);
 
 	const data = useStaticQuery(graphql`
 		query {
@@ -84,30 +76,8 @@ const Hero: React.FC = () => {
 					<p className='text-white mb-8 text-4xl max-w-[75%]'>Providing Commercial and Residential Mechanical services to Marquette, Michigan</p>
 				</div>
 			</div>
-			<>
-				{slideshowImgs ? (
-					<Swiper
-						// height={500}
-						className='hidden hero-swiper sm:block'
-						width={1500}
-						spaceBetween={0}
-						centeredSlides={true}
-						autoplay={{
-							delay: 8000,
-							disableOnInteraction: false,
-						}}
-						loop={true}
-						modules={[Autoplay, Pagination, Navigation]}>
-						{slideshowImgs.map((image, index) => (
-							<SwiperSlide key={index}>
-								<img className='w-screen max-h-screen overflow-hidden' src={image.url} alt={image.alt} />
-							</SwiperSlide>
-						))}
-					</Swiper>
-				) : (
-					<></>
-				)}
-			</>
+
+			{slideshowImgs ? <ImageGallery images={slideshowImgs} /> : <></>}
 		</div>
 	);
 };

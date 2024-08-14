@@ -13,6 +13,7 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	width: 100vw;
 
 	/* Custom CSS Variable */
 	--button-border-size: 1.5px;
@@ -22,9 +23,14 @@
 }
 
 #root {
-	max-width: 1280px;
+	width: 100vw;
+	max-width: 1280px !important;
 	margin: 0 auto;
 	text-align: center;
+}
+
+#___gatsby {
+	width: 100vw;
 }
 
 h1 {

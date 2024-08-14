@@ -10,7 +10,7 @@ const config: GatsbyConfig = {
 		title: `South Shore Mechanical Services`,
 		siteUrl: `https://southshoremechanical.services`,
 		description: 'South Shore Mechanical Services is a Commercial Maintenance and Residential Handyman that services Marquette County, Michigan.',
-		image: '/images/odin_graceful_transparent.jpeg',
+		image: '/images/odin_graceful_transparent_square.jpeg',
 	},
 
 	graphqlTypegen: true,
@@ -68,7 +68,7 @@ const config: GatsbyConfig = {
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
-				icon: 'src/images/odin_graceful_transparent.jpeg',
+				icon: 'src/images/odin_graceful_transparent_square.jpeg',
 			},
 		},
 		{
@@ -103,6 +103,12 @@ const config: GatsbyConfig = {
 					region: process.env.PROD_AWS_REGION,
 				},
 				buckets: [process.env.PROD_AWS_BUCKET_NAME],
+			},
+		},
+		{
+			resolve: `gatsby-plugin-styled-components`,
+			options: {
+				displayName: false,
 			},
 		},
 	],

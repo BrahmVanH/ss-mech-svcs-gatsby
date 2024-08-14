@@ -27,7 +27,6 @@ interface CommercialProps extends PageProps {
 const Commercial: React.FC<CommercialProps> = ({ data }) => {
 	const [serviceCardData, setServiceCardData] = React.useState<ServicesCardData[]>([]);
 
-	
 	React.useEffect(() => {
 		if (!data) {
 			return;

@@ -14,3 +14,9 @@ export interface ServicesCardData {
 	description: string;
 	img: any;
 }
+
+export interface IImage {
+	alt: string;
+	key: string;
+	url?: string;
+}
