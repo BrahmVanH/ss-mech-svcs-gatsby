@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react';
 import * as React from 'react';
 import { useMutation } from '@apollo/client';
 import { useForm, FieldValues } from 'react-hook-form';
@@ -34,7 +35,6 @@ const ScheduleServiceForm: React.FC = () => {
 	const onSubmit = async (data: FieldValues) => {
 		const { firstName, lastName, tel, email, location, service, message } = data;
 		if (!firstName || !lastName || !tel || !email || !location || !service || !message) {
-			console.error('Please fill out all fields.');
 			return;
 		}
 		try {
@@ -64,12 +64,14 @@ const ScheduleServiceForm: React.FC = () => {
 				setError('root', { type: responseStatusCodeString, message: 'There was an error sending your message. Please try again in a few minutes or just give us a call.' });
 				setToastBody('There was an error sending your message. Please try again in a few minutes or just give us a call.');
 				setToastError(true);
+				Sentry.captureException(new Error('There was an error sending the schedule service message.', data));
 			}
 		} catch (error) {
 			console.error(error);
 			setError('root', { type: '400', message: 'There was an error sending your message. Please try again in a few minutes or just give us a call.' });
 			setToastBody('There was an error sending your message. Please try again in a few minutes or just give us a call.');
 			setToastError(true);
+			Sentry.captureException(error);
 		}
 	};
 
@@ -88,6 +90,7 @@ const ScheduleServiceForm: React.FC = () => {
 					setToastBody(null);
 				},
 			});
+			Sentry.captureException(toastBody);
 		}
 	}, [toastBody, toastFired]);
 
@@ -121,18 +124,7 @@ const ScheduleServiceForm: React.FC = () => {
 				})}
 			/>
 			{errors.lastName && <p>{errors?.lastName?.message?.toString()}</p>}
-			{/* <input
-				autoComplete='tel'
-				type='tel'
-				placeholder='Phone Number'
-				{...register('phone', {
-					required: { value: true, message: 'Please enter a phone number' },
-					maxLength: { value: 12, message: 'Please enter valid phone number.' },
-					pattern: { value: /^(\\+[0-9]{1,3})?[-. ]?\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/, message: 'Please enter a valid phone number only containing numbers, +, or -' },
-				})}
-			/>
-			{errors.phone && <p>{errors?.phone?.message?.toString()}</p>}
-			 */}
+
 			<PhoneInput
 				class={inputClasses}
 				name='tel'

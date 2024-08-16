@@ -1,4 +1,6 @@
+import * as Sentry from '@sentry/react';
 import * as React from 'react';
+
 import { Link, HeadFC, graphql } from 'gatsby';
 import { GatsbyImage as Img } from 'gatsby-plugin-image';
 
@@ -18,9 +20,11 @@ interface NotFoundPageProps {
 const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
 	const [img, setImg] = React.useState<any>(null);
 	React.useEffect(() => {
-		if (data) {
-			setImg(data.file.childImageSharp.gatsbyImageData.images.fallback.src);
+		if (!data) {
+			Sentry.captureException(new Error('No data in 404 page'));
+			return;
 		}
+		setImg(data.file.childImageSharp.gatsbyImageData.images.fallback.src);
 	}, [data]);
 	return (
 		<main className='w-screen h-screen flex justify-center items-center'>

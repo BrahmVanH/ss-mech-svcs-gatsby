@@ -1,4 +1,6 @@
+import * as Sentry from '@sentry/react';
 import * as React from 'react';
+
 import { HeadFC, Link, PageProps, graphql } from 'gatsby';
 
 import ServicesCard from '../../components/ServicesCard';
@@ -29,6 +31,7 @@ const Commercial: React.FC<CommercialProps> = ({ data }) => {
 
 	React.useEffect(() => {
 		if (!data) {
+			Sentry.captureException(new Error('No data in Commercial page'));
 			return;
 		}
 

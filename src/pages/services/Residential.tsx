@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/gatsby';
 import * as React from 'react';
 import { HeadFC, PageProps, graphql } from 'gatsby';
 
@@ -29,6 +30,7 @@ const Residential: React.FC<ResidentialProps> = ({ data }) => {
 
 	React.useEffect(() => {
 		if (!data) {
+			Sentry.captureException(new Error('No data in Residential page'));
 			return;
 		}
 

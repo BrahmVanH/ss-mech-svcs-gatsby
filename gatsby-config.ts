@@ -111,6 +111,9 @@ const config: GatsbyConfig = {
 				displayName: false,
 			},
 		},
+		{
+			resolve: '@sentry/gatsby',
+		},
 	],
 };
 

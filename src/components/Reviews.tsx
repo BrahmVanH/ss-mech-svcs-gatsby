@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useQuery } from '@apollo/client';
+import * as Sentry from '@sentry/react';
 
 import { QUERY_THUMBTACK_REVIEWS } from '../lib/graphql';
 
@@ -19,7 +20,7 @@ const Reviews: React.FC = () => {
 
 	React.useEffect(() => {
 		if (error) {
-			console.log('error: ', error);
+			Sentry.captureException(error);
 		}
 	}, [error]);
 

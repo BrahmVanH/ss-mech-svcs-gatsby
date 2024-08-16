@@ -1,20 +1,23 @@
 import fetch from 'isomorphic-fetch';
 import { ApolloClient, InMemoryCache, HttpLink, from } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
+import * as Sentry from '@sentry/react';
 // import { setContext } from '@apollo/client/link/context';
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
 	if (graphQLErrors) {
 		graphQLErrors.forEach((butts) => {
-			console.log(butts);
+			Sentry.captureException(butts);
 		});
 		graphQLErrors.map(({ message, locations, path }) => {
 			console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
 			console.log(locations);
+			Sentry.captureException(message);
 		});
 	}
 	if (networkError) {
 		console.log(`[Network error]: ${networkError}`);
+		Sentry.captureException(networkError);
 	}
 });
 

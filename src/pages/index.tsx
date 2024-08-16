@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react';
 import * as React from 'react';
 import { HeadFC, PageProps, graphql } from 'gatsby';
 import Layout from '../components/layout';
@@ -41,6 +42,7 @@ const Home: React.FC<HomePageProps> = ({ data }) => {
 
 	React.useEffect(() => {
 		if (!data) {
+			Sentry.captureException(new Error('No data in Home page'));
 			return;
 		}
 
