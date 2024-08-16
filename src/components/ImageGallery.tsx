@@ -14,7 +14,7 @@ const ImageGallery = ({ images }: { images: IImage[] }) => {
 	}, [images.length]);
 
 	return (
-		<div className='relative w-full h-full overflow-hidden'>
+		<div className='hidden sm:block relative w-full h-full overflow-hidden'>
 			<div className='flex transition-transform duration-1000 ease-in-out' style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
 				{images.map((image) => (
 					<div key={image.key} className='w-full flex-shrink-0'>
