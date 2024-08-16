@@ -45,7 +45,7 @@
 	"scripts": {
 		"develop": "gatsby develop",
 		"start": "gatsby develop",
-		"build": "gatsby build && npm run sentry:sourcemaps",
+		"build": "gatsby build",
 		"serve": "gatsby serve",
 		"clean": "gatsby clean",
 		"typecheck": "tsc --noEmit",
