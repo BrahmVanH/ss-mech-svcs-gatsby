@@ -51,7 +51,7 @@
 		"typecheck": "tsc --noEmit",
 		"codegen": "graphql-codegen",
 		"preload-fonts": "gatsby-preload-fonts",
-		"sentry:sourcemaps": "sentry-cli sourcemaps inject --org brahm-van-houzen-studio --project ss-mech-svcs-gatsby public/static/ && sentry-cli sourcemaps upload --org brahm-van-houzen-studio --project ss-mech-svcs-gatsby public/static/"
+		"sentry:sourcemaps": "sentry-cli sourcemaps inject --org brahm-van-houzen-studio --project ss-mech-svcs-gatsby public/static && sentry-cli sourcemaps upload --org brahm-van-houzen-studio --project ss-mech-svcs-gatsby public/static"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.10.4",
