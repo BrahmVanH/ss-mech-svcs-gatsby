@@ -36,15 +36,12 @@ const httpLink = new HttpLink({ uri: process.env.GATSBY_API_URL ?? '', credentia
 
 const link = from([errorLink, httpLink]);
 
-// This all needs to be moved into gatsby-config
-// Current file will just export functions that can be used in gatsby-config
-// and will take in envs as arguments
 const client = new ApolloClient({
 	cache: new InMemoryCache(),
 	link,
 	defaultOptions: {
 		watchQuery: {
-			fetchPolicy: 'cache-and-network',
+			fetchPolicy: 'network-only',
 		},
 		query: {
 			fetchPolicy: 'network-only',
