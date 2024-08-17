@@ -9,7 +9,7 @@
 Deployed Application: [southshoremechanical.services](https://southshoremechanical.services) \
 GitHub Repo: [BrahmVanH/ss-mech-svcs-gatsby](https://github.com/BrahmVanH/ss-mech-svcs-gatsby)
 
-![Screenshot](/src/images/south_shore_mech_consumer_site.png)
+![Screenshot](/src/images/ss-mech-svcs-screenshot-w-techs.webp)
 
 This Gatsby app serves as the main source of information for customers and potential customers of South Shore Mechanical Services in Marquette, MI. The application is built, once again, with GatsbyJS, as well as Tailwind CSS and Tyescript. The web app interacts with a static Node Express Server using an ApolloGraphql API layer for its content. The site's images are loaded dynamically from AWS S3 using Version 4 of the AWS SDK.
 
@@ -29,7 +29,7 @@ If you are interested in cloning and running this application on your local mach
 
 ## Usage
 
-After following the  [Installation](#Installation) instructions, enter `$ npm start` in the command line from the root of the project. The app will start on Port 8000.
+After following the [Installation](#Installation) instructions, enter `$ npm start` in the command line from the root of the project. The app will start on Port 8000.
 
 ## Credits
 
