@@ -114,6 +114,9 @@ const config: GatsbyConfig = {
 		},
 		{
 			resolve: '@sentry/gatsby',
+			options: {
+				project: 'ss-mech-svcs-gatsby',
+			},
 		},
 	],
 };
