@@ -22,6 +22,7 @@ const config: GatsbyConfig = {
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',
 		`gatsby-plugin-preload-fonts`,
+		`gatsby-plugin-remove-serviceworker`,
 		{
 			resolve: `gatsby-plugin-postcss`,
 			options: {
