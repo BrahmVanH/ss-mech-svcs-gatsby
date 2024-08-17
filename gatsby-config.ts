@@ -32,7 +32,7 @@ const config: GatsbyConfig = {
 			resolve: 'gatsby-plugin-sitemap',
 			options: {
 				createLinkInHead: true,
-				output: '/sitemap.xml',
+				output: '/',
 				query: `
 					{
 						site { 
