@@ -50,8 +50,9 @@ const config: GatsbyConfig = {
 					`,
 				serialize: ({ path, pageContext }: { path: string; pageContext: any }) => {
 					return {
-						url: path,
+						url: `https://southshoremechanical.services/${path}`,
 						lastmod: pageContext?.lastmod,
+						changefreq: 'monthly',
 					};
 				},
 			},

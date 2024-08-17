@@ -67,7 +67,6 @@ const ScheduleServiceForm: React.FC = () => {
 				Sentry.captureException(new Error('There was an error sending the schedule service message.', data));
 			}
 		} catch (error) {
-			console.error(error);
 			setError('root', { type: '400', message: 'There was an error sending your message. Please try again in a few minutes or just give us a call.' });
 			setToastBody('There was an error sending your message. Please try again in a few minutes or just give us a call.');
 			setToastError(true);
