@@ -24,7 +24,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 const httpLink = new HttpLink({ uri: process.env.GATSBY_API_URL ?? '', credentials: 'same-origin', fetch });
 
 // const authLink = setContext((_, { headers }) => {
-// 	const apiKey = process.env.API_KEY ?? '';
+// 	const apiKey = process.env.API_KEY ?? ''; 
 
 // 	return {
 // 		headers: {

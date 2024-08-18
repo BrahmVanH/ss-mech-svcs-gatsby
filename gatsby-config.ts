@@ -84,7 +84,6 @@ const config: GatsbyConfig = {
 		{
 			resolve: 'gatsby-source-s3',
 			options: {
-				expiration: 240,
 				protocol: 'https',
 				download: true,
 				images: {
