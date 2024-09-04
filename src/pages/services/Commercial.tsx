@@ -7,40 +7,40 @@ import ServicesCard from '../../components/ServicesCard';
 import Layout from '../../components/layout';
 
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
-import SEO from '../../components/SEO';
+// import SEO from '../../components/SEO';
 
 import commercialPageData from '../../lib/data/CommercialPage.json';
 
 import { ServicesCardData } from '../../types';
 
-interface CommercialProps extends PageProps {
-	data: {
-		images: {
-			edges: {
-				node: {
-					Key: string;
-					url: string;
-				};
-			}[];
-		};
-	};
-}
+// interface CommercialProps extends PageProps {
+// 	data: {
+// 		images: {
+// 			edges: {
+// 				node: {
+// 					Key: string;
+// 					url: string;
+// 				};
+// 			}[];
+// 		};
+// 	};
+// }
 
-const Commercial: React.FC<CommercialProps> = ({ data }) => {
+const Commercial: React.FC = () => {
 	const [serviceCardData, setServiceCardData] = React.useState<ServicesCardData[]>([]);
 
-	React.useEffect(() => {
-		if (!data) {
-			Sentry.captureException(new Error('No data in Commercial page'));
-			return;
-		}
+	// React.useEffect(() => {
+	// 	if (!data) {
+	// 		Sentry.captureException(new Error('No data in Commercial page'));
+	// 		return;
+	// 	}
 
-		const serviceCardData: ServicesCardData[] = commercialPageData.servicesCardsData.map((service) => {
-			const img = data?.images?.edges?.find((node: any) => node.node.Key === service.img);
-			return { ...service, img: img?.node.url };
-		});
-		setServiceCardData(serviceCardData);
-	}, [data]);
+	// 	const serviceCardData: ServicesCardData[] = commercialPageData.servicesCardsData.map((service) => {
+	// 		const img = data?.images?.edges?.find((node: any) => node.node.Key === service.img);
+	// 		return { ...service, img: img?.node.url };
+	// 	});
+	// 	setServiceCardData(serviceCardData);
+	// }, [data]);
 
 	return (
 		<Layout>
@@ -69,27 +69,27 @@ const Commercial: React.FC<CommercialProps> = ({ data }) => {
 
 export default Commercial;
 
-export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Commercial Services' />;
+// export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Commercial Services' />;
 
-export const query = graphql`
-	query AllImagesQuery {
-		images: allS3Object(
-			filter: { Key: { in: ["tankless-hotwater-landscape", "air-filter-replacement", "wrench-on-tailspout-cropped", "data-cable-wiring", "ac_compressor", "light-fixture-install"] } }
-		) {
-			edges {
-				node {
-					Key
-					ETag
-					url
-					localFile {
-						childImageSharp {
-							fluid(maxWidth: 500) {
-								...GatsbyImageSharpFluid
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-`;
+// export const query = graphql`
+// 	query QueryCommercialImgs {
+// 		images: allS3Object(
+// 			filter: { Key: { in: ["tankless-hotwater-landscape", "air-filter-replacement", "wrench-on-tailspout-cropped", "data-cable-wiring", "ac_compressor", "light-fixture-install"] } }
+// 		) {
+// 			edges {
+// 				node {
+// 					Key
+// 					ETag
+// 					url
+// 					localFile {
+// 						childImageSharp {
+// 							fluid(maxWidth: 500) {
+// 								...GatsbyImageSharpFluid
+// 							}
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// `;

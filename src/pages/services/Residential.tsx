@@ -6,7 +6,7 @@ import ServicesCard from '../../components/ServicesCard';
 import Layout from '../../components/layout';
 
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
-import SEO from '../../components/SEO';
+// import SEO from '../../components/SEO';
 
 import residentialPageData from '../../lib/data/ResidentialPage.json';
 
@@ -25,21 +25,21 @@ interface ResidentialProps extends PageProps {
 	};
 }
 
-const Residential: React.FC<ResidentialProps> = ({ data }) => {
+const Residential: React.FC = () => {
 	const [serviceCardData, setServiceCardData] = React.useState<ServicesCardData[]>([]);
 
-	React.useEffect(() => {
-		if (!data) {
-			Sentry.captureException(new Error('No data in Residential page'));
-			return;
-		}
+	// React.useEffect(() => {
+	// 	if (!data) {
+	// 		Sentry.captureException(new Error('No data in Residential page'));
+	// 		return;
+	// 	}
 
-		const serviceCardData: ServicesCardData[] = residentialPageData.servicesCardData.map((service) => {
-			const img = data?.images?.edges?.find((node: any) => node.node.Key === service.img);
-			return { ...service, img: img?.node.url };
-		});
-		setServiceCardData(serviceCardData);
-	}, [data]);
+	// 	const serviceCardData: ServicesCardData[] = residentialPageData.servicesCardData.map((service) => {
+	// 		const img = data?.images?.edges?.find((node: any) => node.node.Key === service.img);
+	// 		return { ...service, img: img?.node.url };
+	// 	});
+	// 	setServiceCardData(serviceCardData);
+	// }, [data]);
 
 	return (
 		<Layout>
@@ -59,25 +59,5 @@ const Residential: React.FC<ResidentialProps> = ({ data }) => {
 
 export default Residential;
 
-export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Residential Services' />;
+// export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Residential Services' />;
 
-export const query = graphql`
-	query AllImagesQuery {
-		images: allS3Object(filter: { Key: { in: ["wrench-on-tailspout-cropped", "light-fixture-install", "dryer-repair", "drywall-repair", "data-cable-wiring", "air-filter-replacement"] } }) {
-			edges {
-				node {
-					Key
-					ETag
-					url
-					localFile {
-						childImageSharp {
-							fluid(maxWidth: 500) {
-								...GatsbyImageSharpFluid
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-`;

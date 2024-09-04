@@ -1,6 +1,6 @@
 {
   "name": "south-shore-mechanical-services",
-  "version": "1.1.0",
+  "version": "1.5.0",
   "private": true,
   "description": "South Shore Mechanical Services website. Built with Gatsby, Tailwind CSS, and GraphQL.",
   "author": "Brahm Van Houzen",
@@ -55,11 +55,13 @@
   },
   "dependencies": {
     "@apollo/client": "^3.10.4",
+    "@aws-sdk/client-s3": "^3.633.0",
     "@fortawesome/fontawesome-free": "^6.5.2",
     "@sentry/cli": "^2.33.1",
     "@sentry/gatsby": "^8.26.0",
     "@sentry/react": "^8.26.0",
     "autoprefixer": "^10.4.19",
+    "aws-sdk": "^2.1678.0",
     "dotenv": "^16.4.5",
     "evergreen-ui": "^7.1.9",
     "gatsby": "^5.13.5",

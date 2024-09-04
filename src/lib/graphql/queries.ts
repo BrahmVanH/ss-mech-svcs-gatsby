@@ -1,7 +1,8 @@
-import { gql as generatedGql } from '../__generated__/gql';
+// import { gql as generatedGql } from '../__generated__/gql';
 import { gql } from '@apollo/client';
+import { graphql } from 'gatsby';
 
-export const QUERY_THUMBTACK_REVIEWS = generatedGql(/* GraphQL */ `
+export const QUERY_THUMBTACK_REVIEWS = gql(/* GraphQL */ `
 	query QueryThumbtackReviews {
 		queryThumbtackReviews {
 			datePublished
@@ -16,3 +17,8 @@ export const QUERY_THUMBTACK_REVIEWS = generatedGql(/* GraphQL */ `
 	}
 `);
 
+export const GET_PRESIGNED_S3_URLS = gql(/* GraphQL */ `
+	query getPresignedS3Urls($keys: [String!]!) {
+		getPresignedS3Urls(keys: $keys)
+	}
+`);

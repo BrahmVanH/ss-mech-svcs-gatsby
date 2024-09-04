@@ -3,7 +3,7 @@ import { HeadFC } from 'gatsby';
 
 import Layout from '../components/layout';
 import ScheduleServiceForm from '../components/ScheduleServiceForm';
-import SEO from '../components/SEO';
+// import SEO from '../components/SEO';
 
 import contactHeroData from '../lib/data/ContactHero.json';
 
@@ -44,4 +44,4 @@ const Contact: React.FC = () => {
 
 export default Contact;
 
-export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Contact' />;
+// export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Contact' />;

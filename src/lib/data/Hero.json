@@ -5,6 +5,5 @@
 		{ "alt": "person repairing dryer", "key": "dryer-repair" },
 		{ "alt": "person repairing a furnace", "key": "air-filter-replacement" }
 	],
-	"mobileBackgroundImage": { "alt": "wires running vertically on green background", "key": "multi-meter-testing-iphone-res" },
-	"upperPeninsulaOLImage": { "alt": "stencil of county map of upper peninsula of michigan with marquette county shaded in", "key": "map_upper_peninsula_mqt_county_teal" }
+	"mobileBackgroundImage": { "alt": "wires running vertically on green background", "key": "multi-meter-testing-iphone-res" }
 }
