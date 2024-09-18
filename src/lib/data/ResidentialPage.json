@@ -1,6 +1,11 @@
 {
 	"servicesCardsData": [
 		{
+			"name": "Permanent Christmas Light Installation",
+			"description": "Get into the holiday spirit with permanent Christmas lights. We install and maintain them, so you can enjoy the festive season all year long.",
+			"key": "led_xmas_light_install"
+		},
+		{
 			"name": "Plumbing Repair",
 			"description": "We tackle residential plumbing issues promptly. From clogged drains to pipe leaks, we’re here to fix them efficiently.",
 			"key": "wrench-on-tailspout-cropped"
