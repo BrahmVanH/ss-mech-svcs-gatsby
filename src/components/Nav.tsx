@@ -74,11 +74,13 @@ const Nav: React.FC = () => {
 				) : (
 					<img className='max-h-[90px] mr-4' alt='brand badging - "stencil dog"' src={brand_image_white} />
 				)}
-				<div className='brand-text flex flex-col justify-center items-start text-left text-nowrap'>
-					<h1 className='brand-text m-0 p-0 leading-8'>
-						<span className='m-0 text-[28px]'>South Shore</span>
-						<span className='m-0 text-[28px]'> Mechanical Services</span>
-					</h1>
+				<div className='flex flex-col justify-center items-start text-left text-nowrap'>
+					<span className='m-0 text-[28px]'>
+						<h1 className=' mt-1 p-0 leading-8'>South Shore</h1>
+					</span>
+					<span className='m-0 text-[28px]'>
+						<h1 className=' my-1 p-0 leading-8'>Mechanical Services</h1>
+					</span>
 				</div>
 			</Link>
 			<div className=' flex justify-evenly sm:justify-end items-center w-full sm:w-[60%] m-0 sm:mr-8 text-[24px] sm:text-[18px] text-center sm"text-left'>
