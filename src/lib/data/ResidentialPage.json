@@ -1,39 +1,39 @@
 {
-	"servicesCardData": [
+	"servicesCardsData": [
 		{
 			"name": "Plumbing Repair",
 			"description": "We tackle residential plumbing issues promptly. From clogged drains to pipe leaks, we’re here to fix them efficiently.",
-			"img": "wrench-on-tailspout-cropped"
+			"key": "wrench-on-tailspout-cropped"
 		},
 		{
 			"name": "Custom Lighting & Electrical Repair",
 			"description": "Enhance your home with custom lighting solutions. We also handle electrical repairs, ensuring safety and functionality.",
-			"img": "light-fixture-install"
+			"key": "light-fixture-install"
 		},
 		{
 			"name": "Appliance Service & Repair",
 			"description": "When your appliances act up, we’re the ones to call. From washing machines to microwaves, we’ll get them back in working order.",
-			"img": "dryer-repair"
+			"key": "dryer-repair"
 		},
 		{
 			"name": "Drywall Repair",
 			"description": "Accidental holes or cracks in your walls? We patch them up seamlessly, leaving your home looking flawless.",
-			"img": "drywall-repair"
+			"key": "drywall-repair"
 		},
 		{
 			"name": "Data Cable Repair & Installation",
 			"description": "Our experts handle data cable repairs and installations, ensuring seamless connectivity for your office network. Stay connected without interruptions.",
-			"img": "data-cable-wiring"
+			"key": "data-cable-wiring"
 		},
 		{
 			"name": "Duct Cleaning",
 			"description": "Breathe fresh air at home! Our duct cleaning service removes dust and allergens, promoting a healthier living environment.",
-			"img": "air-filter-replacement"
+			"key": "air-filter-replacement"
 		},
 		{
 			"name": "HVAC Service & Repair",
 			"description": "Keep your home comfortable year-round. Our HVAC experts maintain and repair heating and cooling systems efficiently.",
-			"img": "air-filter-replacement"
+			"key": "air-filter-replacement"
 		}
 	]
 }

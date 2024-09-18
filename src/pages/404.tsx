@@ -5,7 +5,7 @@ import { Link, HeadFC, graphql } from 'gatsby';
 import { GatsbyImage as Img } from 'gatsby-plugin-image';
 
 import { ArrowLeftIcon } from 'evergreen-ui';
-// import SEO from '../components/SEO';
+import SEO from '../components/SEO';
 
 interface NotFoundPageProps {
 	data: {
@@ -48,14 +48,14 @@ const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => {
 
 export default NotFoundPage;
 
-// export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Not Found' />;
+export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Not Found' />;
 
-// export const query = graphql`
-// 	query GetImg {
-// 		file(relativePath: { eq: "data-cable-wiring.jpeg" }) {
-// 			childImageSharp {
-// 				gatsbyImageData(layout: CONSTRAINED)
-// 			}
-// 		}
-// 	}
-// `;
+export const query = graphql`
+	query GetImg {
+		file(relativePath: { eq: "data-cable-wiring.jpeg" }) {
+			childImageSharp {
+				gatsbyImageData(layout: CONSTRAINED)
+			}
+		}
+	}
+`;

@@ -28,68 +28,6 @@ const Hero: React.FC<HeroProps> = (heroProps) => {
 	});
 
 	React.useEffect(() => {
-		if (error) {
-			console.log(error);
-		}
-
-		if (!loading && data) {
-			console.log(data);
-		}
-	}, [error, loading, data]);
-
-	// React.useEffect(() => {
-	// 	if (!heroData) {
-	// 		return;
-	// 	}
-
-	// 	// const imgKeys = (heroData.slideshowImages.map((image) => image.key) ?? '').concat(heroData.mobileBackgroundImage.key ?? '');
-
-	// 	imgKeys.forEach((key) => {
-	// 		if (!key || key === '') {
-	// 			console.log(`Missing key in Hero data, here's what you do have: ${imgKeys}`);
-	// 			// Sentry.captureException(new Error(`Missing key in Hero data, here's what you do have: ${imgKeys}`));
-	// 		}
-	// 	});
-	// 	try {
-	// 		const imgUrls = getPresignedUrls({ variables: { keys: imgKeys } });
-
-	// 		if (!imgUrls) {
-	// 			console.log('No image urls returned from query');
-	// 			// Sentry.captureException(new Error('No image urls returned from query'));
-	// 		}
-	// 	} catch (error) {
-	// 		// Sentry.captureException(error);
-	// 		console.log('error: ', error);
-	// 	}
-	// }, [heroData]);
-
-	// TO-DO: ADD IMAGE IMPORT TO HOME PAGE INSTEAD, PASS INTO THIS COMPONENT
-	// React.useEffect(() => {
-	// const getImages = React.useCallback(async () => {
-	// 	if (!heroData) {
-	// 		return;
-	// 	}
-
-	// 	const imgKeys = (heroData.slideshowImages.map((image) => image.key) ?? '').concat(heroData.mobileBackgroundImage.key ?? '');
-
-	// 	imgKeys.forEach((key) => {
-	// 		if (!key || key === '') {
-	// 			Sentry.captureException(new Error(`Missing key in Hero data, here's what you do have: ${imgKeys}`));
-	// 		}
-	// 	});
-	// 	try {
-	// 		const imgUrls = getPresignedUrls({ variables: { keys: imgKeys } });
-
-	// 		if (!imgUrls) {
-	// 			Sentry.captureException(new Error('No image urls returned from query'));
-	// 		}
-	// 	} catch (error) {
-	// 		// Sentry.captureException(error);
-	// 		console.log('error: ', error);
-	// 	}
-	// }, [heroData]);
-
-	React.useEffect(() => {
 		if (loading) {
 			return;
 		}
@@ -116,12 +54,6 @@ const Hero: React.FC<HeroProps> = (heroProps) => {
 		setMobileBackgroundImg({ ...heroData.mobileBackgroundImage, url: mobileBackgroundImgS3Node?.url ?? '' });
 
 		setPageLoading(false);
-	}, [data]);
-
-	React.useEffect(() => {
-		if (data) {
-			console.log(data.getPresignedS3Objects);
-		}
 	}, [data]);
 
 	return (

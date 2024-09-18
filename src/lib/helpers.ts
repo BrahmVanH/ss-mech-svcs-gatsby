@@ -63,8 +63,6 @@ export const matchs3UrlsAndImgKeys = (pageImgData: ImgObj[], s3Urls: ImgObj[]) =
 			Sentry.captureException(new Error('No alt text found in image in findImgs'));
 			return;
 		}
-		console.log('img: ', img);
-		console.log('image: ', image);
 		return {
 			...image,
 			alt: image.alt ?? '',

@@ -15,34 +15,7 @@ const config: GatsbyConfig = {
 
 	graphqlTypegen: true,
 	plugins: [
-		{
-			resolve: 'gatsby-source-s3',
-			options: {
-				protocol: 'https',
-				download: true,
-
-				images: {
-					download: true,
-					quality: 100,
-					webp: true,
-				},
-				host: 's3.amazonaws.com',
-				port: 443,
-				localFile: {
-					path: './src/images',
-				},
-
-				aws: {
-					credentials: {
-						accessKeyId: process.env.PROD_AWS_ACCESS_KEY,
-						secretAccessKey: process.env.PROD_AWS_SECRET_ACCESS_KEY,
-					},
-					region: process.env.PROD_AWS_REGION,
-				},
-				buckets: [process.env.PROD_AWS_BUCKET_NAME],
-				expiration: 601800,
-			},
-		},
+		
 		'gatsby-plugin-bundle-stats',
 		'gatsby-plugin-image',
 		'gatsby-plugin-apollo',

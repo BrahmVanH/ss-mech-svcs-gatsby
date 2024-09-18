@@ -13,7 +13,7 @@ import contactHeroData from '../lib/data/ContactHero.json';
 
 const ContactHero: React.FC = () => {
 	return (
-		<div className='.hidden sm:flex flex-row justify-evenly items-center text-left w-full bg-black bg-opacity-15'>
+		<div className='hidden sm:flex flex-row justify-evenly items-center text-left w-full bg-black bg-opacity-15'>
 			<div className='p-4 flex flex-col justify-center items-start leading-6'>
 				<h2 className='mb-4'>Contact Us</h2>
 				<div className='flex flex-col justify-center items-start'>
