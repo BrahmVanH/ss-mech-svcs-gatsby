@@ -15,7 +15,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 const documents = {
     "\n\tmutation sendScheduleServiceMessage($input: ScheduleServiceMessageInput!) {\n\t\tsendScheduleServiceMessage(input: $input)\n\t}\n": types.SendScheduleServiceMessageDocument,
     "\n\tquery QueryThumbtackReviews {\n\t\tqueryThumbtackReviews {\n\t\t\tdatePublished\n\t\t\tdescription\n\t\t\tauthor {\n\t\t\t\tname\n\t\t\t}\n\t\t\treviewRating {\n\t\t\t\tratingValue\n\t\t\t}\n\t\t}\n\t}\n": types.QueryThumbtackReviewsDocument,
-    "\n\tquery getPresignedS3Urls($keys: [String!]!) {\n\t\tgetPresignedS3Urls(keys: $keys)\n\t}\n": types.GetPresignedS3UrlsDocument,
+    "\n\tquery getPresignedS3Objects($keys: [String!]!) {\n\t\tgetPresignedS3Objects(keys: $keys) {\n\t\t\tkey\n\t\t\turl\n\t\t\talt\n\t\t}\n\t}\n": types.GetPresignedS3ObjectsDocument,
 };
 
 /**
@@ -43,7 +43,7 @@ export function gql(source: "\n\tquery QueryThumbtackReviews {\n\t\tqueryThumbta
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n\tquery getPresignedS3Urls($keys: [String!]!) {\n\t\tgetPresignedS3Urls(keys: $keys)\n\t}\n"): (typeof documents)["\n\tquery getPresignedS3Urls($keys: [String!]!) {\n\t\tgetPresignedS3Urls(keys: $keys)\n\t}\n"];
+export function gql(source: "\n\tquery getPresignedS3Objects($keys: [String!]!) {\n\t\tgetPresignedS3Objects(keys: $keys) {\n\t\t\tkey\n\t\t\turl\n\t\t\talt\n\t\t}\n\t}\n"): (typeof documents)["\n\tquery getPresignedS3Objects($keys: [String!]!) {\n\t\tgetPresignedS3Objects(keys: $keys) {\n\t\t\tkey\n\t\t\turl\n\t\t\talt\n\t\t}\n\t}\n"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};

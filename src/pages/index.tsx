@@ -41,27 +41,30 @@ const Home: React.FC = () => {
 	const [serviceCardImgs, setServiceCardImgs] = React.useState<ImgKeys | null>(null);
 	const [heroImgs, setHeroImgs] = React.useState<HeroProps | null>(null);
 
+	// Pass in an array of image keys to get presigned S3 URLs from Express server
 	const [getS3Objects, { data }] = useLazyQuery(GET_PRESIGNED_S3_URLS);
 
-	const findImgs = React.useCallback(({ pageImgData, s3Urls }: { pageImgData: IImage[]; s3Urls: IImage[] }) => {
-		if (!s3Urls) {
-			Sentry.captureException(new Error('No image urls provided for findImgs'));
-			return;
-		}
-		return pageImgData.map((image: IImage, i: number) => {
-			const img = s3Urls.find((obj: IImage) => obj.key === image.key);
-			if (!img) {
-				Sentry.captureException(new Error('No image keys found in s3Urls in findImgs'));
-				return;
-			}
+	// const findImgs = React.useCallback(({ pageImgData, s3Urls }: { pageImgData: IImage[]; s3Urls: IImage[] }) => {
+	// 	console.log('s3Urls: ', s3Urls);
+	// 	if (!s3Urls || pageImgData.length === 0) {
+	// 		// Sentry.captureException(new Error('No image urls provided for findImgs'));
+	// 		return;
+	// 	}
+	// 	// Look through pageImgData
+	// 	return pageImgData.map((image: IImage, i: number) => {
+	// 		const img = s3Urls.find((obj: IImage) => obj.key === image.key);
+	// 		if (!img) {
+	// 			Sentry.captureException(new Error('No image keys found in s3Urls in findImgs'));
+	// 			return;
+	// 		}
 
-			return {
-				...image,
-				alt: image.alt,
-				url: img.url,
-			};
-		});
-	}, []);
+	// 		return {
+	// 			...image,
+	// 			alt: image.alt,
+	// 			url: img.url,
+	// 		};
+	// 	});
+	// }, []);
 
 	// React.useEffect(() => {
 	// 	if (!data) {
@@ -83,45 +86,45 @@ const Home: React.FC = () => {
 	// 	});
 	// }, [data]);
 
-	React.useEffect(() => {
-		if (homePageData) {
-			Sentry.captureException(new Error('No data in Home page. This is a big issue because all JSON dependencies are are processed at build time...'));
-		}
+	// React.useEffect(() => {
+	// 	if (homePageData) {
+	// 		Sentry.captureException(new Error('No data in Home page. This is a big issue because all JSON dependencies are are processed at build time...'));
+	// 	}
 
-		// const servicesCardImgs = homePageData.servicesCardImageData.map((card, i) => {
-		// 	return {
-		// 		alt: card.alt,
-		// 		key: card.key,
-		// 	};
-		// });
+	// 	// const servicesCardImgs = homePageData.servicesCardImageData.map((card, i) => {
+	// 	// 	return {
+	// 	// 		alt: card.alt,
+	// 	// 		key: card.key,
+	// 	// 	};
+	// 	// });
 
-		const heroImgs = {
-			slideshowImages: homePageData.heroData.slideshowImages.map((image, i) => {
-				return {
-					alt: image.alt,
-					key: image.key,
-				};
-			}),
-			mobileBackgroundImage: homePageData.heroData.mobileBackgroundImage,
-		};
+	// 	const heroImgs = {
+	// 		slideshowImages: homePageData.heroData.slideshowImages.map((image, i) => {
+	// 			return {
+	// 				alt: image.alt,
+	// 				key: image.key,
+	// 			};
+	// 		}),
+	// 		mobileBackgroundImage: homePageData.heroData.mobileBackgroundImage,
+	// 	};
 
-		if (!heroImgs) {
-			Sentry.captureException(new Error('Missing intermediary data in Home page - heroImgs could not be deduced from JSON.'));
-			return;
-		}
+	// 	if (!heroImgs) {
+	// 		Sentry.captureException(new Error('Missing intermediary data in Home page - heroImgs could not be deduced from JSON.'));
+	// 		return;
+	// 	}
 
-		const imgKeys = heroImgs.slideshowImages
-			.concat(heroImgs.mobileBackgroundImage, homePageData.servicesCardImageData.commercial, homePageData.servicesCardImageData.residential)
-			.map((img: IImage) => img.key);
+	// 	const imgKeys = heroImgs.slideshowImages
+	// 		.concat(heroImgs.mobileBackgroundImage, homePageData.servicesCardImageData.commercial, homePageData.servicesCardImageData.residential)
+	// 		.map((img: IImage) => img.key);
 
-		const pageImages = getS3Objects(imgKeys);
+	// 	const pageImages = getS3Objects({ variables: { imgKeys } });
 
-		if (!pageImages) {
-			Sentry.captureException(new Error('No image urls returned from query'));
-		}
+	// 	if (!pageImages) {
+	// 		Sentry.captureException(new Error('No image urls returned from query'));
+	// 	}
 
-		console.log(pageImages);
-	}, [homePageData]);
+	// 	console.log(pageImages);
+	// }, [homePageData]);
 
 	return (
 		<Layout>

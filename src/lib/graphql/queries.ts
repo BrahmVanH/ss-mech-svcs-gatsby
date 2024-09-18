@@ -18,7 +18,11 @@ export const QUERY_THUMBTACK_REVIEWS = gql(/* GraphQL */ `
 `);
 
 export const GET_PRESIGNED_S3_URLS = gql(/* GraphQL */ `
-	query getPresignedS3Urls($keys: [String!]!) {
-		getPresignedS3Urls(keys: $keys)
+	query getPresignedS3Objects($keys: [String!]!) {
+		getPresignedS3Objects(keys: $keys) {
+			key
+			url
+			alt
+		}
 	}
 `);

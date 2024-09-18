@@ -23,7 +23,45 @@ const Hero: React.FC<HeroProps> = (heroProps) => {
 	const [mobileBackgroundImg, setMobileBackgroundImg] = React.useState<IImage | null>(null);
 	const [pageLoading, setPageLoading] = React.useState<boolean>(true);
 
-	// const [getPresignedUrls, { data }] = useLazyQuery(GET_PRESIGNED_S3_URLS);
+	const { loading, error, data } = useQuery(GET_PRESIGNED_S3_URLS, {
+		variables: { keys: (heroData.slideshowImages.map((image) => image.key) ?? '').concat(heroData.mobileBackgroundImage.key ?? '') },
+	});
+
+	React.useEffect(() => {
+		if (error) {
+			console.log(error);
+		}
+
+		if (!loading && data) {
+			console.log(data);
+		}
+	}, [error, loading, data]);
+
+	// React.useEffect(() => {
+	// 	if (!heroData) {
+	// 		return;
+	// 	}
+
+	// 	// const imgKeys = (heroData.slideshowImages.map((image) => image.key) ?? '').concat(heroData.mobileBackgroundImage.key ?? '');
+
+	// 	imgKeys.forEach((key) => {
+	// 		if (!key || key === '') {
+	// 			console.log(`Missing key in Hero data, here's what you do have: ${imgKeys}`);
+	// 			// Sentry.captureException(new Error(`Missing key in Hero data, here's what you do have: ${imgKeys}`));
+	// 		}
+	// 	});
+	// 	try {
+	// 		const imgUrls = getPresignedUrls({ variables: { keys: imgKeys } });
+
+	// 		if (!imgUrls) {
+	// 			console.log('No image urls returned from query');
+	// 			// Sentry.captureException(new Error('No image urls returned from query'));
+	// 		}
+	// 	} catch (error) {
+	// 		// Sentry.captureException(error);
+	// 		console.log('error: ', error);
+	// 	}
+	// }, [heroData]);
 
 	// TO-DO: ADD IMAGE IMPORT TO HOME PAGE INSTEAD, PASS INTO THIS COMPONENT
 	// React.useEffect(() => {
@@ -51,40 +89,40 @@ const Hero: React.FC<HeroProps> = (heroProps) => {
 	// 	}
 	// }, [heroData]);
 
-	// React.useEffect(() => {
-	// 	if (loading) {
-	// 		return;
-	// 	}
+	React.useEffect(() => {
+		if (loading) {
+			return;
+		}
 
-	// 	if (!data && !error && !loading) {
-	// 		return;
-	// 	}
+		if (!data && !error && !loading) {
+			return;
+		}
 
-	// 	if (error) {
-	// 		Sentry.captureException(error);
-	// 		console.log(error);
-	// 		return;
-	// 	}
+		if (error) {
+			Sentry.captureException(error);
+			console.log(error);
+			return;
+		}
 
-	// 	const images = heroData.slideshowImages.map((image) => {
-	// 		const img = data.getPresignedS3Urls.find((node: any) => node.key === image.key);
-	// 		return { ...image, url: img?.url ?? '' };
-	// 	});
+		const images = heroData.slideshowImages.map((image) => {
+			const img = data.getPresignedS3Objects.find((node: any) => node.key === image.key);
+			return { ...image, url: img?.url ?? '' };
+		});
 
-	// 	setSlideshowImgs(images);
+		setSlideshowImgs(images);
 
-	// 	const mobileBackgroundImgS3Node = data.getPresignedS3Urls.find((node: any) => node.key === heroData.mobileBackgroundImage.key);
+		const mobileBackgroundImgS3Node = data?.getPresignedS3Urls?.find((node: any) => node.key === heroData.mobileBackgroundImage.key);
 
-	// 	setMobileBackgroundImg({ ...heroData.mobileBackgroundImage, url: mobileBackgroundImgS3Node?.url ?? '' });
+		setMobileBackgroundImg({ ...heroData.mobileBackgroundImage, url: mobileBackgroundImgS3Node?.url ?? '' });
 
-	// 	setPageLoading(false);
-	// }, [data]);
+		setPageLoading(false);
+	}, [data]);
 
-	// React.useEffect(() => {
-	// 	if (data) {
-	// 		console.log(data);
-	// 	}
-	// }, [data]);
+	React.useEffect(() => {
+		if (data) {
+			console.log(data.getPresignedS3Objects);
+		}
+	}, [data]);
 
 	return (
 		<>
