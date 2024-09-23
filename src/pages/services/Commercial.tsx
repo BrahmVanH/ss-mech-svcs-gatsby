@@ -35,12 +35,18 @@ const Commercial: React.FC = () => {
 			return;
 		}
 
+		let serviceCardData: ServicesCardData[] = [];
+
+
 		if (!data && !loading) {
+			serviceCardData = commercialPageData.servicesCardsData.map((service) => ({ name: service.name, description: service.description }));
+			setServiceCardData(serviceCardData);
+			setContentLoading(false);
 			Sentry.captureException(new Error('No data in Commercial page'));
 			return;
 		}
 
-		const serviceCardData: ServicesCardData[] = commercialPageData.servicesCardsData.map((service) => {
+		serviceCardData = commercialPageData.servicesCardsData.map((service) => {
 			const img = data?.getPresignedS3Objects?.find((obj: ImgObj) => obj.key === service.key);
 			return { ...service, url: img?.url };
 		});

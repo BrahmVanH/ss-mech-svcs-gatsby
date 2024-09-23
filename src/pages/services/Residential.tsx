@@ -33,18 +33,23 @@ const Residential: React.FC = () => {
 			return;
 		}
 
+		let serviceCardData: ServicesCardData[] = [];
+
 		if (!data && !loading) {
-			Sentry.captureException(new Error('No data in Commercial page'));
+			serviceCardData = residentialPageData.servicesCardsData.map((service) => ({ name: service.name, description: service.description }));
+			setServiceCardData(serviceCardData);
+			setContentLoading(false);
+			Sentry.captureException(new Error('No img url data in Residential page, graceful fallback'));
 			return;
 		}
 
-		const serviceCardData: ServicesCardData[] = residentialPageData.servicesCardsData.map((service) => {
+		serviceCardData = residentialPageData.servicesCardsData.map((service) => {
 			const img = data?.getPresignedS3Objects?.find((obj: ImgObj) => obj.key === service.key);
 			return { ...service, url: img?.url };
 		});
 
 		if (!serviceCardData) {
-			Sentry.captureException(new Error('No service card images found in Commercial page'));
+			Sentry.captureException(new Error('No service card images found in Residential page'));
 			return;
 		}
 

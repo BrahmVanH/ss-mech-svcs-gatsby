@@ -12,7 +12,7 @@ export interface ServicesObject {
 export interface ServicesCardData {
 	name: string;
 	description: string;
-	url: string;
+	url?: string;
 }
 
 export interface IImage {

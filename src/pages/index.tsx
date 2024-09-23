@@ -26,6 +26,7 @@ const Home: React.FC = () => {
 	const [contentLoading, setContentLoading] = React.useState<boolean>(true);
 
 	const servicesCardImgs: IImage[] = [homePageData?.servicesCardImageData?.commercial, homePageData?.servicesCardImageData?.residential];
+	
 	const [getPresignedUrls, { loading, error, data }] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
 		variables: { keys: servicesCardImgs.map((i) => i.key) },
 	});

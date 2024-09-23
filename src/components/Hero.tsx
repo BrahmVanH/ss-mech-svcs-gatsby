@@ -13,7 +13,7 @@ import { useLazyQuery } from '@apollo/client';
 import { GET_PRESIGNED_S3_URLS } from '../lib/graphql/queries';
 
 export interface HeroProps {
-	imgData: {
+	imgData?: {
 		slideshowImages: IImage[];
 		mobileBackgroundImage: IImage;
 	};
@@ -34,6 +34,7 @@ const Hero: React.FC<HeroProps> = (heroProps) => {
 		}
 
 		if (!data && !loading) {
+			setPageLoading(false);
 			Sentry.captureException(new Error('No data in Hero'));
 			return;
 		}
@@ -54,8 +55,12 @@ const Hero: React.FC<HeroProps> = (heroProps) => {
 	}, [data]);
 
 	React.useEffect(() => {
-		getPresignedUrls();
-	}, []);
+		if (heroData.slideshowImages.length > 0 && heroData.mobileBackgroundImage.key) {
+			getPresignedUrls();
+		}
+
+		setPageLoading(false);
+	}, [heroData.slideshowImages, heroData.mobileBackgroundImage.key]);
 
 	return (
 		<>
