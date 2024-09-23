@@ -74,7 +74,7 @@ const Nav: React.FC = () => {
 				) : (
 					<img className='max-h-[90px] mr-4' alt='brand badging - "stencil dog"' src={brand_image_white} />
 				)}
-				<div className='flex flex-col justify-center items-start text-left text-nowrap'>
+				<div className='flex flex-col justify-center items-start text-left text-nowrap w-min'>
 					<span className='m-0 text-[28px]'>
 						<h1 className=' mt-1 p-0 leading-8'>South Shore</h1>
 					</span>
