@@ -42,7 +42,7 @@ export function removeWhiteSpace(string: string) {
 	return string.replace(/\s/g, '');
 }
 
-export const matchs3UrlsAndImgKeys = (pageImgData: ImgObj[], s3Urls: ImgObj[]) => {
+export const matchS3UrlsAndImgKeys = (pageImgData: ImgObj[], s3Urls: ImgObj[]) => {
 	if (!s3Urls || pageImgData.length === 0) {
 		Sentry.captureException(new Error('No image urls provided for findImgs'));
 		return;
@@ -69,6 +69,4 @@ export const matchs3UrlsAndImgKeys = (pageImgData: ImgObj[], s3Urls: ImgObj[]) =
 			url: img.url ?? '',
 		};
 	}) as ImgObj[];
-
-	
 };

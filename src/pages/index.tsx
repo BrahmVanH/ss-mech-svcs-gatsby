@@ -5,12 +5,11 @@ import { useLazyQuery } from '@apollo/client';
 
 import Layout from '../components/layout';
 import Reviews from '../components/Reviews';
-import Services from '../components/Services';
+import Services, { ServicesProps } from '../components/Services';
 import Hero from '../components/Hero';
-import { ServicesProps } from '../components/Services';
 import SEO from '../components/SEO';
 
-import { matchs3UrlsAndImgKeys } from '../lib/helpers';
+import { matchS3UrlsAndImgKeys } from '../lib/helpers';
 
 import { GET_PRESIGNED_S3_URLS } from '../lib/graphql/queries';
 
@@ -26,7 +25,7 @@ const Home: React.FC = () => {
 	const [contentLoading, setContentLoading] = React.useState<boolean>(true);
 
 	const servicesCardImgs: IImage[] = [homePageData?.servicesCardImageData?.commercial, homePageData?.servicesCardImageData?.residential];
-	
+
 	const [getPresignedUrls, { loading, error, data }] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
 		variables: { keys: servicesCardImgs.map((i) => i.key) },
 	});
@@ -42,14 +41,9 @@ const Home: React.FC = () => {
 			return;
 		}
 
-		let serviceCardImgs = matchs3UrlsAndImgKeys(servicesCardImgs, data?.getPresignedS3Objects);
+		const serviceCardImgs = matchS3UrlsAndImgKeys(servicesCardImgs, data?.getPresignedS3Objects);
 
 		if (!serviceCardImgs) {
-			serviceCardImgs = matchs3UrlsAndImgKeys(servicesCardImgs, data?.getPresignedS3Objects);
-		}
-
-		if (!serviceCardImgs) {
-			serviceCardImgs = matchs3UrlsAndImgKeys(servicesCardImgs, data?.getPresignedS3Objects);
 			Sentry.captureException(new Error('No service card images found in Home page'));
 			return;
 		}
@@ -69,7 +63,7 @@ const Home: React.FC = () => {
 
 	return (
 		<Layout loading={contentLoading}>
-			<Hero imgData={homePageData.heroData} />
+			<Hero />
 			<div ref={homeRef} className='flex flex-col items-center justify-center bg-transparent'>
 				{!loading && serviceCardImgs ? <Services imgObjs={serviceCardImgs} /> : <></>}
 				<Reviews />

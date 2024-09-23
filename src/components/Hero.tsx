@@ -12,22 +12,18 @@ import { IImage } from '../types';
 import { useLazyQuery } from '@apollo/client';
 import { GET_PRESIGNED_S3_URLS } from '../lib/graphql/queries';
 
-export interface HeroProps {
-	imgData?: {
-		slideshowImages: IImage[];
-		mobileBackgroundImage: IImage;
-	};
-}
-const Hero: React.FC<HeroProps> = (heroProps) => {
+
+const Hero: React.FC = () => {
 	const [slideshowImgs, setSlideshowImgs] = React.useState<IImage[] | null>(null);
 	const [mobileBackgroundImg, setMobileBackgroundImg] = React.useState<IImage | null>(null);
 	const [pageLoading, setPageLoading] = React.useState<boolean>(true);
 
 	const [getPresignedUrls, { loading, error, data }] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
-		variables: { keys: (heroData.slideshowImages.map((image) => image.key) ?? '').concat(heroData.mobileBackgroundImage.key ?? '') },
+		variables: { keys: (heroData.slideshowImages.map((image: IImage) => image.key) ?? '').concat(heroData.mobileBackgroundImage.key ?? '') },
 	});
 
 	React.useEffect(() => {
+		console.log(heroData);
 		if (error) {
 			Sentry.captureException(error);
 			return;
@@ -40,15 +36,15 @@ const Hero: React.FC<HeroProps> = (heroProps) => {
 		}
 
 
-		const images = heroData.slideshowImages.map((image) => {
+		const images = heroData.slideshowImages.map((image: IImage) => {
 			const img = data?.getPresignedS3Objects?.find((node: any) => node.key === image.key);
 			return { ...image, url: img?.url ?? '' };
 		});
 
 		setSlideshowImgs(images);
 
-		const mobileBackgroundImgS3Node = data?.getPresignedS3Urls?.find((node: any) => node.key === heroData.mobileBackgroundImage.key);
-
+		const mobileBackgroundImgS3Node = data?.getPresignedS3Objects?.find((node: any) => node.key === heroData.mobileBackgroundImage.key);
+		console.log(mobileBackgroundImgS3Node);
 		setMobileBackgroundImg({ ...heroData.mobileBackgroundImage, url: mobileBackgroundImgS3Node?.url ?? '' });
 
 		setPageLoading(false);
@@ -69,7 +65,7 @@ const Hero: React.FC<HeroProps> = (heroProps) => {
 					<div className=' bg-transparent block overflow-hidden z-[900] w-screen  h-screen justify-center items-center flex-col text-center absolute top-0 sm:overflow-visible sm:bg-home-hero-fill sm:w-full sm:flex sm:h-full'>
 						{mobileBackgroundImg?.url ? (
 							<div
-								style={{ backgroundImage: `url(${mobileBackgroundImg?.url})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+								style={{ backgroundImage: `url(${mobileBackgroundImg.url})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
 								className='flex text-white col-start-1 col-end-2 row-start-2 row-end-3 flex-col content-start justify-center text-start z-[1000] w-full h-full absolute top-0 left-0 sm:hidden'>
 								<div className='flex '>
 									<h1 className=' self-end w-min m-0 sm:m-auto p-0 text-[80px] leading-[72px]'>South Shore </h1>
