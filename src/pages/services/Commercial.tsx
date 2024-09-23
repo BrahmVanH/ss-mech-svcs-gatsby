@@ -1,20 +1,22 @@
 import * as Sentry from '@sentry/react';
 import * as React from 'react';
-
 import { HeadFC, Link } from 'gatsby';
-import { useQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 
+// Component imports
 import ServicesCard from '../../components/ServicesCard';
 import Layout from '../../components/layout';
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 import SEO from '../../components/SEO';
 
-
+// Query imports
 import { GET_PRESIGNED_S3_URLS } from '../../lib/graphql/queries';
 
+// Type imports
 import { ImgObj } from '../../lib/__generated__/graphql';
 import { ServicesCardData } from '../../types';
 
+// Data imports
 import commercialPageData from '../../lib/data/CommercialPage.json';
 
 const Commercial: React.FC = () => {
@@ -23,7 +25,7 @@ const Commercial: React.FC = () => {
 
 	const serviceCardKeys = commercialPageData.servicesCardsData.map((service) => service.key);
 
-	const { loading, error, data } = useQuery(GET_PRESIGNED_S3_URLS, {
+	const [getPresignedUrls, { loading, error, data }] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
 		variables: { keys: serviceCardKeys },
 	});
 
@@ -51,6 +53,10 @@ const Commercial: React.FC = () => {
 		setServiceCardData(serviceCardData);
 		setContentLoading(false);
 	}, [data]);
+
+	React.useEffect(() => {
+		getPresignedUrls();
+	}, []);
 
 	return (
 		<Layout loading={contentLoading}>

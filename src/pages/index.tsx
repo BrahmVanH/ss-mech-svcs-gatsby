@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/react';
 import * as React from 'react';
 
-import { useQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 
 import Layout from '../components/layout';
 import Reviews from '../components/Reviews';
@@ -26,7 +26,7 @@ const Home: React.FC = () => {
 	const [contentLoading, setContentLoading] = React.useState<boolean>(true);
 
 	const servicesCardImgs: IImage[] = [homePageData?.servicesCardImageData?.commercial, homePageData?.servicesCardImageData?.residential];
-	const { loading, error, data } = useQuery(GET_PRESIGNED_S3_URLS, {
+	const [getPresignedUrls, { loading, error, data }] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
 		variables: { keys: servicesCardImgs.map((i) => i.key) },
 	});
 
@@ -41,9 +41,14 @@ const Home: React.FC = () => {
 			return;
 		}
 
-		const serviceCardImgs = matchs3UrlsAndImgKeys(servicesCardImgs, data?.getPresignedS3Objects);
+		let serviceCardImgs = matchs3UrlsAndImgKeys(servicesCardImgs, data?.getPresignedS3Objects);
 
 		if (!serviceCardImgs) {
+			serviceCardImgs = matchs3UrlsAndImgKeys(servicesCardImgs, data?.getPresignedS3Objects);
+		}
+
+		if (!serviceCardImgs) {
+			serviceCardImgs = matchs3UrlsAndImgKeys(servicesCardImgs, data?.getPresignedS3Objects);
 			Sentry.captureException(new Error('No service card images found in Home page'));
 			return;
 		}
@@ -56,6 +61,10 @@ const Home: React.FC = () => {
 		setServiceCardImgs(imgObjs);
 		setContentLoading(false);
 	}, [data, error]);
+
+	React.useEffect(() => {
+		getPresignedUrls();
+	}, []);
 
 	return (
 		<Layout loading={contentLoading}>

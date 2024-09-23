@@ -1,28 +1,29 @@
 import * as Sentry from '@sentry/gatsby';
 import * as React from 'react';
 import { HeadFC } from 'gatsby';
+import { useLazyQuery } from '@apollo/client';
 
+// Component imports
 import ServicesCard from '../../components/ServicesCard';
 import Layout from '../../components/layout';
-
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 import SEO from '../../components/SEO';
 
-import residentialPageData from '../../lib/data/ResidentialPage.json';
-
+// Type imports
 import { ServicesCardData } from '../../types';
-import {GET_PRESIGNED_S3_URLS} from '../../lib/graphql/queries';
-import {useQuery} from '@apollo/client';
+import { GET_PRESIGNED_S3_URLS } from '../../lib/graphql/queries';
 import { ImgObj } from '../../lib/__generated__/graphql';
+
+// Data imports
+import residentialPageData from '../../lib/data/ResidentialPage.json';
 
 const Residential: React.FC = () => {
 	const [serviceCardData, setServiceCardData] = React.useState<ServicesCardData[]>([]);
 	const [contentLoading, setContentLoading] = React.useState<boolean>(true);
 
-	
 	const serviceCardKeys = residentialPageData.servicesCardsData.map((service) => service.key);
 
-	const { loading, error, data } = useQuery(GET_PRESIGNED_S3_URLS, {
+	const [getPresignedUrls, { loading, error, data }] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
 		variables: { keys: serviceCardKeys },
 	});
 
@@ -37,7 +38,6 @@ const Residential: React.FC = () => {
 			return;
 		}
 
-
 		const serviceCardData: ServicesCardData[] = residentialPageData.servicesCardsData.map((service) => {
 			const img = data?.getPresignedS3Objects?.find((obj: ImgObj) => obj.key === service.key);
 			return { ...service, url: img?.url };
@@ -48,11 +48,13 @@ const Residential: React.FC = () => {
 			return;
 		}
 
-
 		setServiceCardData(serviceCardData);
 		setContentLoading(false);
 	}, [data]);
 
+	React.useEffect(() => {
+		getPresignedUrls();
+	}, []);
 
 	return (
 		<Layout loading={contentLoading}>
@@ -73,4 +75,3 @@ const Residential: React.FC = () => {
 export default Residential;
 
 export const Head: HeadFC = ({ location }) => <SEO endpoint={location.pathname} title='Residential Services' />;
-

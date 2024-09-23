@@ -1,6 +1,6 @@
 {
   "name": "south-shore-mechanical-services",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "private": true,
   "description": "South Shore Mechanical Services website. Built with Gatsby, Tailwind CSS, and GraphQL.",
   "author": "Brahm Van Houzen",

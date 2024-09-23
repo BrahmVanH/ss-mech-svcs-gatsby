@@ -9,7 +9,7 @@ import odin_graceful_white_fill from '../images/svg/odin_graceful_bg-transparent
 import heroData from '../lib/data/Hero.json';
 
 import { IImage } from '../types';
-import { useLazyQuery, useQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import { GET_PRESIGNED_S3_URLS } from '../lib/graphql/queries';
 
 export interface HeroProps {
@@ -23,27 +23,24 @@ const Hero: React.FC<HeroProps> = (heroProps) => {
 	const [mobileBackgroundImg, setMobileBackgroundImg] = React.useState<IImage | null>(null);
 	const [pageLoading, setPageLoading] = React.useState<boolean>(true);
 
-	const { loading, error, data } = useQuery(GET_PRESIGNED_S3_URLS, {
+	const [getPresignedUrls, { loading, error, data }] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
 		variables: { keys: (heroData.slideshowImages.map((image) => image.key) ?? '').concat(heroData.mobileBackgroundImage.key ?? '') },
 	});
 
 	React.useEffect(() => {
-		if (loading) {
-			return;
-		}
-
-		if (!data && !error && !loading) {
-			return;
-		}
-
 		if (error) {
 			Sentry.captureException(error);
-			console.log(error);
 			return;
 		}
 
+		if (!data && !loading) {
+			Sentry.captureException(new Error('No data in Hero'));
+			return;
+		}
+
+
 		const images = heroData.slideshowImages.map((image) => {
-			const img = data?.getPresignedS3Objects.find((node: any) => node.key === image.key);
+			const img = data?.getPresignedS3Objects?.find((node: any) => node.key === image.key);
 			return { ...image, url: img?.url ?? '' };
 		});
 
@@ -55,6 +52,10 @@ const Hero: React.FC<HeroProps> = (heroProps) => {
 
 		setPageLoading(false);
 	}, [data]);
+
+	React.useEffect(() => {
+		getPresignedUrls();
+	}, []);
 
 	return (
 		<>

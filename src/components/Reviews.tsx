@@ -1,14 +1,16 @@
 import * as React from 'react';
-import { useQuery } from '@apollo/client';
 import * as Sentry from '@sentry/react';
 
-import { QUERY_THUMBTACK_REVIEWS } from '../lib/graphql';
-
+// Component imports
 import ThumbtackIcon from './ThumbtackIcon';
 import StarRating from './StarRating';
-
 import { ArrowRightIcon } from 'evergreen-ui';
 
+// Query imports
+import { useLazyQuery } from '@apollo/client';
+import { QUERY_THUMBTACK_REVIEWS } from '../lib/graphql';
+
+// Type imports
 import { ThumbtackReview } from '../lib/__generated__/graphql';
 
 import thumbtack_reviewer_avatar from '../images/thumbtack_reviewer-avatar.jpeg';
@@ -16,7 +18,7 @@ import thumbtack_reviewer_avatar from '../images/thumbtack_reviewer-avatar.jpeg'
 const Reviews: React.FC = () => {
 	const [thumbtackReviews, setThumbtackReviews] = React.useState<ThumbtackReview[]>([]);
 
-	const { data, error, loading } = useQuery(QUERY_THUMBTACK_REVIEWS);
+	const [getThumbtackReviews, { data, error, loading }] = useLazyQuery(QUERY_THUMBTACK_REVIEWS);
 
 	React.useEffect(() => {
 		if (error) {
@@ -29,6 +31,10 @@ const Reviews: React.FC = () => {
 			setThumbtackReviews(data?.queryThumbtackReviews);
 		}
 	}, [data]);
+
+	React.useEffect(() => {
+		getThumbtackReviews();
+	}, []);
 
 	return (
 		<div className='thumbtack-reviews-wrapper w-[80%] font-thumbtack-reviews flex flex-col items-center p-8'>
