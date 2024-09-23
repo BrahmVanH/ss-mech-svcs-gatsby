@@ -1,14 +1,13 @@
 import * as Sentry from '@sentry/react';
 import * as React from 'react';
 
-import { HeadFC, Link, PageProps, graphql } from 'gatsby';
+import { HeadFC, Link } from 'gatsby';
 import { useQuery } from '@apollo/client';
 
 import ServicesCard from '../../components/ServicesCard';
 import Layout from '../../components/layout';
 import ScheduleServiceForm from '../../components/ScheduleServiceForm';
 import SEO from '../../components/SEO';
-
 
 
 import { GET_PRESIGNED_S3_URLS } from '../../lib/graphql/queries';
@@ -20,6 +19,7 @@ import commercialPageData from '../../lib/data/CommercialPage.json';
 
 const Commercial: React.FC = () => {
 	const [serviceCardData, setServiceCardData] = React.useState<ServicesCardData[]>([]);
+	const [contentLoading, setContentLoading] = React.useState<boolean>(true);
 
 	const serviceCardKeys = commercialPageData.servicesCardsData.map((service) => service.key);
 
@@ -33,7 +33,7 @@ const Commercial: React.FC = () => {
 			return;
 		}
 
-		if (!data) {
+		if (!data && !loading) {
 			Sentry.captureException(new Error('No data in Commercial page'));
 			return;
 		}
@@ -49,10 +49,11 @@ const Commercial: React.FC = () => {
 		}
 
 		setServiceCardData(serviceCardData);
+		setContentLoading(false);
 	}, [data]);
 
 	return (
-		<Layout>
+		<Layout loading={contentLoading}>
 			<div className='w-full h-full flex flex-col justify-center items-center'>
 				<h1 className='text-center sm:text-left text-[48px] text-800'>Commercial Services</h1>
 				<div className='w-screen flex flex-col  sm:flex-row justify-center items-start'>

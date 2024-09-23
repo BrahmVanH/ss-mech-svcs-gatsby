@@ -11,7 +11,7 @@ import { PhoneIcon, EnvelopeIcon, MapIcon } from 'evergreen-ui';
 
 const Contact: React.FC = () => {
 	return (
-		<Layout>
+		<Layout loading={false}>
 			<div className='contact-page py-4 w-screen flex flex-col sm:flex-row justify-center items-center sm:items-start'>
 				<div className='contact-info w-full  sm:w-[45%] px-4 flex flex-row justify-evenly items-start'>
 					<div className='contact-links-and-icons-container flex flex-col justify-center items-center '>

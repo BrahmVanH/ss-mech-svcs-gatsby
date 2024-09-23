@@ -23,25 +23,25 @@ import { IImage } from '../types';
 const Home: React.FC = () => {
 	const homeRef = React.useRef<HTMLDivElement>(null);
 	const [serviceCardImgs, setServiceCardImgs] = React.useState<ServicesProps['imgObjs'] | null>(null);
+	const [contentLoading, setContentLoading] = React.useState<boolean>(true);
 
 	const servicesCardImgs: IImage[] = [homePageData?.servicesCardImageData?.commercial, homePageData?.servicesCardImageData?.residential];
 	const { loading, error, data } = useQuery(GET_PRESIGNED_S3_URLS, {
 		variables: { keys: servicesCardImgs.map((i) => i.key) },
 	});
 
-	
 	React.useEffect(() => {
-		if (!data) {
-			Sentry.captureException(new Error('No data in Home page'));
-			return;
-		}
-
 		if (error) {
 			Sentry.captureException(error);
 			return;
 		}
 
-		const serviceCardImgs = matchs3UrlsAndImgKeys(servicesCardImgs, data.getPresignedS3Objects);
+		if (!data && !loading) {
+			Sentry.captureException(new Error('No data in Home page'));
+			return;
+		}
+
+		const serviceCardImgs = matchs3UrlsAndImgKeys(servicesCardImgs, data?.getPresignedS3Objects);
 
 		if (!serviceCardImgs) {
 			Sentry.captureException(new Error('No service card images found in Home page'));
@@ -54,10 +54,11 @@ const Home: React.FC = () => {
 		};
 
 		setServiceCardImgs(imgObjs);
+		setContentLoading(false);
 	}, [data, error]);
 
 	return (
-		<Layout>
+		<Layout loading={contentLoading}>
 			<Hero imgData={homePageData.heroData} />
 			<div ref={homeRef} className='flex flex-col items-center justify-center bg-transparent'>
 				{!loading && serviceCardImgs ? <Services imgObjs={serviceCardImgs} /> : <></>}

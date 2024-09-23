@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/gatsby';
 import * as React from 'react';
-import { HeadFC, PageProps, graphql } from 'gatsby';
+import { HeadFC } from 'gatsby';
 
 import ServicesCard from '../../components/ServicesCard';
 import Layout from '../../components/layout';
@@ -17,6 +17,7 @@ import { ImgObj } from '../../lib/__generated__/graphql';
 
 const Residential: React.FC = () => {
 	const [serviceCardData, setServiceCardData] = React.useState<ServicesCardData[]>([]);
+	const [contentLoading, setContentLoading] = React.useState<boolean>(true);
 
 	
 	const serviceCardKeys = residentialPageData.servicesCardsData.map((service) => service.key);
@@ -31,7 +32,7 @@ const Residential: React.FC = () => {
 			return;
 		}
 
-		if (!data) {
+		if (!data && !loading) {
 			Sentry.captureException(new Error('No data in Commercial page'));
 			return;
 		}
@@ -49,11 +50,12 @@ const Residential: React.FC = () => {
 
 
 		setServiceCardData(serviceCardData);
+		setContentLoading(false);
 	}, [data]);
 
 
 	return (
-		<Layout>
+		<Layout loading={contentLoading}>
 			<div className='w-full h-full flex flex-col justify-center items-center'>
 				<h1 className='text-center sm:test-left text-[48px] text-800'>Residential Services</h1>
 

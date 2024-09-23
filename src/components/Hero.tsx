@@ -43,7 +43,7 @@ const Hero: React.FC<HeroProps> = (heroProps) => {
 		}
 
 		const images = heroData.slideshowImages.map((image) => {
-			const img = data.getPresignedS3Objects.find((node: any) => node.key === image.key);
+			const img = data?.getPresignedS3Objects.find((node: any) => node.key === image.key);
 			return { ...image, url: img?.url ?? '' };
 		});
 

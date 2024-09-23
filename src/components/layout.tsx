@@ -2,15 +2,26 @@ import * as React from 'react';
 import { HeadFC } from 'gatsby';
 import Nav from './Nav';
 import Footer from './Footer';
+import LoaderAnimation from './LoaderAnimation';
 
-const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
+type LayoutProps = {
+	loading: boolean;
+};
+
+const Layout: React.FC<React.PropsWithChildren<LayoutProps>> = ({ children, loading }) => {
 	return (
-		<div className='layout max-w-screen max-h-screen'>
-			<Nav />
+		<>
+			{loading ? (
+				<LoaderAnimation />
+			) : (
+				<div className='layout max-w-screen max-h-screen'>
+					<Nav />
 
-			{children}
-			<Footer />
-		</div>
+					{children}
+					<Footer />
+				</div>
+			)}
+		</>
 	);
 };
 
