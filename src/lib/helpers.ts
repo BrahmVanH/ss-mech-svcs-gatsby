@@ -50,18 +50,8 @@ export const matchS3UrlsAndImgKeys = (pageImgData: ImgObj[], s3Urls: ImgObj[]) =
 
 	return pageImgData.map((image: any, i: number) => {
 		const img: ImgObj | undefined = s3Urls.find((obj: any) => obj.key === image.key);
-		if (!img?.key) {
-			Sentry.captureException(new Error('No image keys found in s3Urls in findImgs'));
-			return;
-		}
-		if (!img.url) {
-			Sentry.captureException(new Error('No image urls found in s3Urls in findImgs'));
-			return;
-		}
-
-		if (!image.alt) {
-			Sentry.captureException(new Error('No alt text found in image in findImgs'));
-			return;
+		if (!img?.key || !img.url || !image.alt) {
+			return new Error('No image keys found in s3Urls in findImgs');
 		}
 		return {
 			...image,
