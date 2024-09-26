@@ -55,7 +55,7 @@ const Home: React.FC = () => {
 
 		setServiceCardImgs(imgObjs);
 		setContentLoading(false);
-	}, [data, error]);
+	}, [data, error, loading]);
 
 	React.useEffect(() => {
 		getPresignedUrls();

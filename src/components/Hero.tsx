@@ -12,7 +12,6 @@ import { IImage } from '../types';
 import { useLazyQuery } from '@apollo/client';
 import { GET_PRESIGNED_S3_URLS } from '../lib/graphql/queries';
 
-
 const Hero: React.FC = () => {
 	const [slideshowImgs, setSlideshowImgs] = React.useState<IImage[] | null>(null);
 	const [mobileBackgroundImg, setMobileBackgroundImg] = React.useState<IImage | null>(null);
@@ -35,7 +34,6 @@ const Hero: React.FC = () => {
 			return;
 		}
 
-
 		const images = heroData.slideshowImages.map((image: IImage) => {
 			const img = data?.getPresignedS3Objects?.find((node: any) => node.key === image.key);
 			return { ...image, url: img?.url ?? '' };
@@ -48,7 +46,7 @@ const Hero: React.FC = () => {
 		setMobileBackgroundImg({ ...heroData.mobileBackgroundImage, url: mobileBackgroundImgS3Node?.url ?? '' });
 
 		setPageLoading(false);
-	}, [data]);
+	}, [data, loading, error]);
 
 	React.useEffect(() => {
 		if (heroData.slideshowImages.length > 0 && heroData.mobileBackgroundImage.key) {
