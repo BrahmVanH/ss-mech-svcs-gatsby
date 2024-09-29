@@ -27,10 +27,13 @@
 	max-width: 1280px !important;
 	margin: 0 auto;
 	text-align: center;
+
 }
 
 #___gatsby {
 	width: 100vw;
+	min-height: 100vh;
+
 }
 
 h1 {

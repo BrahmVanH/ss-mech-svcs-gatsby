@@ -60,3 +60,9 @@ export const matchS3UrlsAndImgKeys = (pageImgData: ImgObj[], s3Urls: ImgObj[]) =
 		};
 	}) as ImgObj[];
 };
+
+export const handleSetLoaderTimeout = (setContentLoading: React.Dispatch<React.SetStateAction<boolean>>) => {
+	setTimeout(() => {
+		setContentLoading(false);
+	}, 15000);
+};

@@ -9,7 +9,7 @@ import Services, { ServicesProps } from '../components/Services';
 import Hero from '../components/Hero';
 import SEO from '../components/SEO';
 
-import { matchS3UrlsAndImgKeys } from '../lib/helpers';
+import { handleSetLoaderTimeout, matchS3UrlsAndImgKeys } from '../lib/helpers';
 
 import { GET_PRESIGNED_S3_URLS } from '../lib/graphql/queries';
 
@@ -23,6 +23,7 @@ const Home: React.FC = () => {
 	const homeRef = React.useRef<HTMLDivElement>(null);
 	const [serviceCardImgs, setServiceCardImgs] = React.useState<ServicesProps['imgObjs'] | null>(null);
 	const [contentLoading, setContentLoading] = React.useState<boolean>(true);
+	const [contentLoaded, setContentLoaded] = React.useState<boolean>(false);
 
 	const servicesCardImgs: IImage[] = [homePageData?.servicesCardImageData?.commercial, homePageData?.servicesCardImageData?.residential];
 
@@ -55,11 +56,18 @@ const Home: React.FC = () => {
 
 		setServiceCardImgs(imgObjs);
 		setContentLoading(false);
+		setContentLoaded(true);
 	}, [data, error, loading]);
 
 	React.useEffect(() => {
 		getPresignedUrls();
 	}, []);
+
+	React.useEffect(() => {
+		if (!data && !loading && !error && !contentLoaded && contentLoading) {
+			handleSetLoaderTimeout(setContentLoading);
+		}
+	}, [data, loading, error, contentLoaded, contentLoading]);
 
 	return (
 		<Layout loading={contentLoading}>

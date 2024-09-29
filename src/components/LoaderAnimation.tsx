@@ -5,15 +5,15 @@ const Loading: React.FC = () => {
 	const [message1Display, setMessage1Display] = React.useState<boolean>(false);
 	const [message2Display, setMessage2Display] = React.useState<boolean>(false);
 
-	React.useEffect(() => {
-		const timer = setTimeout(() => {
-			setMessage1Display(true);
-			setMessage2Display(true);
-			Sentry.captureException(new Error('Loading component timed out'));
-		}, 15000);
+	// React.useEffect(() => {
+	// 	const timer = setTimeout(() => {
+	// 		setMessage1Display(true);
+	// 		setMessage2Display(true);
+	// 		Sentry.captureException(new Error('Loading component timed out'));
+	// 	}, 15000);
 
-		return () => clearTimeout(timer);
-	}, []);
+	// 	return () => clearTimeout(timer);
+	// }, []);
 
 	return (
 		<div className='flex flex-col justify-center items-center h-screen w-screen'>

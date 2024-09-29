@@ -1,4 +1,8 @@
 {
+	"heroImg": {
+		"alt": "vacuuming partially removed hvac air filter",
+		"key": "ac_compressor"
+	},
 	"servicesCardsData": [
 		{
 			"name": "Appliance Repair & Maintenance",

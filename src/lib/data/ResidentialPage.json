@@ -1,4 +1,8 @@
 {
+	"heroImg": {
+		"alt": "hands installing chandelier",
+		"key": "light-fixture-install"
+	},
 	"servicesCardsData": [
 		{
 			"name": "Permanent Christmas Light Installation",

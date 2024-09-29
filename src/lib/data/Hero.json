@@ -1,6 +1,5 @@
 {
 	"slideshowImages": [
-		{ "alt": "gloved hand soldering an ac compressor", "key": "ac_compressor" },
 		{ "alt": "gloved hands wiring ethernet cable terminal in wall", "key": "data-cable-wiring" },
 		{ "alt": "person repairing dryer", "key": "dryer-repair" },
 		{ "alt": "person repairing a furnace", "key": "air-filter-replacement" }

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Sentry from '@sentry/react';
+import { Link } from 'gatsby';
 
 import ImageGallery from './ImageGallery';
 
@@ -11,6 +12,8 @@ import heroData from '../lib/data/Hero.json';
 import { IImage } from '../types';
 import { useLazyQuery } from '@apollo/client';
 import { GET_PRESIGNED_S3_URLS } from '../lib/graphql/queries';
+
+import brand_image_transparent from '../images/svg/brand-image-black-cropped.svg';
 
 const Hero: React.FC = () => {
 	const [slideshowImgs, setSlideshowImgs] = React.useState<IImage[] | null>(null);
@@ -64,13 +67,14 @@ const Hero: React.FC = () => {
 						{mobileBackgroundImg?.url ? (
 							<div
 								style={{ backgroundImage: `url(${mobileBackgroundImg.url})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-								className='flex text-white col-start-1 col-end-2 row-start-2 row-end-3 flex-col content-start justify-center text-start z-[1000] w-full h-full absolute top-0 left-0 sm:hidden'>
-								<div className='flex '>
-									<h1 className=' self-end w-min m-0 sm:m-auto p-0 text-[80px] leading-[72px]'>South Shore </h1>
+								className='flex text-white col-start-1 col-end-2 row-start-2 row-end-3 flex-col content-start justify-center text-start z-[1000] w-full md:w-[30%] h-full absolute top-0 left-0 md:hidden'>
+								<span className='flex'>
+									<h1 className='w-min p-0 text-[80px] leading-[72px]'>South Shore </h1>
 									<img className='w-[20%] max-w-[100px] max-h-[200px] ml-4 ' src={odin_graceful_white_fill} alt='brand - dog stencil' />
-								</div>
-
-								<h1 className=' self-start  w-min m-0  p-0 text-[80px] leading-[72px]'>Mechanical Services</h1>
+								</span>
+								<span>
+									<h1 className=' self-start  w-min m-0  p-0 text-[80px] leading-[72px]'>Mechanical Services</h1>
+								</span>
 								<div className='horizontal-line mt-8 bg-white w-[70%] h-px' />
 								<p className='my-4 mx-0 text-5xl text-wrap leading-[72px]'>Commercial & Residential </p>
 								<p className='text-[28px] leading-[28px] font-bold'>Plumbing | Electrical | Appliance</p>
@@ -89,9 +93,9 @@ const Hero: React.FC = () => {
 							</div>
 						)}
 
-						<div className='hidden p-4 w-full sm:flex justify-center items-center flex-col'>
-							<img className='w-[40%]' src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />
-							<p className='text-white mb-8 text-4xl max-w-[75%]'>Providing Commercial and Residential Mechanical services to Marquette, Michigan</p>
+						<div className='hidden p-4 w-full md:flex justify-center items-center flex-col'>
+							<img className='sm:hidden md:block w-[40%]' src={map_up_mqt_county} alt='stencil of county map of upper peninsula of michigan with marquette county shaded in' />
+							<p className='text-white mb-8 text-5xl max-w-[75%]'>Providing Commercial and Residential Mechanical services to Marquette, Michigan</p>
 						</div>
 					</div>
 
