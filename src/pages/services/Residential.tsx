@@ -84,9 +84,9 @@ const Residential: React.FC = () => {
 			<div className='w-full h-full flex flex-col justify-center items-center'>
 				<div className='bg-opacity-85 w-full] h-[50%] rounded-2xl text-white'>
 					<img src={heroImgUrl ?? ''} alt={heroImgJson.alt} className=' z-[500] object-cover ' />
-					<div className='bg-primary bg-opacity-50 p-4  z-[800] absolute w-full  top-[40%]   '>
-						<h1 className='text-left text-8xl font-black m-2'>Residential Services</h1>
-						<p className='text-left text-3xl mx-2 my-4 w-[65%]'>We handle appliance services and home repairs of all sizes.</p>
+					<div className='bg-primary bg-opacity-50 p-4  z-[800] absolute w-full  top-[10%] md:top-[20%]  xl:top-[40%]   '>
+						<h1 className='text-left sm:text-left md:text-6xl xl:text-8xl font-black m-2'>Residential Services</h1>
+						<p className='hidden sm:block text-2xl md:text-3xl mx-2 my-4 w-[65%]'>We handle appliance services and home repairs of all sizes.</p>
 					</div>
 				</div>
 				<div className='w-screen flex flex-col sm:flex-row  justify-center items-start'>
