@@ -25,7 +25,6 @@ const Hero: React.FC = () => {
 	});
 
 	React.useEffect(() => {
-		console.log(heroData);
 		if (error) {
 			Sentry.captureException(error);
 			return;
@@ -45,7 +44,6 @@ const Hero: React.FC = () => {
 		setSlideshowImgs(images);
 
 		const mobileBackgroundImgS3Node = data?.getPresignedS3Objects?.find((node: any) => node.key === heroData.mobileBackgroundImage.key);
-		console.log(mobileBackgroundImgS3Node);
 		setMobileBackgroundImg({ ...heroData.mobileBackgroundImage, url: mobileBackgroundImgS3Node?.url ?? '' });
 
 		setPageLoading(false);

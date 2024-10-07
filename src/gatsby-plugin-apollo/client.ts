@@ -10,18 +10,18 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 			Sentry.captureException(butts);
 		});
 		graphQLErrors.map(({ message, locations, path }) => {
-			console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
-			console.log(locations);
+			// console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
+			// console.log(locations);
 			Sentry.captureException(message);
 		});
 	}
 	if (networkError) {
-		console.log(`[Network error]: ${networkError}`);
+		// console.log(`[Network error]: ${networkError}`);
 		Sentry.captureException(networkError);
 	}
 });
 
-const httpLink = new HttpLink({ uri: process.env.NODE_ENV === 'production' ? (process.env.API_URL ?? '') : 'http://localhost:4000/graphql', credentials: 'same-origin', fetch });
+const httpLink = new HttpLink({ uri: process.env.NODE_ENV === 'production' ? process.env.API_URL ?? '' : 'http://localhost:4000/graphql', credentials: 'same-origin', fetch });
 
 // const authLink = setContext((_, { headers }) => {
 // 	const apiKey = process.env.API_KEY ?? '';
