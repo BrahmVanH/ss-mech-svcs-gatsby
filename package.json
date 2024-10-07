@@ -59,7 +59,7 @@
     "@fortawesome/fontawesome-free": "^6.5.2",
     "@sentry/cli": "^2.33.1",
     "@sentry/gatsby": "^8.26.0",
-    "@sentry/react": "^8.26.0",
+    "@sentry/react": "^8.33.1",
     "autoprefixer": "^10.4.19",
     "aws-sdk": "^2.1678.0",
     "dotenv": "^16.4.5",
