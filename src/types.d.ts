@@ -13,6 +13,7 @@ export interface ServicesCardData {
 	name: string;
 	description: string;
 	url?: string;
+	key?: string;
 }
 
 export interface IImage {

@@ -16,7 +16,7 @@ import { ImgObj } from '../../lib/__generated__/graphql';
 
 // Data imports
 import residentialPageData from '../../lib/data/ResidentialPage.json';
-import { handleSetLoaderTimeout } from '../../lib/helpers';
+// import { handleSetLoaderTimeout } from '../../lib/helpers';
 
 const Residential: React.FC = () => {
 	const [serviceCardData, setServiceCardData] = React.useState<ServicesCardData[]>([]);
@@ -29,61 +29,60 @@ const Residential: React.FC = () => {
 	const heroKey = heroImgJson.key;
 	const imgKeys = serviceCardKeys.concat(heroKey);
 
-	const [getPresignedUrls, { loading, error, data }] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
+	const [getPresignedUrls] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
 		variables: { keys: imgKeys },
 	});
 
-	React.useEffect(() => {
-		if (error) {
-			Sentry.captureException(error);
-			return;
-		}
+	const handleGetPresignedUrls = React.useCallback(async (servicesCardsData: ServicesCardData[], heroImgKey: string) => {
+		try {
+			const { data, loading, error } = await getPresignedUrls();
+			if (error) {
+				throw new Error('Error fetching presigned urls in Residential page', error);
+			}
 
-		let serviceCardData: ServicesCardData[] = [];
-		let heroImgData: ImgObj | undefined;
+			let serviceCardData: ServicesCardData[] = [];
+			let heroImgData: ImgObj | undefined;
 
-		if (!data && !loading) {
-			serviceCardData = residentialPageData.servicesCardsData.map((service) => ({ name: service.name, description: service.description }));
+			if (!data && !loading) {
+				serviceCardData = servicesCardsData.map((service) => ({ name: service.name, description: service.description }));
+				setServiceCardData(serviceCardData);
+				setContentLoading(false);
+				throw new Error('No data in Residential page');
+			}
+
+			serviceCardData = residentialPageData.servicesCardsData.map((service) => {
+				const img = data?.getPresignedS3Objects?.find((obj: ImgObj) => obj.key === service.key);
+				return { ...service, url: img?.url };
+			});
+
+			heroImgData = data?.getPresignedS3Objects?.find((obj: ImgObj) => obj.key === heroImgKey);
+
+			if (!serviceCardData || !heroImgData?.url) {
+				throw new Error('No service card images or hero image found in Residential page');
+			}
+
 			setServiceCardData(serviceCardData);
+			setHeroImgUrl(heroImgData?.url);
 			setContentLoading(false);
-			Sentry.captureException(new Error('No img url data in Residential page, graceful fallback'));
-			return;
+
+			setContentLoading(false);
+		} catch (error) {
+			Sentry.captureException(error);
 		}
-
-		serviceCardData = residentialPageData.servicesCardsData.map((service) => {
-			const img = data?.getPresignedS3Objects?.find((obj: ImgObj) => obj.key === service.key);
-			return { ...service, url: img?.url };
-		});
-
-		heroImgData = data?.getPresignedS3Objects?.find((obj: ImgObj) => obj.key === heroKey);
-
-		if (!serviceCardData || !heroImgData?.url) {
-			Sentry.captureException(new Error('No service card images or hero image found in Residential page'));
-			return;
-		}
-
-		setServiceCardData(serviceCardData);
-		setHeroImgUrl(heroImgData?.url);
-		setContentLoading(false);
-
-		setContentLoading(false);
-	}, [data]);
-
-	React.useEffect(() => {
-		getPresignedUrls();
 	}, []);
 
 	React.useEffect(() => {
-		if (!data && !loading && !error && !contentLoaded && contentLoading) {
-			handleSetLoaderTimeout(setContentLoading);
+		if (!residentialPageData) {
+			return;
 		}
-	}, [data, loading, error, contentLoaded, contentLoading]);
+		handleGetPresignedUrls(residentialPageData.servicesCardsData, heroKey);
+	}, [residentialPageData.servicesCardsData, heroKey]);
 
 	return (
 		<Layout loading={contentLoading}>
 			<div className='w-full h-full flex flex-col justify-center items-center'>
-				<div className='bg-opacity-85 w-full] h-[50%] rounded-2xl text-white'>
-					<img src={heroImgUrl ?? ''} alt={heroImgJson.alt} className=' z-[500] object-cover ' />
+				<div className='bg-opacity-85 w-full h-[50%] rounded-2xl text-white'>
+					<img src={heroImgUrl ?? ''} alt={heroImgJson.alt} className=' z-[500] w-full object-cover ' />
 					<div className='bg-primary bg-opacity-50 p-4  z-[800] absolute w-full  top-[10%] md:top-[20%]  xl:top-[40%]   '>
 						<h1 className='text-left sm:text-left md:text-6xl xl:text-8xl font-black m-2'>Residential Services</h1>
 						<p className='hidden sm:block text-2xl md:text-3xl mx-2 my-4 w-[65%]'>We handle appliance services and home repairs of all sizes.</p>

@@ -27,11 +27,14 @@ const Home: React.FC = () => {
 
 	const servicesCardImgs: IImage[] = [homePageData?.servicesCardImageData?.commercial, homePageData?.servicesCardImageData?.residential];
 
-	const [getPresignedUrls, { loading, error, data }] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
+	const [getPresignedUrls] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
 		variables: { keys: servicesCardImgs.map((i) => i.key) },
 	});
 
-	React.useEffect(() => {
+	const handleGetPresignedUrls = React.useCallback( async () => {
+
+		const { data, loading, error } = await getPresignedUrls();
+
 		if (error) {
 			Sentry.captureException(error);
 			return;
@@ -57,23 +60,24 @@ const Home: React.FC = () => {
 		setServiceCardImgs(imgObjs);
 		setContentLoading(false);
 		setContentLoaded(true);
-	}, [data, error, loading]);
+	}, [servicesCardImgs]);
 
 	React.useEffect(() => {
-		getPresignedUrls();
+		handleGetPresignedUrls();
+
 	}, []);
 
-	React.useEffect(() => {
-		if (!data && !loading && !error && !contentLoaded && contentLoading) {
-			handleSetLoaderTimeout(setContentLoading);
-		}
-	}, [data, loading, error, contentLoaded, contentLoading]);
+	// React.useEffect(() => {
+	// 	if (!data && !loading && !error && !contentLoaded && contentLoading) {
+	// 		handleSetLoaderTimeout(setContentLoading);
+	// 	}
+	// }, [data, loading, error, contentLoaded, contentLoading]);
 
 	return (
 		<Layout loading={contentLoading}>
 			<Hero />
 			<div ref={homeRef} className='flex flex-col items-center justify-center bg-transparent'>
-				{!loading && serviceCardImgs ? <Services imgObjs={serviceCardImgs} /> : <></>}
+				{contentLoaded && serviceCardImgs ? <Services imgObjs={serviceCardImgs} /> : <></>}
 				<Reviews />
 			</div>
 		</Layout>

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as Sentry from '@sentry/react';
-import { Link } from 'gatsby';
 
 import ImageGallery from './ImageGallery';
 
@@ -13,18 +12,18 @@ import { IImage } from '../types';
 import { useLazyQuery } from '@apollo/client';
 import { GET_PRESIGNED_S3_URLS } from '../lib/graphql/queries';
 
-import brand_image_transparent from '../images/svg/brand-image-black-cropped.svg';
-
 const Hero: React.FC = () => {
 	const [slideshowImgs, setSlideshowImgs] = React.useState<IImage[] | null>(null);
 	const [mobileBackgroundImg, setMobileBackgroundImg] = React.useState<IImage | null>(null);
 	const [pageLoading, setPageLoading] = React.useState<boolean>(true);
 
-	const [getPresignedUrls, { loading, error, data }] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
+	const [getPresignedUrls] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
 		variables: { keys: (heroData.slideshowImages.map((image: IImage) => image.key) ?? '').concat(heroData.mobileBackgroundImage.key ?? '') },
 	});
 
-	React.useEffect(() => {
+	const handleGetSetPresignedUrls = React.useCallback(async () => {
+		const { data, loading, error } = await getPresignedUrls();
+
 		if (error) {
 			Sentry.captureException(error);
 			return;
@@ -47,21 +46,19 @@ const Hero: React.FC = () => {
 		setMobileBackgroundImg({ ...heroData.mobileBackgroundImage, url: mobileBackgroundImgS3Node?.url ?? '' });
 
 		setPageLoading(false);
-	}, [data, loading, error]);
+	}, []);
 
 	React.useEffect(() => {
 		if (heroData.slideshowImages.length > 0 && heroData.mobileBackgroundImage.key) {
-			getPresignedUrls();
+			handleGetSetPresignedUrls();
 		}
-
-		setPageLoading(false);
 	}, [heroData.slideshowImages, heroData.mobileBackgroundImage.key]);
 
 	return (
 		<>
 			{!pageLoading ? (
-				<div className='h-screen w-screen '>
-					<div className=' bg-transparent block overflow-hidden z-[900] w-screen  h-screen justify-center items-center flex-col text-center absolute top-0 sm:overflow-visible sm:bg-home-hero-fill sm:w-full sm:flex sm:h-full'>
+				<div className='h-screen w-screen max-h-[1500px]'>
+					<div className='max-h-[1500px] bg-transparent block overflow-hidden z-[900] w-screen  h-screen justify-center items-center flex-col text-center absolute top-0 sm:overflow-visible sm:bg-home-hero-fill sm:w-full sm:flex sm:h-full'>
 						{mobileBackgroundImg?.url ? (
 							<div
 								style={{ backgroundImage: `url(${mobileBackgroundImg.url})`, backgroundSize: 'cover', backgroundPosition: 'center' }}

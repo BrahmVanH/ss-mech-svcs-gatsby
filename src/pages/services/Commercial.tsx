@@ -31,61 +31,69 @@ const Commercial: React.FC = () => {
 	const heroKey = heroImgJson.key;
 	const imgKeys = serviceCardKeys.concat(heroKey);
 
-	const [getPresignedUrls, { loading, error, data }] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
+	const [getPresignedUrls] = useLazyQuery(GET_PRESIGNED_S3_URLS, {
 		variables: { keys: imgKeys },
 	});
 
-	React.useEffect(() => {
-		if (error) {
-			Sentry.captureException(error);
-			return;
-		}
+	const handleGetPresignedUrls = React.useCallback(async (servicesCardsData: ServicesCardData[], heroImgKey: string) => {
+		try {
+			const { loading, error, data } = await getPresignedUrls();
 
-		let serviceCardData: ServicesCardData[] = [];
-		let heroImgData: ImgObj | undefined;
+			if (error) {
+				throw new Error('Error fetching presigned urls in Commercial page', error);
+				return;
+			}
 
-		if (!data && !loading) {
-			serviceCardData = commercialPageData.servicesCardsData.map((service) => ({ name: service.name, description: service.description }));
+			let serviceCardData: ServicesCardData[] = [];
+			let heroImgData: ImgObj | undefined;
+
+			if (!data && !loading) {
+				serviceCardData = servicesCardsData.map((service) => ({ name: service.name, description: service.description }));
+				setServiceCardData(serviceCardData);
+				setContentLoading(false);
+				throw new Error('No data in Commercial page');
+			}
+
+			serviceCardData = servicesCardsData.map((service) => {
+				const img = data?.getPresignedS3Objects?.find((obj: ImgObj) => obj.key === service.key);
+				return { ...service, url: img?.url };
+			});
+
+			heroImgData = data?.getPresignedS3Objects?.find((obj: ImgObj) => obj.key === heroImgKey);
+
+			if (!serviceCardData || !heroImgData?.url) {
+				throw new Error('No service card images or hero image found in Commercial page');
+			}
+
 			setServiceCardData(serviceCardData);
+			setHeroImgUrl(heroImgData.url);
 			setContentLoading(false);
-			Sentry.captureException(new Error('No data in Commercial page'));
-			return;
+
+			setContentLoading(false);
+		} catch (error) {
+			Sentry.captureException(error);
 		}
-
-		serviceCardData = commercialPageData.servicesCardsData.map((service) => {
-			const img = data?.getPresignedS3Objects?.find((obj: ImgObj) => obj.key === service.key);
-			return { ...service, url: img?.url };
-		});
-
-		heroImgData = data?.getPresignedS3Objects?.find((obj: ImgObj) => obj.key === heroKey);
-
-		if (!serviceCardData || !heroImgData?.url) {
-			Sentry.captureException(new Error('No service card images or hero image found in Commercial page'));
-			return;
-		}
-
-		setServiceCardData(serviceCardData);
-		setHeroImgUrl(heroImgData.url);
-		setContentLoading(false);
-
-		setContentLoading(false);
-	}, [data]);
-
-	React.useEffect(() => {
-		getPresignedUrls();
 	}, []);
 
 	React.useEffect(() => {
-		if (!data && !loading && !error && !contentLoaded && contentLoading) {
-			handleSetLoaderTimeout(setContentLoading);
+		if (!commercialPageData) {
+			return;
 		}
-	}, [data, loading, error, contentLoaded, contentLoading]);
+
+		handleGetPresignedUrls(commercialPageData.servicesCardsData, heroKey);
+	}, [commercialPageData.servicesCardsData, heroKey]);
+
+	// React.useEffect(() => {
+	// 	if (!data && !loading && !error && !contentLoaded && contentLoading) {
+	// 		handleSetLoaderTimeout(setContentLoading);
+	// 	}
+	// }, [data, loading, error, contentLoaded, contentLoading]);
 
 	return (
 		<Layout loading={contentLoading}>
 			<div className='w-full h-full flex flex-col justify-center items-center'>
-				<div className='bg-opacity-85 w-full] h-[50%] rounded-2xl text-white'>
-					<img src={heroImgUrl ?? ''} alt={heroImgJson.alt} className=' z-[500] object-cover ' />
+				<div className='bg-opacity-85 w-full h-[50%] rounded-2xl text-white'>
+					<img src={heroImgUrl ?? ''} alt={heroImgJson.alt} className=' z-[500] w-full object-cover ' />
 					<div className='bg-primary bg-opacity-50 p-4   z-[800] absolute w-full top-[10%] md:top-[20%]  xl:top-[40%]   '>
 						<h1 className='text-left sm:text-left md:text-6xl xl:text-8xl text-800 m-2 font-black'>Commercial Services</h1>
 						<p className='hidden sm:block text-2xl md:text-3xl mx-2 my-4 w-[65%]'>We offer an array of Commercial maintenance and repair services, as well as tailored maintenance programs.</p>
