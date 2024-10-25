@@ -18,6 +18,7 @@ import { HeadFC } from 'gatsby';
 import homePageData from '../lib/data/HomePage.json';
 
 import { IImage } from '../types';
+import GoogleReviews from '../components/GoogleReviews';
 
 const Home: React.FC = () => {
 	const homeRef = React.useRef<HTMLDivElement>(null);
@@ -31,8 +32,7 @@ const Home: React.FC = () => {
 		variables: { keys: servicesCardImgs.map((i) => i.key) },
 	});
 
-	const handleGetPresignedUrls = React.useCallback( async () => {
-
+	const handleGetPresignedUrls = React.useCallback(async () => {
 		const { data, loading, error } = await getPresignedUrls();
 
 		if (error) {
@@ -64,7 +64,6 @@ const Home: React.FC = () => {
 
 	React.useEffect(() => {
 		handleGetPresignedUrls();
-
 	}, []);
 
 	// React.useEffect(() => {
@@ -79,6 +78,7 @@ const Home: React.FC = () => {
 			<div ref={homeRef} className='flex flex-col items-center justify-center bg-transparent'>
 				{contentLoaded && serviceCardImgs ? <Services imgObjs={serviceCardImgs} /> : <></>}
 				<Reviews />
+				<GoogleReviews />
 			</div>
 		</Layout>
 	);

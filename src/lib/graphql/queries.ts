@@ -26,3 +26,18 @@ export const GET_PRESIGNED_S3_URLS = gql(/* GraphQL */ `
 		}
 	}
 `);
+
+export const QUERY_GOOGLE_REVIEWS = gql(/* GraphQL */ `
+	query QuerySouthShoreGooglePlaceReviews {
+		querySouthShoreGooglePlaceReviews {
+			author_name
+			author_url
+			language
+			profile_photo_url
+			rating
+			relative_time_description
+			text
+			time
+		}
+	}
+`);

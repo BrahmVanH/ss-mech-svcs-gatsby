@@ -33,6 +33,46 @@ export type DeleteS3ObjectResponse = {
   status: Scalars['Int']['output'];
 };
 
+export type GooglePlaceDetailsResponse = {
+  __typename?: 'GooglePlaceDetailsResponse';
+  html_attributions?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  result: GooglePlaceDetailsResponseResult;
+};
+
+export type GooglePlaceDetailsResponseResult = {
+  __typename?: 'GooglePlaceDetailsResponseResult';
+  reviews?: Maybe<Array<Maybe<GoogleReview>>>;
+  status?: Maybe<Scalars['String']['output']>;
+};
+
+export type GooglePlaceErrorResponse = {
+  __typename?: 'GooglePlaceErrorResponse';
+  error_message: Scalars['String']['output'];
+  status: GooglePlaceErrorStatus;
+};
+
+export enum GooglePlaceErrorStatus {
+  InvalidRequest = 'INVALID_REQUEST',
+  NotFound = 'NOT_FOUND',
+  Ok = 'OK',
+  OverQueryLimit = 'OVER_QUERY_LIMIT',
+  RequestDenied = 'REQUEST_DENIED',
+  UnknownError = 'UNKNOWN_ERROR',
+  ZeroResults = 'ZERO_RESULTS'
+}
+
+export type GoogleReview = {
+  __typename?: 'GoogleReview';
+  author_name?: Maybe<Scalars['String']['output']>;
+  author_url?: Maybe<Scalars['String']['output']>;
+  language?: Maybe<Scalars['String']['output']>;
+  profile_photo_url?: Maybe<Scalars['String']['output']>;
+  rating?: Maybe<Scalars['Int']['output']>;
+  relative_time_description?: Maybe<Scalars['String']['output']>;
+  text?: Maybe<Scalars['String']['output']>;
+  time?: Maybe<Scalars['Int']['output']>;
+};
+
 export type ImgObj = {
   __typename?: 'ImgObj';
   alt?: Maybe<Scalars['String']['output']>;
@@ -53,6 +93,7 @@ export type MutationSendScheduleServiceMessageArgs = {
 export type Query = {
   __typename?: 'Query';
   getPresignedS3Objects: Array<ImgObj>;
+  querySouthShoreGooglePlaceReviews?: Maybe<Array<Maybe<GoogleReview>>>;
   queryThumbtackReviews?: Maybe<Array<ThumbtackReview>>;
 };
 
@@ -119,7 +160,13 @@ export type GetPresignedS3ObjectsQueryVariables = Exact<{
 
 export type GetPresignedS3ObjectsQuery = { __typename?: 'Query', getPresignedS3Objects: Array<{ __typename?: 'ImgObj', key?: string | null, url?: string | null, alt?: string | null }> };
 
+export type QuerySouthShoreGooglePlaceReviewsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type QuerySouthShoreGooglePlaceReviewsQuery = { __typename?: 'Query', querySouthShoreGooglePlaceReviews?: Array<{ __typename?: 'GoogleReview', author_name?: string | null, author_url?: string | null, language?: string | null, profile_photo_url?: string | null, rating?: number | null, relative_time_description?: string | null, text?: string | null, time?: number | null } | null> | null };
+
 
 export const SendScheduleServiceMessageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"sendScheduleServiceMessage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ScheduleServiceMessageInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"sendScheduleServiceMessage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}]}]}}]} as unknown as DocumentNode<SendScheduleServiceMessageMutation, SendScheduleServiceMessageMutationVariables>;
 export const QueryThumbtackReviewsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"QueryThumbtackReviews"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"queryThumbtackReviews"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"datePublished"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"author"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"reviewRating"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"ratingValue"}}]}}]}}]}}]} as unknown as DocumentNode<QueryThumbtackReviewsQuery, QueryThumbtackReviewsQueryVariables>;
 export const GetPresignedS3ObjectsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getPresignedS3Objects"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"keys"}},"type":{"kind":"NonNullType","type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getPresignedS3Objects"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"keys"},"value":{"kind":"Variable","name":{"kind":"Name","value":"keys"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"key"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alt"}}]}}]}}]} as unknown as DocumentNode<GetPresignedS3ObjectsQuery, GetPresignedS3ObjectsQueryVariables>;
+export const QuerySouthShoreGooglePlaceReviewsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"QuerySouthShoreGooglePlaceReviews"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"querySouthShoreGooglePlaceReviews"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"author_name"}},{"kind":"Field","name":{"kind":"Name","value":"author_url"}},{"kind":"Field","name":{"kind":"Name","value":"language"}},{"kind":"Field","name":{"kind":"Name","value":"profile_photo_url"}},{"kind":"Field","name":{"kind":"Name","value":"rating"}},{"kind":"Field","name":{"kind":"Name","value":"relative_time_description"}},{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"time"}}]}}]}}]} as unknown as DocumentNode<QuerySouthShoreGooglePlaceReviewsQuery, QuerySouthShoreGooglePlaceReviewsQueryVariables>;

@@ -21,3 +21,7 @@ export interface IImage {
 	key: string;
 	url?: string;
 }
+
+export interface IconProps {
+	size: number;
+}
