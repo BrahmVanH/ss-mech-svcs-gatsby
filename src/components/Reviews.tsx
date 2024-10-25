@@ -52,7 +52,7 @@ const Reviews: React.FC = () => {
 					</div>
 					{thumbtackReviews.map((review, index) => (
 						<div key={index} className=' w-full text-left flex flex-col justify-start py-4 px-0 border-b border-[#d3d4d5] mb-4'>
-							<CardContent className=' flex justify-between items-center mb-4 '>
+							<CardContent className=' flex flex-col sm:flex-row justify-between items-center mb-4 '>
 								<div className='customer-info flex items-center'>
 									<img className='w-[50px] h-[50px] rounded-[50%] mr-0' src={thumbtack_reviewer_avatar} alt="thumbtack reviewer's avatar" />
 									<div className='customer-name-and-rating flex flex-col items-start ml-4 font-extrabold'>

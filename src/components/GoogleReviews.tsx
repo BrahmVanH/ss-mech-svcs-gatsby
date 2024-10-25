@@ -46,7 +46,7 @@ const GoogleReviews = () => {
 				<>
 					<div className='flex justify-center items-center w-full md-4'>
 						<GoogleIcon size={36} />
-						<h2 className='ml-4'>Reviews</h2>
+						<h2 className='ml-4 '>Reviews</h2>
 					</div>
 					{reviews.map((review, index) => (
 						<Card key={index} className='w-full'>
@@ -62,13 +62,20 @@ const GoogleReviews = () => {
 											href='https://www.google.com/search?q=south+shore+mechanical+services&oq=south+shore+mech&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYPTIGCAMQRRg8MgYIBBBFGDzSAQgyMTE4ajBqMagCALACAA&sourceid=chrome&ie=UTF-8#lrd=0x4d4e2150da5d7943:0xda48f9ec9ac108ae,1,,,,'
 											target='_blank'
 											rel='noreferrer'
-											className='text-black mr-2'>
+											className='text-black mr-2 hidden sm:block'>
 											View on Google
 										</a>
 									</div>
 								</div>
 								<p className='text-gray-600 mt-2'>{review.text}</p>
 								<p className='text-sm text-gray-400 mt-2'>{new Date((review.time as number) * 1000).toLocaleDateString()}</p>
+								<a
+									href='https://www.google.com/search?q=south+shore+mechanical+services&oq=south+shore+mech&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYPTIGCAMQRRg8MgYIBBBFGDzSAQgyMTE4ajBqMagCALACAA&sourceid=chrome&ie=UTF-8#lrd=0x4d4e2150da5d7943:0xda48f9ec9ac108ae,1,,,,'
+									target='_blank'
+									rel='noreferrer'
+									className='text-black mr-2  sm:hidden'>
+									View on Google
+								</a>
 							</CardContent>
 						</Card>
 					))}
