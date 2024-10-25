@@ -13,7 +13,7 @@ const Services: React.FC<ServicesProps> = ({ imgObjs }) => {
 	return (
 		<>
 			{imgObjs.commercial.url && imgObjs.commercial.alt && imgObjs.residential.url && imgObjs.residential.alt ? (
-				<div id='servicesComponent' className='services-container p-0 sm:py-12 w-[90%] my-0 mx-auto'>
+				<div id='servicesComponent' className='services-container p-0 sm:py-12 w-[80%] my-0 mx-auto'>
 					<Link
 						to={'/services/Commercial'}
 						className='services-card w-full sm:w-[95%] my-4 mx-auto flex flex-col sm:flex-row cursor-pointer shadow-sm shadow-[#00000042] rounded-2xl sm:hover:scale-105 sm:hover:shadow sm:hover:duration-500'>
