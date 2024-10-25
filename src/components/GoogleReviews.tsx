@@ -62,7 +62,7 @@ const GoogleReviews = () => {
 											href='https://www.google.com/search?q=south+shore+mechanical+services&oq=south+shore+mech&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYPTIGCAMQRRg8MgYIBBBFGDzSAQgyMTE4ajBqMagCALACAA&sourceid=chrome&ie=UTF-8#lrd=0x4d4e2150da5d7943:0xda48f9ec9ac108ae,1,,,,'
 											target='_blank'
 											rel='noreferrer'
-											className='text-black mr-2 hidden sm:block'>
+											className='text-black mr-2 hidden sm:block hover:underline'>
 											View on Google
 										</a>
 									</div>
@@ -73,7 +73,7 @@ const GoogleReviews = () => {
 									href='https://www.google.com/search?q=south+shore+mechanical+services&oq=south+shore+mech&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYPTIGCAMQRRg8MgYIBBBFGDzSAQgyMTE4ajBqMagCALACAA&sourceid=chrome&ie=UTF-8#lrd=0x4d4e2150da5d7943:0xda48f9ec9ac108ae,1,,,,'
 									target='_blank'
 									rel='noreferrer'
-									className='text-black mr-2  sm:hidden'>
+									className='text-black mr-2  sm:hidden hover:underline'>
 									View on Google
 								</a>
 							</CardContent>
