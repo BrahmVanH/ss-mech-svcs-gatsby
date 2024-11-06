@@ -12,7 +12,7 @@
 }
 
 :root {
-	font-family: 'Zen Kaku Gothic New', sans-serif, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: 'Zen Kaku Gothic New', sans-serif, system-ui, Avenir, Helvetica, Arial;
 	line-height: 1.5;
 	font-weight: 400;
 	scrollbar-width: none;
@@ -24,28 +24,29 @@
 	-moz-osx-font-smoothing: grayscale;
 	width: 100vw;
 
-	/* Custom CSS Variable */
 	--button-border-size: 1.5px;
-
+	--tw-opacity: 0.5;
 	--card-border-radius: 20px;
 	--tw-gradient-stops: #302e33, #2e2b30, rgba(0, 0, 0, 0.811), rgba(0, 0, 0, 0.811); /* dark gradient */
 	--primary: 190, 17%, 39%; /* blue-gray */
 	--primary-foreground: 190, 17%, 39%; /* blue-gray */
 	--background: 0 0% 100%; /* white */
-	--foreground: 190, 17%, 39%; /* blue-gray */
+	--foreground: 198, 31%, 6%; /* black */
+
 	--card: 0 0% 100%; /* white */
 	--card-foreground: 190, 17%, 39%; /* blue-gray */
 	--popover: 0 0% 100%; /* white */
 	--popover-foreground: 190, 17%, 39%; /* blue-gray */
-	--secondary: 210 40% 96.1%; /* very light blue */
-	--secondary-foreground: 190, 17%, 39%; /* blue-gray */
+	--secondary: 70, 17%, 39%; /* green */
+	--secondary-foreground: 198, 31%, 6%; /* black */
 	--muted: 210 40% 96.1%; /* very light blue */
 	--muted-foreground: 215.4 16.3% 46.9%; /* gray */
 	--accent: 210 40% 96.1%; /* very light blue */
 	--accent-foreground: 190, 17%, 39%; /* blue-gray */
 	--destructive: 0 84.2% 60.2%; /* red */
 	--destructive-foreground: 210 40% 98%; /* light blue */
-	--border: 214.3 31.8% 91.4%; /* very light gray */
+
+	--border: 310, 17%, 39%; /* very light gray */
 	--input: 214.3 31.8% 91.4%; /* very light gray */
 	--ring: 190, 17%, 39%; /* blue-gray */
 	--chart-1: 12 76% 61%; /* orange */
@@ -96,17 +97,6 @@ p {
 	font-size: 1rem;
 }
 
-@media screen and (max-width: 576px) {
-	#root {
-		max-width: 576px !important;
-	}
-}
-@media screen and (max-width: 450px) {
-	#root {
-		max-width: 450px !important;
-	}
-}
-
 body {
 	margin: 0;
 	display: flex;
@@ -127,8 +117,6 @@ a {
 	color: inherit;
 }
 
-
-
 .arrow-icon-btn {
 	margin-top: 2rem;
 	width: 100%;
@@ -146,7 +134,6 @@ a {
 	}
 }
 
-
 .sk-ww-thumbtack-reviews {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust column width as needed */
@@ -159,22 +146,16 @@ a {
 	}
 }
 
-/* WebKit (Safari) */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-	/* Add any specific WebKit styles here */
+@media screen and (max-width: 576px) {
+	#root {
+		max-width: 576px !important;
+	}
 }
-
-/* Firefox */
-@-moz-document url-prefix() {
-	/* Add any specific Firefox styles here */
+@media screen and (max-width: 450px) {
+	#root {
+		max-width: 450px !important;
+	}
 }
-
-/* Opera */
-@media not all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
-	/* Add any specific Opera styles here */
-}
-
-
 
 .dark {
 	--background: 222.2 84% 4.9%; /* dark blue */

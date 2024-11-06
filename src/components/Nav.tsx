@@ -1,5 +1,4 @@
 import { Link } from 'gatsby';
-import { useLocation } from '@reach/router';
 
 import * as React from 'react';
 
@@ -8,21 +7,12 @@ import { ChevronDownIcon } from 'evergreen-ui';
 import brand_image_transparent from '../images/svg/brand-image-black-cropped.svg';
 import brand_image_white from '../images/svg/brand-image-white-cropped.svg';
 
-const servicesDropdownBgNotHome = 'bg-gradient-to-b from-services-dropdown-grad-stop-1 to-services-dropdown-grad-stop-2 to-services-dropdown-grad-stop-3 to-services-dropdown-grad-stop-4';
-const servicesDropdownBgHome = 'bg-services-dropdown-home-bg';
 
 const Nav: React.FC = () => {
 
-	const navRef = React.useRef<HTMLDivElement>(null);
-	const homeRouteRef = React.useRef<HTMLDivElement>(null);
-	const aboutRouteRef = React.useRef<HTMLDivElement>(null);
-	const servicesDropdown = React.useRef<HTMLDivElement>(null);
-	const commercialRoutesRef = React.useRef<HTMLDivElement>(null);
-	const residentialRoutesRef = React.useRef<HTMLDivElement>(null);
-	const contactRouteRef = React.useRef<HTMLDivElement>(null);
 
 	return (
-		<nav ref={navRef} className='bg-primary flex justify-center sm:justify-between items-center w-full text-white z-[1000] p-2 absolute'>
+		<nav  className='bg-[#fff] border-b-2 border-primary  flex justify-center sm:justify-between items-center w-full text-black z-[1000] p-2 absolute'>
 			<Link to='/' className=' hidden sm:flex justify-center items-center lg:ml-4'>
 				<img className='sm:hidden md:block md:w-[90px] mr-2' alt='south shore mechanical services branding its of a beautiful berner-aussie mix' src={brand_image_transparent} />
 
@@ -36,35 +26,35 @@ const Nav: React.FC = () => {
 				</div>
 			</Link>
 			<div className=' flex flex-col xs:flex-row justify-evenly sm:justify-end items-center w-full my-2 sm:w-[60%] m-0 sm:mr-8 text-[24px] sm:text-[18px] text-center sm"text-left [&>div>a]:mb-2 sm:[&>div>a]:text-3xl'>
-				<div ref={homeRouteRef}>
-					<Link className='mb-4 text-white no-underline p-4  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/'>
+				<div >
+					<Link className='mb-4 no-underline p-4  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/'>
 						Home
 					</Link>
 				</div>
 
-				<div ref={servicesDropdown} className='z-[1000] group '>
-					<span className='flex row flex-nowrap transition-all ease-in-out duration-1000 text-white no-underline   py-0 px-4 '>
+				<div  className='z-[1000] group '>
+					<span className='flex row flex-nowrap transition-all ease-in-out duration-1000  no-underline   py-0 px-4 '>
 						<p className='text-[24px] sm:text-3xl'>Services</p>
 						<ChevronDownIcon className=' ml-2 mb-2 sm:mb-1 max-h-[12px] self-end justify-self-center' size={12} />
 					</span>
 
 					<div
 						id='servicesDropdownContent'
-						className={` hidden absolute w-full sm:w-min min-w-min  flex-col justify-center items-center bg-primary transition-all ease-in-out duration-1000 cursor-pointer z-[1000] rounded-b-[10px] py-4 left-0 sm:left-auto group-hover:flex`}>
-						<div className='px-2 py-2' ref={commercialRoutesRef}>
-							<Link className='mb-4 text-white no-underline px-4 py-2 text-[24px] sm:text-3xl  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/services/Commercial'>
+						className='hidden absolute w-full sm:w-min min-w-min  flex-col justify-center items-center bg-[#fff] border-b-2 border-l-2 border-r-2 border-primary transition-all ease-in-out duration-1000 cursor-pointer z-[1000] rounded-b-[10px] py-4 left-auto sm:left-auto group-hover:flex'>
+						<div className='px-2 py-2' >
+							<Link className='mb-4 no-underline px-4 py-2 text-[24px] sm:text-3xl  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/services/Commercial'>
 								Commercial
 							</Link>
 						</div>
-						<div className='px-2 py-2' ref={residentialRoutesRef}>
-							<Link className='mb-4 text-white no-underline px-4 py-2 text-[24px] sm:text-3xl  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/services/Residential'>
+						<div className='px-2 py-2' >
+							<Link className='mb-4  no-underline px-4 py-2 text-[24px] sm:text-3xl  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/services/Residential'>
 								Residential
 							</Link>
 						</div>
 					</div>
 				</div>
-				<div ref={contactRouteRef}>
-					<Link className='mb-4 text-white no-underline p-4  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/Contact'>
+				<div >
+					<Link className='mb-4  no-underline p-4  hover:w-min hover:border-b-2 hover:border-[#ffffff3f]' to='/Contact'>
 						Contact
 					</Link>
 				</div>

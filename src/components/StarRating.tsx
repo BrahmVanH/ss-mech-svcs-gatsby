@@ -14,7 +14,7 @@ const StarRating: React.FC<StarRatingProps> = (props: Readonly<StarRatingProps>)
 	return (
 		<>
 			{rating === 1 ? (
-				<div className='container w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 fill-thumbtack-review-star-fill'>
+				<div className='container w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 [&>svg]:fill-thumbtack-review-star-fill'>
 					<StarIcon />
 					<StarEmptyIcon />
 					<StarEmptyIcon />
@@ -22,7 +22,7 @@ const StarRating: React.FC<StarRatingProps> = (props: Readonly<StarRatingProps>)
 					<StarEmptyIcon />
 				</div>
 			) : rating === 2 ? (
-				<div className='w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 fill-thumbtack-review-star-fill'>
+				<div className='w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 [&>svg]:fill-thumbtack-review-star-fill'>
 					<StarIcon />
 					<StarIcon />
 					<StarEmptyIcon />
@@ -30,7 +30,7 @@ const StarRating: React.FC<StarRatingProps> = (props: Readonly<StarRatingProps>)
 					<StarEmptyIcon />
 				</div>
 			) : rating === 3 ? (
-				<div className='w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 fill-thumbtack-review-star-fill'>
+				<div className='w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 [&>svg]:fill-thumbtack-review-star-fill'>
 					<StarIcon />
 					<StarIcon />
 					<StarIcon />
@@ -38,7 +38,7 @@ const StarRating: React.FC<StarRatingProps> = (props: Readonly<StarRatingProps>)
 					<StarEmptyIcon />
 				</div>
 			) : rating === 4 ? (
-				<div className='w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 fill-thumbtack-review-star-fill'>
+				<div className='w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 [&>svg]:fill-thumbtack-review-star-fill'>
 					<StarIcon />
 					<StarIcon />
 					<StarIcon />
@@ -46,15 +46,15 @@ const StarRating: React.FC<StarRatingProps> = (props: Readonly<StarRatingProps>)
 					<StarEmptyIcon />
 				</div>
 			) : rating === 5 ? (
-				<div className='w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 fill-thumbtack-review-star-fill'>
-					<StarIcon />
+				<div className='w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 [&>svg]:fill-thumbtack-review-star-fill'>
+					<StarIcon fill='thumbtack-review-star-fill' />
 					<StarIcon />
 					<StarIcon />
 					<StarIcon />
 					<StarIcon />
 				</div>
 			) : (
-				<div className='w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 fill-thumbtack-review-star-fill'>
+				<div className='w-[80%] flex flex-nowrap justify-evenly items-center self-start mb-2 [&>svg]:fill-thumbtack-review-star-fill'>
 					<StarEmptyIcon />
 					<StarEmptyIcon />
 					<StarEmptyIcon />

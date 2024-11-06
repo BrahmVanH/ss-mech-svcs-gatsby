@@ -41,15 +41,15 @@ const GoogleReviews = () => {
 	}, []);
 
 	return (
-		<div className='space-y-4 w-[80%] my-8'>
+		<div className='w-[80%] my-8'>
 			{!loading && reviews && reviews.length > 0 ? (
 				<>
-					<div className='flex justify-center items-center w-full md-4'>
+					<div className='flex justify-center items-center w-full mb-8'>
 						<GoogleIcon size={36} />
 						<h2 className='ml-4 '>Reviews</h2>
 					</div>
 					{reviews.map((review, index) => (
-						<Card key={index} className='w-full'>
+						<Card key={index} className='w-full mt-4'>
 							<CardContent className='p-6'>
 								<div className='flex items-center space-x-4 mb-2'>
 									<img src={review.profile_photo_url ?? ''} alt={review.author_name as string} className='w-10 h-10 rounded-full' />

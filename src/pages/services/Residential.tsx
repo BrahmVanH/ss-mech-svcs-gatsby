@@ -18,7 +18,6 @@ import { ImgObj } from '../../lib/__generated__/graphql';
 import residentialPageData from '../../lib/data/ResidentialPage.json';
 // import { handleSetLoaderTimeout } from '../../lib/helpers';
 
-
 const Residential: React.FC = () => {
 	const [serviceCardData, setServiceCardData] = React.useState<ServicesCardData[]>([]);
 	const [heroImgUrl, setHeroImgUrl] = React.useState<string | null>(null);
@@ -82,9 +81,9 @@ const Residential: React.FC = () => {
 	return (
 		<Layout loading={contentLoading}>
 			<div className='w-full h-full flex flex-col justify-center items-center'>
-				<div className='bg-opacity-85 w-full h-[50%] rounded-2xl text-white'>
+				<div className='opacity-85 w-full h-[50%] rounded-2xl text-white'>
 					<img src={heroImgUrl ?? ''} alt={heroImgJson.alt} className=' z-[500] w-full object-cover ' />
-					<div className='bg-primary bg-opacity-50 p-4  z-[800] absolute w-full  top-[10%] md:top-[20%]  xl:top-[40%]   '>
+					<div className='bg-primary opacity-85 p-4  z-[800] absolute w-full  top-[10%] md:top-[20%]  xl:top-[40%]   '>
 						<h1 className='text-left sm:text-left md:text-6xl xl:text-8xl font-black m-2'>Residential Services</h1>
 						<p className='hidden sm:block text-2xl md:text-3xl mx-2 my-4 w-[65%]'>We handle appliance services and home repairs of all sizes.</p>
 					</div>

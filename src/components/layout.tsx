@@ -4,8 +4,6 @@ import Nav from './Nav';
 import Footer from './Footer';
 import LoaderAnimation from './LoaderAnimation';
 
-import '../styles/global.css';
-
 type LayoutProps = {
 	loading: boolean;
 };

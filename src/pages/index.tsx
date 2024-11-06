@@ -9,7 +9,7 @@ import Services, { ServicesProps } from '../components/Services';
 import Hero from '../components/Hero';
 import SEO from '../components/SEO';
 
-import { handleSetLoaderTimeout, matchS3UrlsAndImgKeys } from '../lib/helpers';
+import { matchS3UrlsAndImgKeys } from '../lib/helpers';
 
 import { GET_PRESIGNED_S3_URLS } from '../lib/graphql/queries';
 
@@ -66,11 +66,7 @@ const Home: React.FC = () => {
 		handleGetPresignedUrls();
 	}, []);
 
-	// React.useEffect(() => {
-	// 	if (!data && !loading && !error && !contentLoaded && contentLoading) {
-	// 		handleSetLoaderTimeout(setContentLoading);
-	// 	}
-	// }, [data, loading, error, contentLoaded, contentLoading]);
+	
 
 	return (
 		<Layout loading={contentLoading}>
