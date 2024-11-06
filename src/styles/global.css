@@ -2,13 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
 :root {
 	font-family: 'Zen Kaku Gothic New', sans-serif, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 	scrollbar-width: none;
-	color: black;
-	background-color: white;
+	color: black; /* black */
+	background-color: white; /* white */
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -19,7 +28,32 @@
 	--button-border-size: 1.5px;
 
 	--card-border-radius: 20px;
-	--tw-gradient-stops: #302e33, #2e2b30, rgba(0, 0, 0, 0.811), rgba(0, 0, 0, 0.811);
+	--tw-gradient-stops: #302e33, #2e2b30, rgba(0, 0, 0, 0.811), rgba(0, 0, 0, 0.811); /* dark gradient */
+	--primary: 190, 17%, 39%; /* blue-gray */
+	--primary-foreground: 190, 17%, 39%; /* blue-gray */
+	--background: 0 0% 100%; /* white */
+	--foreground: 190, 17%, 39%; /* blue-gray */
+	--card: 0 0% 100%; /* white */
+	--card-foreground: 190, 17%, 39%; /* blue-gray */
+	--popover: 0 0% 100%; /* white */
+	--popover-foreground: 190, 17%, 39%; /* blue-gray */
+	--secondary: 210 40% 96.1%; /* very light blue */
+	--secondary-foreground: 190, 17%, 39%; /* blue-gray */
+	--muted: 210 40% 96.1%; /* very light blue */
+	--muted-foreground: 215.4 16.3% 46.9%; /* gray */
+	--accent: 210 40% 96.1%; /* very light blue */
+	--accent-foreground: 190, 17%, 39%; /* blue-gray */
+	--destructive: 0 84.2% 60.2%; /* red */
+	--destructive-foreground: 210 40% 98%; /* light blue */
+	--border: 214.3 31.8% 91.4%; /* very light gray */
+	--input: 214.3 31.8% 91.4%; /* very light gray */
+	--ring: 190, 17%, 39%; /* blue-gray */
+	--chart-1: 12 76% 61%; /* orange */
+	--chart-2: 173 58% 39%; /* teal */
+	--chart-3: 197 37% 24%; /* dark teal */
+	--chart-4: 43 74% 66%; /* yellow */
+	--chart-5: 27 87% 67%; /* light orange */
+	--radius: 0.5rem;
 }
 
 #root {
@@ -27,13 +61,11 @@
 	max-width: 1280px !important;
 	margin: 0 auto;
 	text-align: center;
-
 }
 
 #___gatsby {
 	width: 100vw;
 	min-height: 100vh;
-
 }
 
 h1 {
@@ -95,9 +127,7 @@ a {
 	color: inherit;
 }
 
-.contact-info > * {
-	margin: 1rem;
-}
+
 
 .arrow-icon-btn {
 	margin-top: 2rem;
@@ -110,34 +140,12 @@ a {
 	bottom: 2rem;
 
 	svg {
-		fill: white;
+		fill: white; /* white */
 		width: 3rem;
 		height: 3rem;
 	}
 }
 
-.not-home-nav {
-	background-image: url('../images/tankless-hotwater-landscape.jpeg');
-	background-position-y: top;
-	background-size: cover;
-	position: relative !important;
-}
-
-.home-nav {
-	background-color: #537076ce;
-}
-
-nav {
-	.active-nav-link {
-		/* border-bottom: 2px solid white !important; */
-		/* transform: translateY(-10px) !important; */
-	}
-
-	.active-nav-item {
-		/* border-bottom: 2px solid white !important; */
-		/* transform: translateY(-10px) !important; */
-	}
-}
 
 .sk-ww-thumbtack-reviews {
 	display: grid;
@@ -165,66 +173,32 @@ nav {
 @media not all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
 	/* Add any specific Opera styles here */
 }
-@layer base {
-  :root {
-		--background: 0 0% 100%;
-		--foreground: 222.2 84% 4.9%;
-		--card: 0 0% 100%;
-		--card-foreground: 222.2 84% 4.9%;
-		--popover: 0 0% 100%;
-		--popover-foreground: 222.2 84% 4.9%;
-		--primary: 222.2 47.4% 11.2%;
-		--primary-foreground: 210 40% 98%;
-		--secondary: 210 40% 96.1%;
-		--secondary-foreground: 222.2 47.4% 11.2%;
-		--muted: 210 40% 96.1%;
-		--muted-foreground: 215.4 16.3% 46.9%;
-		--accent: 210 40% 96.1%;
-		--accent-foreground: 222.2 47.4% 11.2%;
-		--destructive: 0 84.2% 60.2%;
-		--destructive-foreground: 210 40% 98%;
-		--border: 214.3 31.8% 91.4%;
-		--input: 214.3 31.8% 91.4%;
-		--ring: 222.2 84% 4.9%;
-		--chart-1: 12 76% 61%;
-		--chart-2: 173 58% 39%;
-		--chart-3: 197 37% 24%;
-		--chart-4: 43 74% 66%;
-		--chart-5: 27 87% 67%;
-		--radius: 0.5rem;
-	}
-  .dark {
-		--background: 222.2 84% 4.9%;
-		--foreground: 210 40% 98%;
-		--card: 222.2 84% 4.9%;
-		--card-foreground: 210 40% 98%;
-		--popover: 222.2 84% 4.9%;
-		--popover-foreground: 210 40% 98%;
-		--primary: 210 40% 98%;
-		--primary-foreground: 222.2 47.4% 11.2%;
-		--secondary: 217.2 32.6% 17.5%;
-		--secondary-foreground: 210 40% 98%;
-		--muted: 217.2 32.6% 17.5%;
-		--muted-foreground: 215 20.2% 65.1%;
-		--accent: 217.2 32.6% 17.5%;
-		--accent-foreground: 210 40% 98%;
-		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 210 40% 98%;
-		--border: 217.2 32.6% 17.5%;
-		--input: 217.2 32.6% 17.5%;
-		--ring: 212.7 26.8% 83.9%;
-		--chart-1: 220 70% 50%;
-		--chart-2: 160 60% 45%;
-		--chart-3: 30 80% 55%;
-		--chart-4: 280 65% 60%;
-		--chart-5: 340 75% 55%;
-	}
-}
-@layer base {
-  * {
-    @apply border-border;
-	}
-  body {
-    @apply bg-background text-foreground;
-	}
+
+
+
+.dark {
+	--background: 222.2 84% 4.9%; /* dark blue */
+	--foreground: 210 40% 98%; /* light blue */
+	--card: 222.2 84% 4.9%; /* dark blue */
+	--card-foreground: 210 40% 98%; /* light blue */
+	--popover: 222.2 84% 4.9%; /* dark blue */
+	--popover-foreground: 210 40% 98%; /* light blue */
+	--primary: 210 40% 98%; /* light blue */
+	--primary-foreground: 222.2 47.4% 11.2%; /* dark blue */
+	--secondary: 217.2 32.6% 17.5%; /* dark gray */
+	--secondary-foreground: 210 40% 98%; /* light blue */
+	--muted: 217.2 32.6% 17.5%; /* dark gray */
+	--muted-foreground: 215 20.2% 65.1%; /* gray */
+	--accent: 217.2 32.6% 17.5%; /* dark gray */
+	--accent-foreground: 210 40% 98%; /* light blue */
+	--destructive: 0 62.8% 30.6%; /* dark red */
+	--destructive-foreground: 210 40% 98%; /* light blue */
+	--border: 217.2 32.6% 17.5%; /* dark gray */
+	--input: 217.2 32.6% 17.5%; /* dark gray */
+	--ring: 212.7 26.8% 83.9%; /* light blue */
+	--chart-1: 220 70% 50%; /* blue */
+	--chart-2: 160 60% 45%; /* green */
+	--chart-3: 30 80% 55%; /* orange */
+	--chart-4: 280 65% 60%; /* purple */
+	--chart-5: 340 75% 55%; /* pink */
 }

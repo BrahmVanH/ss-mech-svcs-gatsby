@@ -2,7 +2,6 @@
 module.exports = {
 	darkMode: ['class'],
 	content: [`./src/pages/**/*.{js,jsx,ts,tsx}`, `./src/components/**/*.{js,jsx,ts,tsx}`],
-	darkMode: ['class'],
 	theme: {
 		container: {
 			center: true,
@@ -17,7 +16,7 @@ module.exports = {
 			},
 			colors: {
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
+					DEFAULT: 'hsl(var(--primary))', // Ensure this is correctly defined
 					foreground: 'hsl(var(--primary-foreground))',
 				},
 				primaryLight: '#537076ce',

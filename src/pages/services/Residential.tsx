@@ -18,6 +18,7 @@ import { ImgObj } from '../../lib/__generated__/graphql';
 import residentialPageData from '../../lib/data/ResidentialPage.json';
 // import { handleSetLoaderTimeout } from '../../lib/helpers';
 
+
 const Residential: React.FC = () => {
 	const [serviceCardData, setServiceCardData] = React.useState<ServicesCardData[]>([]);
 	const [heroImgUrl, setHeroImgUrl] = React.useState<string | null>(null);
